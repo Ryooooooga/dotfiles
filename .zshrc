@@ -9,10 +9,11 @@ zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 #zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
 zplug "mollifier/anyframe"
-zplug "b4b4r07/enhancd", use:init.sh
+#zplug "b4b4r07/enhancd", use:init.sh
 
 # themes
 zplug "agnoster/agnoster-zsh-theme", as:theme, use:agnoster.zsh-theme, from:github
+#zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 
 # aliases
 alias ..='cd ..'
