@@ -2,6 +2,13 @@ source ~/.zplug/init.zsh
 
 # pathes
 
+# history
+export HISTFILE=$HOME/.zsh_history
+export HISTSIZE=1000
+export SAVEHIST=1000
+
+setopt hist_ignore_dups
+
 # plugins
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-history-substring-search", defer:3
