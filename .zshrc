@@ -13,7 +13,6 @@ zplug "mollifier/anyframe"
 
 # themes
 zplug "agnoster/agnoster-zsh-theme", as:theme, use:agnoster.zsh-theme, from:github
-#zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 
 # aliases
 alias ..='cd ..'
@@ -38,6 +37,26 @@ esac
 
 # functions
 mkcd () { mkdir -p $1 && cd $_ }
+
+select_history () {
+	local filter
+	
+	if (( ${+commands[peco]} )); then
+		filter=peco
+	elif (( ${+commands[fzy]} )); then
+		filter=fzy
+	else
+		echo 'no filter commands peco/fzy'
+		exit 1
+	fi
+	BUFFER="$(history -nr 1 | awk '!a[$0]++' | $filter --query "$LBUFFER" | sed 's/\\n/\n/')"
+	CURSOR=$#BUFFER # move cursor to eol
+	zle -R -c # refresh screen	
+}
+
+# key bindings
+zle -N select_history
+bindkey '^R' select_history
 
 # styles
 zstyle ':completion:*:default' menu select=1 
