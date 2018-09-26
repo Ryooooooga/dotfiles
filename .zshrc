@@ -67,9 +67,12 @@ select_history () {
 # key bindings
 zle -N select_history
 
-bindkey '^R' select_history
-bindkey '^[[1;5C' forward-word
-bindkey '^[[1;5D' backward-word
+bindkey '^R' select_history # C-R
+bindkey '^[[3~' delete-char # DELETE
+bindkey '^[[1;5A' beginning-of-line # C-up
+bindkey '^[[1;5B' end-of-line # C-down
+bindkey '^[[1;5C' forward-word # C-left
+bindkey '^[[1;5D' backward-word # C-right
 
 # styles
 zstyle ':completion:*:default' menu select=1
