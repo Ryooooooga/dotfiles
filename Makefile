@@ -7,6 +7,7 @@ all: help
 install: update
 
 update: \
+	~/.gitconfig \
 	~/.zshrc
 
 ~/.%: ${DIR}/.%

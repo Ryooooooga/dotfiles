@@ -1,0 +1,22 @@
+[core]
+	autocrlf = false
+	editor = vim
+[commit]
+	verbose = true
+[merge]
+	ff = false
+[pull]
+	ff = only
+[alias]
+	a = add -v
+	aa = add -vA
+	ai = add -i
+	aliases = config --get-regexp alias.*
+	b = branch
+	c = commit
+	cm = commit -m
+	graph = log --graph --date=short --decorate=full
+	co = checkout
+	ps = push
+	s = status
+
