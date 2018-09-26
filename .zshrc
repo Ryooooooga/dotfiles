@@ -17,6 +17,7 @@ zplug "zsh-users/zsh-completions"
 #zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
 zplug "mollifier/anyframe"
 #zplug "b4b4r07/enhancd", use:init.sh
+zplug "plugins/shrink-path", from:oh-my-zsh
 
 # themes
 zplug "Ryooooooga/agnoster-zsh-theme", as:theme, use:agnoster.zsh-theme, from:github
