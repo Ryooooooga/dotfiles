@@ -56,26 +56,32 @@ add-zsh-hook chpwd chpwd_recent_dirs
 
 mkcd () { mkdir -p $1 && cd $_ }
 
+if (( ${+commands[peco]} )); then
+	fuzzy_finder=peco
+elif (( ${+commands[fzy]} )); then
+	fuzzy_finder=fzy
+fi
+
 select_history () {
-	local filter
-	
-	if (( ${+commands[peco]} )); then
-		filter=peco
-	elif (( ${+commands[fzy]} )); then
-		filter=fzy
-	else
-		echo 'no filter commands peco/fzy'
-		exit 1
-	fi
-	BUFFER="$(history -nr 1 | awk '!a[$0]++' | $filter --query "$LBUFFER" | sed 's/\\n/\n/')"
-	CURSOR=$#BUFFER # move cursor to eol
+	BUFFER="$(history -nr 1 | awk '!a[$0]++' | $fuzzy_finder --query "$LBUFFER" | sed 's/\\n/\n/')"
+	CURSOR=$#BUFFER
 	zle -R -c # refresh screen	
 }
-
-# key bindings
 zle -N select_history
 
+select_cdr () {
+	local selected_dir="$(cdr -l | awk '{print $2}' | $fuzzy_finder)"
+	if [ -n "$selected_dir" ]; then
+		BUFFER="cd $selected_dir"
+		CURSOR=$#BUFFER
+		zle -R -c # refresh screen	
+	fi
+}
+zle -N select_cdr
+
+# key bindings
 bindkey '^R' select_history # C-R
+bindkey '^F' select_cdr # C-F
 bindkey '^[[3~' delete-char # DELETE
 bindkey '^[[1;5A' beginning-of-line # C-up
 bindkey '^[[1;5B' end-of-line # C-down
