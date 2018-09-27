@@ -31,6 +31,8 @@ agnoster_theme_color_status_bg=15
 
 # aliases
 alias ..='cd ..'
+alias cmaked='cmake -DCMAKE_BUILD_TYPE=Debug'
+alias cmakerel='cmake -DCMAKE_BUILD_TYPE=Release'
 alias make='make -j5'
 alias rm='trash'
 alias vi='vim'
@@ -45,6 +47,7 @@ case $OSTYPE in
 		alias pbpaste='xsel -b'
 	;;
 	msys)
+		alias cmake='command cmake -G"Unix Makefiles"'
 		alias pbcopy='cat > /dev/clipboard'
 		alias pbpaste='cat /dev/clipboard'
 	;;
