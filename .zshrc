@@ -84,8 +84,8 @@ select_cdr () {
 	if [ -n "$selected_dir" ]; then
 		BUFFER="cd $selected_dir"
 		CURSOR=$#BUFFER
-		zle -R -c # refresh screen	
 	fi
+	zle -R -c # refresh screen	
 }
 zle -N select_cdr
 
