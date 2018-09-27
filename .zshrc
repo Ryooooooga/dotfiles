@@ -44,6 +44,9 @@ alias la='ls -a'
 alias lla='ls -la'
 
 alias dock-clean='docker rm $(docker ps -aqf status=exited)'
+alias dock-ri='docker run -it'
+alias dock-rrm='docker run --rm'
+alias dock-rrmi='docker run --rm -it'
 
 case $OSTYPE in
 	linux*)
