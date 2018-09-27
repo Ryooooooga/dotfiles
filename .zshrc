@@ -51,6 +51,9 @@ case $OSTYPE in
 esac
 
 # functions
+autoload -Uz chpwd_recent_dirs cdr
+add-zsh-hook chpwd chpwd_recent_dirs
+
 mkcd () { mkdir -p $1 && cd $_ }
 
 select_history () {
