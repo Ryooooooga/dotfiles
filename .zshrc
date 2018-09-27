@@ -1,6 +1,10 @@
 source ~/.zplug/init.zsh
 
 # pathes
+path=(
+	$HOME/go/bin(N-/)
+	$path
+)
 
 # history
 export HISTFILE=$HOME/.zsh_history
