@@ -34,8 +34,8 @@ agnoster_theme_color_status_bg=15
 
 # aliases
 alias ..='cd ..'
-alias rm='trash'
 alias vi='vim'
+(( ${+commands[trash]} )) && alias rm='trash'
 
 alias cmaked='cmake -DCMAKE_BUILD_TYPE=Debug'
 alias cmakerel='cmake -DCMAKE_BUILD_TYPE=Release'
