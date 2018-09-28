@@ -57,6 +57,7 @@ case $OSTYPE in
 	;;
 	msys)
 		alias cmake='command cmake -G"Unix Makefiles"'
+		alias docker='winpty docker'
 		alias pbcopy='cat > /dev/clipboard'
 		alias pbpaste='cat /dev/clipboard'
 	;;
