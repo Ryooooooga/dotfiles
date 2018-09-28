@@ -2,6 +2,7 @@ source ~/.zplug/init.zsh
 
 # pathes
 path=(
+	$HOME/.cargo/bin(N-/)
 	$HOME/go/bin(N-/)
 	$path
 )
@@ -18,9 +19,7 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-history-substring-search", defer:3
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
-#zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
 zplug "mollifier/anyframe"
-#zplug "b4b4r07/enhancd", use:init.sh
 zplug "plugins/shrink-path", from:oh-my-zsh
 
 # themes
