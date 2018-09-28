@@ -19,7 +19,6 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-history-substring-search", defer:3
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
-zplug "mollifier/anyframe"
 zplug "plugins/shrink-path", from:oh-my-zsh
 
 # themes
