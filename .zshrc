@@ -1,3 +1,7 @@
+if [ ! -e ~/.zplug/init.zsh ]; then
+	curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+fi
+
 source ~/.zplug/init.zsh
 
 # pathes
@@ -106,4 +110,5 @@ bindkey '^[[1;5D' backward-word # C-right
 zstyle ':completion:*:default' menu select=1
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
+zplug check || zplug install
 zplug load
