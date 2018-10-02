@@ -8,7 +8,8 @@ install: update
 
 update: \
 	~/.gitconfig \
-	~/.zshrc
+	~/.zshrc \
+	~/.zsh
 
 ~/.%: ${DIR}/.%
 	ln -sf $< $@
