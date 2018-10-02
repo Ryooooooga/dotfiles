@@ -18,5 +18,5 @@
 	graph = log --graph --date=short --decorate=full
 	co = checkout
 	ps = push
+	pl = pull
 	s = status
-
