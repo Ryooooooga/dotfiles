@@ -1,9 +1,3 @@
-if [ ! -e ~/.zplug/init.zsh ]; then
-	curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
-fi
-
-source ~/.zplug/init.zsh
-
 # pathes
 path=(
 	$HOME/.cargo/bin(N-/)
@@ -19,14 +13,19 @@ export SAVEHIST=1000
 setopt hist_ignore_dups
 
 # plugins
-zplug "zsh-users/zsh-syntax-highlighting", defer:2, lazy:true
-zplug "zsh-users/zsh-history-substring-search", defer:3, lazy:true
-zplug "zsh-users/zsh-autosuggestions", lazy:true
-zplug "zsh-users/zsh-completions", lazy:true
-zplug "plugins/shrink-path", from:oh-my-zsh
+source '/home/ryoga/.zplugin/bin/zplugin.zsh'
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
+
+zplugin light zsh-users/zsh-syntax-highlighting
+zplugin light zsh-users/zsh-history-substring-search
+zplugin light zsh-users/zsh-autosuggestions
+zplugin light zsh-users/zsh-completions
+
+zplugin snippet OMZ::plugins/shrink-path/shrink-path.plugin.zsh
 
 # themes
-zplug "Ryooooooga/agnoster-zsh-theme", as:theme, use:agnoster.zsh-theme, from:github
+zplugin snippet "https://github.com/Ryooooooga/agnoster-zsh-theme/blob/master/agnoster.zsh-theme"
 
 LS_COLORS="di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32"
 
@@ -109,6 +108,3 @@ bindkey '^[[1;5D' backward-word # C-right
 # styles
 zstyle ':completion:*:default' menu select=1
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-
-zplug check || zplug install
-zplug load
