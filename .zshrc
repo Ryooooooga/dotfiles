@@ -29,8 +29,6 @@ zplugin ice wait"0"; zplugin light zsh-users/zsh-history-substring-search
 zplugin ice wait"0"; zplugin light zsh-users/zsh-autosuggestions
 zplugin ice wait"0"; zplugin light zsh-users/zsh-completions
 
-zplugin ice wait"0"; zplugin snippet OMZ::plugins/shrink-path/shrink-path.plugin.zsh
-
 zplugin snippet "$HOME/.zsh/theme.zsh"
 zplugin ice wait"0"; zplugin snippet "$HOME/.zsh/ls-colors.zsh"
 zplugin ice wait"0"; zplugin snippet "$HOME/.zsh/aliases.zsh"

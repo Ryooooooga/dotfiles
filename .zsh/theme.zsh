@@ -3,4 +3,5 @@ agnoster_theme_display_status_success=1
 agnoster_theme_newline_cursor=1
 agnoster_theme_color_status_bg=15
 
+zplugin snippet OMZ::plugins/shrink-path/shrink-path.plugin.zsh
 zplugin snippet "https://github.com/Ryooooooga/agnoster-zsh-theme/blob/master/agnoster.zsh-theme"
