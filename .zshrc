@@ -19,10 +19,10 @@ export SAVEHIST=1000
 setopt hist_ignore_dups
 
 # plugins
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "zsh-users/zsh-history-substring-search", defer:3
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2, lazy:true
+zplug "zsh-users/zsh-history-substring-search", defer:3, lazy:true
+zplug "zsh-users/zsh-autosuggestions", lazy:true
+zplug "zsh-users/zsh-completions", lazy:true
 zplug "plugins/shrink-path", from:oh-my-zsh
 
 # themes
