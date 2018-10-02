@@ -24,18 +24,18 @@ autoload -Uz _zplugin
 add-zsh-hook chpwd chpwd_recent_dirs
 
 # plugins
-zplugin light zsh-users/zsh-syntax-highlighting
-zplugin light zsh-users/zsh-history-substring-search
-zplugin light zsh-users/zsh-autosuggestions
-zplugin light zsh-users/zsh-completions
+zplugin ice wait"0"; zplugin light zsh-users/zsh-syntax-highlighting
+zplugin ice wait"0"; zplugin light zsh-users/zsh-history-substring-search
+zplugin ice wait"0"; zplugin light zsh-users/zsh-autosuggestions
+zplugin ice wait"0"; zplugin light zsh-users/zsh-completions
 
-zplugin snippet OMZ::plugins/shrink-path/shrink-path.plugin.zsh
+zplugin ice wait"0"; zplugin snippet OMZ::plugins/shrink-path/shrink-path.plugin.zsh
 
 zplugin snippet "$HOME/.zsh/theme.zsh"
-zplugin snippet "$HOME/.zsh/ls-colors.zsh"
-zplugin snippet "$HOME/.zsh/aliases.zsh"
-zplugin snippet "$HOME/.zsh/functions.zsh"
-zplugin snippet "$HOME/.zsh/key-bindings.zsh"
+zplugin ice wait"0"; zplugin snippet "$HOME/.zsh/ls-colors.zsh"
+zplugin ice wait"0"; zplugin snippet "$HOME/.zsh/aliases.zsh"
+zplugin ice wait"0"; zplugin snippet "$HOME/.zsh/functions.zsh"
+zplugin ice wait"0"; zplugin snippet "$HOME/.zsh/key-bindings.zsh"
 
 # styles
 zstyle ':completion:*:default' menu select=1
