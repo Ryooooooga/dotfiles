@@ -5,6 +5,7 @@ DIR := $(realpath .)
 all: help
 
 install: update
+	sh scripts/setup.sh
 
 update: \
 	~/.gitconfig \
