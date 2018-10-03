@@ -17,6 +17,7 @@ export SAVEHIST=1000
 setopt hist_ignore_dups
 
 # autoloads
+autoload -Uz compinit && compinit
 autoload -Uz cdr
 autoload -Uz chpwd_recent_dirs
 autoload -Uz _zplugin
