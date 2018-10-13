@@ -9,6 +9,7 @@ install: update
 
 update: \
 	~/.gitconfig \
+	~/.gitignore_global \
 	~/.zshrc \
 	~/.zsh
 
