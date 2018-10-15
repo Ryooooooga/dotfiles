@@ -1,5 +1,5 @@
 if (( ! ${+commands[direnv]} )); then
-	exit
+	return
 fi
 
 export EDITOR=vim
