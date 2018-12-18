@@ -1,20 +1,21 @@
 .PHONY: all install update help
 
-DIR := $(realpath .)
+DIR = $(realpath .)
 
 all: help
 
 install: update
 	sh scripts/setup.sh
 
-update: \
-	~/.gitconfig \
-	~/.gitignore_global \
-	~/.zshrc \
-	~/.zsh
+update:
+	ln -sf ${DIR}/.gitconfig ~/.gitconfig
+	ln -sf ${DIR}/.gitignore_global ~/.gitignore_global
+	ln -sf ${DIR}/.zshrc ~/.zshrc
+	ln -sf ${DIR}/.zsh ~/.zsh
 
-~/.%: ${DIR}/.%
-	ln -sf $< $@
+	if [ "$$(uname)" = "Darwin" ]; then \
+		ln -sf .hammerspoon ~/.hammerspoon; \
+	fi
 
 help:
 	@echo "Ryooooooga/dotfiles: make [target]"

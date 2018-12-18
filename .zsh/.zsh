@@ -1,0 +1,1 @@
+/Users/tamate/.dotfiles/.zsh
