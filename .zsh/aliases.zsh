@@ -30,6 +30,7 @@ case $OSTYPE in
 		alias pbpaste='cat /dev/clipboard'
 	;;
 	darwin*)
+		alias date='gdate'
 		alias ls='ls -G'
 	;;
 esac
