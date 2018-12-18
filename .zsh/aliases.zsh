@@ -29,4 +29,7 @@ case $OSTYPE in
 		alias pbcopy='cat > /dev/clipboard'
 		alias pbpaste='cat /dev/clipboard'
 	;;
+	darwin*)
+		alias ls='ls -G'
+	;;
 esac
