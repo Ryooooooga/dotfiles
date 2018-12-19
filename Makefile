@@ -12,6 +12,7 @@ update:
 	ln -sf ${DIR}/.gitignore_global ~/.gitignore_global
 	ln -sf ${DIR}/.zshrc ~/.zshrc
 	ln -sf ${DIR}/.zsh ~/.zsh
+	ln -sf ${DIR}/.vimrc ~/.vimrc
 
 	if [ "$$(uname)" = "Darwin" ]; then \
 		ln -sf .hammerspoon ~/.hammerspoon; \
