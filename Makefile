@@ -15,7 +15,7 @@ update:
 	ln -sf ${DIR}/.vimrc ~/.vimrc
 
 	if [ "$$(uname)" = "Darwin" ]; then \
-		ln -sf .hammerspoon ~/.hammerspoon; \
+		ln -sf ${DIR}/.hammerspoon ~/.hammerspoon; \
 	fi
 
 help:
