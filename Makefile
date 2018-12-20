@@ -15,7 +15,8 @@ update:
 	ln -sf ${DIR}/.vimrc ~/.vimrc
 
 	if [ "$$(uname)" = "Darwin" ]; then \
-		ln -sf ${DIR}/.hammerspoon ~/.hammerspoon; \
+		ln -sf ${DIR}/mac/.hammerspoon ~/.hammerspoon; \
+		ln -sf ${DIR}/mac/.config/karabiner ~/.config/karabiner; \
 	fi
 
 help:
