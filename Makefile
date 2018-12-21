@@ -8,15 +8,17 @@ install: update
 	sh scripts/setup.sh
 
 update:
-	ln -sf ${DIR}/.gitconfig ~/.gitconfig
-	ln -sf ${DIR}/.gitignore_global ~/.gitignore_global
-	ln -sf ${DIR}/.zshrc ~/.zshrc
-	ln -sf ${DIR}/.zsh ~/.zsh
-	ln -sf ${DIR}/.vimrc ~/.vimrc
+	ln -sf \
+		${DIR}/.gitconfig \
+		${DIR}/.gitignore_global \
+		${DIR}/.zshrc \
+		${DIR}/.zsh \
+		${DIR}/.vimrc \
+		~/
 
 	if [ "$$(uname)" = "Darwin" ]; then \
-		ln -sf ${DIR}/mac/.hammerspoon ~/.hammerspoon; \
-		ln -sf ${DIR}/mac/.config/karabiner ~/.config/karabiner; \
+		ln -sf ${DIR}/mac/.hammerspoon ~/; \
+		ln -sf ${DIR}/mac/.config/karabiner ~/.config/; \
 	fi
 
 help:
