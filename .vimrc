@@ -10,5 +10,6 @@ set cursorline
 set showmatch
 set laststatus=2
 
+inoremap jj <ESC>
 nnoremap j gj
 nnoremap k gk
