@@ -2,6 +2,7 @@ alias ..='cd ..'
 alias vi='vim'
 (( ${+commands[trash]} )) && alias rm='trash'
 (( ${+commands[colordiff]} )) && alias diff='colordiff'
+(( ${+commands[hub]} )) && alias git='hub'
 
 alias cmaked='cmake -DCMAKE_BUILD_TYPE=Debug'
 alias cmakerel='cmake -DCMAKE_BUILD_TYPE=Release'
