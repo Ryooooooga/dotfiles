@@ -30,6 +30,7 @@ zplugin ice silent wait"0"; zplugin snippet "$HOME/.zsh/ls-colors.zsh"
 zplugin ice silent wait"0"; zplugin snippet "$HOME/.zsh/aliases.zsh"
 zplugin ice silent wait"0"; zplugin snippet "$HOME/.zsh/functions.zsh"
 zplugin ice silent wait"0"; zplugin snippet "$HOME/.zsh/key-bindings.zsh"
+zplugin ice silent wait"0"; zplugin snippet "$HOME/.zsh/anyenv.zsh"
 zplugin ice silent wait"0"; zplugin snippet "$HOME/.zsh/direnv.zsh"
 
 # styles
