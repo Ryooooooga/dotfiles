@@ -4,6 +4,7 @@ source "$HOME/.zplugin/bin/zplugin.zsh"
 
 # pathes
 path=(
+	$HOME/.anyenv/bin(N-/)
 	$HOME/.cargo/bin(N-/)
 	$HOME/go/bin(N-/)
 	$path
