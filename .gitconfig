@@ -16,8 +16,10 @@
 	b = branch
 	c = commit
 	cm = commit -m
-	graph = log --graph --date=short --decorate=full
 	co = checkout
+	f = fetch
+	fu = fetch upstream
+	graph = log --graph --date=short --decorate=full
 	ps = push
 	pl = pull
 	s = status
