@@ -21,7 +21,7 @@
 	fu = fetch upstream
 	graph = log --graph --date=short --decorate=full
 	ps = push
-	psu = !git push -u origin `git name-rev --name-only HEAD`
+	psu = !git push -u origin `git symbolic-ref --short HEAD`
 	pl = pull
 	s = status
 [user]
