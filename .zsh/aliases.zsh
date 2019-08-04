@@ -13,6 +13,8 @@ alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
 
+alias tmux='tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf'
+
 alias dock-clean='docker rm $(docker ps -aqf status=exited)'
 alias dock-cleani='docker rmi $(docker images -qf dangling=true)'
 alias dock-ri='docker run -it'
