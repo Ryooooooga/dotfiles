@@ -1,0 +1,8 @@
+brew "colordiff"
+brew "coreutils"
+brew "direnv"
+brew "hub"
+brew "peco"
+brew "tmux"
+brew "trash"
+brew "wget"
