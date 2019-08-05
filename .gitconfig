@@ -24,6 +24,7 @@
 	psu = !git push -u origin `git symbolic-ref --short HEAD`
 	pl = pull
 	s = status
+	df = diff
 [user]
 	name = Ryooooooga
 	email = ryoga_314@yahoo.co.jp
