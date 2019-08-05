@@ -8,6 +8,7 @@ set number
 set tabstop=4
 "set smartindent
 set cursorline
+set mouse=a
 set showmatch
 set laststatus=2
 set incsearch
