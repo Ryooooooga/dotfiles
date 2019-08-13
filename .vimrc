@@ -14,6 +14,10 @@ set laststatus=2
 set incsearch
 set whichwrap=b,s,h,l,<,>,[,],~
 
+" whitespaces
+set list
+set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%
+
 set statusline=%F%m[ln:%l,col:%v]
 
 " NeoBundle
