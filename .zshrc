@@ -10,6 +10,9 @@ path=(
 	$path
 )
 
+# locale
+export LC_CTYPE="en_US.UTF-8"
+
 # history
 export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=1000
