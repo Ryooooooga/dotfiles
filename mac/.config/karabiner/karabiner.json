@@ -69,6 +69,60 @@
                         ]
                     },
                     {
+                        "description": "Change Command+Forward-Delete and Option+Forward-Delete",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "forward_delete",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "command"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "forward_delete",
+                                        "modifiers": [
+                                            "option"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Change Option+Forward-Delete to Command+Forward-Delete",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "forward_delete",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "option"
+                                        ],
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "forward_delete",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Exchange command + arrow keys with option + arrow keys",
                         "manipulators": [
                             {
