@@ -10,6 +10,7 @@ brew "wget"
 
 cask "alacritty"
 cask "firefox"
+cask "docker"
 cask "gitkraken"
 cask "google-chrome"
 cask "hammerspoon"
