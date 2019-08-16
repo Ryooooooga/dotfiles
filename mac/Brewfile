@@ -7,6 +7,7 @@ brew "hub"
 brew "peco"
 brew "tmux"
 brew "trash"
+brew "tree"
 brew "wget"
 
 cask "alacritty"
