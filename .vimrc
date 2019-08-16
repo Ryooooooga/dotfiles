@@ -26,6 +26,7 @@ set runtimepath+=~/.vim/bundle/neobundle.vim/
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'editorconfig/editorconfig-vim'
 call neobundle#end()
 
 filetype plugin indent on
