@@ -4,6 +4,7 @@
 	excludesfile = ~/.gitignore_global
 [commit]
 	verbose = true
+	gpgSign = false
 [merge]
 	ff = false
 [pull]
@@ -25,6 +26,13 @@
 	pl = pull
 	s = status
 	df = diff
+	diffstgd = diff --staged
+	dfst = diff --staged
 [user]
 	name = Ryooooooga
 	email = ryoga_314@yahoo.co.jp
+	signingKey = ""
+[gpg]
+	program = gpg
+[tag]
+	forceSignAnnotated = false
