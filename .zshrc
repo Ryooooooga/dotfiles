@@ -33,7 +33,6 @@ zplugin ice silent wait"0"; zplugin light zsh-users/zsh-autosuggestions
 zplugin ice silent wait"0"; zplugin light zsh-users/zsh-completions
 
 zplugin snippet "$HOME/.zsh/theme.zsh"
-zplugin ice silent wait"0"; zplugin snippet "$HOME/.zsh/ls-colors.zsh"
 zplugin ice silent wait"0"; zplugin snippet "$HOME/.zsh/aliases.zsh"
 zplugin ice silent wait"0"; zplugin snippet "$HOME/.zsh/functions.zsh"
 zplugin ice silent wait"0"; zplugin snippet "$HOME/.zsh/key-bindings.zsh"
