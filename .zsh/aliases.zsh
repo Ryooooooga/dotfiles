@@ -40,6 +40,7 @@ if (( ${+commands[exa]} )) then
 	alias ll='exa -l --git'
 	alias la='exa -a'
 	alias lla='exa -al --git'
+	alias tree='exa -T'
 else
 	alias ls='ls --color=auto'
 	alias ll='ls -l'
