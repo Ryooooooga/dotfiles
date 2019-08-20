@@ -1,26 +1,3 @@
-alias ..='cd ..'
-alias vi='vim'
-(( ${+commands[trash]} )) && alias rm='trash'
-(( ${+commands[colordiff]} )) && alias diff='colordiff'
-#(( ${+commands[hub]} )) && alias git='hub'
-
-alias cmaked='cmake -DCMAKE_BUILD_TYPE=Debug'
-alias cmakerel='cmake -DCMAKE_BUILD_TYPE=Release'
-alias make='make -j5'
-
-alias ls='ls --color=auto'
-alias ll='ls -l'
-alias la='ls -a'
-alias lla='ls -la'
-
-alias tmux='tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf'
-
-alias dock-clean='docker rm $(docker ps -aqf status=exited)'
-alias dock-cleani='docker rmi $(docker images -qf dangling=true)'
-alias dock-ri='docker run -it'
-alias dock-rrm='docker run --rm'
-alias dock-rrmi='docker run --rm -it'
-
 case $OSTYPE in
 	linux*)
 		alias pbcopy='xsel -bi'
@@ -34,7 +11,38 @@ case $OSTYPE in
 		alias pbpaste='cat /dev/clipboard'
 	;;
 	darwin*)
-		alias date='gdate'
-		alias ls='ls -G'
+		(( ${+commands[gdate]} )) && alias date='gdate'
+		(( ${+commands[gls]} )) && alias ls='gls'
+		(( ${+commands[gcp]} )) && alias cp='gcp'
 	;;
 esac
+
+alias ..='cd ..'
+alias vi='vim'
+(( ${+commands[trash]} )) && alias rm='trash'
+(( ${+commands[colordiff]} )) && alias diff='colordiff'
+#(( ${+commands[hub]} )) && alias git='hub'
+
+alias cmaked='cmake -DCMAKE_BUILD_TYPE=Debug'
+alias cmakerel='cmake -DCMAKE_BUILD_TYPE=Release'
+alias make='make -j5'
+
+alias tmux='tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf'
+
+alias dock-clean='docker rm $(docker ps -aqf status=exited)'
+alias dock-cleani='docker rmi $(docker images -qf dangling=true)'
+alias dock-ri='docker run -it'
+alias dock-rrm='docker run --rm'
+alias dock-rrmi='docker run --rm -it'
+
+if (( ${+commands[exa]} )) then
+	alias ls='exa'
+	alias ll='exa -l --git'
+	alias la='exa -a'
+	alias lla='exa -al --git'
+else
+	alias ls='ls --color=auto'
+	alias ll='ls -l'
+	alias la='ls -a'
+	alias lla='ls -al'
+fi
