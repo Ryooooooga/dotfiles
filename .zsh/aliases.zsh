@@ -14,6 +14,7 @@ case $OSTYPE in
 		(( ${+commands[gdate]} )) && alias date='gdate'
 		(( ${+commands[gls]} )) && alias ls='gls'
 		(( ${+commands[gcp]} )) && alias cp='gcp'
+		(( ${+commands[gmv]} )) && alias mv='gmv'
 	;;
 esac
 
@@ -26,6 +27,7 @@ alias vi='vim'
 alias cmaked='cmake -DCMAKE_BUILD_TYPE=Debug'
 alias cmakerel='cmake -DCMAKE_BUILD_TYPE=Release'
 alias make='make -j5'
+alias gdb='gdb -q'
 
 alias tmux='tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf'
 
