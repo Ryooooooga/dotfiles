@@ -28,6 +28,7 @@
 	df = diff
 	diffstgd = diff --staged
 	dfst = diff --staged
+	user = "!git config user.name; git config user.email"
 [user]
 	name = Ryooooooga
 	email = ryoga_314@yahoo.co.jp
