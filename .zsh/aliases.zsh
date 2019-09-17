@@ -15,6 +15,7 @@ case $OSTYPE in
 		(( ${+commands[gls]} )) && alias ls='gls'
 		(( ${+commands[gcp]} )) && alias cp='gcp'
 		(( ${+commands[gmv]} )) && alias mv='gmv'
+		(( ${+commands[gdu]} )) && alias du='gdu'
 	;;
 esac
 
