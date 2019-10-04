@@ -17,7 +17,7 @@
 	b = branch
 	c = commit
 	cm = commit -m
-	co = checkout
+	co = !echo use 'switch' or 'restore' instead of co \\(checkout\\) && false
 	f = fetch
 	fu = fetch upstream
 	graph = log --graph --date=short --decorate=full
