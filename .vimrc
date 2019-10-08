@@ -1,6 +1,5 @@
 syntax on
 
-
 set nocompatible
 set fenc=utf-8
 set autoread
@@ -41,6 +40,11 @@ NeoBundleCheck
 set hidden
 let g:airline#extensions#tabline#enabled=1
 let g:airline_powerline_fonts=1
+let g:airline_theme='wombat'
+let g:airline_symbols = {
+			\ 'branch': "\uf418",
+			\ 'dirty': "\u00b1",
+			\ }
 
 " keymaps
 inoremap jj <ESC>
