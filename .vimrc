@@ -49,6 +49,4 @@ nnoremap k gk
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 nnoremap <silent><C-h> :bprev<CR>
 nnoremap <silent><C-l> :bnext<CR>
-
-nnoremap <C-w> :w<CR>
-inoremap <C-w> <C-o>:w<CR>
+nnoremap <silent><C-w> :bdelete<CR>
