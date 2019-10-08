@@ -1,5 +1,6 @@
 syntax on
 
+
 set nocompatible
 set fenc=utf-8
 set autoread
@@ -27,17 +28,27 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'editorconfig/editorconfig-vim'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
 call neobundle#end()
 
 filetype plugin indent on
 
 NeoBundleCheck
 
+" vim-airline
+set hidden
+let g:airline#extensions#tabline#enabled=1
+let g:airline_powerline_fonts=1
+
 " keymaps
 inoremap jj <ESC>
 nnoremap j gj
 nnoremap k gk
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
+nnoremap <silent><C-h> :bprev<CR>
+nnoremap <silent><C-l> :bnext<CR>
 
 nnoremap <C-w> :w<CR>
 inoremap <C-w> <C-o>:w<CR>
