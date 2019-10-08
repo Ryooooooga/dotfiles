@@ -18,7 +18,7 @@ set whichwrap=b,s,h,l,<,>,[,],~
 set list
 set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%
 
-set statusline=%F%m[ln:%l,col:%v]
+set statusline=%F%m\ %<[%{&fenc!=''?&fenc:&enc}]\ [%Y]\ [ln:%l,col:%v]
 
 " NeoBundle
 set runtimepath+=~/.vim/bundle/neobundle.vim/
