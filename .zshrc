@@ -18,7 +18,6 @@ setopt hist_ignore_dups
 
 # pathes
 path=(
-	$HOME/.cargo/bin(N-/)
 	$HOME/go/bin(N-/)
 	$path
 )
@@ -41,6 +40,7 @@ zplugin ice silent wait"0"; zplugin snippet "$HOME/.zsh/functions.zsh"
 zplugin ice silent wait"0"; zplugin snippet "$HOME/.zsh/key-bindings.zsh"
 zplugin ice silent wait"0"; zplugin snippet "$HOME/.zsh/anyenv.zsh"
 zplugin ice silent wait"0"; zplugin snippet "$HOME/.zsh/direnv.zsh"
+zplugin ice silent wait"0"; zplugin snippet "$HOME/.zsh/rust.zsh"
 
 # styles
 zstyle ':completion:*:default' menu select=1
