@@ -1,10 +1,23 @@
-# zplugin
+### zplugin ###
 source "$HOME/.zplugin/bin/zplugin.zsh"
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 
+### XDG ###
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+
+### zsh ###
+export ZSH_CONFIG_HOME="$XDG_CONFIG_HOME/zsh"
+export ZSH_DATA_HOME="$XDG_DATA_HOME/zsh"
+
+export HISTFILE=$ZSH_DATA_HOME/history
+export HISTSIZE=1000
+export SAVEHIST=1000
+
+setopt hist_ignore_dups
+
 # pathes
 path=(
-	$HOME/.anyenv/bin(N-/)
 	$HOME/.cargo/bin(N-/)
 	$HOME/go/bin(N-/)
 	$path
@@ -12,16 +25,6 @@ path=(
 
 # locale
 export LANG="en_US.UTF-8"
-
-# config
-export XDG_CONFIG_HOME="$HOME/.config"
-
-# history
-export HISTFILE=$HOME/.zsh_history
-export HISTSIZE=1000
-export SAVEHIST=1000
-
-setopt hist_ignore_dups
 
 # autoloads
 zplugin ice silent wait"0"; zplugin snippet "$HOME/.zsh/autoloads.zsh"
