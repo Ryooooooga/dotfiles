@@ -1,10 +1,12 @@
-### zplugin ###
-source "$HOME/.zplugin/bin/zplugin.zsh"
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
-
 ### XDG ###
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
+
+### zplugin ###
+typeset -gAH ZPLGM
+export ZPLGM[HOME_DIR]="$XDG_DATA_HOME/zplugin"
+source "$XDG_DATA_HOME/zplugin/bin/zplugin.zsh"
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
 
 ### zsh ###
 export ZSH_CONFIG_HOME="$XDG_CONFIG_HOME/zsh"
@@ -15,12 +17,6 @@ export HISTSIZE=1000
 export SAVEHIST=1000
 
 setopt hist_ignore_dups
-
-# pathes
-path=(
-	$HOME/go/bin(N-/)
-	$path
-)
 
 # locale
 export LANG="en_US.UTF-8"
