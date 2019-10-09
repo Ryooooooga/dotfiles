@@ -47,6 +47,6 @@ zstyle ':completion:*:default' menu select=1
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 # local
-if [ -f $HOME/.zshrc.local ]; then
-	source $HOME/.zshrc.local
+if [ -f $ZDOTDIR/.zshrc.local ]; then
+	source $ZDOTDIR/.zshrc.local
 fi

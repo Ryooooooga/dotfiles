@@ -8,11 +8,12 @@ install: update
 	./scripts/setup.bash
 
 update:
-	mkdir -p ~/.config
+	mkdir -p ~/.config/
 	ln -sf ${DIR}/.gitconfig        ~/
-	ln -sf ${DIR}/.zshrc            ~/
+	ln -sf ${DIR}/.zshenv           ~/
 	ln -sf ${DIR}/.zsh              ~/
 	ln -sf ${DIR}/.vimrc            ~/
+	ln -sf ${DIR}/.config/zsh       ~/.config/
 	ln -sf ${DIR}/.config/git       ~/.config/
 	ln -sf ${DIR}/.config/tmux      ~/.config/
 	ln -sf ${DIR}/.config/alacritty ~/.config/
