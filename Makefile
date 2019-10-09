@@ -5,7 +5,7 @@ DIR = $(realpath .)
 all: help
 
 install: update
-	sh scripts/setup.sh
+	./scripts/setup.bash
 
 update:
 	mkdir -p ~/.config

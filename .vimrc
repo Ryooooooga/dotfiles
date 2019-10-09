@@ -20,10 +20,13 @@ set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%
 
 set statusline=%F%m\ %<[%{&fenc!=''?&fenc:&enc}]\ [%Y]\ [ln:%l,col:%v]
 
-" NeoBundle
-set runtimepath+=~/.vim/bundle/neobundle.vim/
+" .viminfo
+set viminfo+=n~/.local/share/vim/viminfo
 
-call neobundle#begin(expand('~/.vim/bundle/'))
+" NeoBundle
+set runtimepath+=~/.local/share/vim/bundle/neobundle.vim/
+
+call neobundle#begin(expand('~/.local/share/vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'editorconfig/editorconfig-vim'

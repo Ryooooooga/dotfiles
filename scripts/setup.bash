@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # zplugin
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
 
 # NeoBundle
-curl "https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh" | sh
+git clone https://github.com/Shougo/neobundle.vim "$HOME/.local/share/vim/bundle/neobundle.vim"
