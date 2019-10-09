@@ -10,10 +10,10 @@ install: update
 update:
 	mkdir -p ~/.config
 	ln -sf ${DIR}/.gitconfig        ~/
-	ln -sf ${DIR}/.gitignore_global ~/
 	ln -sf ${DIR}/.zshrc            ~/
 	ln -sf ${DIR}/.zsh              ~/
 	ln -sf ${DIR}/.vimrc            ~/
+	ln -sf ${DIR}/.config/git       ~/.config/
 	ln -sf ${DIR}/.config/tmux      ~/.config/
 	ln -sf ${DIR}/.config/alacritty ~/.config/
 
