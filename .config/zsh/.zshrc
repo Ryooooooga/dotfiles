@@ -26,7 +26,7 @@ path=(
 export LANG="en_US.UTF-8"
 
 # autoloads
-zplugin ice silent wait"0"; zplugin snippet "$HOME/.zsh/autoloads.zsh"
+zplugin ice silent wait"0"; zplugin snippet "$ZDOTDIR/autoloads.zsh"
 
 # plugins
 zplugin ice silent wait"0"; zplugin light zsh-users/zsh-syntax-highlighting
@@ -34,13 +34,13 @@ zplugin ice silent wait"0"; zplugin light zsh-users/zsh-history-substring-search
 zplugin ice silent wait"0"; zplugin light zsh-users/zsh-autosuggestions
 zplugin ice silent wait"0"; zplugin light zsh-users/zsh-completions
 
-zplugin snippet "$HOME/.zsh/theme.zsh"
-zplugin ice silent wait"0"; zplugin snippet "$HOME/.zsh/aliases.zsh"
-zplugin ice silent wait"0"; zplugin snippet "$HOME/.zsh/functions.zsh"
-zplugin ice silent wait"0"; zplugin snippet "$HOME/.zsh/key-bindings.zsh"
-zplugin ice silent wait"0"; zplugin snippet "$HOME/.zsh/anyenv.zsh"
-zplugin ice silent wait"0"; zplugin snippet "$HOME/.zsh/direnv.zsh"
-zplugin ice silent wait"0"; zplugin snippet "$HOME/.zsh/rust.zsh"
+zplugin snippet "$ZDOTDIR/theme.zsh"
+zplugin ice silent wait"0"; zplugin snippet "$ZDOTDIR/aliases.zsh"
+zplugin ice silent wait"0"; zplugin snippet "$ZDOTDIR/functions.zsh"
+zplugin ice silent wait"0"; zplugin snippet "$ZDOTDIR/key-bindings.zsh"
+zplugin ice silent wait"0"; zplugin snippet "$ZDOTDIR/anyenv.zsh"
+zplugin ice silent wait"0"; zplugin snippet "$ZDOTDIR/direnv.zsh"
+zplugin ice silent wait"0"; zplugin snippet "$ZDOTDIR/rust.zsh"
 
 # styles
 zstyle ':completion:*:default' menu select=1
