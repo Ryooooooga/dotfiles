@@ -1,3 +1,4 @@
+*.zwc
 .chpwd-recent-dirs
 .zcompdump
 .zshrc.local
