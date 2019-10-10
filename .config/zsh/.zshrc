@@ -18,13 +18,19 @@ export SAVEHIST=1000
 
 setopt hist_ignore_dups
 
-# locale
+### editor ###
+export EDITOR="vim"
+
+### locale ###
 export LANG="en_US.UTF-8"
 
-# autoloads
+### GnuPG ###
+export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+
+### autoloads ###
 zplugin ice silent wait"0"; zplugin snippet "$ZDOTDIR/autoloads.zsh"
 
-# plugins
+### plugins ###
 zplugin ice silent wait"0"; zplugin light zsh-users/zsh-syntax-highlighting
 zplugin ice silent wait"0"; zplugin light zsh-users/zsh-history-substring-search
 zplugin ice silent wait"0"; zplugin light zsh-users/zsh-autosuggestions
@@ -37,13 +43,14 @@ zplugin ice silent wait"0"; zplugin snippet "$ZDOTDIR/key-bindings.zsh"
 zplugin ice silent wait"0"; zplugin snippet "$ZDOTDIR/go.zsh"
 zplugin ice silent wait"0"; zplugin snippet "$ZDOTDIR/rust.zsh"
 zplugin ice silent wait"0"; zplugin snippet "$ZDOTDIR/anyenv.zsh"
+zplugin ice silent wait"0"; zplugin snippet "$ZDOTDIR/asdf.zsh"
 zplugin ice silent wait"0"; zplugin snippet "$ZDOTDIR/direnv.zsh"
 
-# styles
+### styles ###
 zstyle ':completion:*:default' menu select=1
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
-# local
+### local ###
 if [ -f $ZDOTDIR/.zshrc.local ]; then
 	source $ZDOTDIR/.zshrc.local
 fi
