@@ -34,9 +34,10 @@ zplugin snippet "$ZDOTDIR/theme.zsh"
 zplugin ice silent wait"0"; zplugin snippet "$ZDOTDIR/aliases.zsh"
 zplugin ice silent wait"0"; zplugin snippet "$ZDOTDIR/functions.zsh"
 zplugin ice silent wait"0"; zplugin snippet "$ZDOTDIR/key-bindings.zsh"
+zplugin ice silent wait"0"; zplugin snippet "$ZDOTDIR/go.zsh"
+zplugin ice silent wait"0"; zplugin snippet "$ZDOTDIR/rust.zsh"
 zplugin ice silent wait"0"; zplugin snippet "$ZDOTDIR/anyenv.zsh"
 zplugin ice silent wait"0"; zplugin snippet "$ZDOTDIR/direnv.zsh"
-zplugin ice silent wait"0"; zplugin snippet "$ZDOTDIR/rust.zsh"
 
 # styles
 zstyle ':completion:*:default' menu select=1
