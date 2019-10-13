@@ -1,1 +1,1 @@
-cache=${NPM_DATA_DIR}/cache
+cache=${NPM_CACHE_DIR}/cache
