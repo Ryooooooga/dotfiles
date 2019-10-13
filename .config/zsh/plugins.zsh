@@ -49,19 +49,31 @@ alias vi='vim'
 (( ${+commands[colordiff]} )) && alias diff='colordiff'
 #(( ${+commands[hub]} )) && alias git='hub'
 
+### wget ###
+export WGET_DATA_DIR="$XDG_DATA_HOME/wget"
+alias wget='wget --hsts-file "$WGET_DATA_DIR/wget-hists"'
+
+### Make ###
+alias make='make -j5'
+
+### CMake ###
 alias cmaked='cmake -DCMAKE_BUILD_TYPE=Debug'
 alias cmakerel='cmake -DCMAKE_BUILD_TYPE=Release'
-alias make='make -j5'
+
+### GDB
 alias gdb='gdb -q'
 
+### Tmux ###
 alias tmux='tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf'
 
+### Docker ###
 alias dock-clean='docker rm $(docker ps -aqf status=exited)'
 alias dock-cleani='docker rmi $(docker images -qf dangling=true)'
 alias dock-ri='docker run -it'
 alias dock-rrm='docker run --rm'
 alias dock-rrmi='docker run --rm -it'
 
+### ls/exa ###
 if (( ${+commands[exa]} )) then
 	alias ls='exa'
 	alias ll='exa -l --git'
@@ -139,6 +151,11 @@ if [ -e "$ASDF_DATA_DIR" ]; then
 	source $ASDF_DATA_DIR/asdf.sh
 	source $ASDF_DATA_DIR/completions/asdf.bash
 fi
+
+### npm ###
+export NPM_CONFIG_DIR="$XDG_CONFIG_HOME/npm"
+export NPM_DATA_DIR="$XDG_DATA_HOME/npm"
+export NPM_CONFIG_USERCONFIG="$NPM_CONFIG_DIR/npmrc"
 
 ### local ###
 if [ -f $ZDOTDIR/.zshrc.local ]; then

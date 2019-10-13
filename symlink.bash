@@ -8,6 +8,7 @@ ln -sf $PWD/.vimrc            ~/
 ln -sf $PWD/.config/zsh       ~/.config/
 ln -sf $PWD/.config/git       ~/.config/
 ln -sf $PWD/.config/tmux      ~/.config/
+ln -sf $PWD/.config/npm       ~/.config/
 ln -sf $PWD/.config/alacritty ~/.config/
 
 if [ "$(uname)" = "Darwin" ]; then
