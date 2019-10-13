@@ -13,6 +13,7 @@ function clone() {
 }
 
 cd "$(dirname $0)"
+XDG_CONFIG_HOME="$HOME/.config"
 XDG_DATA_HOME="$HOME/.local/share"
 
 # symlink
@@ -26,3 +27,8 @@ clone https://github.com/Shougo/neobundle.vim "$XDG_DATA_HOME/vim/bundle/neobund
 
 # asdf-vm
 clone https://github.com/asdf-vm/asdf "$XDG_DATA_HOME/asdf"
+
+# mac
+if [ "$(uname)" = "Darwin" ]; then
+	defaults write org.hammerspoon.Hammerspoon MJConfigFile "$XDG_CONFIG_HOME/hammerspoon/init.lua"
+fi
