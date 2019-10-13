@@ -125,7 +125,7 @@ bindkey '^[[3~' delete-char # DELETE
 export GOPATH="$XDG_DATA_HOME/go"
 
 ### direnv ###
-if (( ! ${+commands[direnv]} )); then
+if (( ${+commands[direnv]} )); then
 	eval "$(direnv hook zsh)"
 fi
 
