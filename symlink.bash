@@ -12,6 +12,7 @@ ln -sf $PWD/.config/npm       ~/.config/
 ln -sf $PWD/.config/alacritty ~/.config/
 
 if [ "$(uname)" = "Darwin" ]; then
+	touch ~/.hushlogin
 	ln -sf $PWD/mac/.hammerspoon ~/
 	ln -sf $PWD/mac/.config/karabiner ~/.config/
 fi
