@@ -18,14 +18,20 @@ setopt hist_ignore_dups
 export LANG="en_US.UTF-8"
 
 ### theme ###
-agnoster_theme_display_git_master_branch=1
-agnoster_theme_display_status_success=1
-agnoster_theme_newline_cursor=1
-agnoster_theme_color_status_bg=15
-agnoster_theme_color_git_user_bg=75
+zplugin ice from"gh-r" as"program" mv"almel* -> almel"; zplugin load Ryooooooga/almel
 
-zplugin snippet OMZ::plugins/shrink-path/shrink-path.plugin.zsh
-zplugin snippet "https://github.com/Ryooooooga/agnoster-zsh-theme/blob/master/agnoster.zsh-theme"
+if (( ${+commands[almel]} )); then
+	eval "$(almel init zsh)"
+else
+	agnoster_theme_display_git_master_branch=1
+	agnoster_theme_display_status_success=1
+	agnoster_theme_newline_cursor=1
+	agnoster_theme_color_status_bg=15
+	agnoster_theme_color_git_user_bg=75
+
+	zplugin snippet OMZ::plugins/shrink-path/shrink-path.plugin.zsh
+	zplugin snippet "https://github.com/Ryooooooga/agnoster-zsh-theme/blob/master/agnoster.zsh-theme"
+fi
 
 ### plugins ###
 zplugin ice silent wait"0"; zplugin light zsh-users/zsh-syntax-highlighting
