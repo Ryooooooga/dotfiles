@@ -18,7 +18,17 @@ setopt hist_ignore_dups
 export LANG="en_US.UTF-8"
 
 ### theme ###
-zplugin ice from"gh-r" as"program" mv"almel* -> almel"; zplugin load Ryooooooga/almel
+case $OSTYPE in
+	linux*)
+	;;
+	msys)
+		zplugin ice from"gh-r" as"program" bpick"*windows*" mv"almel* -> almel"
+		zplugin load Ryooooooga/almel	;;
+	darwin*)
+		zplugin ice from"gh-r" as"program" bpick"*darwin*" mv"almel* -> almel"
+		zplugin load Ryooooooga/almel
+	;;
+esac
 
 if (( ${+commands[almel]} )); then
 	eval "$(almel init zsh)"
