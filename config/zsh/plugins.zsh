@@ -120,16 +120,25 @@ select_cdr () {
 	local selected="$(cdr -l | awk '{print $2}' | fzf --preview "ls '{}'")"
 	if [ -n "$selected" ]; then
 		BUFFER="cd $selected"
-		CURSOR=$#BUFFER
+		zle accept-line
 	fi
-	zle -R -c # refresh screen
+}
+
+select_ghq () {
+	local selected="$(ghq list | fzf)"
+	if [ -n "$selected" ]; then
+		BUFFER="cd $(ghq root)/$selected"
+		zle accept-line
+	fi
 }
 
 zle -N select_history
 zle -N select_cdr
+zle -N select_ghq
 
 bindkey '^R' select_history # C-R
 bindkey '^F' select_cdr # C-F
+bindkey '^G' select_ghq # C-G
 bindkey '^[[3~' delete-char # DELETE
 
 ### Go ###
