@@ -33,6 +33,8 @@ NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
+NeoBundle 'junegunn/fzf'
+NeoBundle 'junegunn/fzf.vim'
 call neobundle#end()
 
 filetype plugin indent on
@@ -57,3 +59,5 @@ nnoremap <silent><C-e> :NERDTreeToggle<CR>
 nnoremap <silent><C-h> :bprev<CR>
 nnoremap <silent><C-l> :bnext<CR>
 nnoremap <silent><C-w> :bdelete<CR>
+nnoremap //            :BLines<CR>
+nnoremap <silent><C-o> :Files<CR>
