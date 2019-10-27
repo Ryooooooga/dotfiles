@@ -40,6 +40,7 @@ case $OSTYPE in
 		(( ${+commands[gdu]} )) && alias du='gdu'
 		(( ${+commands[ghead]} )) && alias head='ghead'
 		(( ${+commands[gtail]} )) && alias tail='gtail'
+		(( ${+commands[gsed]} )) && alias sed='gsed'
 	;;
 esac
 
@@ -100,7 +101,7 @@ elif (( ${+commands[fzy]} )); then
 fi
 
 select_history () {
-	BUFFER="$(history -nr 1 | awk '!a[$0]++' | $fuzzy_finder --query "$LBUFFER" | sed 's/\\n/\n/')"
+	BUFFER="$(history -nr 1 | awk '!a[$0]++' | $fuzzy_finder --query "$LBUFFER" | sed 's/\\n/\n/g')"
 	CURSOR=$#BUFFER
 	zle -R -c # refresh screen
 }
