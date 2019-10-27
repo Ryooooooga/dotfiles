@@ -4,7 +4,9 @@ autoload -Uz cdr
 autoload -Uz chpwd_recent_dirs
 autoload -Uz _zplugin
 
+### chpwd-recent-dirs ###
 add-zsh-hook chpwd chpwd_recent_dirs
+zstyle ':chpwd:*' recent-dirs-file "$ZSH_CACHE_HOME/chpwd-recent-dirs"
 
 ### editor ###
 export EDITOR="vim"

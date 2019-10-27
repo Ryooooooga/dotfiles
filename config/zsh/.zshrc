@@ -7,8 +7,9 @@ source "$XDG_DATA_HOME/zplugin/bin/zplugin.zsh"
 ### zsh ###
 export ZSH_CONFIG_HOME="$XDG_CONFIG_HOME/zsh"
 export ZSH_DATA_HOME="$XDG_DATA_HOME/zsh"
+export ZSH_CACHE_HOME="$XDG_CACHE_HOME/zsh"
 
-export HISTFILE=$ZSH_DATA_HOME/history
+export HISTFILE="$ZSH_CACHE_HOME/history"
 export HISTSIZE=1000
 export SAVEHIST=1000
 
