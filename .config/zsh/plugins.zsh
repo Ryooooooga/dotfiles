@@ -91,6 +91,14 @@ alias dock-ri='docker run -it'
 alias dock-rrm='docker run --rm'
 alias dock-rrmi='docker run --rm -it'
 
+dock-rm() {
+	docker ps -a | fzf --multi --header-lines=1 | awk '{ print $1 }' | xargs docker rm
+}
+
+dock-rmi() {
+	docker images -a | fzf --multi --header-lines=1 | awk '{ print $3 }' | xargs docker rmi
+}
+
 ### functions ###
 mkcd () {
 	mkdir -p $1 && cd $1
