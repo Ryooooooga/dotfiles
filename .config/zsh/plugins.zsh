@@ -41,7 +41,6 @@ case $OSTYPE in
 		(( ${+commands[ghead]} )) && alias head='ghead'
 		(( ${+commands[gtail]} )) && alias tail='gtail'
 		(( ${+commands[gsed]} )) && alias sed='gsed'
-		(( ! ${+commands[bat]} )) && alias bat='cat'
 	;;
 esac
 
@@ -68,16 +67,6 @@ alias gdb='gdb -q'
 ### Tmux ###
 alias tmux='tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf'
 
-### fzf ###
-export FZF_DEFAULT_OPTS="--reverse --select-1 --exit-0 --border"
-
-### Docker ###
-alias dock-clean='docker rm $(docker ps -aqf status=exited)'
-alias dock-cleani='docker rmi $(docker images -qf dangling=true)'
-alias dock-ri='docker run -it'
-alias dock-rrm='docker run --rm'
-alias dock-rrmi='docker run --rm -it'
-
 ### ls/exa ###
 if (( ${+commands[exa]} )) then
 	alias ls='exa'
@@ -91,6 +80,16 @@ else
 	alias la='ls -a'
 	alias lla='ls -al'
 fi
+
+### fzf ###
+export FZF_DEFAULT_OPTS="--reverse --select-1 --exit-0 --border"
+
+### Docker ###
+alias dock-clean='docker rm $(docker ps -aqf status=exited)'
+alias dock-cleani='docker rmi $(docker images -qf dangling=true)'
+alias dock-ri='docker run -it'
+alias dock-rrm='docker run --rm'
+alias dock-rrmi='docker run --rm -it'
 
 ### functions ###
 mkcd () {
@@ -108,7 +107,7 @@ select_history () {
 }
 
 select_cdr () {
-	local selected="$(cdr -l | awk '{print $2}' | fzf)"
+	local selected="$(cdr -l | awk '{print $2}' | fzf --preview "ls '{}'")"
 	if [ -n "$selected" ]; then
 		BUFFER="cd $selected"
 		CURSOR=$#BUFFER
