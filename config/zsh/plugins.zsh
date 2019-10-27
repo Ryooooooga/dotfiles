@@ -117,7 +117,7 @@ select_history () {
 }
 
 select_cdr () {
-	local selected="$(cdr -l | awk '{print $2}' | fzf --preview "fzf-preview-directory '{}'")"
+	local selected="$(cdr -l | awk '{ $1=""; print }' | fzf --preview "fzf-preview-directory '{}'")"
 	if [ -n "$selected" ]; then
 		BUFFER="cd $selected"
 		zle accept-line
@@ -126,9 +126,9 @@ select_cdr () {
 }
 
 select_ghq () {
-		local selected="$(ghq list | fzf --preview "(cd $(ghq root)/{}; git graph --color -n50)")"
+		local selected="$(ghq list | fzf --preview "(cd \"$(ghq root)/{}\"; git graph --color -n50)")"
 	if [ -n "$selected" ]; then
-		BUFFER="cd $(ghq root)/$selected"
+		BUFFER="cd \"$(ghq root)/$selected\""
 		zle accept-line
 	fi
 	zle -R -c # refresh screen

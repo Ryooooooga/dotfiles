@@ -1,7 +1,10 @@
-#/usr/bin/env bash
-if [ -x $(command -v commands[exa]) ]; then
+#!/usr/bin/env zsh
+if [ "$#" -ne 1 ]; then
+	echo "$0 <directory>"
+	return 1
+elif (( ${+commands[exa]} )); then
 	exa -T -L3 --color=always $@
-elif [ -x $(command -v commands[tree]) ]; then
+elif (( ${+commands[tree]} )); then
 	treei -L3 $@
 else
 	ls $@
