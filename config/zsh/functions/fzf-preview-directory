@@ -1,0 +1,8 @@
+#/usr/bin/env bash
+if [ -x $(command -v commands[exa]) ]; then
+	exa -T -L3 --color=always $@
+elif [ -x $(command -v commands[tree]) ]; then
+	treei -L3 $@
+else
+	ls $@
+fi

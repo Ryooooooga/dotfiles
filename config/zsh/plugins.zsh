@@ -84,7 +84,7 @@ else
 fi
 
 ### fzf ###
-export FZF_DEFAULT_OPTS="--reverse --exit-0 --border --height=40%"
+export FZF_DEFAULT_OPTS="--reverse --exit-0 --border"
 
 ### Docker ###
 alias dock-clean='docker rm $(docker ps -aqf status=exited)'
@@ -117,19 +117,21 @@ select_history () {
 }
 
 select_cdr () {
-	local selected="$(cdr -l | awk '{print $2}' | fzf --preview "ls '{}'")"
+	local selected="$(cdr -l | awk '{print $2}' | fzf --preview "fzf-preview-directory '{}'")"
 	if [ -n "$selected" ]; then
 		BUFFER="cd $selected"
 		zle accept-line
 	fi
+	zle -R -c # refresh screen
 }
 
 select_ghq () {
-		local selected="$(ghq list | fzf --height=80% --preview "(cd $(ghq root)/{}; git graph --color -n50)")"
+		local selected="$(ghq list | fzf --preview "(cd $(ghq root)/{}; git graph --color -n50)")"
 	if [ -n "$selected" ]; then
 		BUFFER="cd $(ghq root)/$selected"
 		zle accept-line
 	fi
+	zle -R -c # refresh screen
 }
 
 zle -N select_history
@@ -170,6 +172,9 @@ export NPM_CONFIG_DIR="$XDG_CONFIG_HOME/npm"
 export NPM_DATA_DIR="$XDG_DATA_HOME/npm"
 export NPM_CACHE_DIR="$XDG_CACHE_HOME/npm"
 export NPM_CONFIG_USERCONFIG="$NPM_CONFIG_DIR/npmrc"
+
+### custom functions ###
+path=($ZDOTDIR/functions(N-/) $path)
 
 ### local ###
 if [ -f $ZDOTDIR/.zshrc.local ]; then
