@@ -155,7 +155,7 @@ fi
 export ANYENV_ROOT="$XDG_DATA_HOME/anyenv"
 
 if [ -e "$ANYENV_ROOT" ]; then
-	path=($ANYENV_ROOT/bin(N-/) $path)
+	path=($ANYENV_ROOT/bin(N-/) $path[@])
 	eval "$(anyenv init - zsh)"
 fi
 
@@ -174,7 +174,7 @@ export NPM_CACHE_DIR="$XDG_CACHE_HOME/npm"
 export NPM_CONFIG_USERCONFIG="$NPM_CONFIG_DIR/npmrc"
 
 ### custom functions ###
-path=($ZDOTDIR/functions(N-/) $path)
+path=($ZDOTDIR/functions(N-/) $path[@])
 
 ### local ###
 if [ -f $ZDOTDIR/.zshrc.local ]; then
