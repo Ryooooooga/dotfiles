@@ -41,6 +41,7 @@ case $OSTYPE in
 		(( ${+commands[ghead]} )) && alias head='ghead'
 		(( ${+commands[gtail]} )) && alias tail='gtail'
 		(( ${+commands[gsed]} )) && alias sed='gsed'
+		(( ! ${+commands[bat]} )) && alias bat='cat'
 	;;
 esac
 
@@ -67,6 +68,9 @@ alias gdb='gdb -q'
 ### Tmux ###
 alias tmux='tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf'
 
+### fzf ###
+export FZF_DEFAULT_OPTS="--reverse --select-1 --exit-0 --border"
+
 ### Docker ###
 alias dock-clean='docker rm $(docker ps -aqf status=exited)'
 alias dock-cleani='docker rmi $(docker images -qf dangling=true)'
@@ -90,26 +94,23 @@ fi
 
 ### functions ###
 mkcd () {
-	mkdir -p $1 && cd $_
+	mkdir -p $1 && cd $1
 }
 
 ### key bindings ###
-if (( ${+commands[peco]} )); then
-	fuzzy_finder=peco
-elif (( ${+commands[fzy]} )); then
-	fuzzy_finder=fzy
-fi
-
 select_history () {
-	BUFFER="$(history -nr 1 | awk '!a[$0]++' | $fuzzy_finder --query "$LBUFFER" | sed 's/\\n/\n/g')"
-	CURSOR=$#BUFFER
+	local selected="$(history -nr 1 | awk '!a[$0]++' | fzf --query "$LBUFFER" | sed 's/\\n/\n/g')"
+	if [ -n "$selected" ]; then
+		BUFFER="$selected"
+		CURSOR=$#BUFFER
+	fi
 	zle -R -c # refresh screen
 }
 
 select_cdr () {
-	local selected_dir="$(cdr -l | awk '{print $2}' | $fuzzy_finder)"
-	if [ -n "$selected_dir" ]; then
-		BUFFER="cd $selected_dir"
+	local selected="$(cdr -l | awk '{print $2}' | fzf)"
+	if [ -n "$selected" ]; then
+		BUFFER="cd $selected"
 		CURSOR=$#BUFFER
 	fi
 	zle -R -c # refresh screen
