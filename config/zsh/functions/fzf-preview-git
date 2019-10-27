@@ -1,15 +1,17 @@
 #!/usr/bin/env zsh
 if [ "$#" -ne 1 ]; then
-	echo "$0 <file>"
+	echo "$0 <directory>"
 	return 1
-elif [ ! -e "$1" ]; then
-	echo "$1 does not exist"
+elif [ ! -d "$1/.git" ]; then
+	echo "$1 is not a git directory"
 	return 1
-elif [ -d "$1" ]; then
-	fzf-preview-directory "$1"
-elif (( ${+commands[bat]} )); then
-	bat --line-range=":200" --color=always "$1"
+elif [ -f "$1/README.md" ]; then
+	cd "$1"
+	fzf-preview-file "README.md"
+elif [ -f "$1/README" ]; then
+	cd "$1"
+	fzf-preview-file "README"
 else
-	head -n200 "$1"
+	git graph --color -n50
 fi
 

@@ -136,7 +136,7 @@ select_cdr () {
 }
 
 select_ghq () {
-		local selected="$(ghq list | fzf --preview "(cd \"$(ghq root)/{}\"; git graph --color -n50)")"
+		local selected="$(ghq list | fzf --preview "fzf-preview-git $(ghq root)/{}")"
 	if [ -n "$selected" ]; then
 		BUFFER="cd \"$(ghq root)/$selected\""
 		zle accept-line
