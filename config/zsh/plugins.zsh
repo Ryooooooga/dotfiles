@@ -106,6 +106,16 @@ mkcd () {
 	mkdir -p $1 && cd $1
 }
 
+### vim ###
+vim() {
+	if [ $# -eq 0 ]; then
+		local selected="$(fzf --multi --preview "fzf-preview-file '{}'")"
+		[ -n "$selected" ] && command vim ${(f)selected}
+	else
+		command vim $@
+	fi
+}
+
 ### key bindings ###
 select_history () {
 	local selected="$(history -nr 1 | awk '!a[$0]++' | fzf --query "$LBUFFER" | sed 's/\\n/\n/g')"
