@@ -82,7 +82,7 @@ else
 fi
 
 ### fzf ###
-export FZF_DEFAULT_OPTS="--reverse --select-1 --exit-0 --border"
+export FZF_DEFAULT_OPTS="--reverse --exit-0 --border"
 
 ### Docker ###
 alias dock-clean='docker rm $(docker ps -aqf status=exited)'
