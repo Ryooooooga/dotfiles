@@ -38,3 +38,5 @@
 	program = gpg
 [tag]
 	forceSignAnnotated = false
+[ghq]
+	root = ~/Workspace
