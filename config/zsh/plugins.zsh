@@ -109,7 +109,7 @@ mkcd () {
 ### vim ###
 vim() {
 	if [ $# -eq 0 ]; then
-		local selected="$(fzf --multi --preview "fzf-preview-file '{}'")"
+		local selected="$(fzf --multi --preview "fzf-preview-file '{}'" --preview-window=right:60%)"
 		[ -n "$selected" ] && command vim ${(f)selected}
 	else
 		command vim $@
@@ -127,7 +127,7 @@ select_history () {
 }
 
 select_cdr () {
-	local selected="$(cdr -l | awk '{ $1=""; print }' | sed 's/^ //' | fzf --preview "fzf-preview-directory '{}'")"
+	local selected="$(cdr -l | awk '{ $1=""; print }' | sed 's/^ //' | fzf --preview "fzf-preview-directory '{}'" --preview-window=right:50%)"
 	if [ -n "$selected" ]; then
 		BUFFER="cd $selected"
 		zle accept-line
@@ -136,7 +136,7 @@ select_cdr () {
 }
 
 select_ghq () {
-		local selected="$(ghq list | fzf --preview "fzf-preview-git $(ghq root)/{}")"
+		local selected="$(ghq list | fzf --preview "fzf-preview-git $(ghq root)/{}" --preview-window=right:60%)"
 	if [ -n "$selected" ]; then
 		BUFFER="cd \"$(ghq root)/$selected\""
 		zle accept-line
