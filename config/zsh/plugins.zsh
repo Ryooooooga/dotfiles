@@ -127,7 +127,7 @@ select_history () {
 }
 
 select_cdr () {
-	local selected="$(cdr -l | awk '{ $1=""; print }' | fzf --preview "fzf-preview-directory '{}'")"
+	local selected="$(cdr -l | awk '{ $1=""; print }' | sed 's/^ *//' | fzf --preview "fzf-preview-directory '{}'")"
 	if [ -n "$selected" ]; then
 		BUFFER="cd $selected"
 		zle accept-line
