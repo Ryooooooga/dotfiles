@@ -12,6 +12,7 @@ elif [ -f "$1/README" ]; then
 	cd "$1"
 	fzf-preview-file "README"
 else
+	cd "$1"
 	git graph --color -n50
 fi
 
