@@ -84,7 +84,7 @@ else
 fi
 
 ### fzf ###
-export FZF_DEFAULT_OPTS="--reverse --exit-0 --border"
+export FZF_DEFAULT_OPTS="--reverse --exit-0 --border --height=40%"
 
 ### Docker ###
 alias dock-clean='docker rm $(docker ps -aqf status=exited)'
@@ -125,7 +125,7 @@ select_cdr () {
 }
 
 select_ghq () {
-	local selected="$(ghq list | fzf)"
+		local selected="$(ghq list | fzf --height=80% --preview "(cd $(ghq root)/{}; git graph --color -n50)")"
 	if [ -n "$selected" ]; then
 		BUFFER="cd $(ghq root)/$selected"
 		zle accept-line
