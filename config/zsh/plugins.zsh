@@ -109,7 +109,7 @@ mkcd () {
 ### vim ###
 vim() {
 	if [ $# -eq 0 ]; then
-		local selected="$(fd --hidden --color=always --exclude='.git'  | fzf --multi --preview "fzf-preview-file '{}'" --preview-window=right:60%)"
+		local selected="$(fd --hidden --color=always --exclude='.git' --type=f  | fzf --multi --preview "fzf-preview-file '{}'" --preview-window=right:60%)"
 		[ -n "$selected" ] && command vim ${(f)selected}
 	else
 		command vim $@
@@ -117,7 +117,7 @@ vim() {
 }
 
 ### key bindings ###
-select_history () {
+select_history() {
 	local selected="$(history -nr 1 | awk '!a[$0]++' | fzf --query "$LBUFFER" | sed 's/\\n/\n/g')"
 	if [ -n "$selected" ]; then
 		BUFFER="$selected"
@@ -126,7 +126,7 @@ select_history () {
 	zle -R -c # refresh screen
 }
 
-select_cdr () {
+select_cdr() {
 	local selected="$(cdr -l | awk '{ $1=""; print }' | sed 's/^ //' | fzf --preview "fzf-preview-directory '{}'" --preview-window=right:50%)"
 	if [ -n "$selected" ]; then
 		BUFFER="cd $selected"
@@ -135,7 +135,7 @@ select_cdr () {
 	zle -R -c # refresh screen
 }
 
-select_ghq () {
+select_ghq() {
 		local selected="$(ghq list | fzf --preview "fzf-preview-git $(ghq root)/{}" --preview-window=right:60%)"
 	if [ -n "$selected" ]; then
 		BUFFER="cd \"$(ghq root)/$selected\""
@@ -144,13 +144,24 @@ select_ghq () {
 	zle -R -c # refresh screen
 }
 
+select_dir() {
+	local selected="$(fd --hidden --color=always --exclude='.git' --type=d | fzf --preview "fzf-preview-directory '{}'" --preview-window=right:50%)"
+	if [ -n "$selected" ]; then
+		BUFFER="cd $selected"
+		zle accept-line
+	fi
+	zle -R -c # refresh screen
+}
+
 zle -N select_history
 zle -N select_cdr
 zle -N select_ghq
+zle -N select_dir
 
-bindkey '^R' select_history # C-R
-bindkey '^F' select_cdr # C-F
-bindkey '^G' select_ghq # C-G
+bindkey '^R' select_history # C-r
+bindkey '^F' select_cdr # C-f
+bindkey '^G' select_ghq # C-g
+bindkey '^P' select_dir # C-p
 bindkey '^[[3~' delete-char # DELETE
 
 ### Go ###
