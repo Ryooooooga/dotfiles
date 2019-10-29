@@ -63,7 +63,7 @@ alias make='make -j5'
 alias cmaked='cmake -DCMAKE_BUILD_TYPE=Debug'
 alias cmakerel='cmake -DCMAKE_BUILD_TYPE=Release'
 
-### GDB
+### GDB ###
 alias gdb='gdb -q'
 
 ### Tmux ###
@@ -84,7 +84,7 @@ else
 fi
 
 ### fzf ###
-export FZF_DEFAULT_OPTS="--reverse --exit-0 --border"
+export FZF_DEFAULT_OPTS="--reverse --exit-0 --border --ansi"
 
 ### Docker ###
 alias dock-clean='docker rm $(docker ps -aqf status=exited)'
@@ -109,7 +109,7 @@ mkcd () {
 ### vim ###
 vim() {
 	if [ $# -eq 0 ]; then
-		local selected="$(fzf --multi --preview "fzf-preview-file '{}'" --preview-window=right:60%)"
+		local selected="$(fd --hidden --color=always --exclude='.git'  | fzf --multi --preview "fzf-preview-file '{}'" --preview-window=right:60%)"
 		[ -n "$selected" ] && command vim ${(f)selected}
 	else
 		command vim $@
