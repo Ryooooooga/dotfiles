@@ -28,6 +28,11 @@ set runtimepath+=/usr/local/opt/fzf
 if dein#load_state($XDG_DATA_HOME . '/dein')
 	call dein#begin($XDG_DATA_HOME . '/dein')
 
+	call dein#add('Shougo/deoplete.nvim')
+	let g:deoplete#enable_at_startup = 1
+
+	call dein#add('Shougo/neosnippet.vim')
+	call dein#add('Shougo/neosnippet-snippets')
 	call dein#add('scrooloose/nerdtree')
 	call dein#add('editorconfig/editorconfig-vim')
 	call dein#add('tpope/vim-fugitive')
@@ -45,6 +50,18 @@ syntax enable
 
 if dein#check_install()
 	call dein#install()
+endif
+
+" neosnippet
+let g:neosnippet#snippets_directory=$XDG_CONFIG_HOME . '/nvim/snippets'
+
+imap <C-k>       <Plug>(neosnippet_expand_or_jump)
+smap <C-k>       <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>       <Plug>(neosnippet_expand_target)
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+if has('conceal')
+	set conceallevel=2 concealcursor=niv
 endif
 
 " vim-airline
