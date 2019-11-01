@@ -6,6 +6,7 @@ ln -sf $PWD/gitconfig        ~/.gitconfig
 ln -sf $PWD/zshenv           ~/.zshenv
 ln -sf $PWD/vimrc            ~/.vimrc
 ln -sf $PWD/config/zsh       ~/.config/
+ln -sf $PWD/config/nvim      ~/.config/
 ln -sf $PWD/config/git       ~/.config/
 ln -sf $PWD/config/tmux      ~/.config/
 ln -sf $PWD/config/npm       ~/.config/

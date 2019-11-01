@@ -6,6 +6,7 @@ set autoread
 set title
 set number
 set tabstop=4
+set shiftwidth=4
 "set smartindent
 set cursorline
 set mouse=a
@@ -13,6 +14,9 @@ set showmatch
 set laststatus=2
 set incsearch
 set whichwrap=b,s,h,l,<,>,[,],~
+set smarttab
+set shiftround
+set autoread
 
 " whitespaces
 set list

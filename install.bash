@@ -22,8 +22,8 @@ XDG_DATA_HOME="$HOME/.local/share"
 # zplugin
 clone https://github.com/zdharma/zplugin "$XDG_DATA_HOME/zplugin/bin"
 
-# NeoBundle
-clone https://github.com/Shougo/neobundle.vim "$XDG_DATA_HOME/vim/bundle/neobundle.vim"
+# dein.vim
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh | sh -s $XDG_DATA_HOME/dein
 
 # asdf-vm
 clone https://github.com/asdf-vm/asdf "$XDG_DATA_HOME/asdf"

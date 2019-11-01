@@ -8,9 +8,6 @@ autoload -Uz _zplugin
 add-zsh-hook chpwd chpwd_recent_dirs
 zstyle ':chpwd:*' recent-dirs-file "$ZSH_CACHE_HOME/chpwd-recent-dirs"
 
-### editor ###
-export EDITOR="vim"
-
 ### ls-colors ###
 LS_COLORS="di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32"
 
@@ -47,7 +44,6 @@ case $OSTYPE in
 esac
 
 alias ..='cd ..'
-alias vi='vim'
 (( ${+commands[trash]} )) && alias rm='trash'
 (( ${+commands[colordiff]} )) && alias diff='colordiff'
 #(( ${+commands[hub]} )) && alias git='hub'
@@ -107,12 +103,20 @@ mkcd () {
 }
 
 ### vim ###
+export EDITOR="vi"
+(( ${+commands[vim]} )) && export EDITOR="vim"
+(( ${+commands[nvim]} )) && export EDITOR="nvim"
+
+export GIT_EDITOR="$EDITOR"
+
+alias vi="vim"
+
 vim() {
 	if [ $# -eq 0 ]; then
 		local selected="$(fd --hidden --color=always --exclude='.git' --type=f  | fzf --multi --preview "fzf-preview-file '{}'" --preview-window=right:60%)"
-		[ -n "$selected" ] && command vim ${(f)selected}
+		[ -n "$selected" ] && command "$EDITOR" ${(f)selected}
 	else
-		command vim $@
+		command "$EDITOR" $@
 	fi
 }
 
