@@ -9,6 +9,7 @@ ln -sf "$PWD/config/zsh"       ~/.config/
 ln -sf "$PWD/config/nvim"      ~/.config/
 ln -sf "$PWD/config/git"       ~/.config/
 ln -sf "$PWD/config/tmux"      ~/.config/
+ln -sf "$PWD/config/almel"     ~/.config/
 ln -sf "$PWD/config/npm"       ~/.config/
 ln -sf "$PWD/config/alacritty" ~/.config/
 
