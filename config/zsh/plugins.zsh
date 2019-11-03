@@ -4,6 +4,16 @@ autoload -Uz cdr
 autoload -Uz chpwd_recent_dirs
 autoload -Uz _zplugin
 
+### locale ###
+export LANG="en_US.UTF-8"
+
+### history ###
+export HISTFILE="$ZSH_CACHE_HOME/history"
+export HISTSIZE=1000
+export SAVEHIST=1000
+
+setopt hist_ignore_dups
+
 ### chpwd-recent-dirs ###
 add-zsh-hook chpwd chpwd_recent_dirs
 zstyle ':chpwd:*' recent-dirs-file "$ZSH_CACHE_HOME/chpwd-recent-dirs"
