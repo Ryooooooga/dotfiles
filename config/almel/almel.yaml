@@ -1,8 +1,16 @@
+os:
+  linux:
+    background: 33
+  mac:
+    background: 33
+  windows:
+    background: 33
+
 git_user:
   background: 75
 
 time:
-  format: "%H:%M:%S%.3f"
+  format: "\uf017 %H:%M:%S%.3f"
 
 segments:
   - - os
