@@ -10,7 +10,7 @@ git_user:
   background: 75
 
 time:
-  format: "\uf017 %H:%M:%S%.3f"
+  format: "\uf017 %H:%M:%S"
 
 segments:
   - - os
@@ -18,5 +18,5 @@ segments:
     - directory
     - git_repo
     - git_user
-  - - time
+  - - duration
     - status
