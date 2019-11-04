@@ -12,6 +12,9 @@ git_user:
 time:
   format: "\uf017 %H:%M:%S"
 
+duration:
+  background: 242
+
 segments:
   - - os
     - user
