@@ -13,7 +13,7 @@ ln -sf "$PWD/config/almel"     ~/.config/
 ln -sf "$PWD/config/npm"       ~/.config/
 ln -sf "$PWD/config/alacritty" ~/.config/
 
-mkdir -p ~/.cache/zsh
+mkdir -p ~/.local/share/zsh
 
 if [ "$(uname)" = "Darwin" ]; then
 	touch ~/.hushlogin
