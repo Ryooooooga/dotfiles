@@ -7,6 +7,8 @@ elif [ ! -e "$1" ]; then
 	return 1
 elif [ -d "$1" ]; then
 	fzf-preview-directory "$1"
+elif [[ "$(file --mime "$1")" =~ "binary" ]]; then
+	hexdump -C -n3200 "$1"
 elif (( ${+commands[bat]} )); then
 	bat --line-range=":200" --color=always "$1"
 else
