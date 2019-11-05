@@ -34,6 +34,7 @@ if dein#load_state($XDG_DATA_HOME . '/dein')
 	call dein#add('Shougo/neosnippet.vim')
 	call dein#add('Shougo/neosnippet-snippets')
 	call dein#add('scrooloose/nerdtree')
+	call dein#add('ryanoasis/vim-devicons')
 	call dein#add('editorconfig/editorconfig-vim')
 	call dein#add('tpope/vim-fugitive')
 	call dein#add('vim-airline/vim-airline')
@@ -75,8 +76,12 @@ let g:airline_symbols = {
 
 " keymaps
 inoremap jj <ESC>
-nnoremap j gj
-nnoremap k gk
+nnoremap j  gj
+nnoremap k  gk
+nnoremap sh <C-w>h
+nnoremap sl <C-w>l
+nnoremap sH <C-w>H
+nnoremap sL <C-w>L
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 nnoremap <silent><C-h> :bprev<CR>
 nnoremap <silent><C-l> :bnext<CR>
