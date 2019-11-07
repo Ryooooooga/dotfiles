@@ -4,15 +4,14 @@ autoload -Uz cdr
 autoload -Uz chpwd_recent_dirs
 autoload -Uz _zplugin
 
+### plugins ###
+zplugin ice silent wait"0"; zplugin light zsh-users/zsh-syntax-highlighting
+zplugin ice silent wait"0"; zplugin light zsh-users/zsh-history-substring-search
+zplugin ice silent wait"0"; zplugin light zsh-users/zsh-autosuggestions
+zplugin ice silent wait"0"; zplugin light zsh-users/zsh-completions
+
 ### locale ###
 export LANG="en_US.UTF-8"
-
-### history ###
-export HISTFILE="$ZSH_DATA_HOME/history"
-export HISTSIZE=1000
-export SAVEHIST=1000
-
-setopt hist_ignore_dups
 
 ### chpwd-recent-dirs ###
 add-zsh-hook chpwd chpwd_recent_dirs
