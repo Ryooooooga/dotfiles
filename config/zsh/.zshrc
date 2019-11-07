@@ -12,10 +12,13 @@ export ZSH_CACHE_HOME="$XDG_CACHE_HOME/zsh"
 ### theme ###
 case $OSTYPE in
 	linux*)
+		zplugin ice from"gh-r" as"program" bpick"*linux*" mv"almel* -> almel"
+		zplugin load Ryooooooga/almel
 	;;
 	msys)
 		zplugin ice from"gh-r" as"program" bpick"*windows*" mv"almel* -> almel"
-		zplugin load Ryooooooga/almel	;;
+		zplugin load Ryooooooga/almel
+	;;
 	darwin*)
 		zplugin ice from"gh-r" as"program" bpick"*darwin*" mv"almel* -> almel"
 		zplugin load Ryooooooga/almel
