@@ -33,6 +33,7 @@ if dein#load_state($XDG_DATA_HOME . '/dein')
 
 	call dein#add('Shougo/neosnippet.vim')
 	call dein#add('Shougo/neosnippet-snippets')
+	call dein#add('airblade/vim-gitgutter')
 	call dein#add('scrooloose/nerdtree')
 	call dein#add('ryanoasis/vim-devicons')
 	call dein#add('editorconfig/editorconfig-vim')
