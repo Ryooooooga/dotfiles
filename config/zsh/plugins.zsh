@@ -29,27 +29,27 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 ### aliases ###
 case $OSTYPE in
-	linux*)
-		alias pbcopy='xsel -bi'
-		alias pbpaste='xsel -b'
-	;;
-	msys)
-		alias cmake='command cmake -G"Unix Makefiles"'
-		alias dock-ri='winpty docker run -it'
-		alias dock-rrmi='winpty docker run --rm -it'
-		alias pbcopy='cat > /dev/clipboard'
-		alias pbpaste='cat /dev/clipboard'
-	;;
-	darwin*)
-		(( ${+commands[gdate]} )) && alias date='gdate'
-		(( ${+commands[gls]} )) && alias ls='gls'
-		(( ${+commands[gcp]} )) && alias cp='gcp'
-		(( ${+commands[gmv]} )) && alias mv='gmv'
-		(( ${+commands[gdu]} )) && alias du='gdu'
-		(( ${+commands[ghead]} )) && alias head='ghead'
-		(( ${+commands[gtail]} )) && alias tail='gtail'
-		(( ${+commands[gsed]} )) && alias sed='gsed'
-	;;
+    linux*)
+        alias pbcopy='xsel -bi'
+        alias pbpaste='xsel -b'
+    ;;
+    msys)
+        alias cmake='command cmake -G"Unix Makefiles"'
+        alias dock-ri='winpty docker run -it'
+        alias dock-rrmi='winpty docker run --rm -it'
+        alias pbcopy='cat > /dev/clipboard'
+        alias pbpaste='cat /dev/clipboard'
+    ;;
+    darwin*)
+        (( ${+commands[gdate]} )) && alias date='gdate'
+        (( ${+commands[gls]} )) && alias ls='gls'
+        (( ${+commands[gcp]} )) && alias cp='gcp'
+        (( ${+commands[gmv]} )) && alias mv='gmv'
+        (( ${+commands[gdu]} )) && alias du='gdu'
+        (( ${+commands[ghead]} )) && alias head='ghead'
+        (( ${+commands[gtail]} )) && alias tail='gtail'
+        (( ${+commands[gsed]} )) && alias sed='gsed'
+    ;;
 esac
 
 alias ..='cd ..'
@@ -76,16 +76,16 @@ alias tmux='tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf'
 
 ### ls/exa ###
 if (( ${+commands[exa]} )) then
-	alias ls='exa'
-	alias ll='exa -l --git'
-	alias la='exa -a'
-	alias lla='exa -al --git'
-	alias tree='exa -T'
+    alias ls='exa'
+    alias ll='exa -l --git'
+    alias la='exa -a'
+    alias lla='exa -al --git'
+    alias tree='exa -T'
 else
-	alias ls='ls --color=auto'
-	alias ll='ls -l'
-	alias la='ls -a'
-	alias lla='ls -al'
+    alias ls='ls --color=auto'
+    alias ll='ls -l'
+    alias la='ls -a'
+    alias lla='ls -al'
 fi
 
 ### fzf ###
@@ -99,16 +99,16 @@ alias dock-rrm='docker run --rm'
 alias dock-rrmi='docker run --rm -it'
 
 dock-rm() {
-	docker ps -a | fzf --multi --header-lines=1 | awk '{ print $1 }' | xargs docker rm
+    docker ps -a | fzf --multi --header-lines=1 | awk '{ print $1 }' | xargs docker rm
 }
 
 dock-rmi() {
-	docker images -a | fzf --multi --header-lines=1 | awk '{ print $3 }' | xargs docker rmi
+    docker images -a | fzf --multi --header-lines=1 | awk '{ print $3 }' | xargs docker rmi
 }
 
 ### functions ###
 mkcd () {
-	mkdir -p $1 && cd $1
+    mkdir -p $1 && cd $1
 }
 
 ### vim ###
@@ -121,49 +121,49 @@ export GIT_EDITOR="$EDITOR"
 alias vi="vim"
 
 vim() {
-	if [ $# -eq 0 ]; then
-		local selected="$(fd --hidden --color=always --exclude='.git' --type=f  | fzf --multi --preview "fzf-preview-file '{}'" --preview-window=right:60%)"
-		[ -n "$selected" ] && command "$EDITOR" ${(f)selected}
-	else
-		command "$EDITOR" $@
-	fi
+    if [ $# -eq 0 ]; then
+        local selected="$(fd --hidden --color=always --exclude='.git' --type=f  | fzf --multi --preview "fzf-preview-file '{}'" --preview-window=right:60%)"
+        [ -n "$selected" ] && command "$EDITOR" ${(f)selected}
+    else
+        command "$EDITOR" $@
+    fi
 }
 
 ### key bindings ###
 select_history() {
-	local selected="$(history -nr 1 | awk '!a[$0]++' | fzf --query "$LBUFFER" | sed 's/\\n/\n/g')"
-	if [ -n "$selected" ]; then
-		BUFFER="$selected"
-		CURSOR=$#BUFFER
-	fi
-	zle -R -c # refresh screen
+    local selected="$(history -nr 1 | awk '!a[$0]++' | fzf --query "$LBUFFER" | sed 's/\\n/\n/g')"
+    if [ -n "$selected" ]; then
+        BUFFER="$selected"
+        CURSOR=$#BUFFER
+    fi
+    zle -R -c # refresh screen
 }
 
 select_cdr() {
-	local selected="$(cdr -l | awk '{ $1=""; print }' | sed 's/^ //' | fzf --preview "fzf-preview-directory '{}'" --preview-window=right:50%)"
-	if [ -n "$selected" ]; then
-		BUFFER="cd $selected"
-		zle accept-line
-	fi
-	zle -R -c # refresh screen
+    local selected="$(cdr -l | awk '{ $1=""; print }' | sed 's/^ //' | fzf --preview "fzf-preview-directory '{}'" --preview-window=right:50%)"
+    if [ -n "$selected" ]; then
+        BUFFER="cd $selected"
+        zle accept-line
+    fi
+    zle -R -c # refresh screen
 }
 
 select_ghq() {
-	local selected="$(ghq list | fzf --preview "fzf-preview-git $(ghq root)/{}" --preview-window=right:60%)"
-	if [ -n "$selected" ]; then
-		BUFFER="cd \"$(ghq root)/$selected\""
-		zle accept-line
-	fi
-	zle -R -c # refresh screen
+    local selected="$(ghq list | fzf --preview "fzf-preview-git $(ghq root)/{}" --preview-window=right:60%)"
+    if [ -n "$selected" ]; then
+        BUFFER="cd \"$(ghq root)/$selected\""
+        zle accept-line
+    fi
+    zle -R -c # refresh screen
 }
 
 select_dir() {
-	local selected="$(fd --hidden --color=always --exclude='.git' --type=d | fzf --preview "fzf-preview-directory '{}'" --preview-window=right:50%)"
-	if [ -n "$selected" ]; then
-		BUFFER="cd $selected"
-		zle accept-line
-	fi
-	zle -R -c # refresh screen
+    local selected="$(fd --hidden --color=always --exclude='.git' --type=d | fzf --preview "fzf-preview-directory '{}'" --preview-window=right:50%)"
+    if [ -n "$selected" ]; then
+        BUFFER="cd $selected"
+        zle accept-line
+    fi
+    zle -R -c # refresh screen
 }
 
 zle -N select_history
@@ -182,23 +182,23 @@ export GOPATH="$XDG_DATA_HOME/go"
 
 ### direnv ###
 if (( ${+commands[direnv]} )); then
-	eval "$(direnv hook zsh)"
+    eval "$(direnv hook zsh)"
 fi
 
 ### anyenv ###
 export ANYENV_ROOT="$XDG_DATA_HOME/anyenv"
 
 if [ -e "$ANYENV_ROOT" ]; then
-	path=($ANYENV_ROOT/bin(N-/) $path[@])
-	eval "$(anyenv init - zsh)"
+    path=($ANYENV_ROOT/bin(N-/) $path[@])
+    eval "$(anyenv init - zsh)"
 fi
 
 ### asdf-vm ###
 export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
 
 if [ -e "$ASDF_DATA_DIR" ]; then
-	source $ASDF_DATA_DIR/asdf.sh
-	source $ASDF_DATA_DIR/completions/asdf.bash
+    source $ASDF_DATA_DIR/asdf.sh
+    source $ASDF_DATA_DIR/completions/asdf.bash
 fi
 
 ### npm ###
@@ -212,5 +212,5 @@ path=($ZDOTDIR/functions(N-/) $path[@])
 
 ### local ###
 if [ -f $ZDOTDIR/.zshrc.local ]; then
-	source $ZDOTDIR/.zshrc.local
+    source $ZDOTDIR/.zshrc.local
 fi

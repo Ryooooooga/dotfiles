@@ -1,5 +1,5 @@
 if &compatible
-	set nocompatible
+    set nocompatible
 endif
 
 set fenc=utf-8
@@ -26,32 +26,32 @@ set runtimepath+=$XDG_DATA_HOME/dein/repos/github.com/Shougo/dein.vim
 set runtimepath+=/usr/local/opt/fzf
 
 if dein#load_state($XDG_DATA_HOME . '/dein')
-	call dein#begin($XDG_DATA_HOME . '/dein')
+    call dein#begin($XDG_DATA_HOME . '/dein')
 
-	call dein#add('Shougo/deoplete.nvim')
-	let g:deoplete#enable_at_startup = 1
+    call dein#add('Shougo/deoplete.nvim')
+    let g:deoplete#enable_at_startup = 1
 
-	call dein#add('Shougo/neosnippet.vim')
-	call dein#add('Shougo/neosnippet-snippets')
-	call dein#add('airblade/vim-gitgutter')
-	call dein#add('scrooloose/nerdtree')
-	call dein#add('ryanoasis/vim-devicons')
-	call dein#add('editorconfig/editorconfig-vim')
-	call dein#add('tpope/vim-fugitive')
-	call dein#add('vim-airline/vim-airline')
-	call dein#add('vim-airline/vim-airline-themes')
-	call dein#add('junegunn/fzf', { 'rtp': '' })
-	call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
+    call dein#add('Shougo/neosnippet.vim')
+    call dein#add('Shougo/neosnippet-snippets')
+    call dein#add('airblade/vim-gitgutter')
+    call dein#add('scrooloose/nerdtree')
+    call dein#add('ryanoasis/vim-devicons')
+    call dein#add('editorconfig/editorconfig-vim')
+    call dein#add('tpope/vim-fugitive')
+    call dein#add('vim-airline/vim-airline')
+    call dein#add('vim-airline/vim-airline-themes')
+    call dein#add('junegunn/fzf', { 'rtp': '' })
+    call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 
-	call dein#end()
-	call dein#save_state()
+    call dein#end()
+    call dein#save_state()
 endif
 
 filetype plugin indent on
 syntax enable
 
 if dein#check_install()
-	call dein#install()
+    call dein#install()
 endif
 
 " neosnippet
@@ -63,7 +63,7 @@ xmap <C-k>       <Plug>(neosnippet_expand_target)
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 if has('conceal')
-	set conceallevel=2 concealcursor=niv
+    set conceallevel=2 concealcursor=niv
 endif
 
 " vim-airline
@@ -71,9 +71,9 @@ let g:airline#extensions#tabline#enabled=1
 let g:airline_powerline_fonts=1
 let g:airline_theme='wombat'
 let g:airline_symbols = {
-		\ 'branch': "\uf418",
-		\ 'dirty': "\u00b1",
-	\ }
+        \ 'branch': "\uf418",
+        \ 'dirty': "\u00b1",
+    \ }
 
 " keymaps
 inoremap jj <ESC>
