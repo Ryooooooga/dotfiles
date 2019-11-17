@@ -35,8 +35,6 @@ case $OSTYPE in
     ;;
     msys)
         alias cmake='command cmake -G"Unix Makefiles"'
-        alias dock-ri='winpty docker run -it'
-        alias dock-rrmi='winpty docker run --rm -it'
         alias pbcopy='cat > /dev/clipboard'
         alias pbpaste='cat /dev/clipboard'
     ;;
@@ -53,9 +51,11 @@ case $OSTYPE in
 esac
 
 alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
 (( ${+commands[trash]} )) && alias rm='trash'
 (( ${+commands[colordiff]} )) && alias diff='colordiff'
-#(( ${+commands[hub]} )) && alias git='hub'
 
 ### wget ###
 export WGET_DATA_DIR="$XDG_DATA_HOME/wget"
@@ -206,6 +206,11 @@ export NPM_CONFIG_DIR="$XDG_CONFIG_HOME/npm"
 export NPM_DATA_DIR="$XDG_DATA_HOME/npm"
 export NPM_CACHE_DIR="$XDG_CACHE_HOME/npm"
 export NPM_CONFIG_USERCONFIG="$NPM_CONFIG_DIR/npmrc"
+
+### youtube-dl ###
+if (( ${+commands[youtube-dl]} )); then
+    alias youtube-audio='youtube-dl -x --no-playlist'
+fi
 
 ### custom functions ###
 path=($ZDOTDIR/functions(N-/) $path[@])
