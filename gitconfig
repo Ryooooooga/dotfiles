@@ -16,7 +16,7 @@
 	b = branch
 	c = commit
 	cm = commit -m
-	co = !echo use 'switch' or 'restore' instead of co \\(checkout\\) && false
+	co = "!echo 'use `switch` or `restore` instead of co (checkout)'" && false
 	f = fetch
 	fu = fetch upstream
 	graph = log --graph --date=short --decorate=full
@@ -27,7 +27,8 @@
 	df = diff
 	diffstgd = diff --staged
 	dfst = diff --staged
-	user = "!git config user.name; git config user.email"
+	user = "!f() { if [ $# -eq 0 ]; then git config user.name && git config user.email; else git config user.name "$1" && git config user.email "$(git config users."$1")"; fi }; f"
+	users = config --get-regexp ^users.*
 	sw = switch
 [user]
 	name = Ryooooooga
@@ -39,3 +40,7 @@
 	forceSignAnnotated = false
 [ghq]
 	root = ~/Workspace
+[users]
+	Ryooooooga = ryoga_314@yahoo.co.jp
+[include]
+	path = ~/.config/git/gitconfig.local
