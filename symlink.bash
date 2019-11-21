@@ -2,7 +2,6 @@
 cd "$(dirname "$0")" || return 1
 
 mkdir -p ~/.config/
-ln -sf "$PWD/gitconfig"        ~/.gitconfig
 ln -sf "$PWD/zshenv"           ~/.zshenv
 ln -sf "$PWD/vimrc"            ~/.vimrc
 ln -sf "$PWD/editorconfig"     ~/.editorconfig
