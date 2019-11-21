@@ -1,3 +1,7 @@
+# Git
+gitconfig.local
+
+# Zsh
 *.zwc
 .zcompdump
 .zshrc.local

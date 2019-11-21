@@ -17,10 +17,22 @@ trim_trailing_whitespace = false
 indent_style = space
 indent_size = 2
 
+[*.html]
+indent_style = space
+indent_size = 2
+
+[*.{css,scss}]
+indent_style = space
+indent_size = 2
+
 [*.{yml,yaml}]
 indent_style = space
 indent_size = 2
 
-[{,.}gitconfig{,.local}]
+[*.rb]
+indent_style = space
+indent_size = 2
+
+[{Makefile,*.mk}]
 indent_style = tab
 indent_size = 4
