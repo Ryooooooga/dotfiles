@@ -26,7 +26,6 @@
 	df = diff
 	diffstgd = diff --staged
 	dfst = diff --staged
-	user = "!f() { if [ $# -eq 0 ]; then git config user.name && git config user.email; else git config user.name "$1" && git config user.email "$(git config users."$1")"; fi }; f"
 	users = "config --get-regexp '^users.*'"
 	sw = switch
 [user]
@@ -40,6 +39,6 @@
 [ghq]
 	root = ~/Workspace
 [users]
-	Ryooooooga = ryoga_314@yahoo.co.jp
+	ryoga = Ryooooooga:ryoga_314@yahoo.co.jp
 [include]
 	path = ~/.config/git/gitconfig.local
