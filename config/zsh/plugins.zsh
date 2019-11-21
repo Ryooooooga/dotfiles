@@ -223,7 +223,7 @@ if (( ${+commands[youtube-dl]} )); then
 fi
 
 ### custom functions ###
-path=($ZDOTDIR/functions(N-/) $path[@])
+path=($XDG_CONFIG_HOME/bin(N-/) $path[@])
 
 ### local ###
 if [ -f $ZDOTDIR/.zshrc.local ]; then
