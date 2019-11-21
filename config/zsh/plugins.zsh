@@ -214,6 +214,9 @@ export NPM_CONFIG_USERCONFIG="$NPM_CONFIG_DIR/npmrc"
 export GEM_HOME="$XDG_DATA_HOME/gem"
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
 
+### pylint ###
+export PYLINTHOME="$XDG_CACHE_HOME/pylint"
+
 ### youtube-dl ###
 if (( ${+commands[youtube-dl]} )); then
     alias youtube-audio='youtube-dl -x --no-playlist'
