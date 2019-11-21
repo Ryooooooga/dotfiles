@@ -12,7 +12,7 @@
 	a = add -v
 	aa = add -vA
 	ai = add -i
-	aliases = config --get-regexp alias.*
+	aliases = "config --get-regexp '^alias.*'"
 	b = branch
 	c = commit
 	cm = commit -m
@@ -28,7 +28,7 @@
 	diffstgd = diff --staged
 	dfst = diff --staged
 	user = "!f() { if [ $# -eq 0 ]; then git config user.name && git config user.email; else git config user.name "$1" && git config user.email "$(git config users."$1")"; fi }; f"
-	users = config --get-regexp ^users.*
+	users = "config --get-regexp '^users.*'"
 	sw = switch
 [user]
 	name = Ryooooooga
