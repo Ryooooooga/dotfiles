@@ -210,6 +210,10 @@ export NPM_DATA_DIR="$XDG_DATA_HOME/npm"
 export NPM_CACHE_DIR="$XDG_CACHE_HOME/npm"
 export NPM_CONFIG_USERCONFIG="$NPM_CONFIG_DIR/npmrc"
 
+### Rubygems ###
+export GEM_HOME="$XDG_DATA_HOME/gem"
+export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
+
 ### youtube-dl ###
 if (( ${+commands[youtube-dl]} )); then
     alias youtube-audio='youtube-dl -x --no-playlist'
