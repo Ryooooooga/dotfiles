@@ -197,7 +197,7 @@ if [ -e "$ANYENV_ROOT" ]; then
 fi
 
 ### asdf-vm ###
-export ASDF_DATA_DIR="$HOME/.asdf"
+export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
 
 if [ -e "$ASDF_DATA_DIR" ]; then
     source $ASDF_DATA_DIR/asdf.sh
