@@ -21,5 +21,6 @@ segments:
     - directory
     - git_repo
     - git_user
+    - venv
   - - duration
     - status
