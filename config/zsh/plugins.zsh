@@ -1,5 +1,5 @@
 ### autoloads ###
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit -d "$ZSH_DATA_HOME/zcompdump"
 autoload -Uz cdr
 autoload -Uz chpwd_recent_dirs
 autoload -Uz _zplugin
