@@ -77,8 +77,10 @@ let g:airline_symbols = {
 
 " keymaps
 inoremap jj <ESC>
+nnoremap h  gh
 nnoremap j  gj
 nnoremap k  gk
+nnoremap l  gl
 nnoremap sh <C-w>h
 nnoremap sl <C-w>l
 nnoremap sH <C-w>H
