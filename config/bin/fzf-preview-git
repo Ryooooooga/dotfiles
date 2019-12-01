@@ -6,13 +6,13 @@ elif [ ! -d "$1/.git" ]; then
     echo "$1 is not a git directory"
     return 1
 elif [ -f "$1/README.md" ]; then
-    cd "$1"
+    cd "$1" || return 1
     fzf-preview-file "README.md"
 elif [ -f "$1/README" ]; then
-    cd "$1"
+    cd "$1" || return 1
     fzf-preview-file "README"
 else
-    cd "$1"
+    cd "$1" || return 1
     git graph --color -n50
 fi
 
