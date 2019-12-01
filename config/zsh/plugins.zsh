@@ -226,6 +226,6 @@ fi
 path=($XDG_CONFIG_HOME/bin(N-/) $path[@])
 
 ### local ###
-if [ -f $ZDOTDIR/.zshrc.local ]; then
-    source $ZDOTDIR/.zshrc.local
+if [ -f $ZDOTDIR/zshrc.local ]; then
+    source $ZDOTDIR/zshrc.local
 fi
