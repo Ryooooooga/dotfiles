@@ -6,6 +6,9 @@ os:
   windows:
     background: 33
 
+user:
+  background: 8
+
 git_user:
   background: 75
 
