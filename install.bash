@@ -9,6 +9,7 @@ function clone() {
         git clone "$repo" "$dest"
     else
         echo "$dest is already exists..."
+        git -C "$dest" pull
     fi
 }
 
@@ -27,6 +28,9 @@ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh |
 
 # asdf-vm
 clone https://github.com/asdf-vm/asdf "$XDG_DATA_HOME/asdf"
+
+# fzf
+clone https://github.com/junegunn/fzf "$XDG_DATA_HOME/fzf" && make -C "$XDG_DATA_HOME/fzf"
 
 # mac
 if [ "$(uname)" = "Darwin" ]; then

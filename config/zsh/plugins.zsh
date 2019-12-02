@@ -93,6 +93,7 @@ fi
 
 ### fzf ###
 export FZF_DEFAULT_OPTS="--reverse --exit-0 --border --ansi"
+path=($XDG_DATA_HOME/fzf/bin(N-/) $path[@])
 
 ### Docker ###
 alias dock-clean='docker rm $(docker ps -aqf status=exited)'
