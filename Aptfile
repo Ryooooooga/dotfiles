@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+apt-get update && apt-get upgrade &&
+apt-get install \
+    zsh \
+    git \
+    neovim \
+    tmux \
+    wget \
+    unzip \
+    zip \
+    colordiff \
+    gpg
