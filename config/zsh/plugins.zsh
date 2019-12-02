@@ -182,6 +182,7 @@ bindkey '^[[3~' delete-char # DELETE
 
 ### Go ###
 export GOPATH="$XDG_DATA_HOME/go"
+path=($GOPATH/bin(N-/) $path[@])
 
 ### direnv ###
 if (( ${+commands[direnv]} )); then
