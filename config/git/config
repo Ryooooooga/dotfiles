@@ -58,6 +58,13 @@
     diffstgd = diff --staged
     dfst = diff --staged
 
+    # browse
+    browse = !hub browse
+    browse-issues = !hub browse -- issues
+    browse-pr = !hub browse -- pulls
+    browse-releases = !hub browse -- releases
+    browse-actions = !hub browse -- actions
+
 [user]
     name = Ryooooooga
     email = ryoga_314@yahoo.co.jp
