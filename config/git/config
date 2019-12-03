@@ -39,6 +39,10 @@
     program = gpg
 [tag]
     forceSignAnnotated = false
+[url "git@github.com:"]
+    pushInsteadOf = https://github.com/
+[url "git@gist.github.com:"]
+    pushInsteadOf = https://gist.github.com/Ryooooooga/
 [ghq]
     root = ~/Workspace
 [users]
