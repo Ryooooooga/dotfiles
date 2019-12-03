@@ -10,27 +10,54 @@
 [fetch]
     prune = true
 [alias]
+    # add
     a = add -v
     aa = add -vA
     ai = add -i
+
+    # config
     aliases = config --get-regexp '^alias.*'
+    users = config --get-regexp '^users.*'
+
+    # rev-parse
+    dir = rev-parse --show-toplevel
+
+    # branch
     b = branch
+
+    # commit
     c = commit
     cm = commit -m
+
+    # checkout
     co = !echo 'use `switch` or `restore` instead of co (checkout)' && false
+    sw = switch
+
+    # tag
+    tags = tag -l
+
+    # fetch
     f = fetch
     fu = fetch upstream
+
+    # log
     graph = log --graph --date=short --decorate=full
+
+    # push
     ps = push
     psu = !git push -u origin `git symbolic-ref --short HEAD`
+
+    # pull
     pl = pull
+
+    # status
     s = status
+
+    # diff
     df = diff
     diffstgd = diff --staged
     dfst = diff --staged
-    users = config --get-regexp '^users.*'
-    sw = switch
-    dir = rev-parse --show-toplevel
+
 [user]
     name = Ryooooooga
     email = ryoga_314@yahoo.co.jp
