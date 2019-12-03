@@ -55,6 +55,7 @@ case $OSTYPE in
         (( ${+commands[ghead]} )) && alias head='ghead'
         (( ${+commands[gtail]} )) && alias tail='gtail'
         (( ${+commands[gsed]} )) && alias sed='gsed'
+        (( ${+commands[ggrep]} )) && alias grep='ggrep'
     ;;
 esac
 
