@@ -1,44 +1,45 @@
 [core]
-	autocrlf = false
+    autocrlf = false
 [commit]
-	verbose = true
-	gpgSign = false
+    verbose = true
+    gpgSign = false
 [merge]
-	ff = false
+    ff = false
 [pull]
-	ff = only
+    ff = only
 [alias]
-	a = add -v
-	aa = add -vA
-	ai = add -i
-	aliases = "config --get-regexp '^alias.*'"
-	b = branch
-	c = commit
-	cm = commit -m
-	co = "!echo 'use `switch` or `restore` instead of co (checkout)'" && false
-	f = fetch
-	fu = fetch upstream
-	graph = log --graph --date=short --decorate=full
-	ps = push
-	psu = !git push -u origin `git symbolic-ref --short HEAD`
-	pl = pull
-	s = status
-	df = diff
-	diffstgd = diff --staged
-	dfst = diff --staged
-	users = "config --get-regexp '^users.*'"
-	sw = switch
+    a = add -v
+    aa = add -vA
+    ai = add -i
+    aliases = config --get-regexp '^alias.*'
+    b = branch
+    c = commit
+    cm = commit -m
+    co = !echo 'use `switch` or `restore` instead of co (checkout)' && false
+    f = fetch
+    fu = fetch upstream
+    graph = log --graph --date=short --decorate=full
+    ps = push
+    psu = !git push -u origin `git symbolic-ref --short HEAD`
+    pl = pull
+    s = status
+    df = diff
+    diffstgd = diff --staged
+    dfst = diff --staged
+    users = config --get-regexp '^users.*'
+    sw = switch
+    dir = rev-parse --show-toplevel
 [user]
-	name = Ryooooooga
-	email = ryoga_314@yahoo.co.jp
-	signingKey = ""
+    name = Ryooooooga
+    email = ryoga_314@yahoo.co.jp
+    signingKey = ""
 [gpg]
-	program = gpg
+    program = gpg
 [tag]
-	forceSignAnnotated = false
+    forceSignAnnotated = false
 [ghq]
-	root = ~/Workspace
+    root = ~/Workspace
 [users]
-	ryoga = Ryooooooga:ryoga_314@yahoo.co.jp
+    ryoga = Ryooooooga:ryoga_314@yahoo.co.jp
 [include]
-	path = config.local
+    path = config.local
