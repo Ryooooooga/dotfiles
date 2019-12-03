@@ -87,7 +87,7 @@ alias cmakerel='cmake -DCMAKE_BUILD_TYPE=Release'
 alias gdb='gdb -q -nh -x "$XDG_CONFIG_HOME/gdb/init"'
 
 ### Tmux ###
-alias tmux='tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf'
+alias tmux='tmux -f "$XDG_CONFIG_HOME/tmux/tmux.conf"'
 
 ### ls/exa ###
 if (( ${+commands[exa]} )) then
@@ -127,7 +127,7 @@ mkcd () {
     mkdir -p $1 && cd $1
 }
 
-### vim ###
+### Vim ###
 export EDITOR="vi"
 (( ${+commands[vim]} )) && export EDITOR="vim"
 (( ${+commands[nvim]} )) && export EDITOR="nvim"
