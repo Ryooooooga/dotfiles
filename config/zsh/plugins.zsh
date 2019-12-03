@@ -33,8 +33,13 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 ### aliases ###
 case $OSTYPE in
     linux*)
-        alias pbcopy='xsel -bi'
-        alias pbpaste='xsel -b'
+        if (( ${+commands[win32yank.exe]} )); then
+            alias pbcopy='win32yank.exe -i'
+            alias pbpaste='win32yank.exe -o'
+        elif (( ${+commands[xsel]} )); then
+            alias pbcopy='xsel -bi'
+            alias pbpaste='xsel -b'
+        fi
     ;;
     msys)
         alias cmake='command cmake -G"Unix Makefiles"'
