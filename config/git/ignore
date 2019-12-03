@@ -1,3 +1,11 @@
+### direnv ###
 .envrc
+
+### macOS ###
 .DS_Store
+
+### Vim ###
 .*.swp
+
+### GDB ###
+.gdb_history
