@@ -9,3 +9,6 @@
 
 ### GDB ###
 .gdb_history
+
+### Ruby ###
+.irb_history
