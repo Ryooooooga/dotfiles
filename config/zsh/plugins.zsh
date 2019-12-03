@@ -211,6 +211,9 @@ if [ -e "$ASDF_DATA_DIR" ]; then
     source $ASDF_DATA_DIR/completions/asdf.bash
 fi
 
+### Node.js ###
+export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
+
 ### npm ###
 export NPM_CONFIG_DIR="$XDG_CONFIG_HOME/npm"
 export NPM_DATA_DIR="$XDG_DATA_HOME/npm"
