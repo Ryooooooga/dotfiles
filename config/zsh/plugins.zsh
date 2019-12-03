@@ -66,6 +66,12 @@ alias ....='cd ../../..'
 (( ${+commands[trash]} )) && alias rm='trash'
 (( ${+commands[colordiff]} )) && alias diff='colordiff'
 
+### Git ###
+alias g='git'
+
+### lazygit ###
+(( ${+commands[lazygit]} )) && alias lg='lazygit'
+
 ### wget ###
 export WGET_DATA_DIR="$XDG_DATA_HOME/wget"
 alias wget='wget --hsts-file "$WGET_DATA_DIR/wget-hists"'
