@@ -1,3 +1,4 @@
+brew "bash"
 brew "bat"
 brew "colordiff"
 brew "coreutils"
