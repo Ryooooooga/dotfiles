@@ -30,7 +30,7 @@ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh |
 clone https://github.com/asdf-vm/asdf "$XDG_DATA_HOME/asdf"
 
 # fzf
-clone https://github.com/junegunn/fzf "$XDG_DATA_HOME/fzf" && make -C "$XDG_DATA_HOME/fzf"
+clone https://github.com/junegunn/fzf "$XDG_DATA_HOME/fzf" && (command -v go > /dev/null) && make -C "$XDG_DATA_HOME/fzf"
 
 # mac
 if [ "$(uname)" = "Darwin" ]; then
