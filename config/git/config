@@ -41,6 +41,7 @@
     fu = fetch upstream
 
     # log
+    lg = log
     graph = log --graph --date=short --decorate=full
 
     # push
@@ -56,7 +57,7 @@
     # diff
     df = diff
     diffstgd = diff --staged
-    dfst = diff --staged
+    dfst = diffstgd
 
     # browse
     browse = !hub browse
