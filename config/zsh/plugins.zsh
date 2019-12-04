@@ -69,6 +69,19 @@ alias ....='cd ../../..'
 ### Git ###
 alias g='git'
 
+### fzf ###
+export FZF_DEFAULT_OPTS="--reverse --exit-0 --border --ansi"
+path=($XDG_DATA_HOME/fzf/bin(N-/) $path[@])
+
+### emojify ###
+path=($XDG_DATA_HOME/emojify/bin(N-/) $path[@])
+
+### forgit ###
+export FORGIT_GI_REPO_LOCAL="$XDG_DATA_HOME/gitignore"
+export FORGIT_NO_ALIASES=1
+
+[ -f "$XDG_DATA_HOME/forgit/forgit.plugin.zsh" ] && source "$XDG_DATA_HOME/forgit/forgit.plugin.zsh"
+
 ### lazygit ###
 (( ${+commands[lazygit]} )) && alias lg='lazygit'
 
@@ -102,10 +115,6 @@ else
     alias la='ls -a'
     alias lla='ls -al'
 fi
-
-### fzf ###
-export FZF_DEFAULT_OPTS="--reverse --exit-0 --border --ansi"
-path=($XDG_DATA_HOME/fzf/bin(N-/) $path[@])
 
 ### Docker ###
 alias dock-clean='docker rm $(docker ps -aqf status=exited)'
