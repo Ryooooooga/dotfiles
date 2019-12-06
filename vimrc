@@ -30,6 +30,7 @@ set hidden
 
 " keymaps
 inoremap jj <ESC>
+nnoremap ; :
 nnoremap h gh
 nnoremap j gj
 nnoremap k gk
