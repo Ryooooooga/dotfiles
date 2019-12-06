@@ -37,17 +37,14 @@ github asdf-vm/asdf "$XDG_DATA_HOME/asdf"
 github junegunn/fzf "$XDG_DATA_HOME/fzf" && (command -v go > /dev/null) && make -C "$XDG_DATA_HOME/fzf"
 
 # emojify
-mkdir -p "$XDG_DATA_HOME/emojify/bin"
-curl 'https://raw.githubusercontent.com/mrowa44/emojify/master/emojify' > "$XDG_DATA_HOME/emojify/bin/emojify"
+curl 'https://raw.githubusercontent.com/mrowa44/emojify/master/emojify' -o "$XDG_DATA_HOME/emojify/bin/emojify" --create-dirs
 chmod +x "$XDG_DATA_HOME/emojify/bin/emojify"
 
 # forgit
-mkdir -p "$XDG_DATA_HOME/forgit"
-curl 'https://raw.githubusercontent.com/wfxr/forgit/master/forgit.plugin.zsh' > "$XDG_DATA_HOME/forgit/forgit.plugin.zsh"
+curl 'https://raw.githubusercontent.com/wfxr/forgit/master/forgit.plugin.zsh' -o "$XDG_DATA_HOME/forgit/forgit.plugin.zsh" --create-dirs
 
 # gdb-dashboard
-mkdir -p "$XDG_CONFIG_HOME/gdb"
-curl 'https://raw.githubusercontent.com/cyrus-and/gdb-dashboard/master/.gdbinit' > "$XDG_CONFIG_HOME/gdb/init"
+curl 'https://raw.githubusercontent.com/cyrus-and/gdb-dashboard/master/.gdbinit' -o "$XDG_CONFIG_HOME/gdb/init" --create-dirs
 
 # mac
 if [ "$(uname)" = "Darwin" ]; then
