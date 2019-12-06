@@ -1,0 +1,23 @@
+#!/usr/bin/env python3
+def cell(c):
+    print("\x1b[48;5;{0}m {0:3} ".format(c), end="")
+
+for i in range(2):
+    for j in range(8):
+        cell(i * 8 + j)
+    print("\x1b[0m")
+print("")
+
+for i in range(2):
+    for j in range(6):
+        for k in range(3):
+            for l in range(6):
+                cell(16 + i * 108 + j * 6 + k * 36 + l)
+            print("\x1b[0m  ", end="")
+        print("")
+    print("")
+
+for i in range(2):
+    for j in range(12):
+        cell(232 + i * 12 + j)
+    print("\x1b[0m")
