@@ -7,7 +7,6 @@ set title
 set number
 set tabstop=4
 set shiftwidth=4
-"set smartindent
 set cursorline
 set mouse=a
 set showmatch
@@ -35,3 +34,13 @@ nnoremap h gh
 nnoremap j gj
 nnoremap k gk
 nnoremap l gl
+nnoremap sh <C-w>h
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sH <C-w>H
+nnoremap sJ <C-w>J
+nnoremap sK <C-w>K
+nnoremap sL <C-w>L
+nnoremap <C-\> :vsplit<CR>
+nnoremap <C-_> :split<CR>
