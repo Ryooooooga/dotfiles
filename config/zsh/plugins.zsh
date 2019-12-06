@@ -11,6 +11,7 @@ zplugin ice silent wait"0"; zplugin light zsh-users/zsh-autosuggestions
 zplugin ice silent wait"0"; zplugin light zsh-users/zsh-completions
 zplugin ice silent from"gh-r" as"program" wait"0"; zplugin light junegunn/fzf-bin
 zplugin ice silent from"gh-r" as"program" mv"direnv* -> direnv" wait"0"; zplugin light direnv/direnv
+zplugin ice silent as"program" wait"0"; zplugin light mrowa44/emojify
 
 ### locale ###
 export LANG="en_US.UTF-8"
@@ -73,9 +74,6 @@ alias g='git'
 
 ### fzf ###
 export FZF_DEFAULT_OPTS="--reverse --exit-0 --border --ansi"
-
-### emojify ###
-path=($XDG_DATA_HOME/emojify/bin(N-/) $path[@])
 
 ### forgit ###
 export FORGIT_GI_REPO_LOCAL="$XDG_DATA_HOME/gitignore"

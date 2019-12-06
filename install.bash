@@ -33,10 +33,6 @@ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh |
 # asdf-vm
 github asdf-vm/asdf "$XDG_DATA_HOME/asdf"
 
-# emojify
-curl 'https://raw.githubusercontent.com/mrowa44/emojify/master/emojify' -o "$XDG_DATA_HOME/emojify/bin/emojify" --create-dirs
-chmod +x "$XDG_DATA_HOME/emojify/bin/emojify"
-
 # forgit
 curl 'https://raw.githubusercontent.com/wfxr/forgit/master/forgit.plugin.zsh' -o "$XDG_DATA_HOME/forgit/forgit.plugin.zsh" --create-dirs
 
