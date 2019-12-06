@@ -41,6 +41,10 @@ chmod +x "$XDG_DATA_HOME/emojify/bin/emojify"
 mkdir -p "$XDG_DATA_HOME/forgit"
 curl 'https://raw.githubusercontent.com/wfxr/forgit/master/forgit.plugin.zsh' > "$XDG_DATA_HOME/forgit/forgit.plugin.zsh"
 
+# gdb-dashboard
+mkdir -p "$XDG_CONFIG_HOME/gdb"
+curl 'https://raw.githubusercontent.com/cyrus-and/gdb-dashboard/master/.gdbinit' > "$XDG_CONFIG_HOME/gdb/init"
+
 # mac
 if [ "$(uname)" = "Darwin" ]; then
     defaults write org.hammerspoon.Hammerspoon MJConfigFile "$XDG_CONFIG_HOME/hammerspoon/init.lua"

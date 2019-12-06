@@ -11,7 +11,6 @@ ln -sf "$PWD/config/git"       ~/.config/
 ln -sf "$PWD/config/tmux"      ~/.config/
 ln -sf "$PWD/config/almel"     ~/.config/
 ln -sf "$PWD/config/npm"       ~/.config/
-ln -sf "$PWD/config/gdb"       ~/.config/
 ln -sf "$PWD/config/alacritty" ~/.config/
 ln -sf "$PWD/config/bin"       ~/.config/
 
