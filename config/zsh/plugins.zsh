@@ -150,7 +150,7 @@ vim() {
         local selected="$(fd --hidden --color=always --exclude='.git' --type=f  | fzf --multi --preview "fzf-preview-file '{}'" --preview-window=right:60%)"
         [ -n "$selected" ] && command "$EDITOR" ${(f)selected}
     else
-        command "$EDITOR" $@
+        command "$EDITOR" "$@"
     fi
 }
 

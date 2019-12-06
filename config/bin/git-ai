@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 if [ -f "$XDG_DATA_HOME/forgit/forgit.plugin.zsh" ]; then
     source "$XDG_DATA_HOME/forgit/forgit.plugin.zsh"
-    forgit::add $*
+    forgit::add "$@"
 else
-    git add -i $*
+    git add -i "$@"
 fi

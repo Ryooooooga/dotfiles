@@ -3,9 +3,9 @@ if [ "$#" -ne 1 ]; then
     echo "$0 <directory>"
     return 1
 elif (( ${+commands[exa]} )); then
-    exa -T -L3 --color=always $@
+    exa -T -L3 --color=always "$@"
 elif (( ${+commands[tree]} )); then
-    tree -L3 $@
+    tree -L3 "$@"
 else
-    ls $@
+    ls "$@"
 fi
