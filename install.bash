@@ -33,9 +33,6 @@ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh |
 # asdf-vm
 github asdf-vm/asdf "$XDG_DATA_HOME/asdf"
 
-# fzf
-github junegunn/fzf "$XDG_DATA_HOME/fzf" && (command -v go > /dev/null) && make -C "$XDG_DATA_HOME/fzf"
-
 # emojify
 curl 'https://raw.githubusercontent.com/mrowa44/emojify/master/emojify' -o "$XDG_DATA_HOME/emojify/bin/emojify" --create-dirs
 chmod +x "$XDG_DATA_HOME/emojify/bin/emojify"
