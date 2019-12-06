@@ -10,8 +10,11 @@
 [fetch]
     prune = true
 [alias]
+    # init
+    init-repo = !git-init-repo
+
     # add
-    a = add -v
+    a = !git-a
     aa = add -vA
 
     # config
@@ -40,8 +43,8 @@
     fu = fetch upstream
 
     # log
-    lg = log
-    graph = log --graph --date=short --decorate=full
+    lg = !git-lg
+    graph = lg
 
     # push
     ps = push
@@ -54,8 +57,8 @@
     s = status
 
     # diff
-    df = diff
-    diffstgd = diff --staged
+    df = !git-df
+    diffstgd = df --staged
     dfst = diffstgd
 
     # sync
