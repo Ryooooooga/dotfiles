@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-function clone() {
+clone() {
     local repo
     local dest
     repo=$1
@@ -13,6 +13,10 @@ function clone() {
     fi
 }
 
+github() {
+    clone "https://github.com/$1" "$2"
+}
+
 cd "$(dirname "$0")" || return 1
 XDG_CONFIG_HOME="$HOME/.config"
 XDG_DATA_HOME="$HOME/.local/share"
@@ -21,16 +25,16 @@ XDG_DATA_HOME="$HOME/.local/share"
 ./symlink.bash
 
 # zplugin
-clone https://github.com/zdharma/zplugin "$XDG_DATA_HOME/zplugin/bin"
+github zdharma/zplugin "$XDG_DATA_HOME/zplugin/bin"
 
 # dein.vim
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh | sh -s "$XDG_DATA_HOME/dein"
 
 # asdf-vm
-clone https://github.com/asdf-vm/asdf "$XDG_DATA_HOME/asdf"
+github asdf-vm/asdf "$XDG_DATA_HOME/asdf"
 
 # fzf
-clone https://github.com/junegunn/fzf "$XDG_DATA_HOME/fzf" && (command -v go > /dev/null) && make -C "$XDG_DATA_HOME/fzf"
+github junegunn/fzf "$XDG_DATA_HOME/fzf" && (command -v go > /dev/null) && make -C "$XDG_DATA_HOME/fzf"
 
 # emojify
 mkdir -p "$XDG_DATA_HOME/emojify/bin"
