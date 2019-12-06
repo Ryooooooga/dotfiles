@@ -13,7 +13,6 @@
     # add
     a = add -v
     aa = add -vA
-    ai = add -i
 
     # config
     aliases = config --get-regexp '^alias.*'
