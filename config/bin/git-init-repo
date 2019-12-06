@@ -30,8 +30,8 @@ fi
 
 dir="$root/$host/$user/$repo"
 
-if [ -e "$repo" ]; then
-    echo "$repo already exists"
+if [ -e "$dir" ]; then
+    echo "$dir already exists"
     exit 1
 fi
 
