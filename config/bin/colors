@@ -2,22 +2,41 @@
 def cell(c):
     print("\x1b[48;5;{0}m {0:3} ".format(c), end="")
 
-for i in range(2):
-    for j in range(8):
-        cell(i * 8 + j)
-    print("\x1b[0m")
-print("")
+liness = [
+    [
+        [range(  0,   8)],
+        [range(  8,  16)],
+    ],
+    [
+        [range( 16,  22), range( 52,  58), range( 88,  94)],
+        [range( 22,  28), range( 58,  64), range( 94, 100)],
+        [range( 28,  34), range( 64,  70), range(100, 106)],
+        [range( 34,  40), range( 70,  76), range(106, 112)],
+        [range( 40,  46), range( 76,  82), range(112, 118)],
+        [range( 46,  52), range( 82,  88), range(118, 124)],
+    ],
+    [
+        [range(124, 130), range(160, 166), range(196, 202)],
+        [range(130, 136), range(166, 172), range(202, 208)],
+        [range(136, 142), range(172, 178), range(208, 214)],
+        [range(142, 148), range(178, 184), range(214, 220)],
+        [range(148, 154), range(184, 190), range(220, 226)],
+        [range(154, 160), range(190, 196), range(226, 232)],
+    ],
+    [
+        [range(232, 244)],
+        [range(244, 256)],
+    ],
+]
 
-for i in range(2):
-    for j in range(6):
-        for k in range(3):
-            for l in range(6):
-                cell(16 + i * 108 + j * 6 + k * 36 + l)
-            print("\x1b[0m  ", end="")
-        print("")
-    print("")
-
-for i in range(2):
-    for j in range(12):
-        cell(232 + i * 12 + j)
-    print("\x1b[0m")
+for lines in liness:
+    for line in lines:
+        for j in range(2):
+            for i, col in enumerate(line):
+                if i:
+                    print('  ', end='')
+                for c in col:
+                    print('\x1b[48;5;{}m{:4}'.format(c, c if j else ''), end='')
+                print('\x1b[m', end='')
+            print('')
+    print('')
