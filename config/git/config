@@ -59,6 +59,9 @@
     diffstgd = diff --staged
     dfst = diffstgd
 
+    # sync
+    sync = !hub sync
+
     # browse
     browse = !hub browse
     browse-issues = !hub browse -- issues
