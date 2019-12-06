@@ -9,6 +9,7 @@ zplugin ice silent wait"0"; zplugin light zsh-users/zsh-syntax-highlighting
 zplugin ice silent wait"0"; zplugin light zsh-users/zsh-history-substring-search
 zplugin ice silent wait"0"; zplugin light zsh-users/zsh-autosuggestions
 zplugin ice silent wait"0"; zplugin light zsh-users/zsh-completions
+zplugin ice silent from"gh-r" as"program" mv"direnv.* -> direnv" wait"0"; zplugin light direnv/direnv
 
 ### locale ###
 export LANG="en_US.UTF-8"
