@@ -1,5 +1,5 @@
 ### autoloads ###
-autoload -Uz compinit && compinit -d "$ZSH_DATA_HOME/zcompdump"
+autoload -Uz compinit && compinit
 autoload -Uz cdr
 autoload -Uz chpwd_recent_dirs
 autoload -Uz _zplugin
@@ -12,7 +12,8 @@ zplugin ice silent wait"0"; zplugin light zsh-users/zsh-completions
 zplugin ice silent from"gh-r" as"program" wait"0"; zplugin light junegunn/fzf-bin
 zplugin ice silent from"gh-r" as"program" mv"direnv* -> direnv" wait"0"; zplugin light direnv/direnv
 zplugin ice silent from"gh-r" as"program" mv"fd*/fd -> fd" wait"0"; zplugin light sharkdp/fd
-zplugin ice silent as"program" wait"0"; zplugin light mrowa44/emojify
+zplugin ice silent as"program" wait"0"; zplugin snippet 'https://raw.githubusercontent.com/mrowa44/emojify/master/emojify'
+zplugin ice silent wait"0"; zplugin snippet 'https://raw.githubusercontent.com/wfxr/forgit/master/forgit.plugin.zsh'
 
 ### locale ###
 export LANG="en_US.UTF-8"
@@ -209,14 +210,6 @@ path=($GOPATH/bin(N-/) $path[@])
 ### direnv ###
 if (( ${+commands[direnv]} )); then
     eval "$(direnv hook zsh)"
-fi
-
-### anyenv ###
-export ANYENV_ROOT="$XDG_DATA_HOME/anyenv"
-
-if [ -e "$ANYENV_ROOT" ]; then
-    path=($ANYENV_ROOT/bin(N-/) $path[@])
-    eval "$(anyenv init - zsh)"
 fi
 
 ### asdf-vm ###
