@@ -106,10 +106,10 @@ alias tmux='tmux -f "$XDG_CONFIG_HOME/tmux/tmux.conf"'
 ### ls/exa ###
 if (( ${+commands[exa]} )) then
     alias ls='exa'
-    alias ll='exa -l --git'
+    alias ll='exa -l --git --icons'
     alias la='exa -a'
-    alias lla='exa -al --git'
-    alias tree='exa -T'
+    alias lla='exa -al --git --icons'
+    alias tree='exa -T --icons'
 else
     alias ls='ls --color=auto'
     alias ll='ls -l'
