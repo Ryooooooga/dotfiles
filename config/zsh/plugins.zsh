@@ -203,7 +203,7 @@ bindkey -r '^[' # disable vi-cmd-mode
 bindkey '^R'    select_history      # C-r
 bindkey '^F'    select_cdr          # C-f
 bindkey '^G'    select_ghq          # C-g
-bindkey '^P'    select_dir          # C-p
+bindkey '^O'    select_dir          # C-o
 bindkey '^A'    beginning-of-line   # C-a
 bindkey '^E'    end-of-line         # C-e
 bindkey '^[[3~' delete-char         # DELETE
