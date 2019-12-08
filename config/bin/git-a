@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 if [ "$#" -ne 0 ]; then
     git add -v "$@"
-elif [ -f "$XDG_DATA_HOME/forgit/forgit.plugin.zsh" ]; then
-    source "$XDG_DATA_HOME/forgit/forgit.plugin.zsh"
+elif [ -f "$FORGIT_PLUGIN_ZSH" ]; then
+    source "$FORGIT_PLUGIN_ZSH"
     forgit::add
 else
     git add -i

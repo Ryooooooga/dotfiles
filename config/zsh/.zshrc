@@ -1,7 +1,7 @@
 ### zplugin ###
 typeset -gAH ZPLGM
 export ZPLGM[HOME_DIR]="$XDG_DATA_HOME/zplugin"
-source "$XDG_DATA_HOME/zplugin/bin/zplugin.zsh"
+source "${ZPLGM[HOME_DIR]}/bin/zplugin.zsh"
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 
 ### zsh ###

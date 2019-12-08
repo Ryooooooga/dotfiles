@@ -15,7 +15,7 @@ zplugin ice silent from"gh-r" as"program" mv"bat*/bat -> bat" wait"0"; zplugin l
 zplugin ice silent from"gh-r" as"program" mv"fd*/fd -> fd" wait"0"; zplugin light sharkdp/fd
 zplugin ice silent from"gh-r" as"program" mv"ghq*/ghq -> ghq" wait"0"; zplugin light motemen/ghq
 zplugin ice silent as"program" wait"0"; zplugin snippet 'https://raw.githubusercontent.com/mrowa44/emojify/master/emojify'
-zplugin ice silent wait"0"; zplugin snippet 'https://raw.githubusercontent.com/wfxr/forgit/master/forgit.plugin.zsh'
+zplugin ice silent wait"0"; zplugin light wfxr/forgit
 
 ### locale ###
 export LANG="en_US.UTF-8"
@@ -80,10 +80,9 @@ alias g='git'
 export FZF_DEFAULT_OPTS="--reverse --exit-0 --border --ansi"
 
 ### forgit ###
+export FORGIT_PLUGIN_ZSH="${ZPLGM[PLUGINS_DIR]}/wfxr---forgit/forgit.plugin.zsh"
 export FORGIT_GI_REPO_LOCAL="$XDG_DATA_HOME/gitignore"
 export FORGIT_NO_ALIASES=1
-
-[ -f "$XDG_DATA_HOME/forgit/forgit.plugin.zsh" ] && source "$XDG_DATA_HOME/forgit/forgit.plugin.zsh"
 
 ### lazygit ###
 (( ${+commands[lazygit]} )) && alias lg='lazygit'

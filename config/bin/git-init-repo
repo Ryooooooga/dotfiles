@@ -13,7 +13,7 @@ else
     exit 1
 fi
 
-root="${root:-"$(ghq root || echo -n "$HOME/.ghq")"}"
+root="${root:-"$(ghq root || git config --global ghq.root || echo -n "$HOME/.ghq")"}"
 host="${host:-"$(git config --global init-repo.defaultHost || echo -n "github.com")"}"
 user="${user:-"$(git config --global user.name)"}"
 

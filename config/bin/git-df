@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-if [ -f "$XDG_DATA_HOME/forgit/forgit.plugin.zsh" ]; then
-    source "$XDG_DATA_HOME/forgit/forgit.plugin.zsh"
+if [ -f "$FORGIT_PLUGIN_ZSH" ]; then
+    source "$FORGIT_PLUGIN_ZSH"
     forgit::diff "$@"
 else
     git diff "$@"
