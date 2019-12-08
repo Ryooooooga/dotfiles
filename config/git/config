@@ -71,6 +71,9 @@
     browse-releases = !hub browse -- releases
     browse-actions = !hub browse -- actions
 
+    # ghq
+    get = !ghq get
+
 [user]
     name = Ryooooooga
     email = ryoga_314@yahoo.co.jp
