@@ -6,7 +6,6 @@ autoload -Uz _zplugin
 
 ### plugins ###
 zplugin ice silent wait"0"; zplugin light zsh-users/zsh-syntax-highlighting
-zplugin ice silent wait"0"; zplugin light zsh-users/zsh-history-substring-search
 zplugin ice silent wait"0"; zplugin light zsh-users/zsh-autosuggestions
 zplugin ice silent wait"0"; zplugin light zsh-users/zsh-completions
 zplugin ice silent from"gh-r" as"program" wait"0"; zplugin light junegunn/fzf-bin
