@@ -6,6 +6,7 @@ autoload -Uz _zplugin
 
 ### plugins ###
 zplugin ice silent wait"0"; zplugin light 'zsh-users/zsh-syntax-highlighting'
+zplugin ice silent wait"0"; zplugin light 'zsh-users/zsh-history-substring-search'
 zplugin ice silent wait"0"; zplugin light 'zsh-users/zsh-autosuggestions'
 zplugin ice silent wait"0"; zplugin light 'zsh-users/zsh-completions'
 zplugin ice silent wait"0" as"program" from"gh-r"; zplugin light 'junegunn/fzf-bin'
@@ -204,6 +205,8 @@ bindkey '^P' select_dir # C-p
 bindkey '^[[3~' delete-char # DELETE
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 ### Go ###
 export GOPATH="$XDG_DATA_HOME/go"
