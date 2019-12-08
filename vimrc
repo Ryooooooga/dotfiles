@@ -16,6 +16,8 @@ set whichwrap=b,s,h,l,<,>,[,],~
 set smarttab
 set shiftround
 set autoread
+set smartcase
+set ignorecase
 
 " whitespaces
 set list

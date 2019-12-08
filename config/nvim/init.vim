@@ -14,6 +14,8 @@ set laststatus=2
 set incsearch
 set whichwrap=b,s,h,l,<,>,[,],~
 set smarttab
+set smartcase
+set ignorecase
 set shiftround
 set hidden
 set autoread
