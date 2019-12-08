@@ -5,16 +5,16 @@ autoload -Uz chpwd_recent_dirs
 autoload -Uz _zplugin
 
 ### plugins ###
-zplugin ice silent wait"0"; zplugin light zsh-users/zsh-syntax-highlighting
-zplugin ice silent wait"0"; zplugin light zsh-users/zsh-autosuggestions
-zplugin ice silent wait"0"; zplugin light zsh-users/zsh-completions
-zplugin ice silent from"gh-r" as"program" wait"0"; zplugin light junegunn/fzf-bin
-zplugin ice silent from"gh-r" as"program" mv"direnv* -> direnv" wait"0"; zplugin light direnv/direnv
-zplugin ice silent from"gh-r" as"program" mv"bat*/bat -> bat" wait"0"; zplugin light sharkdp/bat
-zplugin ice silent from"gh-r" as"program" mv"fd*/fd -> fd" wait"0"; zplugin light sharkdp/fd
-zplugin ice silent from"gh-r" as"program" mv"ghq*/ghq -> ghq" wait"0"; zplugin light motemen/ghq
-zplugin ice silent as"program" wait"0"; zplugin snippet 'https://raw.githubusercontent.com/mrowa44/emojify/master/emojify'
-zplugin ice silent wait"0"; zplugin light wfxr/forgit
+zplugin ice silent wait"0"; zplugin light 'zsh-users/zsh-syntax-highlighting'
+zplugin ice silent wait"0"; zplugin light 'zsh-users/zsh-autosuggestions'
+zplugin ice silent wait"0"; zplugin light 'zsh-users/zsh-completions'
+zplugin ice silent wait"0" as"program" from"gh-r"; zplugin light 'junegunn/fzf-bin'
+zplugin ice silent wait"0" as"program" from"gh-r" mv"direnv* -> direnv" atload'eval "$(direnv hook zsh)"'; zplugin light 'direnv/direnv'
+zplugin ice silent wait"0" as"program" from"gh-r" mv"bat*/bat -> bat"; zplugin light 'sharkdp/bat'
+zplugin ice silent wait"0" as"program" from"gh-r" mv"fd*/fd -> fd"; zplugin light 'sharkdp/fd'
+zplugin ice silent wait"0" as"program" from"gh-r" mv"ghq*/ghq -> ghq"; zplugin light 'motemen/ghq'
+zplugin ice silent wait"0" as"program" atclone'rm *.{py,bats}' atpull'%atclone'; zplugin light 'mrowa44/emojify'
+zplugin ice silent wait"1"; zplugin light wfxr/forgit
 
 ### locale ###
 export LANG="en_US.UTF-8"
@@ -208,11 +208,6 @@ bindkey '^E' end-of-line
 ### Go ###
 export GOPATH="$XDG_DATA_HOME/go"
 path=($GOPATH/bin(N-/) $path[@])
-
-### direnv ###
-if (( ${+commands[direnv]} )); then
-    eval "$(direnv hook zsh)"
-fi
 
 ### asdf-vm ###
 export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"

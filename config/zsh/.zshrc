@@ -56,8 +56,8 @@ else
     agnoster_theme_color_status_bg=15
     agnoster_theme_color_git_user_bg=75
 
-    zplugin snippet OMZ::plugins/shrink-path/shrink-path.plugin.zsh
-    zplugin snippet "https://github.com/Ryooooooga/agnoster-zsh-theme/blob/master/agnoster.zsh-theme"
+    zplugin snippet 'OMZ::plugins/shrink-path/shrink-path.plugin.zsh'
+    zplugin snippet 'https://github.com/Ryooooooga/agnoster-zsh-theme/blob/master/agnoster.zsh-theme'
 fi
 
 ### plugins ###
