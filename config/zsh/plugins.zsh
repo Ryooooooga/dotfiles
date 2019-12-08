@@ -198,15 +198,16 @@ zle -N select_cdr
 zle -N select_ghq
 zle -N select_dir
 
-bindkey '^R' select_history # C-r
-bindkey '^F' select_cdr # C-f
-bindkey '^G' select_ghq # C-g
-bindkey '^P' select_dir # C-p
-bindkey '^[[3~' delete-char # DELETE
-bindkey '^A' beginning-of-line
-bindkey '^E' end-of-line
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
+bindkey -r '^[' # disable vi-cmd-mode
+bindkey '^R'    select_history      # C-r
+bindkey '^F'    select_cdr          # C-f
+bindkey '^G'    select_ghq          # C-g
+bindkey '^P'    select_dir          # C-p
+bindkey '^A'    beginning-of-line   # C-a
+bindkey '^E'    end-of-line         # C-e
+bindkey '^[[3~' delete-char         # DELETE
+bindkey '^[[A'  history-substring-search-up   # arrow-up
+bindkey '^[[B'  history-substring-search-down # arrow-down
 
 ### Go ###
 export GOPATH="$XDG_DATA_HOME/go"
