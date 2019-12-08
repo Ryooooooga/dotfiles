@@ -23,7 +23,7 @@ set list
 
 " dein.vim
 set runtimepath+=$XDG_DATA_HOME/dein/repos/github.com/Shougo/dein.vim
-set runtimepath+=$XDG_DATA_HOME/fzf
+set runtimepath+=$XDG_DATA_HOME/dein/repos/github.com/junegunn/fzf
 
 if dein#load_state($XDG_DATA_HOME . '/dein')
     call dein#begin($XDG_DATA_HOME . '/dein')
