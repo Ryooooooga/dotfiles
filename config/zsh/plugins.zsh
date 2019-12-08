@@ -203,6 +203,8 @@ bindkey '^F' select_cdr # C-f
 bindkey '^G' select_ghq # C-g
 bindkey '^P' select_dir # C-p
 bindkey '^[[3~' delete-char # DELETE
+bindkey '^A' beginning-of-line
+bindkey '^E' end-of-line
 
 ### Go ###
 export GOPATH="$XDG_DATA_HOME/go"
