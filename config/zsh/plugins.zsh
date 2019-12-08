@@ -11,6 +11,7 @@ zplugin ice silent wait"0"; zplugin light zsh-users/zsh-autosuggestions
 zplugin ice silent wait"0"; zplugin light zsh-users/zsh-completions
 zplugin ice silent from"gh-r" as"program" wait"0"; zplugin light junegunn/fzf-bin
 zplugin ice silent from"gh-r" as"program" mv"direnv* -> direnv" wait"0"; zplugin light direnv/direnv
+zplugin ice silent from"gh-r" as"program" mv"bat*/bat -> bat" wait"0"; zplugin light sharkdp/bat
 zplugin ice silent from"gh-r" as"program" mv"fd*/fd -> fd" wait"0"; zplugin light sharkdp/fd
 zplugin ice silent as"program" wait"0"; zplugin snippet 'https://raw.githubusercontent.com/mrowa44/emojify/master/emojify'
 zplugin ice silent wait"0"; zplugin snippet 'https://raw.githubusercontent.com/wfxr/forgit/master/forgit.plugin.zsh'
