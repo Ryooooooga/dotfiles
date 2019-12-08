@@ -93,11 +93,13 @@ nnoremap sH <C-w>H
 nnoremap sJ <C-w>J
 nnoremap sK <C-w>K
 nnoremap sL <C-w>L
-nnoremap <C-\> :vsplit<CR>
-nnoremap <C-_> :split<CR>
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
+nnoremap <silent><C-a> ^
+nnoremap <silent><C-e> $
+nnoremap <silent><C-\> :vsplit<CR>
+nnoremap <silent><C-_> :split<CR>
+nnoremap <silent><C-o> :NERDTreeToggle<CR>
 nnoremap <silent><C-h> :bprev<CR>
 nnoremap <silent><C-l> :bnext<CR>
 nnoremap <silent><C-w> :bdelete<CR>
 nnoremap //            :BLine<CR>
-nnoremap <silent><C-o> :Files<CR>
+nnoremap <silent><C-p> :Files<CR>

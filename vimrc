@@ -45,5 +45,7 @@ nnoremap sH <C-w>H
 nnoremap sJ <C-w>J
 nnoremap sK <C-w>K
 nnoremap sL <C-w>L
-nnoremap <C-\> :vsplit<CR>
-nnoremap <C-_> :split<CR>
+nnoremap <silent><C-a> ^
+nnoremap <silent><C-e> $
+nnoremap <silent><C-\> :vsplit<CR>
+nnoremap <silent><C-_> :split<CR>
