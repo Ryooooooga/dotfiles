@@ -5,10 +5,10 @@ autoload -Uz chpwd_recent_dirs
 autoload -Uz _zplugin
 
 ### plugins ###
-zplugin ice silent wait"0"; zplugin light 'zsh-users/zsh-syntax-highlighting'
 zplugin ice silent wait"0"; zplugin light 'zsh-users/zsh-history-substring-search'
 zplugin ice silent wait"0"; zplugin light 'zsh-users/zsh-autosuggestions'
 zplugin ice silent wait"0"; zplugin light 'zsh-users/zsh-completions'
+zplugin ice silent wait"0"; zplugin light 'zdharma/fast-syntax-highlighting'
 zplugin ice silent wait"0" as"program" from"gh-r"; zplugin light 'junegunn/fzf-bin'
 zplugin ice silent wait"0" as"program" from"gh-r" mv"direnv* -> direnv" atload'eval "$(direnv hook zsh)"'; zplugin light 'direnv/direnv'
 zplugin ice silent wait"0" as"program" from"gh-r" mv"bat*/bat -> bat"; zplugin light 'sharkdp/bat'
