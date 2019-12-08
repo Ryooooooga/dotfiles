@@ -141,14 +141,12 @@ mkcd () {
 
 ### Vim ###
 export EDITOR="vi"
-(( ${+commands[vim]} )) && export EDITOR="vim"
-(( ${+commands[nvim]} )) && export EDITOR="nvim"
+(( ${+commands[vim]} )) && EDITOR="vim"
+(( ${+commands[nvim]} )) && EDITOR="nvim"
 
 export GIT_EDITOR="$EDITOR"
 
-alias vi="vim"
-
-vim() {
+e() {
     if [ $# -eq 0 ]; then
         local selected="$(fd --hidden --color=always --exclude='.git' --type=f  | fzf --multi --preview "fzf-preview-file '{}'" --preview-window=right:60%)"
         [ -n "$selected" ] && command "$EDITOR" ${(f)selected}
