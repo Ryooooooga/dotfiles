@@ -61,10 +61,9 @@
     diffstgd = df --staged
     dfst = diffstgd
 
-    # sync
+    # hub
     sync = !hub sync
-
-    # browse
+    pr = !hub pull-request
     browse = !hub browse
     browse-issues = !hub browse -- issues
     browse-pr = !hub browse -- pulls
