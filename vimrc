@@ -18,6 +18,7 @@ set shiftround
 set autoread
 set smartcase
 set ignorecase
+set showtabline=2
 
 " whitespaces
 set list
@@ -49,3 +50,8 @@ nnoremap <silent><C-a> ^
 nnoremap <silent><C-e> $
 nnoremap <silent><C-\> :vsplit<CR>
 nnoremap <silent><C-_> :split<CR>
+nnoremap <silent><C-h> :tabprev<CR>
+nnoremap <silent><C-l> :tabnext<CR>
+nnoremap <silent><C-w> :tabclose<CR>
+
+au VimEnter * if !&diff | tab all | tabfirst | endif
