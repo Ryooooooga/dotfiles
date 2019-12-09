@@ -55,6 +55,12 @@ zplugin ice silent wait"0" as"program" from"gh-r" \
     mv"fd*/fd -> fd"
 zplugin light 'sharkdp/fd'
 
+### Lazygit ###
+zplugin ice silent wait"0" as"program" from"gh-r" \
+    mv"lazygit* -> lazygit" \
+    atload"alias lg='lazygit'"
+zplugin light 'jesseduffield/lazygit'
+
 ### GHQ ###
 zplugin ice silent wait"0" as"program" from"gh-r" \
     mv"ghq*/ghq -> ghq"
@@ -135,9 +141,6 @@ export FZF_DEFAULT_OPTS="--reverse --exit-0 --border --ansi"
 export FORGIT_PLUGIN_ZSH="${ZPLGM[PLUGINS_DIR]}/wfxr---forgit/forgit.plugin.zsh"
 export FORGIT_GI_REPO_LOCAL="$XDG_DATA_HOME/gitignore"
 export FORGIT_NO_ALIASES=1
-
-### lazygit ###
-(( ${+commands[lazygit]} )) && alias lg='lazygit'
 
 ### wget ###
 export WGET_DATA_DIR="$XDG_DATA_HOME/wget"
