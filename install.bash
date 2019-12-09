@@ -28,7 +28,12 @@ XDG_DATA_HOME="$HOME/.local/share"
 github zdharma/zplugin "$XDG_DATA_HOME/zplugin/bin"
 
 # dein.vim
-curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh | sh -s "$XDG_DATA_HOME/dein"
+if [ ! -d "$XDG_DATA_HOME/dein/repos/github.com/Shougo/dein.vim" ]; then
+    curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh | sh -s "$XDG_DATA_HOME/dein"
+else
+    echo "$XDG_DATA_HOME/dein is already exists..."
+    git -C "$XDG_DATA_HOME/dein/repos/github.com/Shougo/dein.vim" pull
+fi
 
 # asdf-vm
 github asdf-vm/asdf "$XDG_DATA_HOME/asdf"
