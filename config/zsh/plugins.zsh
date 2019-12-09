@@ -227,6 +227,8 @@ bindkey '^E'    end-of-line         # C-e
 bindkey '^[[3~' delete-char         # DELETE
 bindkey "${terminfo[kcuu1]}" history-substring-search-up   # arrow-up
 bindkey "${terminfo[kcud1]}" history-substring-search-down # arrow-down
+bindkey "^[[A" history-substring-search-up   # arrow-up
+bindkey "^[[B" history-substring-search-down # arrow-down
 
 ### Go ###
 export GOPATH="$XDG_DATA_HOME/go"
