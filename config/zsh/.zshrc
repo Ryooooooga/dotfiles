@@ -17,22 +17,10 @@ export SAVEHIST=1000
 setopt hist_ignore_dups
 
 ### theme ###
-case $OSTYPE in
-    linux*)
-        zplugin ice from"gh-r" as"program" bpick"*linux*" mv"almel* -> almel"
-        zplugin load Ryooooooga/almel
-    ;;
-    msys)
-        zplugin ice from"gh-r" as"program" bpick"*windows*" mv"almel* -> almel"
-        zplugin load Ryooooooga/almel
-    ;;
-    darwin*)
-        zplugin ice from"gh-r" as"program" bpick"*darwin*" mv"almel* -> almel"
-        zplugin load Ryooooooga/almel
-    ;;
-esac
-
-if (( ${+commands[almel]} )); then
+zplugin ice from"gh-r" as"program" \
+    mv"almel* -> almel" \
+    atclone"chmod +x almel" atpull"%atclone" \
+    atload'
     almel_preexec() {
         ALMEL_START="$EPOCHREALTIME"
     }
@@ -49,16 +37,8 @@ if (( ${+commands[almel]} )); then
     autoload -Uz add-zsh-hook
     add-zsh-hook precmd almel_precmd
     add-zsh-hook preexec almel_preexec
-else
-    agnoster_theme_display_git_master_branch=1
-    agnoster_theme_display_status_success=1
-    agnoster_theme_newline_cursor=1
-    agnoster_theme_color_status_bg=15
-    agnoster_theme_color_git_user_bg=75
-
-    zplugin snippet 'OMZ::plugins/shrink-path/shrink-path.plugin.zsh'
-    zplugin snippet 'https://github.com/Ryooooooga/agnoster-zsh-theme/blob/master/agnoster.zsh-theme'
-fi
+    '
+zplugin load Ryooooooga/almel
 
 ### plugins ###
 zplugin ice silent wait"0"; zplugin snippet "$ZDOTDIR/plugins.zsh"
