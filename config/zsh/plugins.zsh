@@ -120,24 +120,46 @@ else
 fi
 
 ### Docker ###
-alias dock-clean='docker rm $(docker ps -aqf status=exited)'
-alias dock-cleani='docker rmi $(docker images -qf dangling=true)'
-alias dock-ri='docker run -it'
-alias dock-rrm='docker run --rm'
-alias dock-rrmi='docker run --rm -it'
-
-dock-rm() {
-    docker ps -a | fzf --multi --header-lines=1 | awk '{ print $1 }' | xargs docker rm
+docker() {
+    if [ "$#" -ne 0 ] && command -v "docker-$1" > /dev/null; then
+        "docker-$1" "${@:2}"
+    else
+        command docker "${@:1}"
+    fi
 }
 
-dock-rmi() {
-    docker images -a | fzf --multi --header-lines=1 | awk '{ print $3 }' | xargs docker rmi
+docker-clean() {
+    command docker rm "$(command docker ps -aqf status=exited)" "$@"
+}
+docker-cleani() {
+    command docker rmi "$(command docker images -qf dangling=true)" "$@"
+}
+docker-ri() {
+    command docker run -it "$@"
+}
+docker-rrm() {
+    command docker run --rm "$@"
+}
+docker-rrmi() {
+    command docker run --rm -it "$@"
+}
+docker-rm() {
+    if [ "$#" -eq 0 ]; then
+        command docker ps -a | fzf --multi --header-lines=1 | awk '{ print $1 }' | xargs command docker rm
+    else
+        command docker rm "$@"
+    fi
+}
+docker-rmi() {
+    if [ "$#" -eq 0 ]; then
+        command docker images -a | fzf --multi --header-lines=1 | awk '{ print $3 }' | xargs command docker rmi
+    else
+        command docker rmi "$@"
+    fi
 }
 
 ### functions ###
-mkcd () {
-    mkdir -p $1 && cd $1
-}
+mkcd () { mkdir -p $1 && cd $1 }
 
 ### Vim ###
 export EDITOR="vi"
