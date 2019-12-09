@@ -108,15 +108,13 @@ alias tmux='tmux -f "$XDG_CONFIG_HOME/tmux/tmux.conf"'
 ### ls/exa ###
 if (( ${+commands[exa]} )) then
     alias ls='exa'
-    alias ll='exa -l --git --icons'
     alias la='exa -a'
-    alias lla='exa -al --git --icons'
+    alias ll='exa -al --git --icons'
     alias tree='exa -T --icons'
 else
     alias ls='ls --color=auto'
-    alias ll='ls -l'
     alias la='ls -a'
-    alias lla='ls -al'
+    alias ll='ls -al'
 fi
 
 ### Docker ###
