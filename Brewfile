@@ -7,7 +7,6 @@ brew "gnu-sed"
 brew "grep"
 brew "gnupg"
 brew "neovim"
-brew "tmux"
 brew "trash"
 brew "wget"
 
