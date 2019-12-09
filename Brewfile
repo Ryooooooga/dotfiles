@@ -1,7 +1,6 @@
 brew "bash"
 brew "colordiff"
 brew "coreutils"
-brew "exa"
 brew "git"
 brew "lazygit"
 brew "gnu-sed"

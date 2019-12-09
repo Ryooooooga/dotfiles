@@ -4,19 +4,70 @@ autoload -Uz cdr
 autoload -Uz chpwd_recent_dirs
 autoload -Uz _zplugin
 
-### plugins ###
-zplugin ice silent wait"0"; zplugin light 'zsh-users/zsh-history-substring-search'
-zplugin ice silent wait"0"; zplugin light 'zsh-users/zsh-autosuggestions'
-zplugin ice silent wait"0"; zplugin light 'zsh-users/zsh-completions'
-zplugin ice silent wait"0"; zplugin light 'zdharma/fast-syntax-highlighting'
-zplugin ice silent wait"0"; zplugin light 'hlissner/zsh-autopair'
-zplugin ice silent wait"0" as"program" from"gh-r"; zplugin light 'junegunn/fzf-bin'
-zplugin ice silent wait"0" as"program" from"gh-r" mv"direnv* -> direnv" atload'eval "$(direnv hook zsh)"'; zplugin light 'direnv/direnv'
-zplugin ice silent wait"0" as"program" from"gh-r" mv"bat*/bat -> bat"; zplugin light 'sharkdp/bat'
-zplugin ice silent wait"0" as"program" from"gh-r" mv"fd*/fd -> fd"; zplugin light 'sharkdp/fd'
-zplugin ice silent wait"0" as"program" from"gh-r" mv"ghq*/ghq -> ghq"; zplugin light 'motemen/ghq'
-zplugin ice silent wait"0" as"program" atclone'rm *.{py,bats}' atpull'%atclone'; zplugin light 'mrowa44/emojify'
-zplugin ice silent wait"1"; zplugin light wfxr/forgit
+### History-substring-search ###
+zplugin ice silent wait"0"
+zplugin light 'zsh-users/zsh-history-substring-search'
+
+### AutoSuggestions ###
+zplugin ice silent wait"0"
+zplugin light 'zsh-users/zsh-autosuggestions'
+
+### Completions ###
+zplugin ice silent wait"0"
+zplugin light 'zsh-users/zsh-completions'
+
+### Fast-Syntax-Highlight ###
+zplugin ice silent wait"0"
+zplugin light 'zdharma/fast-syntax-highlighting'
+
+### Autopair ###
+zplugin ice silent wait"0"
+zplugin light 'hlissner/zsh-autopair'
+
+### FZF ###
+zplugin ice silent wait"0" as"program" from"gh-r"
+zplugin light 'junegunn/fzf-bin'
+
+### FZF ###
+zplugin ice silent wait"0" as"program" from"gh-r" \
+    mv"direnv* -> direnv" \
+    atload'eval "$(direnv hook zsh)"'
+zplugin light 'direnv/direnv'
+
+### exa ###
+zplugin ice silent wait"0" as"program" from"gh-r" \
+    mv"exa* -> exa" \
+    atload"
+        alias ls='exa'
+        alias la='exa -a'
+        alias ll='exa -al --git --icons'
+        alias tree='exa -T --icons'
+    "
+zplugin light 'ogham/exa'
+
+### bat ###
+zplugin ice silent wait"0" as"program" from"gh-r" \
+    mv"bat*/bat -> bat"
+zplugin light 'sharkdp/bat'
+
+### fd ###
+zplugin ice silent wait"0" as"program" from"gh-r" \
+    mv"fd*/fd -> fd"
+zplugin light 'sharkdp/fd'
+
+### GHQ ###
+zplugin ice silent wait"0" as"program" from"gh-r" \
+    mv"ghq*/ghq -> ghq"
+zplugin light 'motemen/ghq'
+
+### Emojify ###
+zplugin ice silent wait"0" as"program" \
+    atclone'rm *.{py,bats}' atpull'%atclone'
+zplugin light 'mrowa44/emojify'
+
+### Forgit ###
+zplugin ice silent wait"1"
+zplugin light 'wfxr/forgit'
 
 ### locale ###
 export LANG="en_US.UTF-8"
@@ -104,18 +155,6 @@ alias gdb='gdb -q -nh -x "$XDG_CONFIG_HOME/gdb/init"'
 
 ### Tmux ###
 alias tmux='tmux -f "$XDG_CONFIG_HOME/tmux/tmux.conf"'
-
-### ls/exa ###
-if (( ${+commands[exa]} )) then
-    alias ls='exa'
-    alias la='exa -a'
-    alias ll='exa -al --git --icons'
-    alias tree='exa -T --icons'
-else
-    alias ls='ls --color=auto'
-    alias la='ls -a'
-    alias ll='ls -al'
-fi
 
 ### Docker ###
 docker() {
