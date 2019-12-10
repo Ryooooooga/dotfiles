@@ -274,6 +274,10 @@ bindkey "${terminfo[kcuu1]}" history-substring-search-up   # arrow-up
 bindkey "${terminfo[kcud1]}" history-substring-search-down # arrow-down
 bindkey "^[[A" history-substring-search-up   # arrow-up
 bindkey "^[[B" history-substring-search-down # arrow-down
+bindkey "^[[1;3D" backward-word # alt + arrow-left
+bindkey "^[[1;3C" forward-word  # alt + arrow-right
+bindkey "^[^H" vi-backward-kill-word  # alt + backspace
+bindkey "^[[1;33~" kill-word   # alt + delete
 
 ### Go ###
 export GOPATH="$XDG_DATA_HOME/go"
