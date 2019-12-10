@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 add-apt-repository ppa:git-core/ppa &&
-add-apt-repository ppa:lazygit-team/release &&
 apt-get update && apt-get upgrade &&
 apt-get install \
     build-essential \
@@ -13,8 +12,5 @@ apt-get install \
     zip \
     colordiff \
     gpg \
-    python \
-    python-pip \
     python3 \
-    python3-pip \
-    lazygit
+    python3-pip
