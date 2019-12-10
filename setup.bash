@@ -1,9 +1,13 @@
 #!/usr/bin/env bash
+REPO_DIR="$(cd "$(dirname "$0")" || exit 1; pwd)"
+XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+
 clone() {
     local repo
     local dest
-    repo=$1
-    dest=$2
+    repo="$1"
+    dest="$2"
 
     if [ ! -e "$dest" ]; then
         git clone "$repo" "$dest"
@@ -17,12 +21,7 @@ github() {
     clone "https://github.com/$1" "$2"
 }
 
-cd "$(dirname "$0")" || return 1
-XDG_CONFIG_HOME="$HOME/.config"
-XDG_DATA_HOME="$HOME/.local/share"
-
-# symlink
-./symlink.bash
+"$REPO_DIR"/link.bash
 
 # zplugin
 github zdharma/zplugin "$XDG_DATA_HOME/zplugin/bin"
@@ -39,7 +38,9 @@ fi
 github asdf-vm/asdf "$XDG_DATA_HOME/asdf"
 
 # gdb-dashboard
-curl 'https://raw.githubusercontent.com/cyrus-and/gdb-dashboard/master/.gdbinit' -o "$XDG_CONFIG_HOME/gdb/init" --create-dirs
+github cyrus-and/gdb-dashboard "$XDG_DATA_HOME/gdb-dashboard"
+mkdir -p "$XDG_CONFIG_HOME/gdb"
+ln -sfv "$XDG_DATA_HOME/gdb-dashboard/.gdbinit" "$XDG_CONFIG_HOME/gdb/init"
 
 # mac
 if [ "$(uname)" = "Darwin" ]; then
