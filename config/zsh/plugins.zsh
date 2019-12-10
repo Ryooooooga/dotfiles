@@ -4,6 +4,45 @@ autoload -Uz cdr
 autoload -Uz chpwd_recent_dirs
 autoload -Uz _zplugin
 
+### Aliases ###
+case $OSTYPE in
+    linux*)
+        if (( ${+commands[win32yank.exe]} )); then
+            alias pbcopy='win32yank.exe -i'
+            alias pbpaste='win32yank.exe -o'
+        elif (( ${+commands[xsel]} )); then
+            alias pbcopy='xsel -bi'
+            alias pbpaste='xsel -b'
+        fi
+    ;;
+    msys)
+        alias cmake='command cmake -G"Unix Makefiles"'
+        alias pbcopy='cat > /dev/clipboard'
+        alias pbpaste='cat /dev/clipboard'
+    ;;
+    darwin*)
+        (( ${+commands[gdate]} )) && alias date='gdate'
+        (( ${+commands[gls]} )) && alias ls='gls --color=auto'
+        (( ${+commands[gcp]} )) && alias cp='gcp'
+        (( ${+commands[gmv]} )) && alias mv='gmv'
+        (( ${+commands[gdu]} )) && alias du='gdu'
+        (( ${+commands[ghead]} )) && alias head='ghead'
+        (( ${+commands[gtail]} )) && alias tail='gtail'
+        (( ${+commands[gsed]} )) && alias sed='gsed'
+        (( ${+commands[ggrep]} )) && alias grep='ggrep'
+    ;;
+esac
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+alias la='ls -a'
+alias ll='ls -al'
+
+(( ${+commands[trash]} )) && alias rm='trash'
+(( ${+commands[colordiff]} )) && alias diff='colordiff'
+
 ### History-substring-search ###
 zplugin ice silent wait"0"
 zplugin light 'zsh-users/zsh-history-substring-search'
@@ -94,42 +133,6 @@ export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 ### completion styles ###
 zstyle ':completion:*:default' menu select=1
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-
-### aliases ###
-case $OSTYPE in
-    linux*)
-        if (( ${+commands[win32yank.exe]} )); then
-            alias pbcopy='win32yank.exe -i'
-            alias pbpaste='win32yank.exe -o'
-        elif (( ${+commands[xsel]} )); then
-            alias pbcopy='xsel -bi'
-            alias pbpaste='xsel -b'
-        fi
-    ;;
-    msys)
-        alias cmake='command cmake -G"Unix Makefiles"'
-        alias pbcopy='cat > /dev/clipboard'
-        alias pbpaste='cat /dev/clipboard'
-    ;;
-    darwin*)
-        (( ${+commands[gdate]} )) && alias date='gdate'
-        (( ${+commands[gls]} )) && alias ls='gls'
-        (( ${+commands[gcp]} )) && alias cp='gcp'
-        (( ${+commands[gmv]} )) && alias mv='gmv'
-        (( ${+commands[gdu]} )) && alias du='gdu'
-        (( ${+commands[ghead]} )) && alias head='ghead'
-        (( ${+commands[gtail]} )) && alias tail='gtail'
-        (( ${+commands[gsed]} )) && alias sed='gsed'
-        (( ${+commands[ggrep]} )) && alias grep='ggrep'
-    ;;
-esac
-
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-
-(( ${+commands[trash]} )) && alias rm='trash'
-(( ${+commands[colordiff]} )) && alias diff='colordiff'
 
 ### Git ###
 alias g='git'
