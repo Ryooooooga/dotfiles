@@ -64,10 +64,11 @@ zplugin ice silent wait"0"
 zplugin light 'hlissner/zsh-autopair'
 
 ### FZF ###
-zplugin ice silent wait"0" as"program" from"gh-r"
+zplugin ice silent wait"0" as"program" from"gh-r" \
+    atload'export FZF_DEFAULT_OPTS="--reverse --exit-0 --border --ansi"'
 zplugin light 'junegunn/fzf-bin'
 
-### FZF ###
+### direnv ###
 zplugin ice silent wait"0" as"program" from"gh-r" \
     mv"direnv* -> direnv" \
     atload'eval "$(direnv hook zsh)"'
@@ -102,7 +103,8 @@ zplugin light 'jesseduffield/lazygit'
 
 ### GHQ ###
 zplugin ice silent wait"0" as"program" from"gh-r" \
-    mv"ghq*/ghq -> ghq"
+    mv"ghq*/ghq -> ghq" \
+    atload'export GHQ_ROOT="$HOME/Workspace"'
 zplugin light 'motemen/ghq'
 
 ### Emojify ###
@@ -111,7 +113,12 @@ zplugin ice silent wait"0" as"program" \
 zplugin light 'mrowa44/emojify'
 
 ### Forgit ###
-zplugin ice silent wait"1"
+zplugin ice silent wait"1" \
+    atload'
+        export FORGIT_PLUGIN_ZSH="${ZPLGM[PLUGINS_DIR]}/wfxr---forgit/forgit.plugin.zsh"
+        export FORGIT_GI_REPO_LOCAL="$XDG_DATA_HOME/gitignore"
+        export FORGIT_NO_ALIASES=1
+    '
 zplugin light 'wfxr/forgit'
 
 ### locale ###
@@ -136,14 +143,6 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 ### Git ###
 alias g='git'
-
-### fzf ###
-export FZF_DEFAULT_OPTS="--reverse --exit-0 --border --ansi"
-
-### forgit ###
-export FORGIT_PLUGIN_ZSH="${ZPLGM[PLUGINS_DIR]}/wfxr---forgit/forgit.plugin.zsh"
-export FORGIT_GI_REPO_LOCAL="$XDG_DATA_HOME/gitignore"
-export FORGIT_NO_ALIASES=1
 
 ### wget ###
 export WGET_DATA_DIR="$XDG_DATA_HOME/wget"

@@ -85,8 +85,6 @@
     pushInsteadOf = https://github.com/
 [url "git@gist.github.com:"]
     pushInsteadOf = https://gist.github.com/Ryooooooga/
-[ghq]
-    root = ~/Workspace
 [users]
     ryoga = Ryooooooga:ryoga_314@yahoo.co.jp
 [include]
