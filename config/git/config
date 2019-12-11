@@ -1,13 +1,22 @@
 [core]
     autocrlf = false
+
 [commit]
     verbose = true
+    gpgSign = false # overwriten in config.local
+
 [merge]
     ff = false
+
 [pull]
     ff = only
+
 [fetch]
     prune = true
+
+[tag]
+    forceSignAnnotated = false # overwriten in config.local
+
 [alias]
     # init
     init-repo = !git-init-repo
@@ -76,14 +85,20 @@
 [user]
     name = Ryooooooga
     email = ryoga_314@yahoo.co.jp
+    signingKey = "" # overwriten in config.local
+
+[users "ryoga"]
+    name = Ryooooooga
+    email = ryoga_314@yahoo.co.jp
+    signingKey = "" # overwriten in config.local
+
 [gpg]
     program = gpg
+
 [url "git@github.com:"]
     pushInsteadOf = https://github.com/
 [url "git@gist.github.com:"]
     pushInsteadOf = https://gist.github.com/Ryooooooga/
-[users "ryoga"]
-    name = Ryooooooga
-    email = ryoga_314@yahoo.co.jp
+
 [include]
     path = config.local
