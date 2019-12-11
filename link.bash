@@ -16,6 +16,7 @@ ln -sfv "$REPO_DIR/config/tmux"      "$XDG_CONFIG_HOME"
 ln -sfv "$REPO_DIR/config/almel"     "$XDG_CONFIG_HOME"
 ln -sfv "$REPO_DIR/config/npm"       "$XDG_CONFIG_HOME"
 ln -sfv "$REPO_DIR/config/alacritty" "$XDG_CONFIG_HOME"
+ln -sfv "$REPO_DIR/config/espanso"   "$XDG_CONFIG_HOME"
 ln -sfv "$REPO_DIR/config/bin"       "$XDG_CONFIG_HOME"
 
 if [ "$(uname)" = "Darwin" ]; then

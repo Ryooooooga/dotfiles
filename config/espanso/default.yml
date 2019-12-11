@@ -1,0 +1,22 @@
+# espanso configuration file
+# https://espanso.org/docs/
+
+matches:
+  # Personal
+  - trigger: ":id"
+    replace: "Ryooooooga"
+
+  - trigger: ":mail"
+    replace: "ryoga_314@yahoo.co.jp"
+
+  - trigger: ":gmail"
+    replace: "eial5q265e5@gmail.com"
+
+  # Dates
+  - trigger: ":date"
+    replace: "{{date}}"
+    vars:
+      - name: date
+        type: date
+        params:
+          format: "%F"
