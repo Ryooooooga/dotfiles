@@ -19,6 +19,7 @@
     # config
     aliases = config --get-regexp '^alias.*'
     users = config --get-regexp '^users.*'
+    user = !git-user
 
     # rev-parse
     dir = rev-parse --show-toplevel
