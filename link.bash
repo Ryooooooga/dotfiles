@@ -21,6 +21,8 @@ ln -sfv "$REPO_DIR/config/bin"       "$XDG_CONFIG_HOME"
 
 if [ "$(uname)" = "Darwin" ]; then
     touch "$HOME/.hushlogin"
-    ln -sfv "$REPO_DIR/config/hammerspoon" "$XDG_CONFIG_HOME"
-    ln -sfv "$REPO_DIR/config/karabiner"   "$XDG_CONFIG_HOME"
+    mkdir -p "$HOME/.gnupg"
+    ln -sfv "$REPO_DIR/gnupg/gpg-agent.conf.mac" "$HOME/.gnupg/gpg-agent.conf"
+    ln -sfv "$REPO_DIR/config/hammerspoon"       "$XDG_CONFIG_HOME"
+    ln -sfv "$REPO_DIR/config/karabiner"         "$XDG_CONFIG_HOME"
 fi
