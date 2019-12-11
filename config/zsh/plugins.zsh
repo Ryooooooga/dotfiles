@@ -141,6 +141,9 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 ### Git ###
 alias g='git'
 
+### GPG ###
+export GPG_TTY="$(tty)"
+
 ### wget ###
 export WGET_DATA_DIR="$XDG_DATA_HOME/wget"
 alias wget='wget --hsts-file "$WGET_DATA_DIR/wget-hists"'
