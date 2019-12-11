@@ -2,7 +2,6 @@
     autocrlf = false
 [commit]
     verbose = true
-    gpgSign = false
 [merge]
     ff = false
 [pull]
@@ -76,11 +75,8 @@
 [user]
     name = Ryooooooga
     email = ryoga_314@yahoo.co.jp
-    signingKey = ""
 [gpg]
     program = gpg
-[tag]
-    forceSignAnnotated = false
 [url "git@github.com:"]
     pushInsteadOf = https://github.com/
 [url "git@gist.github.com:"]
