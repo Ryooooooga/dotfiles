@@ -1,11 +1,17 @@
 #!/usr/bin/env bash
 if [ "$#" -gt 0 ]; then
-    user="$(git config users."$1")" || (echo "No such user $1"; exit 1)
-    IFS=":" read -r name email <<< "$user"
+    email="$(git config users."$1".email)"
+    name="$(git config users."$1".name)"
+    signingKey="$(git config users."$1".signingKey)"
+
+    if [ -z "$email" ] || [ -z "$name" ]; then
+        echo "No such user $1"
+        exit 1
+    fi
 
     git config user.name "$name"
     git config user.email "$email"
+    git config user.signingKey "$signingKey"
 fi
 
-git config user.name
-git config user.email
+echo "$(git config user.name) <$(git config user.email)>"

@@ -18,7 +18,7 @@
 
     # config
     aliases = config --get-regexp '^alias.*'
-    users = config --get-regexp '^users.*'
+    users = !git-users
     user = !git-user
 
     # rev-parse
@@ -82,7 +82,8 @@
     pushInsteadOf = https://github.com/
 [url "git@gist.github.com:"]
     pushInsteadOf = https://gist.github.com/Ryooooooga/
-[users]
-    ryoga = Ryooooooga:ryoga_314@yahoo.co.jp
+[users "ryoga"]
+    name = Ryooooooga
+    email = ryoga_314@yahoo.co.jp
 [include]
     path = config.local
