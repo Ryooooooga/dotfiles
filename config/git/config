@@ -100,5 +100,8 @@
 [url "git@gist.github.com:"]
     pushInsteadOf = https://gist.github.com/Ryooooooga/
 
+[ghq]
+    root = ~/Workspace
+
 [include]
     path = config.local
