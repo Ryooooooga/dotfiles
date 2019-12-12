@@ -113,11 +113,12 @@ zplugin ice silent wait"0" as"program" \
 zplugin light 'mrowa44/emojify'
 
 ### Forgit ###
+export FORGIT_NO_ALIASES=1
+
 zplugin ice silent wait"1" \
     atload'
         export FORGIT_PLUGIN_ZSH="${ZPLGM[PLUGINS_DIR]}/wfxr---forgit/forgit.plugin.zsh"
         export FORGIT_GI_REPO_LOCAL="$XDG_DATA_HOME/gitignore"
-        export FORGIT_NO_ALIASES=1
     '
 zplugin light 'wfxr/forgit'
 
