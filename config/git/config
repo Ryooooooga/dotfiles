@@ -39,6 +39,7 @@
     # commit
     c = commit
     cm = commit -m
+    uncommit = reset --soft HEAD^
 
     # checkout
     co = !echo 'use `switch` or `restore` instead of co (checkout)' && false
