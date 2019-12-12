@@ -84,9 +84,7 @@
     get = !ghq get
 
 [user]
-    name = Ryooooooga
-    email = ryoga_314@yahoo.co.jp
-    signingKey = "" # overwriten in config.local
+    useConfigOnly = true
 
 [users "ryoga"]
     name = Ryooooooga
