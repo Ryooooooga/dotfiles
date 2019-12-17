@@ -44,38 +44,38 @@ alias ll='ls -al'
 (( ${+commands[colordiff]} )) && alias diff='colordiff'
 
 ### History-substring-search ###
-zplugin ice silent wait"0"
+zplugin ice lucid wait"0"
 zplugin light 'zsh-users/zsh-history-substring-search'
 
 ### AutoSuggestions ###
-zplugin ice silent wait"0"
+zplugin ice lucid wait"0"
 zplugin light 'zsh-users/zsh-autosuggestions'
 
 ### Completions ###
-zplugin ice silent wait"0"
+zplugin ice lucid wait"0"
 zplugin light 'zsh-users/zsh-completions'
 
 ### Fast-Syntax-Highlight ###
-zplugin ice silent wait"0"
+zplugin ice lucid wait"0"
 zplugin light 'zdharma/fast-syntax-highlighting'
 
 ### Autopair ###
-zplugin ice silent wait"0"
+zplugin ice lucid wait"0"
 zplugin light 'hlissner/zsh-autopair'
 
 ### FZF ###
-zplugin ice silent wait"0" as"program" from"gh-r" \
+zplugin ice lucid wait"0" as"program" from"gh-r" \
     atload'export FZF_DEFAULT_OPTS="--reverse --exit-0 --border --ansi"'
 zplugin light 'junegunn/fzf-bin'
 
 ### direnv ###
-zplugin ice silent wait"0" as"program" from"gh-r" \
+zplugin ice lucid wait"0" as"program" from"gh-r" \
     mv"direnv* -> direnv" \
     atload'eval "$(direnv hook zsh)"'
 zplugin light 'direnv/direnv'
 
 ### exa ###
-zplugin ice silent wait"0" as"program" from"gh-r" \
+zplugin ice lucid wait"0" as"program" from"gh-r" \
     mv"exa* -> exa" \
     atload"
         alias ls='exa'
@@ -86,36 +86,35 @@ zplugin ice silent wait"0" as"program" from"gh-r" \
 zplugin light 'ogham/exa'
 
 ### bat ###
-zplugin ice silent wait"0" as"program" from"gh-r" \
+zplugin ice lucid wait"0" as"program" from"gh-r" \
     mv"bat*/bat -> bat"
 zplugin light 'sharkdp/bat'
 
 ### fd ###
-zplugin ice silent wait"0" as"program" from"gh-r" \
+zplugin ice lucid wait"0" as"program" from"gh-r" \
     mv"fd*/fd -> fd"
 zplugin light 'sharkdp/fd'
 
 ### Lazygit ###
-zplugin ice silent wait"0" as"program" from"gh-r" \
+zplugin ice lucid wait"0" as"program" from"gh-r" \
     mv"lazygit* -> lazygit" \
     atload"alias lg='lazygit'"
 zplugin light 'jesseduffield/lazygit'
 
 ### GHQ ###
-zplugin ice silent wait"0" as"program" from"gh-r" \
+zplugin ice lucid wait"0" as"program" from"gh-r" \
     mv"ghq*/ghq -> ghq" \
     atload'export GHQ_ROOT="$HOME/Workspace"'
 zplugin light 'motemen/ghq'
 
 ### Emojify ###
-zplugin ice silent wait"0" as"program" \
+zplugin ice lucid wait"0" as"program" \
     atclone'rm *.{py,bats}' atpull'%atclone'
 zplugin light 'mrowa44/emojify'
 
 ### Forgit ###
-export FORGIT_NO_ALIASES=1
-
-zplugin ice silent wait"1" \
+zplugin ice lucid wait"1" \
+    atinit'export FORGIT_NO_ALIASES=1' \
     atload'
         export FORGIT_PLUGIN_ZSH="${ZPLGM[PLUGINS_DIR]}/wfxr---forgit/forgit.plugin.zsh"
         export FORGIT_GI_REPO_LOCAL="$XDG_DATA_HOME/gitignore"

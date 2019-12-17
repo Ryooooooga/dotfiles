@@ -40,5 +40,6 @@ add-zsh-hook precmd almel_precmd
 add-zsh-hook preexec almel_preexec
 
 ### plugins ###
-zplugin ice lucid wait"0"
-zplugin snippet "$ZDOTDIR/plugins.zsh"
+zplugin ice lucid wait"0" as"program" \
+    atinit'. "$ZDOTDIR/plugins.zsh"'
+zplugin light 'zdharma/null'
