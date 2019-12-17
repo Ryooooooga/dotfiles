@@ -20,25 +20,25 @@ setopt hist_ignore_dups
 zplugin ice from"gh-r" as"program" \
     mv"almel* -> almel" \
     atclone"chmod +x almel" atpull"%atclone" \
-    atload'
-    almel_preexec() {
-        ALMEL_START="$EPOCHREALTIME"
-    }
+zplugin load 'Ryooooooga/almel'
 
-    almel_precmd() {
-        STATUS="$?"
-        NUM_JOBS="$#jobstates"
-        END="$EPOCHREALTIME"
-        DURATION="$(($END - ${ALMEL_START:-$END}))"
-        PROMPT="$(almel prompt zsh -s"$STATUS" -j"$NUM_JOBS" -d"$DURATION")"
-        unset ALMEL_START
-    }
+almel_preexec() {
+    ALMEL_START="$EPOCHREALTIME"
+}
 
-    autoload -Uz add-zsh-hook
-    add-zsh-hook precmd almel_precmd
-    add-zsh-hook preexec almel_preexec
-    '
-zplugin load Ryooooooga/almel
+almel_precmd() {
+    STATUS="$?"
+    NUM_JOBS="$#jobstates"
+    END="$EPOCHREALTIME"
+    DURATION="$(($END - ${ALMEL_START:-$END}))"
+    PROMPT="$(almel prompt zsh -s"$STATUS" -j"$NUM_JOBS" -d"$DURATION")"
+    unset ALMEL_START
+}
+
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd almel_precmd
+add-zsh-hook preexec almel_preexec
 
 ### plugins ###
-zplugin ice silent wait"0"; zplugin snippet "$ZDOTDIR/plugins.zsh"
+zplugin ice lucid wait"0"
+zplugin snippet "$ZDOTDIR/plugins.zsh"
