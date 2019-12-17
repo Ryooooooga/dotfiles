@@ -14,7 +14,16 @@ export HISTFILE="$ZSH_DATA_HOME/history"
 export HISTSIZE=1000
 export SAVEHIST=1000
 
-setopt hist_ignore_dups
+setopt GLOBDOTS
+setopt APPEND_HISTORY
+setopt EXTENDED_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_REDUCE_BLANKS
+setopt HIST_SAVE_NO_DUPS
+setopt SHARE_HISTORY
+setopt MAGIC_EQUAL_SUBST
+setopt PRINT_EIGHT_BIT
 
 ### theme ###
 zplugin ice from"gh-r" as"program" \
