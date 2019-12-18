@@ -1,6 +1,6 @@
 [core]
     autocrlf = false
-	pager = delta --dark
+    pager = delta --dark
 
 [commit]
     verbose = true
@@ -71,6 +71,9 @@
     df = !git-df
     diffstgd = df --staged
     dfst = diffstgd
+
+    # exec
+    exec = !git-exec
 
     # hub
     sync = !hub sync
