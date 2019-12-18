@@ -28,7 +28,7 @@ setopt PRINT_EIGHT_BIT
 ### theme ###
 zplugin ice from"gh-r" as"program" \
     mv"almel* -> almel" \
-    atclone"chmod +x almel" atpull"%atclone" \
+    atclone"chmod +x almel" atpull"%atclone"
 zplugin load 'Ryooooooga/almel'
 
 almel_preexec() {
