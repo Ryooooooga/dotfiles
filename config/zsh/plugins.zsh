@@ -160,6 +160,7 @@ alias gdb='gdb -q -nh -x "$XDG_CONFIG_HOME/gdb/init"'
 
 ### Tmux ###
 alias tmux='tmux -f "$XDG_CONFIG_HOME/tmux/tmux.conf"'
+alias t='tmux has-session && tmux attach || tmux new-session'
 
 ### Docker ###
 docker() {
