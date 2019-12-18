@@ -95,6 +95,11 @@ zplugin ice lucid wait"0" as"program" from"gh-r" \
     mv"fd*/fd -> fd"
 zplugin light 'sharkdp/fd'
 
+### delta ###
+zplugin ice lucid wait"0" as"program" from"gh-r" \
+    mv"delta*/delta -> delta"
+zplugin light 'dandavison/delta'
+
 ### Lazygit ###
 zplugin ice lucid wait"0" as"program" from"gh-r" \
     mv"lazygit* -> lazygit" \

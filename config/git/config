@@ -1,5 +1,6 @@
 [core]
     autocrlf = false
+	pager = delta --dark
 
 [commit]
     verbose = true
