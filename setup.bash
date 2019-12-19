@@ -44,5 +44,6 @@ ln -sfv "$XDG_DATA_HOME/gdb-dashboard/.gdbinit" "$XDG_CONFIG_HOME/gdb/init"
 
 # mac
 if [ "$(uname)" = "Darwin" ]; then
+    defaults write com.apple.finder AppleShowAllFiles YES
     defaults write org.hammerspoon.Hammerspoon MJConfigFile "$XDG_CONFIG_HOME/hammerspoon/init.lua"
 fi
