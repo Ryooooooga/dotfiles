@@ -7,6 +7,9 @@
 ### Vim ###
 .*.swp
 
+### VS Code ###
+.vscode/*
+
 ### GDB ###
 .gdb_history
 
