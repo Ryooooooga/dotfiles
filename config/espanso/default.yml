@@ -20,3 +20,6 @@ matches:
         type: date
         params:
           format: "%F"
+  # URI
+  - trigger: ":gh"
+    replace: "github.com"
