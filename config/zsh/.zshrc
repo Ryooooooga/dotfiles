@@ -48,6 +48,77 @@ autoload -Uz add-zsh-hook
 add-zsh-hook precmd almel_precmd
 add-zsh-hook preexec almel_preexec
 
+### key bindings ###
+select_history() {
+    local selected="$(history -nr 1 | awk '!a[$0]++' | fzf --query "$LBUFFER" | sed 's/\\n/\n/g')"
+    if [ -n "$selected" ]; then
+        BUFFER="$selected"
+        CURSOR=$#BUFFER
+    fi
+    zle -R -c # refresh screen
+}
+
+select_cdr() {
+    local selected="$(cdr -l | awk '{ $1=""; print }' | sed 's/^ //' | fzf --preview "fzf-preview-directory '{}'" --preview-window=right:50%)"
+    if [ -n "$selected" ]; then
+        BUFFER="cd $selected"
+        zle accept-line
+    fi
+    zle -R -c # refresh screen
+}
+
+select_ghq() {
+    local selected="$(ghq list | fzf --preview "fzf-preview-git $(ghq root)/{}" --preview-window=right:60%)"
+    if [ -n "$selected" ]; then
+        BUFFER="cd \"$(ghq root)/$selected\""
+        zle accept-line
+    fi
+    zle -R -c # refresh screen
+}
+
+select_dir() {
+    local selected="$(fd --hidden --color=always --exclude='.git' --type=d | fzf --preview "fzf-preview-directory '{}'" --preview-window=right:50%)"
+    if [ -n "$selected" ]; then
+        BUFFER="cd $selected"
+        zle accept-line
+    fi
+    zle -R -c # refresh screen
+}
+
+zle -N select_history
+zle -N select_cdr
+zle -N select_ghq
+zle -N select_dir
+
+bindkey -v
+bindkey "^R"       select_history        # C-r
+bindkey "^F"       select_cdr            # C-f
+bindkey "^G"       select_ghq            # C-g
+bindkey "^O"       select_dir            # C-o
+bindkey "^A"       beginning-of-line     # C-a
+bindkey "^E"       end-of-line           # C-e
+bindkey "^?"       backward-delete-char  # backspace
+bindkey "^[[3~"    delete-char           # delete
+bindkey "^[[1;3D"  backward-word         # alt + arrow-left
+bindkey "^[[1;3C"  forward-word          # alt + arrow-right
+bindkey "^[^?"     vi-backward-kill-word # alt + backspace
+bindkey "^[[1;33~" kill-word             # alt + delete
+
+# Change the cursor between 'Line' and 'Block' shape
+function zle-keymap-select zle-line-init zle-line-finish {
+    case "${KEYMAP}" in
+        main|viins)
+            printf '\033[6 q' # line cursor
+            ;;
+        vicmd)
+            printf '\033[2 q' # block cursor
+            ;;
+    esac
+}
+zle -N zle-line-init
+zle -N zle-line-finish
+zle -N zle-keymap-select
+
 ### plugins ###
 zplugin ice lucid wait"0" as"program" \
     atinit'. "$ZDOTDIR/plugins.zsh"'
