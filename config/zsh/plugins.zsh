@@ -98,7 +98,8 @@ zplugin light 'sharkdp/bat'
 
 ### fd ###
 zplugin ice lucid wait"0" as"program" from"gh-r" \
-    mv"fd*/fd -> fd"
+    mv"fd*/fd -> fd" \
+    atload"export FZF_DEFAULT_COMMAND='fd --color=always --hidden --exclude=.git'"
 zplugin light 'sharkdp/fd'
 
 ### delta ###
