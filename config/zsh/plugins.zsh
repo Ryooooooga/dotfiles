@@ -93,18 +93,18 @@ zplugin light 'ogham/exa'
 
 ### bat ###
 zplugin ice lucid wait"0" as"program" from"gh-r" \
-    mv"bat*/bat -> bat"
+    pick"bat*/bat"
 zplugin light 'sharkdp/bat'
 
 ### fd ###
 zplugin ice lucid wait"0" as"program" from"gh-r" \
-    mv"fd*/fd -> fd" \
+    pick"fd*/fd" \
     atload"export FZF_DEFAULT_COMMAND='fd --color=always --hidden --exclude=.git'"
 zplugin light 'sharkdp/fd'
 
 ### delta ###
 zplugin ice lucid wait"0" as"program" from"gh-r" \
-    mv"delta*/delta -> delta"
+    pick"delta*/delta"
 zplugin light 'dandavison/delta'
 
 ### Lazygit ###
@@ -115,7 +115,7 @@ zplugin light 'jesseduffield/lazygit'
 
 ### GHQ ###
 zplugin ice lucid wait"0" as"program" from"gh-r" \
-    mv"ghq*/ghq -> ghq" \
+    pick"ghq*/ghq" \
     atload'export GHQ_ROOT="$HOME/Workspace"'
 zplugin light 'motemen/ghq'
 
