@@ -1,0 +1,8 @@
+[commit]
+    gpgSign = true
+
+[tag]
+    forceSignAnnotated = true
+
+[users "ryoga"]
+    signingKey = ""
