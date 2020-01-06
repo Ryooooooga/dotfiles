@@ -19,17 +19,11 @@
     forceSignAnnotated = false # overwriten in config.local
 
 [alias]
-    # init
-    init-repo = !git-init-repo
-
     # add
-    a = !git-a
     aa = add -vA
 
     # config
     aliases = config --get-regexp '^alias.*'
-    users = !git-users
-    user = !git-user
 
     # rev-parse
     dir = rev-parse --show-toplevel
@@ -54,7 +48,6 @@
     fu = fetch upstream
 
     # log
-    lg = !git-lg
     graph = lg
 
     # push
@@ -68,12 +61,8 @@
     s = status
 
     # diff
-    df = !git-df
     diffstgd = df --staged
     dfst = diffstgd
-
-    # exec
-    exec = !git-exec
 
     # hub
     sync = !hub sync
@@ -86,6 +75,15 @@
 
     # ghq
     get = !ghq get
+
+    # git subcommands
+    create = !git-create
+    a = !git-a
+    users = !git-users
+    user = !git-user
+    lg = !git-lg
+    df = !git-df
+    exec = !git-exec
 
 [user]
     useConfigOnly = true
