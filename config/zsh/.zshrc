@@ -70,7 +70,7 @@ select_cdr() {
 select_ghq() {
     local selected="$(ghq list | fzf --preview "fzf-preview-git $(ghq root)/{}" --preview-window=right:60%)"
     if [ -n "$selected" ]; then
-        BUFFER="cd \"$(ghq root)/$selected\""
+        BUFFER="cd \"$(ghq list --full-path $selected)\""
         zle accept-line
     fi
     zle -R -c # refresh screen
