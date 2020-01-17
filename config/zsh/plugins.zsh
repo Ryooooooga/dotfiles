@@ -260,6 +260,9 @@ export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
 ### pylint ###
 export PYLINTHOME="$XDG_CACHE_HOME/pylint"
 
+### SQLite3 ###
+export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
+
 ### youtube-dl ###
 if (( ${+commands[youtube-dl]} )); then
     alias youtube-audio='youtube-dl -x --no-playlist'
