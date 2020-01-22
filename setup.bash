@@ -24,7 +24,7 @@ github() {
 "$REPO_DIR"/link.bash
 
 # zplugin
-github zdharma/zplugin "$XDG_DATA_HOME/zplugin/bin"
+github zdharma/zinit "$XDG_DATA_HOME/zinit/bin"
 
 # dein.vim
 if [ ! -d "$XDG_DATA_HOME/dein/repos/github.com/Shougo/dein.vim" ]; then

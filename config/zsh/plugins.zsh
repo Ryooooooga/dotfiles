@@ -2,7 +2,7 @@
 autoload -Uz compinit && compinit
 autoload -Uz cdr
 autoload -Uz chpwd_recent_dirs
-autoload -Uz _zplugin
+autoload -Uz _zinit
 
 ### Aliases ###
 case $OSTYPE in
@@ -44,44 +44,44 @@ alias ll='ls -al'
 (( ${+commands[colordiff]} )) && alias diff='colordiff'
 
 ### History-substring-search ###
-zplugin ice lucid wait"0"
-zplugin light 'zsh-users/zsh-history-substring-search'
+zinit ice lucid wait"0"
+zinit light 'zsh-users/zsh-history-substring-search'
 
 ### AutoSuggestions ###
-zplugin ice lucid wait"0"
-zplugin light 'zsh-users/zsh-autosuggestions'
+zinit ice lucid wait"0"
+zinit light 'zsh-users/zsh-autosuggestions'
 
 ### Completions ###
-zplugin ice lucid wait"0"
-zplugin light 'zsh-users/zsh-completions'
+zinit ice lucid wait"0"
+zinit light 'zsh-users/zsh-completions'
 
 ### Fast-Syntax-Highlight ###
-zplugin ice lucid wait"0" \
+zinit ice lucid wait"0" \
     atload '
         bindkey "${terminfo[kcuu1]}" history-substring-search-up   # arrow-up
         bindkey "${terminfo[kcud1]}" history-substring-search-down # arrow-down
         bindkey "^[[A" history-substring-search-up   # arrow-up
         bindkey "^[[B" history-substring-search-down # arrow-down
     '
-zplugin light 'zdharma/fast-syntax-highlighting'
+zinit light 'zdharma/fast-syntax-highlighting'
 
 ### Autopair ###
-zplugin ice lucid wait"0"
-zplugin light 'hlissner/zsh-autopair'
+zinit ice lucid wait"0"
+zinit light 'hlissner/zsh-autopair'
 
 ### FZF ###
-zplugin ice lucid wait"0" as"program" from"gh-r" \
+zinit ice lucid wait"0" as"program" from"gh-r" \
     atload'export FZF_DEFAULT_OPTS="--reverse --exit-0 --border --ansi"'
-zplugin light 'junegunn/fzf-bin'
+zinit light 'junegunn/fzf-bin'
 
 ### direnv ###
-zplugin ice lucid wait"0" as"program" from"gh-r" \
+zinit ice lucid wait"0" as"program" from"gh-r" \
     mv"direnv* -> direnv" \
     atload'eval "$(direnv hook zsh)"'
-zplugin light 'direnv/direnv'
+zinit light 'direnv/direnv'
 
 ### exa ###
-zplugin ice lucid wait"0" as"program" from"gh-r" \
+zinit ice lucid wait"0" as"program" from"gh-r" \
     mv"exa* -> exa" \
     atload"
         alias ls='exa'
@@ -89,49 +89,49 @@ zplugin ice lucid wait"0" as"program" from"gh-r" \
         alias ll='exa -al --git --icons'
         alias tree='exa -T --icons'
     "
-zplugin light 'ogham/exa'
+zinit light 'ogham/exa'
 
 ### bat ###
-zplugin ice lucid wait"0" as"program" from"gh-r" \
+zinit ice lucid wait"0" as"program" from"gh-r" \
     pick"bat*/bat"
-zplugin light 'sharkdp/bat'
+zinit light 'sharkdp/bat'
 
 ### fd ###
-zplugin ice lucid wait"0" as"program" from"gh-r" \
+zinit ice lucid wait"0" as"program" from"gh-r" \
     pick"fd*/fd" \
     atload"export FZF_DEFAULT_COMMAND='fd --color=always --hidden --exclude=.git'"
-zplugin light 'sharkdp/fd'
+zinit light 'sharkdp/fd'
 
 ### delta ###
-zplugin ice lucid wait"0" as"program" from"gh-r" \
+zinit ice lucid wait"0" as"program" from"gh-r" \
     pick"delta*/delta"
-zplugin light 'dandavison/delta'
+zinit light 'dandavison/delta'
 
 ### Lazygit ###
-zplugin ice lucid wait"0" as"program" from"gh-r" \
+zinit ice lucid wait"0" as"program" from"gh-r" \
     mv"lazygit* -> lazygit" \
     atload"alias lg='lazygit'"
-zplugin light 'jesseduffield/lazygit'
+zinit light 'jesseduffield/lazygit'
 
 ### GHQ ###
-zplugin ice lucid wait"0" as"program" from"gh-r" \
+zinit ice lucid wait"0" as"program" from"gh-r" \
     pick"ghq*/ghq" \
     atload'export GHQ_ROOT="$HOME/Workspace"'
-zplugin light 'motemen/ghq'
+zinit light 'motemen/ghq'
 
 ### Emojify ###
-zplugin ice lucid wait"0" as"program" \
+zinit ice lucid wait"0" as"program" \
     atclone'rm *.{py,bats}' atpull'%atclone'
-zplugin light 'mrowa44/emojify'
+zinit light 'mrowa44/emojify'
 
 ### Forgit ###
-zplugin ice lucid wait"1" \
+zinit ice lucid wait"1" \
     atinit'export FORGIT_NO_ALIASES=1' \
     atload'
-        export FORGIT_PLUGIN_ZSH="${ZPLGM[PLUGINS_DIR]}/wfxr---forgit/forgit.plugin.zsh"
+        export FORGIT_PLUGIN_ZSH="${ZINIT[PLUGINS_DIR]}/wfxr---forgit/forgit.plugin.zsh"
         export FORGIT_GI_REPO_LOCAL="$XDG_DATA_HOME/gitignore"
     '
-zplugin light 'wfxr/forgit'
+zinit light 'wfxr/forgit'
 
 ### locale ###
 export LANG="en_US.UTF-8"

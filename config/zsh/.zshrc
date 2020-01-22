@@ -1,8 +1,8 @@
-### zplugin ###
-typeset -gAH ZPLGM
-export ZPLGM[HOME_DIR]="$XDG_DATA_HOME/zplugin"
-source "${ZPLGM[HOME_DIR]}/bin/zplugin.zsh"
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
+### zinit ###
+typeset -gAH ZINIT
+export ZINIT[HOME_DIR]="$XDG_DATA_HOME/zinit"
+source "${ZINIT[HOME_DIR]}/bin/zinit.zsh"
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
 ### zsh ###
 export ZSH_CONFIG_HOME="$XDG_CONFIG_HOME/zsh"
@@ -26,10 +26,10 @@ setopt MAGIC_EQUAL_SUBST
 setopt PRINT_EIGHT_BIT
 
 ### theme ###
-zplugin ice from"gh-r" as"program" \
+zinit ice from"gh-r" as"program" \
     mv"almel* -> almel" \
     atclone"chmod +x almel" atpull"%atclone"
-zplugin load 'Ryooooooga/almel'
+zinit load 'Ryooooooga/almel'
 
 almel_preexec() {
     ALMEL_START="$EPOCHREALTIME"
@@ -120,6 +120,6 @@ zle -N zle-line-finish
 zle -N zle-keymap-select
 
 ### plugins ###
-zplugin ice lucid wait"0" as"program" \
+zinit ice lucid wait"0" as"program" \
     atinit'. "$ZDOTDIR/plugins.zsh"'
-zplugin light 'zdharma/null'
+zinit light 'zdharma/null'
