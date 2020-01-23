@@ -43,8 +43,14 @@ alias ll='ls -al'
 (( ${+commands[trash]} )) && alias rm='trash'
 (( ${+commands[colordiff]} )) && alias diff='colordiff'
 
-### History-substring-search ###
-zinit ice lucid wait"0"
+### zsh-history-substring-search ###
+zinit ice lucid wait"0" \
+    atload'
+        bindkey "${terminfo[kcuu1]}" history-substring-search-up   # arrow-up
+        bindkey "${terminfo[kcud1]}" history-substring-search-down # arrow-down
+        bindkey "^[[A" history-substring-search-up   # arrow-up
+        bindkey "^[[B" history-substring-search-down # arrow-down
+    '
 zinit light 'zsh-users/zsh-history-substring-search'
 
 ### AutoSuggestions ###
@@ -56,13 +62,7 @@ zinit ice lucid wait"0"
 zinit light 'zsh-users/zsh-completions'
 
 ### Fast-Syntax-Highlight ###
-zinit ice lucid wait"0" \
-    atload '
-        bindkey "${terminfo[kcuu1]}" history-substring-search-up   # arrow-up
-        bindkey "${terminfo[kcud1]}" history-substring-search-down # arrow-down
-        bindkey "^[[A" history-substring-search-up   # arrow-up
-        bindkey "^[[B" history-substring-search-down # arrow-down
-    '
+zinit ice lucid wait"0"
 zinit light 'zdharma/fast-syntax-highlighting'
 
 ### Autopair ###
