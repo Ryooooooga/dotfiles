@@ -2,6 +2,9 @@
     autocrlf = false
     pager = delta --dark
 
+[init]
+    templateDir = ~/.config/git/template
+
 [commit]
     verbose = true
     gpgSign = false # overwriten in config.local
