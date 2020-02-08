@@ -84,10 +84,10 @@ zinit light 'direnv/direnv'
 zinit ice lucid wait"0" as"program" from"gh-r" \
     mv"exa* -> exa" \
     atload"
-        alias ls='exa'
-        alias la='exa -a'
-        alias ll='exa -al --git --icons'
-        alias tree='exa -T --icons'
+        alias ls='exa --group-directories-first'
+        alias la='exa --group-directories-first -a'
+        alias ll='exa --group-directories-first -al --git --icons'
+        alias tree='exa --group-directories-first -T --icons'
     "
 zinit light 'ogham/exa'
 
