@@ -184,10 +184,10 @@ docker() {
 }
 
 docker-clean() {
-    command docker rm $(command docker ps -aqf status=exited) "$@"
+    command docker ps -aqf status=exited | xargs command docker rm
 }
 docker-cleani() {
-    command docker rmi $(command docker images -qf dangling=true) "$@"
+    command docker images -qf dangling=true | xargs command docker rmi
 }
 docker-ri() {
     command docker run -it "$@"
