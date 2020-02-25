@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+DICT="/usr/share/dict/words"
+shuf -n"${1:-1}" "$DICT"
