@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 add-apt-repository ppa:git-core/ppa &&
 apt-get update && apt-get upgrade &&
-apt-get install \
+apt-get install -y \
+    automake \
     build-essential \
     zsh \
     git \
