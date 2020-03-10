@@ -10,9 +10,6 @@ brew "neovim"
 brew "trash"
 brew "wget"
 
-tap "federico-terzi/espanso"
-brew "espanso"
-
 cask "alacritty"
 cask "firefox"
 cask "docker"
