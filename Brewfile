@@ -12,6 +12,7 @@ brew "wget"
 
 cask "alacritty"
 cask "firefox"
+cask "dash"
 cask "docker"
 cask "gitkraken"
 cask "google-chrome"
