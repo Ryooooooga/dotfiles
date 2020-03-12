@@ -70,8 +70,9 @@ zinit ice lucid wait"0"
 zinit light 'hlissner/zsh-autopair'
 
 ### FZF ###
-zinit ice lucid wait"0" as"program" from"gh-r" \
-    atload'export FZF_DEFAULT_OPTS="--reverse --exit-0 --border --ansi"'
+export FZF_DEFAULT_OPTS="--reverse --exit-0 --border --ansi"
+
+zinit ice lucid wait"0" as"program" from"gh-r"
 zinit light 'junegunn/fzf-bin'
 
 ### direnv ###
