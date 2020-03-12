@@ -1,5 +1,6 @@
 [core]
     autocrlf = false
+    ignoreCase = false
     pager = delta --dark
 
 [init]
