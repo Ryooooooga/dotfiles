@@ -1,0 +1,8 @@
+### macOS ###
+.DS_Store
+
+### Vim ###
+.*.swp
+
+### Git ###
+.git/

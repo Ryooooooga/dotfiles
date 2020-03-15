@@ -100,7 +100,10 @@ zinit light 'sharkdp/bat'
 ### fd ###
 zinit ice lucid wait"0" as"program" from"gh-r" \
     pick"fd*/fd" \
-    atload"export FZF_DEFAULT_COMMAND='fd --color=always --hidden --exclude=.git'"
+    atload"
+        export FZF_DEFAULT_COMMAND='fd --color=always --hidden'
+        alias fd='fd --ignore-file=$XDG_CONFIG_HOME/fd/ignore'
+    "
 zinit light 'sharkdp/fd'
 
 ### delta ###
