@@ -1,6 +1,5 @@
 syntax on
 
-set nocompatible
 set fenc=utf-8
 set autoread
 set title

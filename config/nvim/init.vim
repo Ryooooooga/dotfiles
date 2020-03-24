@@ -1,7 +1,3 @@
-if &compatible
-    set nocompatible
-endif
-
 set fenc=utf-8
 set title
 set number
