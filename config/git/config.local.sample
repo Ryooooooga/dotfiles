@@ -6,3 +6,6 @@
 
 [users "ryoga"]
     signingKey = ""
+
+[ghq "https://example.ghe.com"]
+    vcs = github
