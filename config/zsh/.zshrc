@@ -29,7 +29,7 @@ setopt PRINT_EIGHT_BIT
 zinit ice from"gh-r" as"program" \
     mv"almel* -> almel" \
     atclone"chmod +x almel" atpull"%atclone"
-zinit load 'Ryooooooga/almel'
+zinit light 'Ryooooooga/almel'
 
 almel_preexec() {
     ALMEL_START="$EPOCHREALTIME"
