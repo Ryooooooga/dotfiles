@@ -119,8 +119,7 @@ zinit light 'jesseduffield/lazygit'
 
 ### GHQ ###
 zinit ice lucid wait"0" as"program" from"gh-r" \
-    pick"ghq*/ghq" \
-    atload'export GHQ_ROOT="$HOME/Workspace"'
+    pick"ghq*/ghq"
 zinit light 'x-motemen/ghq'
 
 ### Emojify ###

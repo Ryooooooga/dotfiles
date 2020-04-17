@@ -109,6 +109,7 @@
     pushInsteadOf = https://gist.github.com/Ryooooooga/
 
 [ghq]
+    root = ~/.local/share/go/src
     root = ~/Workspace
 
 [include]
