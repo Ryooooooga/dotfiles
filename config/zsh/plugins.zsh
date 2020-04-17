@@ -8,19 +8,21 @@ autoload -Uz _zinit
 case $OSTYPE in
     linux*)
         if (( ${+commands[win32yank.exe]} )); then
-            alias pbcopy='win32yank.exe -i'
-            alias pbpaste='win32yank.exe -o'
+            alias pp='win32yank.exe -i'
+            alias p='win32yank.exe -o'
         elif (( ${+commands[xsel]} )); then
-            alias pbcopy='xsel -bi'
-            alias pbpaste='xsel -b'
+            alias pp='xsel -bi'
+            alias p='xsel -b'
         fi
     ;;
     msys)
         alias cmake='command cmake -G"Unix Makefiles"'
-        alias pbcopy='cat > /dev/clipboard'
-        alias pbpaste='cat /dev/clipboard'
+        alias pp='cat > /dev/clipboard'
+        alias p='cat /dev/clipboard'
     ;;
     darwin*)
+        alias pp='pbcopy'
+        alias p='pbpaste'
         (( ${+commands[gdate]} )) && alias date='gdate'
         (( ${+commands[gls]} )) && alias ls='gls --color=auto'
         (( ${+commands[gcp]} )) && alias cp='gcp'
