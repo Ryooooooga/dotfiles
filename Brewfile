@@ -1,6 +1,7 @@
 brew "bash"
 brew "colordiff"
 brew "coreutils"
+brew "ghq"
 brew "git"
 brew "gnu-sed"
 brew "grep"
