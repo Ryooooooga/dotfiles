@@ -537,7 +537,8 @@ key_bindings:
   #- { key: W,      mods: Command,         action: Quit             }
   #- { key: F,      mods: Command|Control, action: ToggleFullscreen }
 
-  - { key: N,        mods: Command, action: SpawnNewInstance             }
+  - { key: N,        mods: Command, action: SpawnNewInstance                 }
+  - { key: G,        mods: Alt,     chars: "\x1bg"                           }
 
   - { key: Paste,                   action: Paste                            }
   - { key: Copy,                    action: Copy                             }
