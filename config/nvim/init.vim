@@ -30,6 +30,8 @@ if dein#load_state($XDG_DATA_HOME . '/dein')
 
     call dein#add('Shougo/neosnippet.vim')
     call dein#add('Shougo/neosnippet-snippets')
+    call dein#add('Shougo/defx.nvim')
+    call dein#add('kristijanhusak/defx-icons')
     call dein#add('jiangmiao/auto-pairs')
     call dein#add('airblade/vim-gitgutter')
     call dein#add('scrooloose/nerdtree')
@@ -39,6 +41,8 @@ if dein#load_state($XDG_DATA_HOME . '/dein')
     call dein#add('vim-airline/vim-airline')
     call dein#add('vim-airline/vim-airline-themes')
     call dein#add('liuchengxu/vim-clap', { 'build': './install.sh' })
+    call dein#add('connorholyday/vim-snazzy')
+    call dein#add('preservim/nerdcommenter')
 
     call dein#end()
     call dein#save_state()
@@ -50,6 +54,38 @@ syntax enable
 if dein#check_install()
     call dein#install()
 endif
+
+" colorscheme
+colorscheme snazzy
+
+" defx.vim
+" Run pip3 install pynvim
+autocmd FileType defx call s:defx_my_settings()
+function! s:defx_my_settings() abort
+    nnoremap <silent><buffer><expr> <CR>
+        \ !defx#is_directory()
+        \   ? defx#do_action('drop')
+        \   : defx#do_action('open_or_close_tree')
+    nnoremap <silent><buffer><expr> o
+        \ !defx#is_directory()
+        \   ? defx#do_action('drop')
+        \   : defx#is_opened_tree() ? defx#do_action('close_tree') : defx#do_action('open_tree_recursive')
+    nnoremap <silent><buffer><expr> r    defx#do_action('redraw')
+    nnoremap <silent><buffer><expr> d    defx#do_action('remove')
+    nnoremap <silent><buffer><expr> c    defx#do_action('copy')
+    nnoremap <silent><buffer><expr> p    defx#do_action('paste')
+    nnoremap <silent><buffer><expr> m    defx#do_action('move')
+    nnoremap <silent><buffer><expr> n    defx#do_action('new_file')
+    nnoremap <silent><buffer><expr> N    defx#do_action('new_directory')
+    nnoremap <silent><buffer><expr> q    defx#do_action('quit')
+endfunction
+
+call defx#custom#option('_', {
+    \   'columns': 'indent:icons:filename:type',
+    \   'direction': 'topleft',
+    \   'split': 'vertical',
+    \   'winwidth': 32,
+    \ })
 
 " neosnippet
 let g:neosnippet#snippets_directory=$XDG_CONFIG_HOME . '/nvim/snippets'
@@ -82,6 +118,11 @@ let g:clap_layout = {
     \ }
 " Run :call clap#installer#download_binary() or :call clap#installer#install_maple()
 
+" NERDCommenter
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultAlign = 'left'
+
 " keymaps
 inoremap jj <ESC>
 nnoremap ;  :
@@ -101,9 +142,11 @@ nnoremap <silent><C-a> ^
 nnoremap <silent><C-e> $
 nnoremap <silent><C-\> :vsplit<CR>
 nnoremap <silent><C-_> :split<CR>
-nnoremap <silent><C-o> :NERDTreeToggle<CR>
+nnoremap <silent><C-o> :Defx -toggle<CR>
 nnoremap <silent><C-h> :bprev<CR>
 nnoremap <silent><C-l> :bnext<CR>
 nnoremap <silent><C-w> :bdelete<CR>
-nnoremap //            :Clap blines<CR>
+nnoremap <silent>//    :Clap blines<CR>
 nnoremap <silent><C-p> :Clap filer<CR>
+nmap     <silent><C-_> <Plug>NERDCommenterToggle
+vmap     <silent><C-_> <Plug>NERDCommenterToggle
