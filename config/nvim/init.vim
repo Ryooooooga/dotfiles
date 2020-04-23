@@ -21,7 +21,6 @@ set list
 
 " dein.vim
 set runtimepath+=$XDG_DATA_HOME/dein/repos/github.com/Shougo/dein.vim
-set runtimepath+=$XDG_DATA_HOME/dein/repos/github.com/junegunn/fzf
 
 if dein#load_state($XDG_DATA_HOME . '/dein')
     call dein#begin($XDG_DATA_HOME . '/dein')
@@ -39,8 +38,7 @@ if dein#load_state($XDG_DATA_HOME . '/dein')
     call dein#add('tpope/vim-fugitive')
     call dein#add('vim-airline/vim-airline')
     call dein#add('vim-airline/vim-airline-themes')
-    call dein#add('junegunn/fzf', { 'rtp': '' })
-    call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
+    call dein#add('liuchengxu/vim-clap', { 'build': './install.sh' })
 
     call dein#end()
     call dein#save_state()
@@ -74,6 +72,16 @@ let g:airline_symbols = {
         \ 'dirty': "\u00b1",
     \ }
 
+" vim-clap
+let g:clap_theme = 'material_design_dark'
+let g:clap_layout = {
+        \ 'width': '80%',
+        \ 'height': '60%',
+        \ 'row': '20%',
+        \ 'col': '10%',
+    \ }
+" Run :call clap#installer#download_binary() or :call clap#installer#install_maple()
+
 " keymaps
 inoremap jj <ESC>
 nnoremap ;  :
@@ -97,5 +105,5 @@ nnoremap <silent><C-o> :NERDTreeToggle<CR>
 nnoremap <silent><C-h> :bprev<CR>
 nnoremap <silent><C-l> :bnext<CR>
 nnoremap <silent><C-w> :bdelete<CR>
-nnoremap //            :BLine<CR>
-nnoremap <silent><C-p> :Files<CR>
+nnoremap //            :Clap blines<CR>
+nnoremap <silent><C-p> :Clap filer<CR>
