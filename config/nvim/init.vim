@@ -31,11 +31,11 @@ if dein#load_state($XDG_DATA_HOME . '/dein')
     call dein#add('Shougo/neosnippet.vim')
     call dein#add('Shougo/neosnippet-snippets')
     call dein#add('Shougo/defx.nvim')
+    call dein#add('kristijanhusak/defx-git')
     call dein#add('kristijanhusak/defx-icons')
     call dein#add('jiangmiao/auto-pairs')
     call dein#add('airblade/vim-gitgutter')
     call dein#add('scrooloose/nerdtree')
-    call dein#add('ryanoasis/vim-devicons')
     call dein#add('editorconfig/editorconfig-vim')
     call dein#add('tpope/vim-fugitive')
     call dein#add('vim-airline/vim-airline')
@@ -70,18 +70,23 @@ function! s:defx_my_settings() abort
         \ !defx#is_directory()
         \   ? defx#do_action('drop')
         \   : defx#is_opened_tree() ? defx#do_action('close_tree') : defx#do_action('open_tree_recursive')
-    nnoremap <silent><buffer><expr> r    defx#do_action('redraw')
-    nnoremap <silent><buffer><expr> d    defx#do_action('remove')
-    nnoremap <silent><buffer><expr> c    defx#do_action('copy')
-    nnoremap <silent><buffer><expr> p    defx#do_action('paste')
-    nnoremap <silent><buffer><expr> m    defx#do_action('move')
-    nnoremap <silent><buffer><expr> n    defx#do_action('new_file')
-    nnoremap <silent><buffer><expr> N    defx#do_action('new_directory')
-    nnoremap <silent><buffer><expr> q    defx#do_action('quit')
+    nnoremap <silent><buffer><expr> h       defx#do_action('close_tree')
+    nnoremap <silent><buffer><expr> l       defx#do_action('open_tree')
+    nnoremap <silent><buffer><expr> <Left>  defx#do_action('close_tree')
+    nnoremap <silent><buffer><expr> <Right> defx#do_action('open_tree')
+    nnoremap <silent><buffer><expr> r       defx#do_action('redraw')
+    nnoremap <silent><buffer><expr> d       defx#do_action('remove')
+    nnoremap <silent><buffer><expr> c       defx#do_action('copy')
+    nnoremap <silent><buffer><expr> p       defx#do_action('paste')
+    nnoremap <silent><buffer><expr> m       defx#do_action('move')
+    nnoremap <silent><buffer><expr> n       defx#do_action('new_file')
+    nnoremap <silent><buffer><expr> N       defx#do_action('new_directory')
+    nnoremap <silent><buffer><expr> q       defx#do_action('quit')
+    nnoremap <silent><buffer><expr> .       defx#do_action('toggle_ignored_files')
 endfunction
 
 call defx#custom#option('_', {
-    \   'columns': 'indent:icons:filename:type',
+    \   'columns': 'space:indent:git:icons:filename:type',
     \   'direction': 'topleft',
     \   'split': 'vertical',
     \   'winwidth': 32,
@@ -142,7 +147,7 @@ nnoremap <silent><C-a> ^
 nnoremap <silent><C-e> $
 nnoremap <silent><C-\> :vsplit<CR>
 nnoremap <silent><C-_> :split<CR>
-nnoremap <silent><C-o> :Defx -toggle<CR>
+nnoremap <silent><C-o> :Defx -toggle -show-ignored-files<CR>
 nnoremap <silent><C-h> :bprev<CR>
 nnoremap <silent><C-l> :bnext<CR>
 nnoremap <silent><C-w> :bdelete<CR>
