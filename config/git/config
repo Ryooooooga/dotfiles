@@ -104,9 +104,12 @@
     program = gpg
 
 [url "git@github.com:"]
-    pushInsteadOf = https://github.com/
+    insteadOf = https://github.com/
+    insteadOf = gh:
+
 [url "git@gist.github.com:"]
-    pushInsteadOf = https://gist.github.com/Ryooooooga/
+    insteadOf = https://gist.github.com/Ryooooooga/
+    insteadOf = gist:
 
 [ghq]
     root = ~/.local/share/go/src
