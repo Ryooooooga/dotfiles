@@ -189,10 +189,10 @@ docker() {
 }
 
 docker-clean() {
-    command docker ps -aqf status=exited | xargs command docker rm
+    command docker ps -aqf status=exited | xargs docker rm
 }
 docker-cleani() {
-    command docker images -qf dangling=true | xargs command docker rmi
+    command docker images -qf dangling=true | xargs docker rmi
 }
 docker-ri() {
     command docker run -it "$@"
@@ -205,14 +205,14 @@ docker-rrmi() {
 }
 docker-rm() {
     if [ "$#" -eq 0 ]; then
-        command docker ps -a | fzf --multi --header-lines=1 | awk '{ print $1 }' | xargs command docker rm
+        command docker ps -a | fzf --multi --header-lines=1 | awk '{ print $1 }' | xargs docker rm
     else
         command docker rm "$@"
     fi
 }
 docker-rmi() {
     if [ "$#" -eq 0 ]; then
-        command docker images -a | fzf --multi --header-lines=1 | awk '{ print $3 }' | xargs command docker rmi
+        command docker images -a | fzf --multi --header-lines=1 | awk '{ print $3 }' | xargs docker rmi
     else
         command docker rmi "$@"
     fi
