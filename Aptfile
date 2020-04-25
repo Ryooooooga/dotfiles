@@ -5,6 +5,7 @@ apt-get install -y \
     automake \
     build-essential \
     colordiff \
+    docker.io \
     git \
     gpg \
     libssl-dev \
