@@ -265,7 +265,10 @@ export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
 export PYLINTHOME="$XDG_CACHE_HOME/pylint"
 
 ### SQLite3 ###
-export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
+export SQLITE_HISTORY="$XDG_CACHE_HOME/sqlite_history"
+
+### MySQL ###
+export MYSQL_HISTFILE="$XDG_CACHE_HOME/mysql_history"
 
 ### youtube-dl ###
 if (( ${+commands[youtube-dl]} )); then
