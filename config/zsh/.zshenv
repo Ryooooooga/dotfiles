@@ -11,4 +11,8 @@ export RUST_BACKTRACE=1
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 
-path=($CARGO_HOME/bin(N-/) $path[@])
+path=(
+    $HOME/.local/bin(N-/)
+    $CARGO_HOME/bin(N-/)
+    $path[@]
+)
