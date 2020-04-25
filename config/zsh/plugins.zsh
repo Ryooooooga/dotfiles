@@ -239,13 +239,13 @@ e() {
 
 ### Go ###
 export GOPATH="$XDG_DATA_HOME/go"
-path=($GOPATH/bin(N-/) $path[@])
+path=("$GOPATH"/bin(N-/) "$path[@]")
 
 ### asdf-vm ###
 export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
 
 if [ -e "$ASDF_DATA_DIR" ]; then
-    source $ASDF_DATA_DIR/asdf.sh
+    source "$ASDF_DATA_DIR/asdf.sh"
 fi
 
 ### Node.js ###
@@ -276,9 +276,9 @@ if (( ${+commands[youtube-dl]} )); then
 fi
 
 ### custom functions ###
-path=($XDG_CONFIG_HOME/bin(N-/) $path[@])
+path=("$XDG_CONFIG_HOME"/bin(N-/) "$path[@]")
 
 ### local ###
-if [ -f $ZDOTDIR/zshrc.local ]; then
-    source $ZDOTDIR/zshrc.local
+if [ -f "$ZDOTDIR/zshrc.local" ]; then
+    source "$ZDOTDIR/zshrc.local"
 fi
