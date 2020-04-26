@@ -6,6 +6,7 @@ AllowShortFunctionsOnASingleLine: None
 AlwaysBreakBeforeMultilineStrings: true
 BinPackArguments: false
 BinPackParameters: false
+BreakConstructorInitializersBeforeComma: true
 ColumnLimit: 0
 CommentPragmas: ^
 NamespaceIndentation: All
