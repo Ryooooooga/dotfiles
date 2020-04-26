@@ -39,7 +39,7 @@
     b = branch
 
     # commit
-    c = commit
+    c = cz
     cm = commit -m
     uncommit = reset --soft HEAD^
 
