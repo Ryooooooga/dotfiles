@@ -270,6 +270,9 @@ export SQLITE_HISTORY="$XDG_CACHE_HOME/sqlite_history"
 ### MySQL ###
 export MYSQL_HISTFILE="$XDG_CACHE_HOME/mysql_history"
 
+### PostgreSQL ###
+export PSQL_HISTORY="$XDG_CACHE_HOME/psql_history"
+
 ### youtube-dl ###
 if (( ${+commands[youtube-dl]} )); then
     alias youtube-audio='youtube-dl -x --no-playlist'
