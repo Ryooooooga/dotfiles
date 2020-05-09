@@ -146,7 +146,7 @@ add-zsh-hook chpwd chpwd_recent_dirs
 zstyle ':chpwd:*' recent-dirs-file "$ZSH_DATA_HOME/chpwd-recent-dirs"
 
 ### ls-colors ###
-LS_COLORS="di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32"
+export LS_COLORS="di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32"
 
 ### less ###
 export LESSHISTFILE='-'
@@ -237,13 +237,7 @@ e() {
     fi
 }
 
-### Go ###
-export GOPATH="$XDG_DATA_HOME/go"
-path=("$GOPATH"/bin(N-/) "$path[@]")
-
 ### asdf-vm ###
-export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
-
 if [ -e "$ASDF_DATA_DIR" ]; then
     source "$ASDF_DATA_DIR/asdf.sh"
 fi
@@ -277,9 +271,6 @@ export PSQL_HISTORY="$XDG_CACHE_HOME/psql_history"
 if (( ${+commands[youtube-dl]} )); then
     alias youtube-audio='youtube-dl -x --no-playlist'
 fi
-
-### custom functions ###
-path=("$XDG_CONFIG_HOME"/scripts/bin(N-/) "$path[@]")
 
 ### local ###
 if [ -f "$ZDOTDIR/zshrc.local" ]; then
