@@ -173,7 +173,7 @@ alias cmaked='cmake -DCMAKE_BUILD_TYPE=Debug'
 alias cmakerel='cmake -DCMAKE_BUILD_TYPE=Release'
 
 ### GDB ###
-alias gdb='gdb -q -nh -x "$XDG_CONFIG_HOME/gdb/init"'
+alias gdb='gdb -q -nh -x "$XDG_DATA_HOME/gdb-dashboard/.gdbinit"'
 
 ### Tmux ###
 alias tmux='tmux -f "$XDG_CONFIG_HOME/tmux/tmux.conf"'

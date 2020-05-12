@@ -39,8 +39,6 @@ github asdf-vm/asdf "$XDG_DATA_HOME/asdf"
 
 # gdb-dashboard
 github cyrus-and/gdb-dashboard "$XDG_DATA_HOME/gdb-dashboard"
-mkdir -p "$XDG_CONFIG_HOME/gdb"
-ln -sfv "$XDG_DATA_HOME/gdb-dashboard/.gdbinit" "$XDG_CONFIG_HOME/gdb/init"
 
 # mac
 if [ "$(uname)" = "Darwin" ]; then
