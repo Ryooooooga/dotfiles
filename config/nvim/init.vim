@@ -43,6 +43,7 @@ if dein#load_state($XDG_DATA_HOME . '/dein')
     call dein#add('liuchengxu/vim-clap', { 'build': './install.sh' })
     call dein#add('connorholyday/vim-snazzy')
     call dein#add('preservim/nerdcommenter')
+    call dein#add('elzr/vim-json')
 
     call dein#end()
     call dein#save_state()
@@ -127,6 +128,9 @@ let g:clap_layout = {
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
 let g:NERDDefaultAlign = 'left'
+
+" vim-json
+let g:vim_json_syntax_conceal=0
 
 " keymaps
 inoremap jj <ESC>
