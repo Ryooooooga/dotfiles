@@ -1,0 +1,48 @@
+{
+  "rules": {
+    "@textlint-ja/no-insert-dropping-sa": true,
+    "@textlint-rule/no-invalid-control-character": true,
+    "@textlint-rule/no-unmatched-pair": true,
+    "abbr-within-parentheses": true,
+    "common-misspellings": true,
+    "footnote-order": true,
+    "incremental-headers": true,
+    "ja-hiragana-fukushi": true,
+    "ja-hiragana-hojodoushi": true,
+    "ja-hiragana-keishikimeishi": true,
+    "ja-no-abusage": true,
+    "ja-no-mixed-period": true,
+    "ja-no-redundant-expression": true,
+    "ja-no-successive-word": true,
+    "ja-no-weak-phrase": true,
+    "ja-unnatural-alphabet": true,
+    "max-comma": true,
+    "max-ten": true,
+    "no-empty-section": true,
+    "no-double-negative-ja": true,
+    "no-doubled-conjunction": true,
+    "no-doubled-conjunctive-particle-ga": true,
+    "no-doubled-joshi": true,
+    "no-dropping-the-ra": true,
+    "no-exclamation-question-mark": true,
+    "no-hankaku-kana": true,
+    "no-mix-dearu-desumasu": true,
+    "no-mixed-zenkaku-and-hankaku-alphabet": true,
+    "no-nfd": true,
+    "no-surrogate-pair": true,
+    "period-in-list-item": true,
+    "prefer-tari-tari": true,
+    "preset-jtf-style": {
+      "3.3.かっこ類と隣接する文字の間のスペースの有無": false,
+      "4.3.1.丸かっこ（）": false
+    },
+    "prh": {
+      "rulePaths": [".textlint-prh.yaml"]
+    },
+    "spellcheck-tech-word": true,
+    "terminology": true
+  },
+  "filters": {
+    "comments": true
+  }
+}
