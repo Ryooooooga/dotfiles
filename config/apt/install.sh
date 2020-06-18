@@ -8,7 +8,6 @@ apt-get install -y \
     docker.io \
     git \
     gpg \
-    hub \
     jq \
     libssl-dev \
     neovim \
