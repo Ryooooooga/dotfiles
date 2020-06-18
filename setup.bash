@@ -25,11 +25,14 @@ fi
 
 # asdf-vm
 echo "Installing asdf-vm..."
-if [ -d "$XDG_DATA_HOME/asdf" ]; then
+export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
+if [ -d "$ASDF_DATA_DIR" ]; then
     echo "asdf-vm is already installed."
-    git -C "$XDG_DATA_HOME/asdf" pull
+    git -C "$ASDF_DATA_DIR" pull
 else
-    git clone "https://github.com/asdf-vm/asdf" "$XDG_DATA_HOME/asdf"
+    git clone "https://github.com/asdf-vm/asdf" "$ASDF_DATA_DIR"
+    asdf plugin add nodejs
+    bash "${ASDF_DATA_DIR}/plugins/nodejs/bin/import-release-team-keyring"
 fi
 
 # gdb-dashboard
