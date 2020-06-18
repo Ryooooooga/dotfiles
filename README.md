@@ -1,4 +1,7 @@
-# Ryooooooga/dotfiles
+# dotfiles
+
+![](https://github.com/Ryooooooga/dotfiles/workflows/Ubuntu/badge.svg)
+![](https://github.com/Ryooooooga/dotfiles/workflows/macOS/badge.svg)
 
 ## How to Install
 
