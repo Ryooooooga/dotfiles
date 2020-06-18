@@ -14,7 +14,6 @@ set incsearch
 set whichwrap=b,s,h,l,<,>,[,],~
 set smarttab
 set shiftround
-set autoread
 set smartcase
 set ignorecase
 set showtabline=2
