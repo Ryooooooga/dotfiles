@@ -6,6 +6,7 @@ XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
 mkdir -p "$XDG_CONFIG_HOME"
 mkdir -p "$XDG_DATA_HOME/zsh"
 mkdir -p "$HOME/.gnupg"
+chmod 700 "$HOME/.gnupg"
 
 ln -sfv "$REPO_DIR/config/alacritty"    "$XDG_CONFIG_HOME"
 ln -sfv "$REPO_DIR/config/almel"        "$XDG_CONFIG_HOME"
