@@ -1,6 +1,6 @@
 #!/bin/sh
-add-apt-repository ppa:git-core/ppa &&
-apt-get update && apt-get upgrade &&
+add-apt-repository -y ppa:git-core/ppa &&
+apt-get update && apt-get upgrade -y &&
 apt-get install -y \
     automake \
     build-essential \

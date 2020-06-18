@@ -3,9 +3,29 @@ REPO_DIR="$(cd "$(dirname "$0")" || exit 1; pwd)"
 XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
 
-"$REPO_DIR"/link.bash
+/bin/bash "$REPO_DIR/link.bash"
 
-# zplugin
+# macOS
+if [ "$(uname)" = "Darwin" ]; then
+    # Display hidden files in Finder
+    defaults write com.apple.finder AppleShowAllFiles YES
+
+    # Configure hammerspoon config location
+    defaults write org.hammerspoon.Hammerspoon MJConfigFile "$XDG_CONFIG_HOME/hammerspoon/init.lua"
+
+    # Homebrew
+    echo "Installing Homebrew..."
+    if type brew > /dev/null; then
+        echo "Homebrew is already installed."
+    else
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
+        echo "Installing Homebrew apps..."
+        brew bundle install --file "${REPO_DIR}/config/homebrew/Brewfile" --no-lock
+    fi
+fi
+
+# zinit
 echo "Installing zinit..."
 if [ -d "$XDG_DATA_HOME/zinit/bin" ]; then
     echo "zinit is already installed."
@@ -20,7 +40,7 @@ if [ -d "$XDG_DATA_HOME/dein/repos/github.com/Shougo/dein.vim" ]; then
     echo "dein.vim is already installed."
     git -C "$XDG_DATA_HOME/dein/repos/github.com/Shougo/dein.vim" pull
 else
-    curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh | sh -s "$XDG_DATA_HOME/dein"
+    curl "https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh" | sh -s "$XDG_DATA_HOME/dein"
 fi
 
 # asdf-vm
@@ -31,8 +51,10 @@ if [ -d "$ASDF_DATA_DIR" ]; then
     git -C "$ASDF_DATA_DIR" pull
 else
     git clone "https://github.com/asdf-vm/asdf" "$ASDF_DATA_DIR"
+
+    . "$ASDF_DATA_DIR/asdf.sh"
     asdf plugin add nodejs
-    bash "${ASDF_DATA_DIR}/plugins/nodejs/bin/import-release-team-keyring"
+    /bin/bash "${ASDF_DATA_DIR}/plugins/nodejs/bin/import-release-team-keyring"
 fi
 
 # gdb-dashboard
@@ -42,13 +64,4 @@ if [ -d "$XDG_DATA_HOME/gdb-dashboard" ]; then
     git -C "$XDG_DATA_HOME/gdb-dashboard" pull
 else
     git clone "https://github.com/cyrus-and/gdb-dashboard" "$XDG_DATA_HOME/gdb-dashboard"
-fi
-
-# mac
-if [ "$(uname)" = "Darwin" ]; then
-    # Display hidden files in Finder
-    defaults write com.apple.finder AppleShowAllFiles YES
-
-    # Configure hammerspoon config location
-    defaults write org.hammerspoon.Hammerspoon MJConfigFile "$XDG_CONFIG_HOME/hammerspoon/init.lua"
 fi
