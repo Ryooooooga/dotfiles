@@ -44,6 +44,8 @@ if dein#load_state($XDG_DATA_HOME . '/dein')
     call dein#add('connorholyday/vim-snazzy')
     call dein#add('preservim/nerdcommenter')
     call dein#add('elzr/vim-json')
+    call dein#add('terryma/vim-multiple-cursors')
+    call dein#add('terryma/vim-expand-region')
 
     call dein#end()
     call dein#save_state()
@@ -130,7 +132,18 @@ let g:NERDCompactSexyComs = 1
 let g:NERDDefaultAlign = 'left'
 
 " vim-json
-let g:vim_json_syntax_conceal=0
+let g:vim_json_syntax_conceal = 0
+
+" multiple-cursors
+let g:multi_cursor_use_default_mapping = 0
+let g:multi_cursor_start_word_key      = '<C-d>'
+let g:multi_cursor_select_all_word_key = 'A<C-d>'
+let g:multi_cursor_start_key           = 'g<C-d>'
+let g:multi_cursor_select_all_key      = 'gA<C-d>'
+let g:multi_cursor_next_key            = '<C-d>'
+let g:multi_cursor_prev_key            = '<C-p>'
+let g:multi_cursor_skip_key            = '<C-k>'
+let g:multi_cursor_quit_key            = '<Esc>'
 
 " keymaps
 inoremap jj <ESC>
@@ -159,3 +172,5 @@ nnoremap <silent>//    :Clap blines<CR>
 nnoremap <silent><C-p> :Clap filer<CR>
 nmap     <silent><C-_> <Plug>NERDCommenterToggle
 vmap     <silent><C-_> <Plug>NERDCommenterToggle
+vmap     v             <Plug>(expand_region_expand)
+vmap     V             <Plug>(expand_region_shrink)
