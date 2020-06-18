@@ -7,8 +7,8 @@ $ git clone https://github.com/Ryooooooga/dotfiles.git ~/Workspace/github.com/Ry
 $ cd ~/Workspace/github.com/Ryooooooga/dotfiles
 
 $ # Install dependencies
-$ brew bundle     # for macOS
-$ sudo ./Aptfile  # for Ubuntu
+$ brew bundle --file ./config/homebrew/Brewfile  # for macOS
+$ sudo ./config/apt/install.sh  # for Ubuntu
 
 $ ./setup.bash
 ```

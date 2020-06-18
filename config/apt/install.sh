@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 add-apt-repository ppa:git-core/ppa &&
 apt-get update && apt-get upgrade &&
 apt-get install -y \
