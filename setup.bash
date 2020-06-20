@@ -19,10 +19,10 @@ if [ "$(uname)" = "Darwin" ]; then
         echo "Homebrew is already installed."
     else
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-
-        echo "Installing Homebrew apps..."
-        brew bundle install --file "${REPO_DIR}/config/homebrew/Brewfile" --no-lock
     fi
+
+    echo "Installing Homebrew apps..."
+    brew bundle install --file "${REPO_DIR}/config/homebrew/Brewfile" --no-lock
 fi
 
 # zinit
