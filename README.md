@@ -2,6 +2,7 @@
 
 ![](https://github.com/Ryooooooga/dotfiles/workflows/Ubuntu/badge.svg)
 ![](https://github.com/Ryooooooga/dotfiles/workflows/macOS/badge.svg)
+![](https://github.com/Ryooooooga/dotfiles/workflows/Lint/badge.svg)
 
 ## How to Install
 

@@ -52,6 +52,7 @@ if [ -d "$ASDF_DATA_DIR" ]; then
 else
     git clone "https://github.com/asdf-vm/asdf" "$ASDF_DATA_DIR"
 
+    # shellcheck source=/dev/null
     . "$ASDF_DATA_DIR/asdf.sh"
     asdf plugin add nodejs
     /bin/bash "${ASDF_DATA_DIR}/plugins/nodejs/bin/import-release-team-keyring"
