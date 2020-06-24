@@ -1,3 +1,6 @@
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+
 brew "bash"
 brew "colordiff"
 brew "coreutils"
@@ -14,9 +17,10 @@ brew "trash"
 brew "wget"
 
 cask "alacritty"
-cask "firefox"
 cask "dash"
 cask "docker"
+cask "firefox"
+cask "font-saucecodepro-nerd-font"
 cask "gitkraken"
 cask "google-chrome"
 cask "google-japanese-ime"
