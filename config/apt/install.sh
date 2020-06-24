@@ -2,8 +2,10 @@
 add-apt-repository -y ppa:git-core/ppa &&
 apt-get update && apt-get upgrade -y &&
 apt-get install -y \
+    autoconf \
     automake \
     build-essential \
+    cmake \
     colordiff \
     docker.io \
     git \
