@@ -8,6 +8,7 @@ apt-get install -y \
     cmake \
     colordiff \
     docker.io \
+    fd-find \
     git \
     gpg \
     jq \

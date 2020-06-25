@@ -73,6 +73,7 @@ zinit light 'hlissner/zsh-autopair'
 
 ### FZF ###
 export FZF_DEFAULT_OPTS="--reverse --exit-0 --border --ansi"
+export FZF_DEFAULT_COMMAND='fd --color=always --hidden'
 
 zinit ice lucid wait"0" as"program" from"gh-r"
 zinit light 'junegunn/fzf-bin'
@@ -98,15 +99,6 @@ zinit light 'ogham/exa'
 zinit ice lucid wait"0" as"program" from"gh-r" \
     pick"bat*/bat"
 zinit light 'sharkdp/bat'
-
-### fd ###
-zinit ice lucid wait"0" as"program" from"gh-r" \
-    pick"fd*/fd" \
-    atload"
-        export FZF_DEFAULT_COMMAND='fd --color=always --hidden'
-        alias fd='fd --ignore-file=$XDG_CONFIG_HOME/fd/ignore'
-    "
-zinit light 'sharkdp/fd'
 
 ### delta ###
 zinit ice lucid wait"0" as"program" from"gh-r" \
@@ -266,6 +258,9 @@ export MYSQL_HISTFILE="$XDG_CACHE_HOME/mysql_history"
 
 ### PostgreSQL ###
 export PSQL_HISTORY="$XDG_CACHE_HOME/psql_history"
+
+### fd ###
+alias fd='fd --ignore-file=$XDG_CONFIG_HOME/fd/ignore'
 
 ### youtube-dl ###
 if (( ${+commands[youtube-dl]} )); then
