@@ -127,6 +127,7 @@ zinit ice lucid wait"1" \
     atload'
         export FORGIT_PLUGIN_ZSH="${ZINIT[PLUGINS_DIR]}/wfxr---forgit/forgit.plugin.zsh"
         export FORGIT_GI_REPO_LOCAL="$XDG_DATA_HOME/gitignore"
+        export FORGIT_GI_TEMPLATES="$FORGIT_GI_REPO_LOCAL/templates"
     '
 zinit light 'wfxr/forgit'
 
