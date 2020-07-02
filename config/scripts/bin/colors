@@ -1,4 +1,15 @@
 #!/usr/bin/env python3
+print('|039| \x1b[039mDefault\x1b[m    |049| \x1b[049mDefault\x1b[m    |037| \x1b[037mLight gray\x1b[m    |047| \x1b[047mLight gray\x1b[m')
+print('|030| \x1b[030mBlack\x1b[m      |040| \x1b[040mBlack\x1b[m      |090| \x1b[090mDark gray\x1b[m     |100| \x1b[100mDark gray\x1b[m')
+print('|031| \x1b[031mRed\x1b[m        |041| \x1b[041mRed\x1b[m        |091| \x1b[091mLight red\x1b[m     |101| \x1b[101mLight red\x1b[m')
+print('|032| \x1b[032mGreen\x1b[m      |042| \x1b[042mGreen\x1b[m      |092| \x1b[092mLight green\x1b[m   |102| \x1b[102mLight green\x1b[m')
+print('|033| \x1b[033mYellow\x1b[m     |043| \x1b[043mYellow\x1b[m     |093| \x1b[093mLight yellow\x1b[m  |103| \x1b[103mLight yellow\x1b[m')
+print('|034| \x1b[034mBlue\x1b[m       |044| \x1b[044mBlue\x1b[m       |094| \x1b[094mLight blue\x1b[m    |104| \x1b[104mLight blue\x1b[m')
+print('|035| \x1b[035mMagenta\x1b[m    |045| \x1b[045mMagenta\x1b[m    |095| \x1b[095mLight magenta\x1b[m |105| \x1b[105mLight magenta\x1b[m')
+print('|036| \x1b[036mCyan\x1b[m       |046| \x1b[046mCyan\x1b[m       |096| \x1b[096mLight cyan\x1b[m    |106| \x1b[106mLight cyan\x1b[m')
+
+print('')
+
 liness = [
     [
         [range(  0,   8)],
