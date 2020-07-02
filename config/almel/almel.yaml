@@ -93,7 +93,7 @@ git_repo:
 
 git_user:
   style:
-    background: { Fixed: 75 }
+    background: { Fixed: 117 }
     foreground: Black
   icon: "\uf2c0" # nf-fa-user_o
 
