@@ -40,8 +40,9 @@
     b = branch
 
     # commit
-    c = cz
+    c = commit
     cm = commit -m
+    cz = !git-cz
     uncommit = reset --soft HEAD^
 
     # checkout
