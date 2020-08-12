@@ -23,6 +23,7 @@ brew "trash"
 brew "wget"
 
 cask "alacritty"
+cask "bitwarden"
 cask "dash"
 cask "dbeaver-community"
 cask "docker"
