@@ -70,8 +70,13 @@
     s = status
 
     # diff
-    diffstgd = df --staged
-    dfst = diffstgd
+    df = !git-df
+    diffs = df --staged
+    dfs = df --staged
+    stat = diff --stat
+    st = diff --stat
+    sts = diff --stat --staged
+
 
     # hub
     sync = !hub sync
@@ -91,7 +96,6 @@
     users = !git-users
     user = !git-user
     lg = !git-lg
-    df = !git-df
     exec = !git-exec
 
 [user]
