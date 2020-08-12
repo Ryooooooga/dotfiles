@@ -22,6 +22,9 @@ brew "tmux"
 brew "trash"
 brew "wget"
 
+tap "LouisBrunner/valgrind"
+brew "LouisBrunner/valgrind/valgrind", args: ["HEAD"]
+
 cask "alacritty"
 cask "bitwarden"
 cask "dash"
