@@ -9,7 +9,6 @@ apt-get install -y \
     build-essential \
     cmake \
     colordiff \
-    docker.io \
     git \
     gpg \
     jq \
