@@ -8,7 +8,7 @@
     signingKey = ""
 
 [url "git@example.ghe.com:"]
-    insteadOf = https://example.ghe.com/
+    pushInsteadOf = https://example.ghe.com/
     insteadOf = example:
 
 [ghq "https://example.ghe.com"]
