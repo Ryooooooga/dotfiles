@@ -26,6 +26,7 @@ tap "LouisBrunner/valgrind"
 brew "LouisBrunner/valgrind/valgrind", args: ["HEAD"]
 
 cask "alacritty"
+cask "alfred"
 cask "bitwarden"
 cask "dash"
 cask "dbeaver-community"
