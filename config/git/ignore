@@ -1,8 +1,13 @@
 ### direnv ###
 .envrc
 
+### Windows ###
+[Dd]esktop.ini
+[Tt]humbs.db
+
 ### macOS ###
 .DS_Store
+._*
 
 ### Vim ###
 .*.swp
@@ -13,9 +18,16 @@
 ### GDB ###
 .gdb_history
 
+### Node.js ###
+node_modules/
+
+### Logs ###
+*.log
+
 ### Ruby ###
 .irb_history
 
 ### Memo ###
 _memo*
 _todo*
+_test*
