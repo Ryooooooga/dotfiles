@@ -1,7 +1,10 @@
 #!/bin/sh
 ubuntu_version="$(lsb_release -r | awk '{print $2 * 100}')"
 
+curl -fsSL 'https://download.docker.com/linux/ubuntu/gpg' | apt-key add -
+
 add-apt-repository -y ppa:git-core/ppa &&
+add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" &&
 apt-get update && apt-get upgrade -y &&
 apt-get install -y \
     autoconf \
@@ -9,6 +12,8 @@ apt-get install -y \
     build-essential \
     cmake \
     colordiff \
+    docker-ce \
+    docker-ce-cli \
     git \
     gpg \
     jq \
