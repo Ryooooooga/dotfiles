@@ -7,8 +7,22 @@ XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
 
 # macOS
 if [ "$(uname)" = "Darwin" ]; then
-    # Display hidden files in Finder
+    # Finder
     defaults write com.apple.finder AppleShowAllFiles YES
+    defaults write com.apple.finder ShowPathbar -bool true
+    defaults write com.apple.finder ShowTabView -bool true
+
+    # Dock
+    defaults write com.apple.dock orientation left
+    defaults write com.apple.dock autohide -bool false
+    defaults write com.apple.dock tilesize -int 50
+    defaults write com.apple.dock magnification -bool false
+
+    # Mission Control
+    defaults write com.apple.dock wvous-br-corner -int 4 # Bottom right -> Desktop
+
+    # Disable .DS_Store on network disks
+    defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
     # Configure hammerspoon config location
     defaults write org.hammerspoon.Hammerspoon MJConfigFile "$XDG_CONFIG_HOME/hammerspoon/init.lua"
