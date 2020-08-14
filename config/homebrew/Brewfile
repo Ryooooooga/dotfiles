@@ -1,5 +1,7 @@
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
+tap "LouisBrunner/valgrind"
+tap "nektos/tap"
 
 brew "autoconf"
 brew "bash"
@@ -21,9 +23,9 @@ brew "pinentry-mac"
 brew "tmux"
 brew "trash"
 brew "wget"
-
-tap "LouisBrunner/valgrind"
+brew "vim"
 brew "LouisBrunner/valgrind/valgrind", args: ["HEAD"]
+brew "nektos/tap/act"
 
 cask "alacritty"
 cask "alfred"
