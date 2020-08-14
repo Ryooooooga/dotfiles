@@ -4,6 +4,7 @@
     pager = delta --dark
 
 [init]
+    defaultBranch = master
     templateDir = ~/.config/git/template
 
 [commit]
