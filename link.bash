@@ -36,4 +36,5 @@ ln -sfv "$XDG_CONFIG_HOME/commitizen/root.czrc" "$HOME/.czrc"
 if [ "$(uname)" = "Darwin" ]; then
     touch "$HOME/.hushlogin"
     ln -sfv "$REPO_DIR/config/gnupg/gpg-agent.conf.mac" "$HOME/.gnupg/gpg-agent.conf"
+    cp "$XDG_CONFIG_HOME/dash/library.dash" "$HOME/Library/Application Support/Dash/library.dash"
 fi
