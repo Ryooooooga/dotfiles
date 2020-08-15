@@ -48,6 +48,6 @@ if [ "$(uname)" = "Darwin" ]; then
     # Sublime Text 3
     SUBL_DIR="$HOME/Library/Application Support/Sublime Text 3"
     mkdir -p "$SUBL_DIR/Packages/User"
-    ln -sfv "$XDG_CONFIG_HOME/sublime-text/User/"*.sublime-settings           "$SUBL_DIR/Packages/User"
-    ln -sfv "$XDG_CONFIG_HOME/sublime-text/User/Default (OSX).sublime-keymap" "$SUBL_DIR/Packages/User"
+    ln -sfv "$XDG_CONFIG_HOME/sublime-text/User/"*.sublime-settings "$SUBL_DIR/Packages/User"
+    ln -sfv "$XDG_CONFIG_HOME/sublime-text/User/"*.sublime-keymap   "$SUBL_DIR/Packages/User"
 fi

@@ -1,14 +1,15 @@
 {
-    "close_windows_when_empty": false,
-    "color_scheme": "Monokai.sublime-color-scheme",
-    "draw_white_space": "all",
-    "default_line_ending": "unix",
-    "ignored_packages":
-    [
-        "Vintage"
-    ],
-    "scroll_past_end": true,
-    "show_encoding": true,
-    "show_line_endings": true,
-    "theme": "Adaptive.sublime-theme"
+	"bold_folder_labels": true,
+	"close_windows_when_empty": false,
+	"color_scheme": "Monokai.sublime-color-scheme",
+	"default_line_ending": "unix",
+	"draw_white_space": "all",
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"scroll_past_end": true,
+	"show_encoding": true,
+	"show_line_endings": true,
+	"theme": "Adaptive.sublime-theme"
 }

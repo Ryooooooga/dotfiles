@@ -1,41 +1,44 @@
 [
-    // Alt + arrow
-    { "keys": ["super+left"], "command": "move", "args": {"by": "subwords", "forward": false} },
-    { "keys": ["super+right"], "command": "move", "args": {"by": "subword_ends", "forward": true} },
-    { "keys": ["super+shift+left"], "command": "move", "args": {"by": "subwords", "forward": false, "extend": true} },
-    { "keys": ["super+shift+right"], "command": "move", "args": {"by": "subword_ends", "forward": true, "extend": true} },
+	// Alt + left/right
+	{ "keys": ["super+left"], "command": "move", "args": {"by": "subwords", "forward": false} },
+	{ "keys": ["super+right"], "command": "move", "args": {"by": "subword_ends", "forward": true} },
+	{ "keys": ["super+shift+left"], "command": "move", "args": {"by": "subwords", "forward": false, "extend": true} },
+	{ "keys": ["super+shift+right"], "command": "move", "args": {"by": "subword_ends", "forward": true, "extend": true} },
 
-    // Alt + backspace/delete
-    { "keys": ["super+backspace"], "command": "delete_word", "args": { "forward": false, "sub_words": true } },
-    { "keys": ["super+delete"], "command": "delete_word", "args": { "forward": true, "sub_words": true } },
+	// Alt + backspace/delete
+	{ "keys": ["super+backspace"], "command": "delete_word", "args": { "forward": false, "sub_words": true } },
+	{ "keys": ["super+delete"], "command": "delete_word", "args": { "forward": true, "sub_words": true } },
 
-    // Cmd + up/down
-    { "keys": ["alt+up"], "command": "scroll_lines", "args": {"amount": 1.0} },
-    { "keys": ["alt+down"], "command": "scroll_lines", "args": {"amount": -1.0} },
-    { "keys": ["alt+shift+up"], "command": "swap_line_up" },
-    { "keys": ["alt+shift+down"], "command": "swap_line_down" },
+	// Cmd + up/down
+	{ "keys": ["alt+up"], "command": "scroll_lines", "args": {"amount": 1.0} },
+	{ "keys": ["alt+down"], "command": "scroll_lines", "args": {"amount": -1.0} },
+	{ "keys": ["alt+shift+up"], "command": "swap_line_up" },
+	{ "keys": ["alt+shift+down"], "command": "swap_line_down" },
 
-    // Cmd + Alt + up/down
-    { "keys": ["super+alt+up"], "command": "select_lines", "args": { "forward": false } },
-    { "keys": ["super+alt+down"], "command": "select_lines", "args": { "forward": true } },
+	// Cmd + Alt + up/down
+	{ "keys": ["super+alt+up"], "command": "select_lines", "args": { "forward": false } },
+	{ "keys": ["super+alt+down"], "command": "select_lines", "args": { "forward": true } },
 
-    // Alt + /
-    { "keys": ["alt+/"], "command": "auto_complete" },
-    { "keys": ["alt+/"], "command": "replace_completion_with_auto_complete", "context":
-        [
-            { "key": "last_command", "operator": "equal", "operand": "insert_best_completion" },
-            { "key": "auto_complete_visible", "operator": "equal", "operand": false },
-            { "key": "setting.tab_completion", "operator": "equal", "operand": true }
-        ]
-    },
+	// Alt + /
+	{ "keys": ["alt+/"], "command": "auto_complete" },
+	{ "keys": ["alt+/"], "command": "replace_completion_with_auto_complete", "context":
+		[
+			{ "key": "last_command", "operator": "equal", "operand": "insert_best_completion" },
+			{ "key": "auto_complete_visible", "operator": "equal", "operand": false },
+			{ "key": "setting.tab_completion", "operator": "equal", "operand": true }
+		]
+	},
 
-    // Cmd + Alt + I
-    { "keys": ["super+alt+i"], "command": "increment_selection" },
+	// Shift + tab
+	{ "keys": ["shift+tab"], "command": "unindent" },
 
-    // Cmd + Alt + O
-    { "keys": ["super+alt+o"], "command": "sublime_files", "args": {"command": "navigate"} },
+	// Cmd + Alt + I
+	{ "keys": ["super+alt+i"], "command": "increment_selection" },
 
-    // Cmd + K, L/U
-    { "keys": ["super+k", "l"], "command": "lower_case" },
-    { "keys": ["super+k", "u"], "command": "upper_case" },
+	// Cmd + Alt + O
+	{ "keys": ["super+alt+o"], "command": "sublime_files", "args": {"command": "navigate"} },
+
+	// Cmd + K, L/U
+	{ "keys": ["super+k", "l"], "command": "lower_case" },
+	{ "keys": ["super+k", "u"], "command": "upper_case" },
 ]
