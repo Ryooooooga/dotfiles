@@ -16,6 +16,8 @@
     { "keys": ["alt+shift+down"], "command": "swap_line_down" },
 
     // Cmd + Alt + up/down
+    { "keys": ["super+alt+up"], "command": "select_lines", "args": { "forward": false } },
+    { "keys": ["super+alt+down"], "command": "select_lines", "args": { "forward": true } },
 
     // Alt + /
     { "keys": ["alt+/"], "command": "auto_complete" },
@@ -31,7 +33,7 @@
     { "keys": ["super+alt+i"], "command": "increment_selection" },
 
     // Cmd + Alt + O
-    { "keys": ["super+p"], "command": "sublime_files", "args": {"command": "navigate"} },
+    { "keys": ["super+alt+o"], "command": "sublime_files", "args": {"command": "navigate"} },
 
     // Cmd + K, L/U
     { "keys": ["super+k", "l"], "command": "lower_case" },
