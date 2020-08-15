@@ -1,0 +1,21 @@
+{
+    "bootstrapped": true,
+    "in_process_packages":
+    [
+    ],
+    "installed_packages":
+    [
+        "A File Icon",
+        "AdvancedNewFile",
+        "BracketHighlighter",
+        "Case Conversion",
+        "EditorConfig",
+        "FindKeyConflicts",
+        "Git",
+        "GitGutter",
+        "Increment Selection",
+        "Package Control",
+        "PackageResourceViewer",
+        "Sublime Files"
+    ]
+}

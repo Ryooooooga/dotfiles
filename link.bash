@@ -24,6 +24,7 @@ ln -sfv "$REPO_DIR/config/karabiner"    "$XDG_CONFIG_HOME"
 ln -sfv "$REPO_DIR/config/npm"          "$XDG_CONFIG_HOME"
 ln -sfv "$REPO_DIR/config/nvim"         "$XDG_CONFIG_HOME"
 ln -sfv "$REPO_DIR/config/scripts"      "$XDG_CONFIG_HOME"
+ln -sfv "$REPO_DIR/config/sublime-text" "$XDG_CONFIG_HOME"
 ln -sfv "$REPO_DIR/config/textlint"     "$XDG_CONFIG_HOME"
 ln -sfv "$REPO_DIR/config/tmux"         "$XDG_CONFIG_HOME"
 ln -sfv "$REPO_DIR/config/vim"          "$XDG_CONFIG_HOME"
@@ -35,6 +36,18 @@ ln -sfv "$XDG_CONFIG_HOME/commitizen/root.czrc" "$HOME/.czrc"
 
 if [ "$(uname)" = "Darwin" ]; then
     touch "$HOME/.hushlogin"
+
+    # GPG
     ln -sfv "$REPO_DIR/config/gnupg/gpg-agent.conf.mac" "$HOME/.gnupg/gpg-agent.conf"
-    cp "$XDG_CONFIG_HOME/dash/library.dash" "$HOME/Library/Application Support/Dash/library.dash"
+
+    # Dash
+    DASH_DIR="$HOME/Library/Application Support/Dash"
+    mkdir -p "$DASH_DIR"
+    cp -v "$XDG_CONFIG_HOME/dash/library.dash" "$DASH_DIR/library.dash"
+
+    # Sublime Text 3
+    SUBL_DIR="$HOME/Library/Application Support/Sublime Text 3"
+    mkdir -p "$SUBL_DIR/Packages/User"
+    ln -sfv "$XDG_CONFIG_HOME/sublime-text/User/"*.sublime-settings           "$SUBL_DIR/Packages/User"
+    ln -sfv "$XDG_CONFIG_HOME/sublime-text/User/Default (OSX).sublime-keymap" "$SUBL_DIR/Packages/User"
 fi
