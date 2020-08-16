@@ -21,6 +21,6 @@ indent_size = 2
 indent_style = space
 indent_size = 2
 
-[*.sublime-{settings,keymap}]
+[*.sublime-*]
 indent_style = tab
 indent_size = 2

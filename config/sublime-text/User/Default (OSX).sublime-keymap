@@ -38,6 +38,9 @@
 	// Cmd + Alt + O
 	{ "keys": ["super+alt+o"], "command": "sublime_files", "args": {"command": "navigate"} },
 
+	// Cmd + Alt + P
+	{ "keys": ["super+alt+p"], "command": "ghq_open_repository" },
+
 	// Cmd + K, L/U
 	{ "keys": ["super+k", "l"], "command": "lower_case" },
 	{ "keys": ["super+k", "u"], "command": "upper_case" },
