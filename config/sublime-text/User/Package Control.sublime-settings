@@ -18,6 +18,11 @@
 		"PackageResourceViewer",
 		"SideBarEnhancements",
 		"Smart Delete",
-		"Sublime Files"
+		"Sublime Files",
+		"SublimeGHQ"
+	],
+	"repositories":
+	[
+		"https://github.com/Ryooooooga/SublimeGHQ"
 	]
 }
