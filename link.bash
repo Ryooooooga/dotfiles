@@ -50,5 +50,4 @@ if [ "$(uname)" = "Darwin" ]; then
     mkdir -p "$SUBL_DIR/Packages/User"
     ln -sfv "$XDG_CONFIG_HOME/sublime-text/User/"*.sublime-settings "$SUBL_DIR/Packages/User"
     ln -sfv "$XDG_CONFIG_HOME/sublime-text/User/"*.sublime-keymap   "$SUBL_DIR/Packages/User"
-    ln -sfv "$XDG_CONFIG_HOME/sublime-text/GHQ"                     "$SUBL_DIR/Packages"
 fi
