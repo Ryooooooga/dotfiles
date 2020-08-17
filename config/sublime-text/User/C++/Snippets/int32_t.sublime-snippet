@@ -1,0 +1,7 @@
+<snippet>
+	<description>int32_t</description>
+	<content><![CDATA[
+int32_t]]></content>
+	<tabTrigger>i32</tabTrigger>
+	<scope>source.c, source.objc</scope>
+</snippet>

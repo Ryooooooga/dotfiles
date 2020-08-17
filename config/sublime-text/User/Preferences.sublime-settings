@@ -3,6 +3,7 @@
 	"close_windows_when_empty": false,
 	"default_line_ending": "unix",
 	"draw_white_space": "all",
+	"font_size": 12,
 	"ignored_packages":
 	[
 		"Vintage"

@@ -1,0 +1,7 @@
+<snippet>
+	<description>uint16_t</description>
+	<content><![CDATA[
+uint16_t]]></content>
+	<tabTrigger>u16</tabTrigger>
+	<scope>source.c, source.objc</scope>
+</snippet>

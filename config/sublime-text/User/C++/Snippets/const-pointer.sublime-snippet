@@ -1,0 +1,7 @@
+<snippet>
+	<description>const pointer</description>
+	<content><![CDATA[
+const ${1:T}*]]></content>
+	<tabTrigger>cptr</tabTrigger>
+	<scope>source.c, source.objc</scope>
+</snippet>

@@ -1,0 +1,7 @@
+<snippet>
+	<description>size_t</description>
+	<content><![CDATA[
+size_t]]></content>
+	<tabTrigger>size_t</tabTrigger>
+	<scope>source.c, source.objc</scope>
+</snippet>
