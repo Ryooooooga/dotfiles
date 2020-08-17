@@ -1,0 +1,7 @@
+<snippet>
+	<description>char8_t</description>
+	<content><![CDATA[
+char8_t]]></content>
+	<tabTrigger>char8_t</tabTrigger>
+	<scope>source.c++</scope>
+</snippet>

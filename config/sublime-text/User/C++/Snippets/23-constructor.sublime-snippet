@@ -1,0 +1,7 @@
+<snippet>
+	<description>constructor</description>
+	<content><![CDATA[
+${1:explicit }${2:${TM_FILENAME/(.+)\..+/$1/:name}}($3) ${4:=default;}]]></content>
+	<tabTrigger>ctor</tabTrigger>
+	<scope>source.c++</scope>
+</snippet>

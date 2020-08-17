@@ -1,0 +1,13 @@
+<snippet>
+	<description>switch</description>
+	<content><![CDATA[
+switch (${1:value})
+{
+	$0
+
+	default:
+		break;
+}]]></content>
+	<tabTrigger>switch</tabTrigger>
+	<scope>source.c++</scope>
+</snippet>

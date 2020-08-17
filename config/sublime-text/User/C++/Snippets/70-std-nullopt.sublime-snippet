@@ -1,0 +1,7 @@
+<snippet>
+	<description>std::nullopt</description>
+	<content><![CDATA[
+std::nullopt]]></content>
+	<tabTrigger>nullopt</tabTrigger>
+	<scope>source.c++</scope>
+</snippet>

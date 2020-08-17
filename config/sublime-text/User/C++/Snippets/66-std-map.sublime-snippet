@@ -1,0 +1,7 @@
+<snippet>
+	<description>std::map</description>
+	<content><![CDATA[
+std::map<${1:key}, ${2:value}>]]></content>
+	<tabTrigger>map</tabTrigger>
+	<scope>source.c++</scope>
+</snippet>

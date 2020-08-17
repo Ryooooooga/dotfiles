@@ -1,0 +1,7 @@
+<snippet>
+	<description>std::optional</description>
+	<content><![CDATA[
+std::optional<${1:type}>]]></content>
+	<tabTrigger>optional</tabTrigger>
+	<scope>source.c++</scope>
+</snippet>

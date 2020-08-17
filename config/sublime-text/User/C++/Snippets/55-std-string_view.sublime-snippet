@@ -1,0 +1,7 @@
+<snippet>
+	<description>std::string_view</description>
+	<content><![CDATA[
+std::string_view]]></content>
+	<tabTrigger>string_view</tabTrigger>
+	<scope>source.c++</scope>
+</snippet>

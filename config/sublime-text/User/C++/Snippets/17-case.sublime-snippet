@@ -1,0 +1,9 @@
+<snippet>
+	<description>case</description>
+	<content><![CDATA[
+case ${1:x}
+	$0
+	break;]]></content>
+	<tabTrigger>case</tabTrigger>
+	<scope>source.c++</scope>
+</snippet>

@@ -1,0 +1,10 @@
+<snippet>
+	<description>namespace</description>
+	<content><![CDATA[
+namespace ${TM_FILENAME/(.+)\..+/$1/:name}
+{
+	$0
+}]]></content>
+	<tabTrigger>namespace</tabTrigger>
+	<scope>source.c++</scope>
+</snippet>

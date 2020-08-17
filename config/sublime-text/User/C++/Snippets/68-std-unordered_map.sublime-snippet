@@ -1,0 +1,7 @@
+<snippet>
+	<description>std::unordered_map</description>
+	<content><![CDATA[
+std::unordered_map<${1:key}, ${2:value}>]]></content>
+	<tabTrigger>umap</tabTrigger>
+	<scope>source.c++</scope>
+</snippet>

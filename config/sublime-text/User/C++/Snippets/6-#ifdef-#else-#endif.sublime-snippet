@@ -1,0 +1,11 @@
+<snippet>
+	<description>#ifdef-#else-#endif</description>
+	<content><![CDATA[
+ifdef ${1:name}
+$0
+#else // $1
+
+#endif // $1]]></content>
+	<tabTrigger>ifdefelse</tabTrigger>
+	<scope>source.c++</scope>
+</snippet>

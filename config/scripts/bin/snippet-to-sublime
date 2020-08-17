@@ -12,16 +12,18 @@ def slug(s):
 
 def content(s):
     s = re.sub(r'\$TM_FILENAME_BASE|\${TM_FILENAME_BASE}', r'${TM_FILENAME/(.+)\..+/$1/:name}', s)
+    s = re.sub(r'\$WORKSPACE_NAME|\${WORKSPACE_NAME(/[^}]+)?}', r'WORKSPACE', s)
+    s = re.sub(r'\${([^|]+)\|([^,]+),[^|]+\|}', r'${\1:\2}', s)
     s = s.replace(']]>', ']]><![CDATA[>')
     s = '<![CDATA[\n{}]]>'.format(s)
     return s
 
 def escape(s):
+    s = s.replace('&', "&amp;")
     s = s.replace('"', "&quot;")
     s = s.replace("'", "&apos;")
     s = s.replace('<', "&lt;")
     s = s.replace('>', "&gt;")
-    s = s.replace('&', "&amp;")
     return s
 
 args = sys.argv
@@ -42,7 +44,7 @@ i = 1
 for id, snippet in snippets.items():
     prefix = snippet['prefix']
     body = snippet['body']
-    description = snippet.get('description', None)
+    description = snippet.get('description', id)
 
     prefixes = prefix if isinstance(prefix, list) else [prefix]
     body = '\n'.join(body) if isinstance(body, list) else body
@@ -61,6 +63,6 @@ for id, snippet in snippets.items():
 \t<scope>{}</scope>
 </snippet>
 '''
-            .format(escape(description or id), content(body), escape(prefix), escape(scope)))
+            .format(escape(description), content(body), escape(prefix), escape(scope)))
 
         i += 1

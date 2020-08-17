@@ -1,0 +1,7 @@
+<snippet>
+	<description>std::move</description>
+	<content><![CDATA[
+std::move(${1:x})]]></content>
+	<tabTrigger>move</tabTrigger>
+	<scope>source.c++</scope>
+</snippet>

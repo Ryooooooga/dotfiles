@@ -1,0 +1,12 @@
+<snippet>
+	<description>include guard</description>
+	<content><![CDATA[
+ifndef ${1:INCLUDE_${2:WORKSPACE_}${3:${TM_DIRECTORY/.*(\\|\/)//g}_}${4:${TM_FILENAME/(\.)/_/g}}}
+#define $1
+
+$0
+
+#endif // $1]]></content>
+	<tabTrigger>guard</tabTrigger>
+	<scope>source.c++</scope>
+</snippet>

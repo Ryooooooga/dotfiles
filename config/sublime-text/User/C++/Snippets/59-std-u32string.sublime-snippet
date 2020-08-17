@@ -1,0 +1,7 @@
+<snippet>
+	<description>std::u32string</description>
+	<content><![CDATA[
+std::u32string]]></content>
+	<tabTrigger>u32string</tabTrigger>
+	<scope>source.c++</scope>
+</snippet>

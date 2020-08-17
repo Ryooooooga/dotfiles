@@ -1,0 +1,7 @@
+<snippet>
+	<description>std::unique_ptr</description>
+	<content><![CDATA[
+std::unique_ptr<${1:type}>]]></content>
+	<tabTrigger>unique_ptr</tabTrigger>
+	<scope>source.c++</scope>
+</snippet>

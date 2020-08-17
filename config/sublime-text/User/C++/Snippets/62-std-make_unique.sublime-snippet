@@ -1,0 +1,7 @@
+<snippet>
+	<description>std::make_unique</description>
+	<content><![CDATA[
+std::make_unique<${1:type}>($2)]]></content>
+	<tabTrigger>make_unique</tabTrigger>
+	<scope>source.c++</scope>
+</snippet>

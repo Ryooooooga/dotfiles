@@ -1,0 +1,7 @@
+<snippet>
+	<description>[[nodiscard]]</description>
+	<content><![CDATA[
+[[nodiscard]]]]></content>
+	<tabTrigger>nodiscard</tabTrigger>
+	<scope>source.c++</scope>
+</snippet>

@@ -1,0 +1,7 @@
+<snippet>
+	<description>initializer</description>
+	<content><![CDATA[
+${2:${1}_}(${1:data})]]></content>
+	<tabTrigger>init</tabTrigger>
+	<scope>source.c++</scope>
+</snippet>

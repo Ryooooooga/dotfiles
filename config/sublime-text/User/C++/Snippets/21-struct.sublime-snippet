@@ -1,0 +1,10 @@
+<snippet>
+	<description>struct</description>
+	<content><![CDATA[
+struct ${1:${TM_FILENAME/(.+)\..+/$1/:name}}
+{
+	$0
+};]]></content>
+	<tabTrigger>struct</tabTrigger>
+	<scope>source.c++</scope>
+</snippet>

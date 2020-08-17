@@ -1,0 +1,9 @@
+<snippet>
+	<description>#ifndef-#endif</description>
+	<content><![CDATA[
+ifndef ${1:name}
+$0
+#endif // $1]]></content>
+	<tabTrigger>ifndef</tabTrigger>
+	<scope>source.c++</scope>
+</snippet>

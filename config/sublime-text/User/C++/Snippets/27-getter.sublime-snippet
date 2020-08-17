@@ -1,0 +1,11 @@
+<snippet>
+	<description>getter</description>
+	<content><![CDATA[
+[[nodiscard]]
+${1:constexpr }${2:type} ${3:value}() const noexcept
+{
+	return $3_;
+}]]></content>
+	<tabTrigger>getter</tabTrigger>
+	<scope>source.c++</scope>
+</snippet>

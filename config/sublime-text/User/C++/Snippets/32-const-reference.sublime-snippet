@@ -1,0 +1,7 @@
+<snippet>
+	<description>const reference</description>
+	<content><![CDATA[
+const ${1:auto}&]]></content>
+	<tabTrigger>cref</tabTrigger>
+	<scope>source.c++</scope>
+</snippet>

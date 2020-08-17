@@ -1,0 +1,7 @@
+<snippet>
+	<description>char32_t</description>
+	<content><![CDATA[
+char32_t]]></content>
+	<tabTrigger>char32_t</tabTrigger>
+	<scope>source.c++</scope>
+</snippet>

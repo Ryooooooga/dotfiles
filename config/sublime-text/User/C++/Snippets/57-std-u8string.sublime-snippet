@@ -1,0 +1,7 @@
+<snippet>
+	<description>std::u8string</description>
+	<content><![CDATA[
+std::u8string]]></content>
+	<tabTrigger>u8string</tabTrigger>
+	<scope>source.c++</scope>
+</snippet>

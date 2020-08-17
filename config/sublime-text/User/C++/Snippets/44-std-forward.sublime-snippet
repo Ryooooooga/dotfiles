@@ -1,0 +1,7 @@
+<snippet>
+	<description>std::forward</description>
+	<content><![CDATA[
+std::forward<${2:Args}>(${1:args})${3:...}]]></content>
+	<tabTrigger>forward</tabTrigger>
+	<scope>source.c++</scope>
+</snippet>

@@ -1,0 +1,9 @@
+<snippet>
+	<description>main()</description>
+	<content><![CDATA[main(${1:int argc, char* argv[]})
+{
+	$0
+}]]></content>
+	<tabTrigger>main</tabTrigger>
+	<scope>(source.c | source.objc | source.c++ | source.objc++) &amp; entity.name.function</scope>
+</snippet>

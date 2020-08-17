@@ -1,0 +1,7 @@
+<snippet>
+	<description>std::cin &gt;&gt; x</description>
+	<content><![CDATA[
+std::cin >> ${2:x};]]></content>
+	<tabTrigger>cin</tabTrigger>
+	<scope>source.c++</scope>
+</snippet>
