@@ -16,7 +16,10 @@ elif [ "$1" = "add" ] && [ "$#" -eq 3 ]; then
     title="$2"
     body="$3"
 
-    echo "INSERT INTO snippets (title, body) VALUES ('${title//\'/\'\'}', '${body//\'/\'\'}')" | sqlite3 "$DASH_LIBRARY"
+    echo "INSERT INTO snippets (title, body, syntax, usageCount) VALUES ('${title//\'/\'\'}', '${body//\'/\'\'}', 'Standard', 0)" | sqlite3 "$DASH_LIBRARY"
+
+    killall Dash
+    open -a Dash
 
     list
 else
