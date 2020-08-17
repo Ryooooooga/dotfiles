@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+DASH_LIBRARY="$HOME/Library/Application Support/Dash/library.dash"
+
+if [ ! -f "$DASH_LIBRARY" ]; then
+    echo "$DASH_LIBRARY not found." > /dev/stderr
+    exit 1
+fi
+
+echo "SELECT sid as id, title, body FROM snippets" | sqlite3 -readonly -header -column "$DASH_LIBRARY"
