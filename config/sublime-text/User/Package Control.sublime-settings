@@ -7,19 +7,22 @@
 	[
 		"A File Icon",
 		"AdvancedNewFile",
+		"All Autocomplete",
 		"BracketHighlighter",
 		"Case Conversion",
 		"EditorConfig",
 		"FindKeyConflicts",
 		"Git",
 		"GitGutter",
+		"Increment Decrement",
 		"Increment Selection",
 		"Package Control",
 		"PackageResourceViewer",
 		"SideBarEnhancements",
 		"Smart Delete",
 		"Sublime Files",
-		"SublimeGHQ"
+		"SublimeGHQ",
+		"SyncedSideBar"
 	],
 	"repositories":
 	[
