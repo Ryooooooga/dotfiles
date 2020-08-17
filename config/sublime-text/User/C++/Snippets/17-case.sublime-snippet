@@ -5,5 +5,5 @@ case ${1:x}
 	$0
 	break;]]></content>
 	<tabTrigger>case</tabTrigger>
-	<scope>source.c++</scope>
+	<scope>source.c, source.objc, source.c++, source.objc++</scope>
 </snippet>

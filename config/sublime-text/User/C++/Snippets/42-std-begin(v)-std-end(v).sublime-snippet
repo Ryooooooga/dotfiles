@@ -3,5 +3,5 @@
 	<content><![CDATA[
 std::begin(${1:v}), std::end($1)]]></content>
 	<tabTrigger>beginend</tabTrigger>
-	<scope>source.c++</scope>
+	<scope>source.c++, source.objc++</scope>
 </snippet>

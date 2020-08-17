@@ -3,5 +3,5 @@
 	<content><![CDATA[
 std::make_shared<${1:type}>($2)]]></content>
 	<tabTrigger>make_shared</tabTrigger>
-	<scope>source.c++</scope>
+	<scope>source.c++, source.objc++</scope>
 </snippet>

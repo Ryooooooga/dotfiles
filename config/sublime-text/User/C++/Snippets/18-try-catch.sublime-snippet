@@ -10,5 +10,5 @@ catch (const std::exception& e)
 	$2
 }]]></content>
 	<tabTrigger>try</tabTrigger>
-	<scope>source.c++</scope>
+	<scope>source.c++, source.objc++</scope>
 </snippet>

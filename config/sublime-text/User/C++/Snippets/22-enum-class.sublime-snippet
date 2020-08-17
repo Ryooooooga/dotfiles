@@ -6,5 +6,5 @@ enum class ${1:name}
 	$0
 };]]></content>
 	<tabTrigger>enum</tabTrigger>
-	<scope>source.c++</scope>
+	<scope>source.c++, source.objc++</scope>
 </snippet>

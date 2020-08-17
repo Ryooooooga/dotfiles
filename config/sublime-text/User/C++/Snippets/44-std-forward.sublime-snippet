@@ -3,5 +3,5 @@
 	<content><![CDATA[
 std::forward<${2:Args}>(${1:args})${3:...}]]></content>
 	<tabTrigger>forward</tabTrigger>
-	<scope>source.c++</scope>
+	<scope>source.c++, source.objc++</scope>
 </snippet>

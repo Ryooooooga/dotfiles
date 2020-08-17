@@ -8,5 +8,5 @@ $0
 
 #endif // $1]]></content>
 	<tabTrigger>guard</tabTrigger>
-	<scope>source.c++</scope>
+	<scope>source.c, source.objc, source.c++, source.objc++</scope>
 </snippet>

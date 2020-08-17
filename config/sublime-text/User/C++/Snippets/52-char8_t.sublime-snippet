@@ -3,5 +3,5 @@
 	<content><![CDATA[
 char8_t]]></content>
 	<tabTrigger>char8_t</tabTrigger>
-	<scope>source.c++</scope>
+	<scope>source.c, source.objc, source.c++, source.objc++</scope>
 </snippet>

@@ -3,5 +3,5 @@
 	<content><![CDATA[
 [[maybe_unused]]]]></content>
 	<tabTrigger>unused</tabTrigger>
-	<scope>source.c++</scope>
+	<scope>source.c++, source.objc++</scope>
 </snippet>

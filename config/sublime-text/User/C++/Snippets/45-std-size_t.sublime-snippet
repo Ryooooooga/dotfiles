@@ -3,5 +3,5 @@
 	<content><![CDATA[
 std::size_t]]></content>
 	<tabTrigger>size_t</tabTrigger>
-	<scope>source.c++</scope>
+	<scope>source.c++, source.objc++</scope>
 </snippet>

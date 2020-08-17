@@ -3,5 +3,5 @@
 	<content><![CDATA[
 template <typename ${1:T}>]]></content>
 	<tabTrigger>template</tabTrigger>
-	<scope>source.c++</scope>
+	<scope>source.c++, source.objc++</scope>
 </snippet>

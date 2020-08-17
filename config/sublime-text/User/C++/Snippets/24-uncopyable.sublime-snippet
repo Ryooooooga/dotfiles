@@ -8,5 +8,5 @@ $1($1&&) =${3:delete};
 $1& operator =(const $1&) =$2;
 $1& operator =($1&&) =$3;]]></content>
 	<tabTrigger>uncopyable</tabTrigger>
-	<scope>source.c++</scope>
+	<scope>source.c++, source.objc++</scope>
 </snippet>

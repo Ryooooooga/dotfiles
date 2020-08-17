@@ -9,5 +9,5 @@ switch (${1:value})
 		break;
 }]]></content>
 	<tabTrigger>switch</tabTrigger>
-	<scope>source.c++</scope>
+	<scope>source.c, source.objc, source.c++, source.objc++</scope>
 </snippet>

@@ -3,5 +3,5 @@
 	<content><![CDATA[
 std::${1:cout} << ${2:x} << std::endl;]]></content>
 	<tabTrigger>cout</tabTrigger>
-	<scope>source.c++</scope>
+	<scope>source.c++, source.objc++</scope>
 </snippet>

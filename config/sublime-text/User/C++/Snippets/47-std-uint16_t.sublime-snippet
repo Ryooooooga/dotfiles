@@ -3,5 +3,5 @@
 	<content><![CDATA[
 std::uint16_t]]></content>
 	<tabTrigger>u16</tabTrigger>
-	<scope>source.c++</scope>
+	<scope>source.c++, source.objc++</scope>
 </snippet>

@@ -3,5 +3,5 @@
 	<content><![CDATA[
 std::unique_ptr<${1:type}>]]></content>
 	<tabTrigger>unique_ptr</tabTrigger>
-	<scope>source.c++</scope>
+	<scope>source.c++, source.objc++</scope>
 </snippet>

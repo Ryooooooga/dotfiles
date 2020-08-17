@@ -3,5 +3,5 @@
 	<content><![CDATA[
 std::int64_t]]></content>
 	<tabTrigger>i64</tabTrigger>
-	<scope>source.c++</scope>
+	<scope>source.c++, source.objc++</scope>
 </snippet>

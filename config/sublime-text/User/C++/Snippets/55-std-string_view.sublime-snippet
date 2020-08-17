@@ -3,5 +3,5 @@
 	<content><![CDATA[
 std::string_view]]></content>
 	<tabTrigger>string_view</tabTrigger>
-	<scope>source.c++</scope>
+	<scope>source.c++, source.objc++</scope>
 </snippet>

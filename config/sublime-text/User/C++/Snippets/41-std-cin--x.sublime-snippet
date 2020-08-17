@@ -3,5 +3,5 @@
 	<content><![CDATA[
 std::cin >> ${2:x};]]></content>
 	<tabTrigger>cin</tabTrigger>
-	<scope>source.c++</scope>
+	<scope>source.c++, source.objc++</scope>
 </snippet>

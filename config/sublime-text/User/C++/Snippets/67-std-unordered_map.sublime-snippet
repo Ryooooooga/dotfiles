@@ -3,5 +3,5 @@
 	<content><![CDATA[
 std::unordered_map<${1:key}, ${2:value}>]]></content>
 	<tabTrigger>unordered_map</tabTrigger>
-	<scope>source.c++</scope>
+	<scope>source.c++, source.objc++</scope>
 </snippet>

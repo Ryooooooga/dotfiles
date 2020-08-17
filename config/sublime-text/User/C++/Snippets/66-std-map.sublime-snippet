@@ -3,5 +3,5 @@
 	<content><![CDATA[
 std::map<${1:key}, ${2:value}>]]></content>
 	<tabTrigger>map</tabTrigger>
-	<scope>source.c++</scope>
+	<scope>source.c++, source.objc++</scope>
 </snippet>

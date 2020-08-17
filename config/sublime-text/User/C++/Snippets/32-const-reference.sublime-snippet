@@ -3,5 +3,5 @@
 	<content><![CDATA[
 const ${1:auto}&]]></content>
 	<tabTrigger>cref</tabTrigger>
-	<scope>source.c++</scope>
+	<scope>source.c++, source.objc++</scope>
 </snippet>

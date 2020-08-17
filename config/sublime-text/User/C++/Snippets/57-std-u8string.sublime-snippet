@@ -3,5 +3,5 @@
 	<content><![CDATA[
 std::u8string]]></content>
 	<tabTrigger>u8string</tabTrigger>
-	<scope>source.c++</scope>
+	<scope>source.c++, source.objc++</scope>
 </snippet>

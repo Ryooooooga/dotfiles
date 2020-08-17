@@ -3,5 +3,5 @@
 	<content><![CDATA[
 std::vector<${1:type}>]]></content>
 	<tabTrigger>vector</tabTrigger>
-	<scope>source.c++</scope>
+	<scope>source.c++, source.objc++</scope>
 </snippet>
