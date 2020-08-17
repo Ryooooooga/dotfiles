@@ -64,6 +64,7 @@ if [ -d "$ASDF_DATA_DIR" ]; then
     echo "asdf-vm is already installed."
     git -C "$ASDF_DATA_DIR" pull
 
+    # shellcheck source=/dev/null
     . "$ASDF_DATA_DIR/asdf.sh"
     asdf plugin update --all
 else
