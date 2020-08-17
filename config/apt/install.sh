@@ -12,10 +12,12 @@ apt-get install -y \
     git \
     gpg \
     jq \
+    libsqlite3-dev \
     libssl-dev \
     neovim \
     python3 \
     python3-pip \
+    sqlite3 \
     tmux \
     unzip \
     wget \
