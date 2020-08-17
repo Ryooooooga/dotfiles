@@ -248,6 +248,9 @@ export NPM_CONFIG_USERCONFIG="$NPM_CONFIG_DIR/npmrc"
 export GEM_HOME="$XDG_DATA_HOME/gem"
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
 
+### Python ###
+export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/startup.py"
+
 ### pylint ###
 export PYLINTHOME="$XDG_CACHE_HOME/pylint"
 
