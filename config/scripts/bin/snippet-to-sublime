@@ -14,7 +14,7 @@ def content(s):
     s = re.sub(r'\$TM_FILENAME_BASE|\${TM_FILENAME_BASE}', r'${TM_FILENAME/(.+)\..+/$1/:name}', s)
     s = re.sub(r'\$WORKSPACE_NAME|\${WORKSPACE_NAME(/[^}]+)?}', r'WORKSPACE', s)
     s = re.sub(r'\${([^|]+)\|([^,]+),[^|]+\|}', r'${\1:\2}', s)
-    s = s.replace(']]>', ']]><![CDATA[>')
+    s = s.replace(']]>', ']]]]><![CDATA[>')
     s = '<![CDATA[\n{}]]>'.format(s)
     return s
 
