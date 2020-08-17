@@ -1,3 +1,4 @@
 {
-	"default_root": "current"
+	"default_root": "current",
+	"current_fallback_to_project": true,
 }
