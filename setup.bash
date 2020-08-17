@@ -63,6 +63,9 @@ export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
 if [ -d "$ASDF_DATA_DIR" ]; then
     echo "asdf-vm is already installed."
     git -C "$ASDF_DATA_DIR" pull
+
+    . "$ASDF_DATA_DIR/asdf.sh"
+    asdf plugin update --all
 else
     git clone "https://github.com/asdf-vm/asdf" "$ASDF_DATA_DIR"
 
