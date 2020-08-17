@@ -42,9 +42,11 @@ if [ "$(uname)" = "Darwin" ]; then
     ln -sfv "$REPO_DIR/config/gnupg/gpg-agent.conf.mac" "$HOME/.gnupg/gpg-agent.conf"
 
     # Dash
-    DASH_DIR="$HOME/Library/Application Support/Dash"
-    mkdir -p "$DASH_DIR"
-    cp -v "$XDG_CONFIG_HOME/dash/library.dash" "$DASH_DIR/library.dash"
+    DASH_LIBRARY="$HOME/Library/Application Support/Dash/library.dash"
+    if [ ! -f "$DASH_LIBRARY" ]; then
+        mkdir -p "$(dirname "$DASH_LIBRARY")"
+        cp -v "$XDG_CONFIG_HOME/dash/library.dash" "$DASH_LIBRARY"
+    fi
 
     # Sublime Text 3
     SUBL_DIR="$HOME/Library/Application Support/Sublime Text 3"
