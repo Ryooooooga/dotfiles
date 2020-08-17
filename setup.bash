@@ -8,7 +8,7 @@ XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
 # macOS
 if [ "$(uname)" = "Darwin" ]; then
     # Finder
-    defaults write com.apple.finder AppleShowAllFiles YES
+    defaults write com.apple.finder AppleShowAllFiles -bool true
     defaults write com.apple.finder ShowPathbar -bool true
     defaults write com.apple.finder ShowTabView -bool true
 
