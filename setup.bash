@@ -13,7 +13,7 @@ if [ "$(uname)" = "Darwin" ]; then
     defaults write com.apple.finder ShowTabView -bool true
 
     # Dock
-    defaults write com.apple.dock orientation left
+    defaults write com.apple.dock orientation right
     defaults write com.apple.dock autohide -bool false
     defaults write com.apple.dock tilesize -int 50
     defaults write com.apple.dock magnification -bool false
