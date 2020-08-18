@@ -15,6 +15,10 @@
 ### VS Code ###
 .vscode/*
 
+### C/C++ ###
+compile_commands.json
+compile_flags.txt
+
 ### GDB ###
 .gdb_history
 
