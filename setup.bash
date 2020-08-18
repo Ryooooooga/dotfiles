@@ -18,11 +18,19 @@ if [ "$(uname)" = "Darwin" ]; then
     defaults write com.apple.dock tilesize -int 50
     defaults write com.apple.dock magnification -bool false
 
+    # Menubar
+    defaults write com.apple.menuextra.battery ShowPercent -bool true
+    defaults write com.apple.menuextra.clock DateFormat -string "M\u6708d\u65e5(EEE)  H:mm:ss"
+
     # Mission Control
     defaults write com.apple.dock wvous-br-corner -int 4 # Bottom right -> Desktop
 
     # Disable .DS_Store on network disks
     defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+    killall Dock
+    killall Finder
+    killall SystemUIServer
 
     # Configure hammerspoon config location
     defaults write org.hammerspoon.Hammerspoon MJConfigFile "$XDG_CONFIG_HOME/hammerspoon/init.lua"
