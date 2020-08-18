@@ -1,0 +1,13 @@
+/*
+!/.gitignore
+!/Packages
+
+/Packages/*
+!/Packages/C++
+!/Packages/Go
+!/Packages/User*
+
+/Packages/User/*
+!/Packages/User/C++
+!/Packages/User/*.sublime-keymap
+!/Packages/User/*.sublime-settings
