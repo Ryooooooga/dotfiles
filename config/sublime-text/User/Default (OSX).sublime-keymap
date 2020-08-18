@@ -60,4 +60,9 @@
 	// Alt + up/down
 	{ "keys": ["super+up"], "command": "increment_decrement", "args": { "plus": true } },
 	{ "keys": ["super+down"], "command": "increment_decrement", "args": { "plus": false } },
+
+	// Cmd + minus/backslash
+	{ "keys": ["super+minus"], "command": "clone_file_to_pane", "args": {"direction": "down"} },
+	{ "keys": ["super+\\"], "command": "clone_file_to_pane", "args": {"direction": "right"} },
+	{ "keys": ["super+k", "super+w"], "command": "destroy_pane", "args": {"direction": "self"} },
 ]
