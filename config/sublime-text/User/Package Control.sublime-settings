@@ -10,6 +10,7 @@
 		"All Autocomplete",
 		"BracketHighlighter",
 		"Case Conversion",
+		"Clang Format",
 		"EditorConfig",
 		"FindKeyConflicts",
 		"Git",
