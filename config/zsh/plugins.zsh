@@ -274,6 +274,6 @@ if (( ${+commands[youtube-dl]} )); then
 fi
 
 ### local ###
-if [ -f "$ZDOTDIR/zshrc.local" ]; then
-    source "$ZDOTDIR/zshrc.local"
+if [ -f "$ZDOTDIR/.zshrc.local" ]; then
+    source "$ZDOTDIR/.zshrc.local"
 fi
