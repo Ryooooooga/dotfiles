@@ -1,0 +1,7 @@
+{
+	"clients": {
+		"clangd": {
+			"command": ["/usr/local/opt/llvm/bin/clangd"]
+		}
+	}
+}
