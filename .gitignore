@@ -1,4 +1,9 @@
+### Local settings ###
 *.local
+
+### Zsh cache ###
 *.zwc
-.zcompdump
-.zcompcache
+.zcomp*
+
+### Clangd settings ###
+!/config/clangd/compile_flags.txt
