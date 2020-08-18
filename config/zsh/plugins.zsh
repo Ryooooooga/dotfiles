@@ -249,6 +249,8 @@ export GEM_HOME="$XDG_DATA_HOME/gem"
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
 
 ### Python ###
+alias python="python3"
+alias pip="pip3"
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/startup.py"
 
 ### pylint ###
