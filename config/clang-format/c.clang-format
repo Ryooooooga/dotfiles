@@ -7,3 +7,5 @@ BinPackArguments: false
 BinPackParameters: false
 ColumnLimit: 0
 CommentPragmas: ^
+IndentCaseLabels: true
+PointerAlignment: Right
