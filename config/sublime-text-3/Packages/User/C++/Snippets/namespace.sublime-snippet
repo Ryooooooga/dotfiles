@@ -1,7 +1,7 @@
 <snippet>
 	<description>namespace</description>
 	<content><![CDATA[
-namespace ${TM_FILENAME/(.+)\..+/$1/:name}
+namespace ${1:${TM_FILENAME/(.+)\..+/$1/:name}}
 {
 	$0
 }]]></content>
