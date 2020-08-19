@@ -12,7 +12,7 @@ CommentPragmas: ^
 IncludeCategories:
   - Regex:      '^<experimental/'
     Priority:   3
-  - Regex:      '^(<|")(boost|fmt|llvm)/'
+  - Regex:      '^(<|")(boost|fmt|gtest|llvm)/'
     Priority:   4
   - Regex:      '^<'
     Priority:   2
