@@ -9,6 +9,7 @@
 
 /Packages/User/*
 !/Packages/User/C++
+!/Packages/User/CMake
 !/Packages/User/Markdown
 !/Packages/User/*.sublime-keymap
 !/Packages/User/*.sublime-settings
