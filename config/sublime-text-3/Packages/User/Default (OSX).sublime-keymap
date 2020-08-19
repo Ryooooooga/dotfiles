@@ -35,6 +35,9 @@
 	// Cmd + =
 	{ "keys": ["super+equals"], "command": "decrease_font_size" },
 
+	// Cmd + Shift + B
+	{ "keys": ["super+shift+b"], "command": "build" },
+
 	// Cmd + Alt + I
 	{ "keys": ["super+alt+i"], "command": "increment_selection" },
 
