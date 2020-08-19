@@ -11,6 +11,7 @@
 		"BracketHighlighter",
 		"Case Conversion",
 		"Clang Format",
+		"DoxyDoxygen",
 		"EditorConfig",
 		"FindKeyConflicts",
 		"Git",
