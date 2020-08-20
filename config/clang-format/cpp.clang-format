@@ -7,6 +7,7 @@ AlwaysBreakBeforeMultilineStrings: true
 BinPackArguments: false
 BinPackParameters: false
 BreakConstructorInitializersBeforeComma: true
+BreakInheritanceList: BeforeComma
 ColumnLimit: 0
 CommentPragmas: ^
 IncludeCategories:
