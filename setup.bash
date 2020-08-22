@@ -24,6 +24,7 @@ if [ "$(uname)" = "Darwin" ]; then
 
     # Mission Control
     defaults write com.apple.dock wvous-br-corner -int 4 # Bottom right -> Desktop
+    defaults write com.apple.dock mru-spaces -bool false # Don't automatically rearrange spaces
 
     # Disable .DS_Store on network disks
     defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
