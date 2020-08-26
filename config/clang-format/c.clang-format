@@ -7,5 +7,10 @@ BinPackArguments: false
 BinPackParameters: false
 ColumnLimit: 0
 CommentPragmas: ^
+IncludeCategories:
+  - Regex:      '^<'
+    Priority:   1
+  - Regex:      '^"'
+    Priority:   2
 IndentCaseLabels: true
 PointerAlignment: Right
