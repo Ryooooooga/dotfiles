@@ -1,3 +1,8 @@
 {
-	"log_stderr": true
+	"log_stderr": true,
+	"clients": {
+		"clangd": {
+			"command": ["clangd", "--header-insertion=never"]
+		}
+	}
 }

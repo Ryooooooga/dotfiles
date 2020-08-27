@@ -1,7 +1,0 @@
-{
-	"clients": {
-		"clangd": {
-			"command": ["/usr/local/opt/llvm/bin/clangd", "--header-insertion=never"]
-		}
-	}
-}
