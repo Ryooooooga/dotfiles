@@ -29,9 +29,6 @@
 		]
 	},
 
-	// Shift + tab
-	{ "keys": ["shift+tab"], "command": "unindent" },
-
 	// Cmd + =
 	{ "keys": ["super+equals"], "command": "decrease_font_size" },
 
