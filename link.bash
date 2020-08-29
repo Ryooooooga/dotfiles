@@ -11,8 +11,8 @@ chmod 700 "$HOME/.gnupg"
 ln -sfv "$REPO_DIR/config/"* "$XDG_CONFIG_HOME"
 ln -sfv "$XDG_CONFIG_HOME/zsh/.zshenv" "$HOME/.zshenv"
 ln -sfv "$XDG_CONFIG_HOME/vim/init.vim" "$HOME/.vimrc"
-ln -sfv "$XDG_CONFIG_HOME/editorconfig/root.editorconfig" "$HOME/.editorconfig"
-ln -sfv "$XDG_CONFIG_HOME/commitizen/root.czrc" "$HOME/.czrc"
+ln -sfv "$XDG_CONFIG_HOME/editorconfig/.editorconfig" "$HOME/.editorconfig"
+ln -sfv "$XDG_CONFIG_HOME/commitizen/.czrc" "$HOME/.czrc"
 
 if [ "$(uname)" = "Darwin" ]; then
     touch "$HOME/.hushlogin"
