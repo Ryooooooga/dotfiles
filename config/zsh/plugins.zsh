@@ -165,6 +165,7 @@ alias make='make -j5'
 ### CMake ###
 alias cmaked='cmake -DCMAKE_BUILD_TYPE=Debug'
 alias cmakerel='cmake -DCMAKE_BUILD_TYPE=Release'
+alias cmakeb='cmake --build'
 
 ### GDB ###
 alias gdb='gdb -q -nh -x "$XDG_DATA_HOME/gdb-dashboard/.gdbinit"'
@@ -225,7 +226,7 @@ export GIT_EDITOR="$EDITOR"
 e() {
     if [ $# -eq 0 ]; then
         local selected="$(fd --hidden --color=always --exclude='.git' --type=f  | fzf --multi --preview "fzf-preview-file '{}'" --preview-window=right:60%)"
-        [ -n "$selected" ] && command "$EDITOR" ${(f)selected}
+        [ -n "$selected" ] && "$EDITOR" ${(f)selected}
     else
         command "$EDITOR" "$@"
     fi
@@ -267,7 +268,7 @@ export MYSQL_HISTFILE="$XDG_CACHE_HOME/mysql_history"
 export PSQL_HISTORY="$XDG_CACHE_HOME/psql_history"
 
 ### fd ###
-alias fd='${commands[fdfind]:-fd} --ignore-file=$XDG_CONFIG_HOME/fd/ignore'
+alias fd='"${commands[fdfind]:-fd}" --ignore-file="$XDG_CONFIG_HOME/fd/ignore"'
 
 ### youtube-dl ###
 if (( ${+commands[youtube-dl]} )); then

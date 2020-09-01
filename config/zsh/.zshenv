@@ -18,14 +18,14 @@ export GOPATH="$XDG_DATA_HOME/go"
 export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
 
 path=(
-    "$HOME"/.local/bin(N-/)
-    "$CARGO_HOME"/bin(N-/)
-    "$GOPATH"/bin(N-/)
-    "$XDG_CONFIG_HOME"/scripts/bin(N-/)
+    "$HOME/.local/bin"(N-/)
+    "$CARGO_HOME/bin"(N-/)
+    "$GOPATH/bin"(N-/)
+    "$XDG_CONFIG_HOME/scripts/bin"(N-/)
     "$path[@]"
 )
 
 fpath=(
-    "$HOME/.local/share/asdf/completions"(N-/)
+    "$XDG_DATA_HOME/asdf/completions"(N-/)
     "$fpath[@]"
 )
