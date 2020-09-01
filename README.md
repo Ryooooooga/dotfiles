@@ -13,4 +13,3 @@ $ cd ~/Workspace/github.com/Ryooooooga/dotfiles
 $ sudo ./config/apt/install.sh  # Ubuntu only
 $ ./setup.bash
 ```
-

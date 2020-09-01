@@ -98,7 +98,7 @@ zinit light 'ogham/exa'
 ### bat ###
 zinit ice lucid wait"0" as"program" from"gh-r" \
     pick"bat*/bat" \
-    atload"alias cat='bat'"
+    atload"alias cat='bat --paging=never'"
 zinit light 'sharkdp/bat'
 
 ### delta ###
