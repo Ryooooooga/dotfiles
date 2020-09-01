@@ -1,0 +1,12 @@
+{
+	"shell_cmd": "cmake -B build -D CMAKE_BUILD_TYPE=Debug && cmake --build build -j5",
+	"working_dir": "$folder",
+
+	"variants":
+	[
+		{
+			"name": "Test",
+			"shell_cmd": "cmake -B build -D CMAKE_BUILD_TYPE=Debug && cmake --build build -j5 && make -C build test ARGS=\"-V\"",
+		}
+	]
+}

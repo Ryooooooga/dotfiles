@@ -1,0 +1,12 @@
+{
+	"shell_cmd": "make -j5",
+	"working_dir": "$folder",
+
+	"variants":
+	[
+		{
+			"name": "Test",
+			"shell_cmd": "make -j5 test",
+		}
+	]
+}
