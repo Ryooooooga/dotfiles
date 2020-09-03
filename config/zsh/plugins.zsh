@@ -238,7 +238,7 @@ if [ -e "$ASDF_DATA_DIR" ]; then
 fi
 
 ### Node.js ###
-export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
+export NODE_REPL_HISTORY="$XDG_CACHE_HOME/node_history"
 
 ### npm ###
 export NPM_CONFIG_DIR="$XDG_CONFIG_HOME/npm"
