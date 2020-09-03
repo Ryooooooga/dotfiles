@@ -28,9 +28,6 @@ node_modules/
 ### Logs ###
 *.log
 
-### Ruby ###
-.irb_history
-
 ### Memo ###
 _memo*
 _todo*

@@ -250,6 +250,9 @@ export NPM_CONFIG_USERCONFIG="$NPM_CONFIG_DIR/npmrc"
 export GEM_HOME="$XDG_DATA_HOME/gem"
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
 
+### irb ###
+export IRBRC="$XDG_CONFIG_HOME/irb/irbrc"
+
 ### Python ###
 alias python="python3"
 alias pip="pip3"
