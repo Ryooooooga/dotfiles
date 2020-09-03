@@ -7,6 +7,9 @@ apt-get install -y \
     autoconf \
     automake \
     build-essential \
+    clang \
+    clang-format \
+    clangd \
     cmake \
     colordiff \
     git \
