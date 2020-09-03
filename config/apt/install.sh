@@ -9,7 +9,6 @@ apt-get install -y \
     build-essential \
     clang \
     clang-format \
-    clangd \
     cmake \
     colordiff \
     git \
@@ -34,7 +33,9 @@ fi
 
 if [ "$ubuntu_version" -ge 2004 ]; then
     # Ubuntu 20.04 or later
-    apt-get install -y fd-find
+    apt-get install -y \
+        clangd \
+        fd-find
 
     if [ $? -ne 0 ]; then
         exit 1
