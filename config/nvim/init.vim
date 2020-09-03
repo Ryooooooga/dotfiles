@@ -58,7 +58,7 @@ if dein#check_install()
 endif
 
 " LSP and completions
-set completeopt=menuone,noinsert,noselect
+set completeopt=menuone,noinsert
 set shortmess+=c
 let g:completion_enable_auto_popup = 1
 
