@@ -25,12 +25,11 @@ set runtimepath+=$XDG_DATA_HOME/dein/repos/github.com/Shougo/dein.vim
 if dein#load_state($XDG_DATA_HOME . '/dein')
     call dein#begin($XDG_DATA_HOME . '/dein')
 
-    call dein#add('Shougo/deoplete.nvim')
-    let g:deoplete#enable_at_startup = 1
-
     call dein#add('Shougo/neosnippet.vim')
     call dein#add('Shougo/neosnippet-snippets')
     call dein#add('Shougo/defx.nvim')
+    call dein#add('neovim/nvim-lsp')
+    call dein#add('nvim-lua/completion-nvim')
     call dein#add('kristijanhusak/defx-git')
     call dein#add('kristijanhusak/defx-icons')
     call dein#add('jiangmiao/auto-pairs')
@@ -57,6 +56,17 @@ syntax enable
 if dein#check_install()
     call dein#install()
 endif
+
+" LSP and completions
+set completeopt=menuone,noinsert,noselect
+set shortmess+=c
+let g:completion_enable_auto_popup = 1
+
+lua require'nvim_lsp'.clangd.setup{ on_attach=require'completion'.on_attach }
+
+nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> <C-f> <cmd>lua vim.lsp.buf.formatting()<CR>
 
 " colorscheme
 colorscheme snazzy
@@ -148,10 +158,8 @@ let g:multi_cursor_quit_key            = '<Esc>'
 " keymaps
 inoremap jj <ESC>
 nnoremap ;  :
-nnoremap h  gh
 nnoremap j  gj
 nnoremap k  gk
-nnoremap l  gl
 nnoremap sh <C-w>h
 nnoremap sj <C-w>j
 nnoremap sk <C-w>k
