@@ -87,6 +87,10 @@ else
 
     # shellcheck source=/dev/null
     . "$ASDF_DATA_DIR/asdf.sh"
+    asdf plugin add neovim
+    asdf install neovim nightly
+    asdf global neovim nightly
+
     asdf plugin add nodejs
     /bin/bash "${ASDF_DATA_DIR}/plugins/nodejs/bin/import-release-team-keyring"
 fi
