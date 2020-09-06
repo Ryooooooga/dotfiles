@@ -1,23 +1,28 @@
+""" Options """
 set fenc=utf-8
-set title
-set number
-set tabstop=4
-set shiftwidth=4
-set cursorline
-set mouse=a
-set showmatch
-set laststatus=2
-set incsearch
-set whichwrap=b,s,h,l,<,>,[,],~
-set smarttab
-set smartcase
-set ignorecase
-set shiftround
 set hidden
 set autoread
-
-" whitespaces
+" Indentation
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set shiftround
+set smarttab
 set list
+" Views
+set title
+set number
+set termguicolors
+set cursorline
+set showmatch
+set laststatus=2
+" Controls
+set mouse=a
+set whichwrap=b,s,h,l,<,>,[,],~
+" Search
+set incsearch
+set smartcase
+set ignorecase
 
 " dein.vim
 set runtimepath+=$XDG_DATA_HOME/dein/repos/github.com/Shougo/dein.vim
