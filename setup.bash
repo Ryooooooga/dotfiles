@@ -70,6 +70,8 @@ if [ -d "$XDG_DATA_HOME/dein/repos/github.com/Shougo/dein.vim" ]; then
     nvim -c ":call dein#update()" -c ":q"
 else
     curl "https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh" | sh -s "$XDG_DATA_HOME/dein"
+
+    nvim -c ":call clap#installer#download_binary()" -c ":q"
 fi
 
 # asdf-vm

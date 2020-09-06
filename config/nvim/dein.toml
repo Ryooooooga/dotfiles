@@ -24,7 +24,48 @@ colorscheme snazzy
 '''
 
 [[plugins]]
+repo = 'airblade/vim-gitgutter'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
 repo = 'Shougo/defx.nvim'
+hook_add = '''
+autocmd FileType defx call s:defx_my_settings()
+function! s:defx_my_settings() abort
+    nnoremap <silent><buffer><expr> <CR>
+        \ !defx#is_directory()
+        \   ? defx#do_action('drop')
+        \   : defx#do_action('open_or_close_tree')
+    nnoremap <silent><buffer><expr> o
+        \ !defx#is_directory()
+        \   ? defx#do_action('drop')
+        \   : defx#is_opened_tree() ? defx#do_action('close_tree') : defx#do_action('open_tree_recursive')
+    nnoremap <silent><buffer><expr> h       defx#do_action('close_tree')
+    nnoremap <silent><buffer><expr> l       defx#do_action('open_tree')
+    nnoremap <silent><buffer><expr> <Left>  defx#do_action('close_tree')
+    nnoremap <silent><buffer><expr> <Right> defx#do_action('open_tree')
+    nnoremap <silent><buffer><expr> r       defx#do_action('redraw')
+    nnoremap <silent><buffer><expr> d       defx#do_action('remove')
+    nnoremap <silent><buffer><expr> c       defx#do_action('copy')
+    nnoremap <silent><buffer><expr> p       defx#do_action('paste')
+    nnoremap <silent><buffer><expr> m       defx#do_action('move')
+    nnoremap <silent><buffer><expr> n       defx#do_action('new_file')
+    nnoremap <silent><buffer><expr> N       defx#do_action('new_directory')
+    nnoremap <silent><buffer><expr> q       defx#do_action('quit')
+    nnoremap <silent><buffer><expr> .       defx#do_action('toggle_ignored_files')
+endfunction
+
+call defx#custom#option('_', {
+\   'columns': 'space:indent:git:icons:filename:type',
+\   'direction': 'topleft',
+\   'split': 'vertical',
+\   'winwidth': 32,
+\ })
+
+nnoremap <silent><C-o> :Defx -toggle -show-ignored-files<CR>
+'''
 
 [[plugins]]
 repo = 'kristijanhusak/defx-git'
@@ -54,4 +95,46 @@ let g:NERDDefaultAlign = 'left'
 
 nmap <C-c> <Plug>NERDCommenterToggle
 vmap <C-c> <Plug>NERDCommenterToggle<CR>gv
+'''
+
+[[plugins]]
+repo = 'liuchengxu/vim-clap'
+build = 'bash install.sh'
+hook_add = '''
+let g:clap_theme = 'material_design_dark'
+let g:clap_layout = {
+\   'width': '80%',
+\   'height': '60%',
+\   'row': '20%',
+\   'col': '10%',
+\ }
+
+nnoremap <silent>//    :Clap blines<CR>
+nnoremap <silent><C-p> :Clap filer<CR>
+'''
+
+[[plugins]]
+repo = 'nvim-lua/completion-nvim'
+
+[[plugins]]
+repo = 'neovim/nvim-lsp'
+depends = ['completion-nvim']
+hook_add = '''
+set completeopt=menuone,noinsert
+set shortmess+=c
+let g:completion_enable_auto_popup = 1
+
+" C/C++
+lua require'nvim_lsp'.clangd.setup{ on_attach=require'completion'.on_attach }
+
+nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> <C-f> <cmd>lua vim.lsp.buf.formatting()<CR>
+'''
+
+[[plugins]]
+repo = 'terryma/vim-expand-region'
+hook_add = '''
+vmap v <Plug>(expand_region_expand)
+vmap V <Plug>(expand_region_shrink)
 '''
