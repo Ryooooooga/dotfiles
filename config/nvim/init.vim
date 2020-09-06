@@ -24,6 +24,27 @@ set incsearch
 set smartcase
 set ignorecase
 
+""" Keymaps """
+inoremap jj <ESC>
+nnoremap ;  :
+nnoremap j  gj
+nnoremap k  gk
+nnoremap sh <C-w>h
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sH <C-w>H
+nnoremap sJ <C-w>J
+nnoremap sK <C-w>K
+nnoremap sL <C-w>L
+nnoremap <silent><C-a> ^
+nnoremap <silent><C-e> $
+nnoremap <silent><C-\> :vsplit<CR>
+nnoremap <silent><C-_> :split<CR>
+nnoremap <silent><C-h> :bprev<CR>
+nnoremap <silent><C-l> :bnext<CR>
+nnoremap <silent><C-w> :bdelete<CR>
+
 " dein.vim
 set runtimepath+=$XDG_DATA_HOME/dein/repos/github.com/Shougo/dein.vim
 
@@ -32,24 +53,14 @@ if dein#load_state($XDG_DATA_HOME . '/dein')
 
     call dein#add('Shougo/neosnippet.vim')
     call dein#add('Shougo/neosnippet-snippets')
-    call dein#add('Shougo/defx.nvim')
     call dein#add('neovim/nvim-lsp')
     call dein#add('nvim-lua/completion-nvim')
-    call dein#add('kristijanhusak/defx-git')
-    call dein#add('kristijanhusak/defx-icons')
-    call dein#add('jiangmiao/auto-pairs')
     call dein#add('airblade/vim-gitgutter')
-    call dein#add('scrooloose/nerdtree')
-    call dein#add('editorconfig/editorconfig-vim')
     call dein#add('tpope/vim-fugitive')
-    call dein#add('vim-airline/vim-airline')
-    call dein#add('vim-airline/vim-airline-themes')
     call dein#add('liuchengxu/vim-clap', { 'build': './install.sh' })
-    call dein#add('connorholyday/vim-snazzy')
-    call dein#add('preservim/nerdcommenter')
-    call dein#add('elzr/vim-json')
     call dein#add('terryma/vim-multiple-cursors')
     call dein#add('terryma/vim-expand-region')
+    call dein#load_toml($XDG_CONFIG_HOME . '/nvim/dein.toml')
 
     call dein#end()
     call dein#save_state()
@@ -72,9 +83,6 @@ lua require'nvim_lsp'.clangd.setup{ on_attach=require'completion'.on_attach }
 nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> <C-f> <cmd>lua vim.lsp.buf.formatting()<CR>
-
-" colorscheme
-colorscheme snazzy
 
 " defx.vim
 " Run pip3 install pynvim
@@ -118,19 +126,6 @@ smap <C-k>       <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>       <Plug>(neosnippet_expand_target)
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
-if has('conceal')
-    set conceallevel=2 concealcursor=niv
-endif
-
-" vim-airline
-let g:airline#extensions#tabline#enabled=1
-let g:airline_powerline_fonts=1
-let g:airline_theme='wombat'
-let g:airline_symbols = {
-        \ 'branch': "\uf418",
-        \ 'dirty': "\u00b1",
-    \ }
-
 " vim-clap
 let g:clap_theme = 'material_design_dark'
 let g:clap_layout = {
@@ -140,14 +135,6 @@ let g:clap_layout = {
         \ 'col': '10%',
     \ }
 " Run :call clap#installer#download_binary() or :call clap#installer#install_maple()
-
-" NERDCommenter
-let g:NERDSpaceDelims = 1
-let g:NERDCompactSexyComs = 1
-let g:NERDDefaultAlign = 'left'
-
-" vim-json
-let g:vim_json_syntax_conceal = 0
 
 " multiple-cursors
 let g:multi_cursor_use_default_mapping = 0
@@ -161,29 +148,8 @@ let g:multi_cursor_skip_key            = '<C-k>'
 let g:multi_cursor_quit_key            = '<Esc>'
 
 " keymaps
-inoremap jj <ESC>
-nnoremap ;  :
-nnoremap j  gj
-nnoremap k  gk
-nnoremap sh <C-w>h
-nnoremap sj <C-w>j
-nnoremap sk <C-w>k
-nnoremap sl <C-w>l
-nnoremap sH <C-w>H
-nnoremap sJ <C-w>J
-nnoremap sK <C-w>K
-nnoremap sL <C-w>L
-nnoremap <silent><C-a> ^
-nnoremap <silent><C-e> $
-nnoremap <silent><C-\> :vsplit<CR>
-nnoremap <silent><C-_> :split<CR>
 nnoremap <silent><C-o> :Defx -toggle -show-ignored-files<CR>
-nnoremap <silent><C-h> :bprev<CR>
-nnoremap <silent><C-l> :bnext<CR>
-nnoremap <silent><C-w> :bdelete<CR>
 nnoremap <silent>//    :Clap blines<CR>
 nnoremap <silent><C-p> :Clap filer<CR>
-nmap     <silent><C-_> <Plug>NERDCommenterToggle
-vmap     <silent><C-_> <Plug>NERDCommenterToggle
 vmap     v             <Plug>(expand_region_expand)
 vmap     V             <Plug>(expand_region_shrink)
