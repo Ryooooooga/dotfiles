@@ -10,7 +10,7 @@ export ZSH_DATA_HOME="$XDG_DATA_HOME/zsh"
 export ZSH_CACHE_HOME="$XDG_CACHE_HOME/zsh"
 
 ### history ###
-export HISTFILE="$ZSH_DATA_HOME/history"
+export HISTFILE="$XDG_CACHE_HOME/zsh_history"
 export HISTSIZE=1000
 export SAVEHIST=1000
 
