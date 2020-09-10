@@ -12,6 +12,7 @@
 !/Packages/User/CMake
 !/Packages/User/Markdown
 !/Packages/User/*.sublime-build
+!/Packages/User/*.sublime-commands
 !/Packages/User/*.sublime-keymap
 !/Packages/User/*.sublime-menu
 !/Packages/User/*.sublime-settings
