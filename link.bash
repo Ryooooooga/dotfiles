@@ -4,6 +4,7 @@ XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
 
 mkdir -p "$XDG_CONFIG_HOME"
+mkdir -p "$XDG_DATA_HOME/vim"
 mkdir -p "$HOME/.gnupg"
 chmod 700 "$HOME/.gnupg"
 
