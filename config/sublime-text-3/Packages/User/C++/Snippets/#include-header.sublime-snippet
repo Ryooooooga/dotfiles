@@ -3,5 +3,5 @@
 	<content><![CDATA[
 include "${1:${TM_FILENAME/(.+)\..+/$1/:name}.hpp"}]]></content>
 	<tabTrigger>include</tabTrigger>
-	<scope>(source.c | source.objc | source.c++ | source.objc++) &amp; meta.preprocessor.incomplete</scope>
+	<scope>(source.c++ | source.objc++) &amp; meta.preprocessor.incomplete</scope>
 </snippet>
