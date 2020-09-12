@@ -29,6 +29,9 @@ node_modules/
 *.log
 
 ### Memo ###
+_MEMO*
 _memo*
+_TODO*
 _todo*
+_TEST*
 _test*
