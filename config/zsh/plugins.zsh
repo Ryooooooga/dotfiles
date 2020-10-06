@@ -160,7 +160,7 @@ export WGET_DATA_DIR="$XDG_DATA_HOME/wget"
 alias wget='wget --hsts-file "$WGET_DATA_DIR/wget-hists"'
 
 ### Make ###
-alias make='make -j5'
+alias make='make -j$(($(nproc)+1))'
 
 ### CMake ###
 alias cmaked='cmake -DCMAKE_BUILD_TYPE=Debug'
