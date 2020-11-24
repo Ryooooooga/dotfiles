@@ -117,7 +117,7 @@ nnoremap <silent><C-p> :Clap filer<CR>
 repo = 'nvim-lua/completion-nvim'
 
 [[plugins]]
-repo = 'neovim/nvim-lsp'
+repo = 'neovim/nvim-lspconfig'
 depends = ['completion-nvim']
 hook_add = '''
 set completeopt=menuone,noinsert
@@ -125,7 +125,7 @@ set shortmess+=c
 let g:completion_enable_auto_popup = 1
 
 " C/C++
-lua require'nvim_lsp'.clangd.setup{ on_attach=require'completion'.on_attach }
+lua require'lspconfig'.clangd.setup{}
 
 nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
