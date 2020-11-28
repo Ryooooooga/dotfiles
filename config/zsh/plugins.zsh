@@ -159,8 +159,7 @@ alias g='git'
 export GPG_TTY="$(tty)"
 
 ### wget ###
-export WGET_DATA_DIR="$XDG_DATA_HOME/wget"
-alias wget='wget --hsts-file "$WGET_DATA_DIR/wget-hists"'
+alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 
 ### Make ###
 alias make='make -j$(($(nproc)+1))'
