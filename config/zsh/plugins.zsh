@@ -100,7 +100,7 @@ zinit ice lucid wait"0" as"program" from"gh-r" \
     pick"bat*/bat" \
     atload"
         alias cat='bat --paging=never'
-        export MANPAGER=\"sh -c 'col -bx | bat -l man -p'\"
+        export MANPAGER=\"sh -c 'col -bx | bat --language=man --plain'\"
     "
 zinit light 'sharkdp/bat'
 
