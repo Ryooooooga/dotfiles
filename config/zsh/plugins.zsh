@@ -98,7 +98,10 @@ zinit light 'ogham/exa'
 ### bat ###
 zinit ice lucid wait"0" as"program" from"gh-r" \
     pick"bat*/bat" \
-    atload"alias cat='bat --paging=never'"
+    atload"
+        alias cat='bat --paging=never'
+        export MANPAGER=\"sh -c 'col -bx | bat -l man -p'\"
+    "
 zinit light 'sharkdp/bat'
 
 ### delta ###
