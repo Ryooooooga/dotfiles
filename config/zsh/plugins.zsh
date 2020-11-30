@@ -90,7 +90,7 @@ zinit ice lucid wait"0" as"program" from"gh-r" \
     atload"
         alias ls='exa --group-directories-first'
         alias la='exa --group-directories-first -a'
-        alias ll='exa --group-directories-first -al --git --icons'
+        alias ll='exa --group-directories-first -al --header --color-scale --git --icons --time-style=long-iso'
         alias tree='exa --group-directories-first -T --icons'
     "
 zinit light 'ogham/exa'
