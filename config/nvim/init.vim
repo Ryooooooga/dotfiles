@@ -45,6 +45,9 @@ nnoremap <silent><C-h> :bprev<CR>
 nnoremap <silent><C-l> :bnext<CR>
 nnoremap <silent><C-w> :bdelete<CR>
 
+""" Filetype """
+autocmd BufNewFile,BufRead .envrc   set filetype=sh
+
 """ dein.vim """
 set runtimepath+=$XDG_DATA_HOME/dein/repos/github.com/Shougo/dein.vim
 
