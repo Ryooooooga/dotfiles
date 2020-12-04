@@ -212,7 +212,7 @@ docker-rm() {
 }
 docker-rmi() {
     if [ "$#" -eq 0 ]; then
-        command docker images -a | fzf --multi --header-lines=1 | awk '{ print $3 }' | xargs docker rmi
+        command docker images | fzf --multi --header-lines=1 | awk '{ print $3 }' | xargs docker rmi
     else
         command docker rmi "$@"
     fi
