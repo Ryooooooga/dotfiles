@@ -234,6 +234,8 @@ e() {
     fi
 }
 
+alias view='"$EDITOR" -R'
+
 ### asdf-vm ###
 if [ -e "$ASDF_DATA_DIR" ]; then
     source "$ASDF_DATA_DIR/asdf.sh"
