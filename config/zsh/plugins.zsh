@@ -42,6 +42,9 @@ alias ....='cd ../../..'
 alias la='ls -a'
 alias ll='ls -al'
 
+alias tailf='tail -f'
+alias view='"$EDITOR" -R'
+
 (( ${+commands[trash]} )) && alias rm='trash'
 (( ${+commands[colordiff]} )) && alias diff='colordiff'
 
@@ -233,8 +236,6 @@ e() {
         command "$EDITOR" "$@"
     fi
 }
-
-alias view='"$EDITOR" -R'
 
 ### asdf-vm ###
 if [ -e "$ASDF_DATA_DIR" ]; then
