@@ -78,7 +78,6 @@
     st = diff --stat
     sts = diff --stat --staged
 
-
     # hub
     sync = !hub sync
     pr = !hub pull-request
@@ -90,6 +89,8 @@
 
     # ghq
     get = !ghq get
+    list = !ghq list
+    update-all = "!ghq list --full-path | while read r; do echo "$r"; git -C "$r" pull; done"
 
     # git subcommands
     create = !git-create
