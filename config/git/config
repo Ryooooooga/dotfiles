@@ -34,9 +34,6 @@
     # config
     aliases = config --get-regexp '^alias.*'
 
-    # rev-parse
-    dir = rev-parse --show-toplevel
-
     # branch
     b = branch
 
