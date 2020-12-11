@@ -91,7 +91,7 @@
     # ghq
     get = !ghq get
     list = !ghq list
-    update-all = "!ghq list --full-path | while read r; do echo \"$r\"; git -C \"$r\" pull; done"
+    update-all = "!ghq list | ghq get --update --parallel"
 
     # git subcommands
     create = !git-create
