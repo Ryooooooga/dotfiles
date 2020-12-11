@@ -62,10 +62,14 @@
 
     # push
     ps = push
-    psu = !git push -u origin `git symbolic-ref --short HEAD`
+    psu = !git push -u origin "$(git symbolic-ref --short HEAD)"
 
     # pull
     pl = pull
+
+    # rev-parse
+    is-inside-repository = !git rev-parse 2> /dev/null || false
+    root = rev-parse --show-toplevel
 
     # status
     s = status
