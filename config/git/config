@@ -62,7 +62,7 @@
 
     # push
     ps = push
-    psu = !git push -u origin "$(git symbolic-ref --short HEAD)"
+    psu = !git push -u origin \"$(git symbolic-ref --short HEAD)\"
 
     # pull
     pl = pull
@@ -94,7 +94,7 @@
     # ghq
     get = !ghq get
     list = !ghq list
-    update-all = "!ghq list --full-path | while read r; do echo "$r"; git -C "$r" pull; done"
+    update-all = "!ghq list --full-path | while read r; do echo \"$r\"; git -C \"$r\" pull; done"
 
     # git subcommands
     create = !git-create
