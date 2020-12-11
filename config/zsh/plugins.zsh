@@ -79,7 +79,7 @@ export FZF_DEFAULT_OPTS="--reverse --exit-0 --border --ansi"
 export FZF_DEFAULT_COMMAND='fd --color=always --hidden'
 
 zinit ice lucid wait"0" as"program" from"gh-r"
-zinit light 'junegunn/fzf-bin'
+zinit light 'junegunn/fzf'
 
 ### direnv ###
 zinit ice lucid wait"0" as"program" from"gh-r" \
