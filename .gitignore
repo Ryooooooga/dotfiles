@@ -7,3 +7,7 @@
 
 ### Clangd settings ###
 !/config/clangd/compile_flags.txt
+
+### GitHub CLI ###
+/config/gh/*.yml
+!/config/gh/config.yml

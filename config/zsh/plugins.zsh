@@ -112,7 +112,7 @@ zinit ice lucid wait"0" as"program" from"gh-r" \
     pick"delta*/delta"
 zinit light 'dandavison/delta'
 
-### gh ###
+### GitHub CLI ###
 zinit ice lucid wait"0" as"program" from"gh-r" \
     pick"usr/bin/gh" \
     atload'
