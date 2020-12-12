@@ -2,8 +2,6 @@
 ubuntu_version="$(lsb_release -r | awk '{print $2 * 100}')"
 
 add-apt-repository -y ppa:git-core/ppa &&
-apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key C99B11DEB97541F0 &&
-apt-add-repository https://cli.github.com/packages &&
 apt-get update && apt-get upgrade -y &&
 apt-get install -y \
     autoconf \
@@ -13,10 +11,8 @@ apt-get install -y \
     clang-format \
     cmake \
     colordiff \
-    gh \
     git \
     gpg \
-    hub \
     jq \
     libsqlite3-dev \
     libssl-dev \
@@ -39,6 +35,7 @@ if [ "$ubuntu_version" -ge 2004 ]; then
     apt-get install -y \
         clangd \
         fd-find \
+        hub \
         python3-pynvim
 
     if [ $? -ne 0 ]; then

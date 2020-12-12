@@ -112,6 +112,15 @@ zinit ice lucid wait"0" as"program" from"gh-r" \
     pick"delta*/delta"
 zinit light 'dandavison/delta'
 
+### gh ###
+zinit ice lucid wait"0" as"program" from"gh-r" \
+    pick"usr/bin/gh" \
+    atload'
+        eval "$(gh completion -s zsh)"
+        compdef _gh gh
+    '
+zinit light 'cli/cli'
+
 ### Lazygit ###
 zinit ice lucid wait"0" as"program" from"gh-r" \
     mv"lazygit* -> lazygit" \
