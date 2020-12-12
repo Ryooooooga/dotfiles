@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-git config --get-regex '^users\.[^.]+.email' |
+git config --get-regex '^users\.[^.]+\.email' |
     sed -e 's/^users\.\([^.]*\)\.email.*/\1/' |
     while read k; do
         echo "$k: $(git config users."$k".name) <$(git config users."$k".email)>"
