@@ -114,7 +114,7 @@ zinit light 'dandavison/delta'
 
 ### GitHub CLI ###
 zinit ice lucid wait"0" as"program" from"gh-r" \
-    pick"usr/bin/gh" \
+    pick"**/gh" \
     atload'
         eval "$(gh completion -s zsh)"
         compdef _gh gh
