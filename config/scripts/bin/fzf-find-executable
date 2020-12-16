@@ -1,0 +1,2 @@
+#!/usr/bin/env zsh
+echo "$PATH" | tr ":" "\0" | xargs -n1 -0 "${commands[fdfind]:-fd}" --color=always --type=x "${1:-.*}" 2> /dev/null | fzf
