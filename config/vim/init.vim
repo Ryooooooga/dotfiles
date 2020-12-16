@@ -32,8 +32,10 @@ set hidden
 " keymaps
 inoremap jj <ESC>
 nnoremap ; :
+nnoremap j gj
 nnoremap k gk
-nnoremap l gl
+nnoremap <down> gj
+nnoremap <up>   gk
 nnoremap sh <C-w>h
 nnoremap sj <C-w>j
 nnoremap sk <C-w>k
