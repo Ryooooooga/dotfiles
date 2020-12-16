@@ -194,7 +194,7 @@ docker() {
     if [ "$#" -eq 0 ] || ! command -v "docker-$1" > /dev/null; then
         command docker "${@:1}"
     elif (( ${+aliases[docker-$1]} )); then
-        "${(zQ)aliases[docker-$1]}" "${@:2}"
+        "${(zeQ)aliases[docker-$1]}" "${@:2}"
     else
         "docker-$1" "${@:2}"
     fi
