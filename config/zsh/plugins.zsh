@@ -225,7 +225,7 @@ docker-rmi() {
 }
 
 ### functions ###
-mkcd () { mkdir -p $1 && cd $1 }
+mkcd () { mkdir -p "$@" && cd "${@[-1]}"}
 
 ### Vim ###
 export EDITOR="vi"
