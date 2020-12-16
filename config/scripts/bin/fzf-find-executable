@@ -1,2 +1,2 @@
 #!/usr/bin/env zsh
-echo "$PATH" | tr ":" "\0" | xargs -n1 -0 "${commands[fdfind]:-fd}" --color=always --type=x --type=l "${1:-.*}" 2> /dev/null | fzf --preview="man \"\$(basename {})\"" --preview-window="right:50%"
+echo "${(F)commands}" | fzf --preview="man \"\$(basename {})\"" --preview-window="right:50%"
