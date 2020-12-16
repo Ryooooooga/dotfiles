@@ -190,27 +190,24 @@ alias t='tmux has-session && tmux attach || tmux new-session'
 
 ### Docker ###
 docker() {
-    if [ "$#" -ne 0 ] && command -v "docker-$1" > /dev/null; then
-        "docker-$1" "${@:2}"
-    else
+    if [ "$#" -eq 0 ] || ! command -v "docker-$1" > /dev/null; then
         command docker "${@:1}"
+    elif (( ${+aliases[docker-$1]} )); then
+        "${(z)aliases[docker-$1]}" "${@:2}"
+    else
+        "docker-$1" "${@:2}"
     fi
 }
+
+alias docker-ri='command docker run -it'
+alias docker-rrm='command docker run --rm'
+alias docker-rrmi='command docker run --rm -it'
 
 docker-clean() {
     command docker ps -aqf status=exited | xargs --no-run-if-empty docker rm
 }
 docker-cleani() {
     command docker images -qf dangling=true | xargs --no-run-if-empty docker rmi
-}
-docker-ri() {
-    command docker run -it "$@"
-}
-docker-rrm() {
-    command docker run --rm "$@"
-}
-docker-rrmi() {
-    command docker run --rm -it "$@"
 }
 docker-rm() {
     if [ "$#" -eq 0 ]; then
