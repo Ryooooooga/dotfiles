@@ -49,6 +49,8 @@ alias view='"$EDITOR" -R'
 (( ${+commands[trash]} )) && alias rm='trash'
 (( ${+commands[colordiff]} )) && alias diff='colordiff'
 
+mkcd () { mkdir -p "$@" && cd "${@[-1]}"}
+
 ### zsh-history-substring-search ###
 zinit ice lucid wait"0" \
     atload'
@@ -225,8 +227,7 @@ docker-rmi() {
     fi
 }
 
-### functions ###
-mkcd () { mkdir -p "$@" && cd "${@[-1]}"}
+alias dok='docker'
 
 ### Vim ###
 export EDITOR="vi"
