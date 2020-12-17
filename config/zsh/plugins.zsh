@@ -262,6 +262,10 @@ export NPM_CONFIG_USERCONFIG="$NPM_CONFIG_DIR/npmrc"
 export GEM_HOME="$XDG_DATA_HOME/gem"
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
 
+export BUNDLE_USER_HOME="$XDG_CONFIG_HOME/bundle"
+export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle"
+export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME/bundle/plugin"
+
 path=("$GEM_HOME/bin"(N-/) "$path[@]")
 
 ### irb ###
