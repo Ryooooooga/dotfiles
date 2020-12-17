@@ -32,6 +32,7 @@ case $OSTYPE in
         (( ${+commands[gtail]} )) && alias tail='gtail'
         (( ${+commands[gsed]} )) && alias sed='gsed'
         (( ${+commands[ggrep]} )) && alias grep='ggrep'
+        (( ${+commands[gfind]} )) && alias find='gfind'
         (( ${+commands[gxargs]} )) && alias xargs='gxargs'
     ;;
 esac
