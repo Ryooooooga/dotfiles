@@ -11,3 +11,6 @@
 ### GitHub CLI ###
 /config/gh/*.yml
 !/config/gh/config.yml
+
+### Espanso ###
+/config/espanso/user/local.yml
