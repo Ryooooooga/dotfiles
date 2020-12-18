@@ -138,3 +138,19 @@ hook_add = '''
 vmap v <Plug>(expand_region_expand)
 vmap V <Plug>(expand_region_shrink)
 '''
+
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+merged = 1
+hook_post_update = 'TSUpdate'
+hook_add = '''
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+    ensure_installed = "maintained",
+    highlight = {
+        enable = true,
+        disable = { },
+    },
+}
+EOF
+'''
