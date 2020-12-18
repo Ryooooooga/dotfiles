@@ -4,9 +4,9 @@ repo = 'editorconfig/editorconfig-vim'
 [[plugins]]
 repo = 'vim-airline/vim-airline'
 hook_add = '''
-let g:airline#extensions#tabline#enabled=1
-let g:airline_powerline_fonts=1
-let g:airline_theme='wombat'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'deus'
 let g:airline_symbols = {
 \   'branch': "\uf418",
 \   'dirty': "\u00b1",
@@ -18,9 +18,9 @@ repo = 'vim-airline/vim-airline-themes'
 depends = ['vim-airline']
 
 [[plugins]]
-repo = 'connorholyday/vim-snazzy'
+repo = 'tomasiser/vim-code-dark'
 hook_add = '''
-colorscheme snazzy
+colorscheme codedark
 '''
 
 [[plugins]]
