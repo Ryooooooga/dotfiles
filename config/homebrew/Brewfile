@@ -21,7 +21,7 @@ brew "grep"
 brew "hub"
 brew "jq"
 brew "llvm"
-brew "neovim"
+brew "neovim", args: ['HEAD']
 brew "pinentry-mac"
 brew "sqlite"
 brew "tmux"
