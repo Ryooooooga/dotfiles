@@ -3,6 +3,9 @@
     "@textlint-ja/no-insert-dropping-sa": true,
     "@textlint-rule/no-invalid-control-character": true,
     "@textlint-rule/no-unmatched-pair": true,
+    "@proofdict/proofdict": {
+      "dictURL": "https://azu.github.io/proof-dictionary/"
+    },
     "abbr-within-parentheses": true,
     "common-misspellings": true,
     "footnote-order": true,
@@ -30,6 +33,7 @@
     "no-mixed-zenkaku-and-hankaku-alphabet": true,
     "no-nfd": true,
     "no-surrogate-pair": true,
+    "no-todo": false,
     "period-in-list-item": true,
     "prefer-tari-tari": true,
     "preset-jtf-style": {
