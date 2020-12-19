@@ -33,6 +33,7 @@ case $OSTYPE in
         (( ${+commands[gsed]} )) && alias sed='gsed'
         (( ${+commands[ggrep]} )) && alias grep='ggrep'
         (( ${+commands[gfind]} )) && alias find='gfind'
+        (( ${+commands[gdirname]} )) && alias dirname='gdirname'
         (( ${+commands[gxargs]} )) && alias xargs='gxargs'
     ;;
 esac
@@ -151,6 +152,11 @@ zinit ice lucid wait"1" \
         export FORGIT_GI_TEMPLATES="$FORGIT_GI_REPO_LOCAL/templates"
     '
 zinit light 'wfxr/forgit'
+
+### mmv ###
+zinit ice lucid wait"0" as"program" from"gh-r" \
+    pick"mmv*/mmv"
+zinit light 'itchyny/mmv'
 
 ### locale ###
 export LANG="en_US.UTF-8"
