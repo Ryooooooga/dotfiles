@@ -51,7 +51,7 @@ nnoremap <silent><C-w> :bdelete<CR>
 tnoremap <silent><ESC> <C-\><C-n>
 
 """ Terminal """
-source terminal.vim
+source $XDG_CONFIG_HOME/nvim/terminal.vim
 
 """ Filetype """
 autocmd BufNewFile,BufRead .envrc   set filetype=sh

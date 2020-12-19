@@ -52,4 +52,7 @@ nnoremap <silent><C-h> :tabprev<CR>
 nnoremap <silent><C-l> :tabnext<CR>
 nnoremap <silent><C-w> :tabclose<CR>
 
+" terminal
+command! -nargs=* T botright term <args>
+
 au VimEnter * if !&diff | tab all | tabfirst | endif
