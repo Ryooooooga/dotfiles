@@ -18,7 +18,7 @@ set smartcase
 set ignorecase
 set showtabline=2
 
-" whitespaces
+" Whitespaces
 set list
 set listchars=tab:>-,trail:-,extends:>,precedes:<,nbsp:%
 
@@ -29,7 +29,7 @@ set viminfo+=n~/.local/share/vim/viminfo
 
 set hidden
 
-" keymaps
+" Keymaps
 inoremap jj <ESC>
 nnoremap ; :
 nnoremap j gj

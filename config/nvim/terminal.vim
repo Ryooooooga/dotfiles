@@ -5,12 +5,13 @@ endfunction
 function! s:OpenTerm(...)
     botright new
     resize 12
-    startinsert
     if a:0 == 0
         call termopen(&shell, {'on_exit': function('s:OnTermExit')})
-    else
-        call termopen(a:000)
+    elseif termopen(a:000) == -1
+        bdelete
+        return
     end
+    startinsert
 endfunction
 
 command! -nargs=* T call s:OpenTerm(<f-args>)
