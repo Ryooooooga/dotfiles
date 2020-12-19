@@ -23,6 +23,8 @@ set whichwrap=b,s,h,l,<,>,[,],~
 set incsearch
 set smartcase
 set ignorecase
+set splitbelow
+set splitright
 
 """ Keymaps """
 inoremap jj <ESC>
@@ -46,6 +48,10 @@ nnoremap <silent><C-_> :split<CR>
 nnoremap <silent><C-h> :bprev<CR>
 nnoremap <silent><C-l> :bnext<CR>
 nnoremap <silent><C-w> :bdelete<CR>
+tnoremap <silent><ESC> <C-\><C-n>
+
+""" Terminal """
+source terminal.vim
 
 """ Filetype """
 autocmd BufNewFile,BufRead .envrc   set filetype=sh
