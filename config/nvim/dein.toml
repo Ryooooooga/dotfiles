@@ -76,7 +76,7 @@ repo = 'kristijanhusak/defx-icons'
 depends = ['defx.nvim']
 
 [[plugins]]
-repo = 'jiangmiao/auto-pairs'
+repo = 'cohama/lexima.vim'
 
 [[plugins]]
 repo = 'elzr/vim-json'
