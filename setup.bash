@@ -67,11 +67,18 @@ if [ -d "$XDG_DATA_HOME/dein/repos/github.com/Shougo/dein.vim" ]; then
     git -C "$XDG_DATA_HOME/dein/repos/github.com/Shougo/dein.vim" pull
 
     echo "update dein.vim plugins..."
-    nvim -c ":call dein#update()" -c ":q"
+    nvim \
+        -c ":call dein#update()" \
+        -c ":call clap#installer#download_binary()" \
+        -c ":TSUpdate" \
+        -c ":q"
 else
     curl "https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh" | sh -s "$XDG_DATA_HOME/dein"
 
-    nvim -c ":call clap#installer#download_binary()" -c ":q"
+    nvim \
+        -c ":call clap#installer#download_binary()" \
+        -c ":TSUpdate" \
+        -c ":q"
 fi
 
 # asdf-vm
