@@ -7,6 +7,8 @@ autoload -Uz _zinit
 ### Aliases ###
 case $OSTYPE in
     linux*)
+        (( ${+commands[wslview]} )) && alias open='wslview'
+
         if (( ${+commands[win32yank.exe]} )); then
             alias pp='win32yank.exe -i'
             alias p='win32yank.exe -o'
@@ -260,22 +262,6 @@ fi
 
 ### Node.js ###
 export NODE_REPL_HISTORY="$XDG_CACHE_HOME/node_history"
-
-### npm ###
-export NPM_CONFIG_DIR="$XDG_CONFIG_HOME/npm"
-export NPM_DATA_DIR="$XDG_DATA_HOME/npm"
-export NPM_CACHE_DIR="$XDG_CACHE_HOME/npm"
-export NPM_CONFIG_USERCONFIG="$NPM_CONFIG_DIR/npmrc"
-
-### Rubygems ###
-export GEM_HOME="$XDG_DATA_HOME/gem"
-export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
-
-export BUNDLE_USER_HOME="$XDG_CONFIG_HOME/bundle"
-export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle"
-export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME/bundle/plugin"
-
-path=("$GEM_HOME/bin"(N-/) "$path[@]")
 
 ### irb ###
 export IRBRC="$XDG_CONFIG_HOME/irb/irbrc"
