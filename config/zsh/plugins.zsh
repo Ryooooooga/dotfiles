@@ -70,7 +70,7 @@ zinit light 'zsh-users/zsh-history-substring-search'
 zinit ice lucid wait"0"
 zinit light 'zsh-users/zsh-autosuggestions'
 
-### Completions ###
+### zsh-completions ###
 zinit ice lucid wait"0"
 zinit light 'zsh-users/zsh-completions'
 
