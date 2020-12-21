@@ -58,7 +58,7 @@ nnoremap <silent><C-h> :tabprev<CR>
 nnoremap <silent><C-l> :tabnext<CR>
 nnoremap <silent><C-w> :tabclose<CR>
 inoremap jj     <ESC>
-inoremap <C-a>  <Home>
+inoremap <C-a>  <C-O>I
 inoremap <C-e>  <End>
 
 """ terminal """

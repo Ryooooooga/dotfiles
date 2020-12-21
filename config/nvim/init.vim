@@ -51,7 +51,7 @@ nnoremap <silent><C-h> :bprev<CR>
 nnoremap <silent><C-l> :bnext<CR>
 nnoremap <silent><C-w> :bdelete<CR>
 inoremap jj     <ESC>
-inoremap <C-a>  <Home>
+inoremap <C-a>  <C-O>I
 inoremap <C-e>  <End>
 tnoremap <silent><ESC> <C-\><C-n>
 
