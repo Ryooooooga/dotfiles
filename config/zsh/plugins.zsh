@@ -5,7 +5,7 @@ autoload -Uz chpwd_recent_dirs
 autoload -Uz _zinit
 
 ### Aliases ###
-case $OSTYPE in
+case "$OSTYPE" in
     linux*)
         (( ${+commands[wslview]} )) && alias open='wslview'
 
@@ -53,8 +53,8 @@ alias view='"$EDITOR" -R'
 (( ${+commands[trash]} )) && alias rm='trash'
 (( ${+commands[colordiff]} )) && alias diff='colordiff'
 
-mkcd() { mkdir -p "$@" && cd "${@[-1]}"}
-touch() { dirname "$@" | xargs -d"\n" mkdir -p && command touch "$@" }
+mkcd() { mkdir -p -- "$@" && cd "$(realpath -- "${@[-1]}")"}
+touch() { dirname -- "$@" | xargs -d"\n" mkdir -p -- && command touch -- "$@" }
 
 ### zsh-history-substring-search ###
 zinit ice lucid wait"0" \
@@ -217,21 +217,21 @@ alias docker-rrm='command docker run --rm'
 alias docker-rrmi='command docker run --rm -it'
 
 docker-clean() {
-    command docker ps -aqf status=exited | xargs -r docker rm
+    command docker ps -aqf status=exited | xargs -r docker rm --
 }
 docker-cleani() {
-    command docker images -qf dangling=true | xargs -r docker rmi
+    command docker images -qf dangling=true | xargs -r docker rmi --
 }
 docker-rm() {
     if [ "$#" -eq 0 ]; then
-        command docker ps -a | fzf --multi --header-lines=1 | awk '{ print $1 }' | xargs -r docker rm
+        command docker ps -a | fzf --multi --header-lines=1 | awk '{ print $1 }' | xargs -r docker rm --
     else
         command docker rm "$@"
     fi
 }
 docker-rmi() {
     if [ "$#" -eq 0 ]; then
-        command docker images | fzf --multi --header-lines=1 | awk '{ print $3 }' | xargs -r docker rmi
+        command docker images | fzf --multi --header-lines=1 | awk '{ print $3 }' | xargs -r docker rmi --
     else
         command docker rmi "$@"
     fi
@@ -249,7 +249,7 @@ export GIT_EDITOR="$EDITOR"
 e() {
     if [ $# -eq 0 ]; then
         local selected="$(fd --hidden --color=always --exclude='.git' --type=f  | fzf --multi --preview "fzf-preview-file '{}'" --preview-window=right:60%)"
-        [ -n "$selected" ] && "$EDITOR" ${(f)selected}
+        [ -n "$selected" ] && "$EDITOR" -- ${(f)selected}
     else
         command "$EDITOR" "$@"
     fi
