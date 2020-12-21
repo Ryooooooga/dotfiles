@@ -28,6 +28,7 @@
 
 [alias]
     # add
+    a = !git-a
     aa = add -vA
     ai = add -i
 
@@ -55,6 +56,7 @@
     fu = fetch upstream
 
     # log
+    lg = !git-lg
     graph = lg
 
     # push
@@ -89,16 +91,14 @@
     browse-actions = !hub browse -- actions
 
     # ghq
+    create = !ghq create
     get = !ghq get
     list = !ghq list
     update-all = "!ghq list | ghq get --update --parallel"
 
     # git subcommands
-    create = !git-create
-    a = !git-a
     users = !git-users
     user = !git-user
-    lg = !git-lg
     exec = !git-exec
     ignore = !git-ignore
 
