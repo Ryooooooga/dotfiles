@@ -23,11 +23,13 @@ set whichwrap=b,s,h,l,<,>,[,],~
 set incsearch
 set smartcase
 set ignorecase
+" Split
 set splitbelow
 set splitright
+" Backspace
+set backspace=indent,eol,start
 
 """ Keymaps """
-inoremap jj <ESC>
 nnoremap ;  :
 nnoremap j  gj
 nnoremap k  gk
@@ -48,6 +50,9 @@ nnoremap <silent><C-_> :split<CR>
 nnoremap <silent><C-h> :bprev<CR>
 nnoremap <silent><C-l> :bnext<CR>
 nnoremap <silent><C-w> :bdelete<CR>
+inoremap jj     <ESC>
+inoremap <C-a>  <Home>
+inoremap <C-e>  <End>
 tnoremap <silent><ESC> <C-\><C-n>
 
 """ Terminal """
