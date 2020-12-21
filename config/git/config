@@ -71,7 +71,7 @@
     root = rev-parse --show-toplevel
 
     # reflog
-    switch-log = !git reflog | grep 'checkout:' | awk '{ print $6 \" \" $1 \" \" $8 }' | sed -E 's/([^ ]{12})[^ ]+/\\1…/g' | xargs -r -n3 printf '%-13s → (%s) %s\\n'
+    switch-log = !git reflog | grep 'checkout:' | awk '{ print $6 \" \" $1 \" \" $8 }' | sed -E 's/^([^ ]{12})[^ ]+/\\1…/g' | xargs -r -n3 printf '%-13s → (%s) %s\\n'
 
     # status
     s = status
