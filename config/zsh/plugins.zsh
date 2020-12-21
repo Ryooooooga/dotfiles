@@ -217,21 +217,21 @@ alias docker-rrm='command docker run --rm'
 alias docker-rrmi='command docker run --rm -it'
 
 docker-clean() {
-    command docker ps -aqf status=exited | xargs --no-run-if-empty docker rm
+    command docker ps -aqf status=exited | xargs -r docker rm
 }
 docker-cleani() {
-    command docker images -qf dangling=true | xargs --no-run-if-empty docker rmi
+    command docker images -qf dangling=true | xargs -r docker rmi
 }
 docker-rm() {
     if [ "$#" -eq 0 ]; then
-        command docker ps -a | fzf --multi --header-lines=1 | awk '{ print $1 }' | xargs --no-run-if-empty docker rm
+        command docker ps -a | fzf --multi --header-lines=1 | awk '{ print $1 }' | xargs -r docker rm
     else
         command docker rm "$@"
     fi
 }
 docker-rmi() {
     if [ "$#" -eq 0 ]; then
-        command docker images | fzf --multi --header-lines=1 | awk '{ print $3 }' | xargs --no-run-if-empty docker rmi
+        command docker images | fzf --multi --header-lines=1 | awk '{ print $3 }' | xargs -r docker rmi
     else
         command docker rmi "$@"
     fi
