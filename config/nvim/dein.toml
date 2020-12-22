@@ -142,7 +142,7 @@ vmap V <Plug>(expand_region_shrink)
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
 merged = 1
-#hook_post_update = 'TSUpdate'
+# hook_post_update = 'TSUpdate'
 hook_add = '''
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
@@ -153,4 +153,11 @@ require'nvim-treesitter.configs'.setup {
     },
 }
 EOF
+'''
+
+[[plugins]]
+repo = 'ojroques/vim-scrollstatus'
+hook_add = '''
+let g:airline_section_x = '%{ScrollStatus()}'
+let g:scrollstatus_size = 8
 '''
