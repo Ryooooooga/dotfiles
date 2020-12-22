@@ -155,11 +155,6 @@ zinit ice lucid wait"1" \
     '
 zinit light 'wfxr/forgit'
 
-### code-minimap (for Neovim) ###
-zinit ice lucid wait"0" as"program" from"gh-r" \
-    pick"code-minimap*/code-minimap"
-zinit light 'wfxr/code-minimap'
-
 ### mmv ###
 zinit ice lucid wait"0" as"program" from"gh-r" \
     pick"mmv*/mmv"

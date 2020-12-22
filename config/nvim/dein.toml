@@ -154,10 +154,3 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 '''
-
-[[plugins]]
-repo = 'wfxr/minimap.vim'
-hook_add = '''
-let g:minimap_auto_start = 1
-let g:minimap_highlight = "Error"
-'''
