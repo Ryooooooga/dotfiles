@@ -61,8 +61,11 @@ tnoremap <silent><ESC> <C-\><C-n>
 source $XDG_CONFIG_HOME/nvim/terminal.vim
 
 """ Filetype """
-autocmd BufNewFile,BufRead .envrc   set filetype=sh
-autocmd BufNewFile,BufRead config   set filetype=gitconfig
+augroup vimrc
+    autocmd!
+    autocmd BufNewFile,BufRead .envrc   set filetype=sh
+    autocmd BufNewFile,BufRead config   set filetype=gitconfig
+augroup END
 
 """ dein.vim """
 set runtimepath+=$XDG_DATA_HOME/dein/repos/github.com/Shougo/dein.vim

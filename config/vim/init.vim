@@ -66,4 +66,7 @@ inoremap <C-e>  <End>
 """ terminal """
 command! -nargs=* T botright term <args>
 
-au VimEnter * if !&diff | tab all | tabfirst | endif
+augroup vimrc
+    autocmd!
+    autocmd VimEnter * if !&diff | tab all | tabfirst | endif
+augroup END
