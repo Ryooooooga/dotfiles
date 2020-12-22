@@ -248,7 +248,7 @@ export GIT_EDITOR="$EDITOR"
 
 e() {
     if [ $# -eq 0 ]; then
-        local selected="$(fd --hidden --color=always --exclude='.git' --type=f  | fzf --multi --preview "fzf-preview-file '{}'" --preview-window=right:60%)"
+        local selected="$(fd --hidden --color=always --exclude='.git' --type=f  | fzf --multi --preview="fzf-preview-file '{}'" --preview-window="right:60%")"
         [ -n "$selected" ] && "$EDITOR" -- ${(f)selected}
     else
         command "$EDITOR" "$@"
