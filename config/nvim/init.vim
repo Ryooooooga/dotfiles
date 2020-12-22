@@ -30,11 +30,11 @@ set splitright
 set backspace=indent,eol,start
 
 """ Keymaps """
-nnoremap ;  :
-nnoremap j  gj
-nnoremap k  gk
-nnoremap <down> gj
-nnoremap <up>   gk
+nnoremap ;      :
+nnoremap j      gj
+nnoremap k      gk
+nnoremap <Down> gj
+nnoremap <Up>   gk
 nnoremap sh <C-w>h
 nnoremap sj <C-w>j
 nnoremap sk <C-w>k
@@ -51,7 +51,9 @@ nnoremap <silent><C-h> :bprev<CR>
 nnoremap <silent><C-l> :bnext<CR>
 nnoremap <silent><C-w> :bdelete<CR>
 inoremap jj     <ESC>
-inoremap <C-a>  <C-O>I
+inoremap <Down> <C-\><C-o>gj
+inoremap <Up>   <C-\><C-o>gk
+inoremap <C-a>  <C-o>I
 inoremap <C-e>  <End>
 tnoremap <silent><ESC> <C-\><C-n>
 

@@ -37,11 +37,11 @@ set backspace=indent,eol,start
 set viminfo+=n~/.local/share/vim/viminfo
 
 """ Keymaps """
-nnoremap ;  :
-nnoremap j  gj
-nnoremap k  gk
-nnoremap <down> gj
-nnoremap <up>   gk
+nnoremap ;      :
+nnoremap j      gj
+nnoremap k      gk
+nnoremap <Down> gj
+nnoremap <Up>   gk
 nnoremap sh <C-w>h
 nnoremap sj <C-w>j
 nnoremap sk <C-w>k
@@ -58,7 +58,9 @@ nnoremap <silent><C-h> :tabprev<CR>
 nnoremap <silent><C-l> :tabnext<CR>
 nnoremap <silent><C-w> :tabclose<CR>
 inoremap jj     <ESC>
-inoremap <C-a>  <C-O>I
+inoremap <Down> <C-\><C-o>gj
+inoremap <Up>   <C-\><C-o>gk
+inoremap <C-a>  <C-o>I
 inoremap <C-e>  <End>
 
 """ terminal """
