@@ -1,5 +1,5 @@
 - description: edit
-  regexp-left: ^(?P<body>(e|vi|vim|nvim|view))\s*(?P<args>(\S+\s+)*)(?P<query>\S*)$
+  regexp-left: ^(?P<body>(e|vi|vim|nvim|view))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
   cmd-groups:
     - stmt: fd --color=always --type=f
       after: sed -E 's/ /\\\\\\\\ /g'
@@ -8,7 +8,7 @@
   buffer-right: '[]'
 
 - description: cd
-  regexp-left: ^(?P<body>(cd))\s*(?P<query>.*)$
+  regexp-left: ^(?P<body>(cd))(\s+|$)(?P<query>.*)$
   cmd-groups:
     - stmt: fd --color=always --type=d
       after: sed -E 's/ /\\\\\\\\ /g'
