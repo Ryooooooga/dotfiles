@@ -1,10 +1,19 @@
 - description: edit
-  regexp-left: ^(?P<body>(e|vi|vim|nvim|view))\s*(?P<args>((\S|\\ )+\s+)*)(?P<query>(\S|\\ )*)?$
+  regexp-left: ^(?P<body>(e|vi|vim|nvim|view))\s*(?P<args>(\S+\s+)*)(?P<query>\S*)$
   cmd-groups:
     - stmt: fd --color=always --type=f
       after: sed -E 's/ /\\\\\\\\ /g'
-  fuzzy-finder-cmd: fzf --exit-0 --select-1 --query=<query>
+  fuzzy-finder-cmd: fzf --exit-0 --select-1 --height="40%" --preview="fzf-preview-file {}" --preview-window="right:50%" --query="<query>" || echo <query>
   buffer-left: '<body> <args>'
+  buffer-right: '[]'
+
+- description: cd
+  regexp-left: ^(?P<body>(cd))\s*(?P<query>.*)$
+  cmd-groups:
+    - stmt: fd --color=always --type=d
+      after: sed -E 's/ /\\\\\\\\ /g'
+  fuzzy-finder-cmd: fzf --exit-0 --select-1 --height="40%" --preview="fzf-preview-directory {}" --preview-window="right:50%" --query="<query>" || echo <query>
+  buffer-left: '<body> '
   buffer-right: '[]'
 
 - description: fallthrough
