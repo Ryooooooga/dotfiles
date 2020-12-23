@@ -1,7 +1,16 @@
-- description: edit
-  regexp-left: ^(?P<body>(e|vi|vim|nvim|view))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
+- description: file
+  regexp-left: ^(?P<body>(e|vi|vim|nvim|view|cat|bat|less|head|tail|hexdump|grep|sed))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
   cmd-groups:
     - stmt: fd --color=always --type=f
+      after: sed -E 's/ /\\\\\\\\ /g'
+  fuzzy-finder-cmd: fzf --exit-0 --select-1 --height="40%" --preview="fzf-preview-file {}" --preview-window="right:50%" --query="<query>" || echo <query>
+  buffer-left: '<body> <args>'
+  buffer-right: '[]'
+
+- description: file or directory
+  regexp-left: ^(?P<body>(cp|mv|rm))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
+  cmd-groups:
+    - stmt: fd --color=always
       after: sed -E 's/ /\\\\\\\\ /g'
   fuzzy-finder-cmd: fzf --exit-0 --select-1 --height="40%" --preview="fzf-preview-file {}" --preview-window="right:50%" --query="<query>" || echo <query>
   buffer-left: '<body> <args>'
