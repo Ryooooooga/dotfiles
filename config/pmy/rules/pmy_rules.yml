@@ -1,0 +1,8 @@
+- description: edit
+  regexp-left: ^(?P<body>(e|vi|vim|nvim|view))\s*(?P<args>((\S|\\ )+\s+)*)(?P<query>(\S|\\ )*)?
+  cmd-groups:
+    - stmt: fd --color=always --type=f
+      after: sed -E 's/ /\\\\\\\\ /g'
+  fuzzy-finder-cmd: fzf --exit-0 --select-1 --query=<query>
+  buffer-left: '<body> <args>'
+  buffer-right: '[]'
