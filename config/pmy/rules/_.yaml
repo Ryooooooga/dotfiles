@@ -28,15 +28,11 @@
 - description: git
   regexp-left: ^\s*(?P<cmd>(git|g))(\s+|$)(?P<query>\S*)?$
   cmd-groups:
-    - tag: "\uf526 command"
-      stmt: '%git%'
-      after: awk '{ print $1 }'
-    - tag: "\uf993 option"
-      stmt: '%git-opts%'
-      after: awk '{ print $1 }'
-  fuzzy-finder-cmd: |
-    sed -E 's/^(.* command\t)/\x1b[33m\1\x1b[m/g; s/^(.* option)/\x1b[34m\1\x1b[m/g; s/ -- (.*)/\x1b[38;5;65m\1\x1b[m/g' \
-      | fzf --exit-0 --select-1 --height="40%" --tiebreak=begin,length --tabstop=4 --query=<query>
+    - stmt: "%git% | sed -E 's/^/\x1b[33m\uf526 command\x1b[m\\t/g'"
+      after: awk '{ print $3 }'
+    - stmt: "%git-opts% | sed -E 's/^/\x1b[34m\uf993 option\x1b[m\\t/g'"
+      after: awk '{ print $3 }'
+  fuzzy-finder-cmd: sed -E 's/ -- (.*)/\x1b[38;5;65m\1\x1b[m/g' | fzf --exit-0 --select-1 --height="40%" --tiebreak=begin,length --tabstop=4 --query=<query>
   buffer-left: '<cmd> '
   buffer-right: '[]'
 
