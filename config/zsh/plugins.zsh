@@ -54,7 +54,7 @@ alias view='"$EDITOR" -R'
 (( ${+commands[colordiff]} )) && alias diff='colordiff'
 
 mkcd() { mkdir -p -- "$@" && cd "$(realpath -- "${@[-1]}")"}
-touch() { dirname -- "$@" | xargs -d"\n" mkdir -p -- && command touch -- "$@" }
+touch() { dirname -- "$@" | xargs -r -d"\n" mkdir -p -- && command touch -- "$@" }
 
 ### zsh-history-substring-search ###
 zinit ice lucid wait"0" \
