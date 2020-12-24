@@ -1,5 +1,5 @@
 - description: file
-  regexp-left: ^\s*(?P<cmd>(e|vi|vim|nvim|view|cat|bat|less|head|tail|hexdump|grep|sed))(\s+|$)(?P<args>((\\ |[^\\\s])+\s+)*)(?P<query>(\\ |[^\\\s])*)$
+  regexp-left: ^\s*(?P<cmd>(bat|cat|e|grep|head|hexdump|less|nvim|sed|tail|vim|view|vi))(\s+|$)(?P<args>((\\ |[^\\\s])+\s+)*)(?P<query>(\\ |[^\\\s])*)$
   cmd-groups:
     - stmt: fd --color=always --type=f
       after: sed 's/ /\\ /g' | tr '\n' ' ' | sed 's/ $//'
