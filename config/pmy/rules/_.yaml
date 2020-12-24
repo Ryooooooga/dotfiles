@@ -32,7 +32,7 @@
       after: awk '{ print $3 }'
     - stmt: "%git-opts% | sed -E 's/^/\x1b[34m\uf993 option\x1b[m\\t/g'"
       after: awk '{ print $3 }'
-  fuzzy-finder-cmd: sed -E 's/ -- (.*)/\x1b[38;5;65m\1\x1b[m/g' | fzf --exit-0 --select-1 --height="40%" --tiebreak=begin,length --tabstop=4 --query=<query>
+  fuzzy-finder-cmd: sed -E 's/ -- (.*)/\x1b[38;5;65m\1\x1b[m/g' | fzf --exit-0 --select-1 --height="40%" --tiebreak=begin,length --tabstop=4 --query=<query> || echo _ _ <query>
   buffer-left: '<cmd> '
   buffer-right: '[]'
 
