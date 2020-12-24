@@ -28,11 +28,13 @@
 - description: git
   regexp-left: ^\s*(?P<cmd>(git|g))(\s+|$)(?P<query>\S*)?$
   cmd-groups:
-    - stmt: "%git% | sed -E 's/^/\x1b[33m\uf526 command\x1b[m\\t/g'"
+    - stmt: "%git% | sed -E 's/^/\\x1b[33m\ufb32 command\\x1b[m\\t/'"
       after: awk '{ print $3 }'
-    - stmt: "%git-opts% | sed -E 's/^/\x1b[34m\uf993 option\x1b[m\\t/g'"
+    - stmt: "git config --get-regexp '^alias\\.' | sed -E 's/^alias\\.(\\S+) /\\x1b[31m\uf8e9 alias\\x1b[m  \\t\\1\\t -- /' | awk -F '\\t' '{ printf \"%s\t%-19s %s\\n\", $1, $2, $3 }'"
       after: awk '{ print $3 }'
-  fuzzy-finder-cmd: sed -E 's/ -- (.*)/\x1b[38;5;65m\1\x1b[m/g' | fzf --exit-0 --select-1 --height="40%" --tiebreak=begin,length --tabstop=4 --query=<query> || echo _ _ <query>
+    - stmt: "%git-opts% | sed -E 's/^/\\x1b[34m\uf73a option\\x1b[m\\t/'"
+      after: awk '{ print $3 }'
+  fuzzy-finder-cmd: sed -E 's/ -- (.*)/\x1b[38;5;65m\1\x1b[m/' | fzf --exit-0 --select-1 --height="40%" --tiebreak=begin,length --tabstop=4 --query=<query> || echo _ _ <query>
   buffer-left: '<cmd> '
   buffer-right: '[]'
 

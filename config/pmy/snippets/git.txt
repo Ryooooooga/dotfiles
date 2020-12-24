@@ -1,23 +1,12 @@
-a                    -- alias for '!git-a'
-aa                   -- alias for 'add -vA'
 add                  -- add file contents to index
-ai                   -- alias for 'add -i'
-aliases              -- alias for 'config --get-regexp '^alias.*''
 am                   -- apply patches from a mailbox
 apply                -- apply patch to files and/or to index
 archimport           -- import an Arch repository into git
 archive              -- create archive of files from named tree
-b                    -- alias for 'branch'
 bisect               -- find, by binary search, change that introduced a bug
 blame                -- show what revision and author last modified each line of a file
 branch               -- list, create, or delete branches
-browse               -- alias for '!hub browse'
-browse-actions       -- alias for '!hub browse -- actions'
-browse-issues        -- alias for '!hub browse -- issues'
-browse-pr            -- alias for '!hub browse -- pulls'
-browse-releases      -- alias for '!hub browse -- releases'
 bundle               -- move objects and refs by archive
-c                    -- alias for 'commit'
 cat-file             -- provide content or type information for repository objects
 check-attr           -- display gitattributes information
 check-ignore         -- debug gitignore/exclude files
@@ -30,31 +19,22 @@ cherry-pick          -- apply changes introduced by some existing commits
 citool               -- graphical alternative to git commit
 clean                -- remove untracked files from working tree
 clone                -- clone repository into new directory
-cm                   -- alias for 'commit -m'
-co                   -- alias for '!echo 'use `switch` or `restore` instead of co (checkout)' && false'
 column               -- display data in columns
 commit               -- record changes to repository
 commit-graph         -- write and verify Git commit-graph files
 commit-tree          -- create new commit object
 config               -- get and set repository or global options
 count-objects        -- count unpacked objects and display their disk consumption
-create               -- alias for '!ghq create'
 cvsexportcommit      -- export a single commit to a CVS checkout
 cvsimport            -- import a CVS "repository" into a git repository
 cvsserver            -- run a CVS server emulator for git
-cz                   -- alias for '!git-cz'
 daemon               -- run a really simple server for git repositories
 describe             -- show most recent tag that is reachable from a commit
-df                   -- alias for '!git-df'
-dfs                  -- alias for 'df --staged'
 diff                 -- show changes between commits, commit and working tree, etc.
 diff-files           -- compare files in working tree and index
 diff-index           -- compare content and mode of blobs between index and repository
 diff-tree            -- compare content and mode of blobs found via two tree objects
-diffs                -- alias for 'df --staged'
 difftool             -- show changes using common diff tools
-exec                 -- alias for '!git-exec'
-f                    -- alias for 'fetch'
 fast-export          -- data exporter
 fast-import          -- import information into git directly
 fetch                -- download objects and refs from another repository
@@ -64,11 +44,8 @@ fmt-merge-msg        -- produce merge commit message
 for-each-ref         -- output information on each ref
 format-patch         -- prepare patches for e-mail submission
 fsck                 -- verify connectivity and validity of objects in database
-fu                   -- alias for 'fetch upstream'
 gc                   -- cleanup unnecessary files and optimize local repository
-get                  -- alias for '!ghq get'
 get-tar-commit-id    -- extract commit ID from an archive created using git archive
-graph                -- alias for 'lg'
 grep                 -- print lines matching a pattern
 gui                  -- run portable graphical interface to git
 hash-object          -- compute object ID and optionally create a blob from a file
@@ -76,15 +53,11 @@ help                 -- display help information about git
 http-backend         -- run a server side implementation of Git over HTTP
 http-fetch           -- download from remote git repository via HTTP
 http-push            -- push objects over HTTP/DAV to another repository
-ignore               -- alias for '!git-ignore'
 imap-send            -- send a collection of patches to an IMAP folder
 index-pack           -- build pack index file for an existing packed archive
 init                 -- create empty git repository or re-initialize an existing one
 instaweb             -- instantly browse your working repository in gitweb
 interpret-trailers   -- add or parse structured information in commit messages
-is-inside-repository -- alias for '!git rev-parse 2> /dev/null || false'
-lg                   -- alias for '!git-lg'
-list                 -- alias for '!ghq list'
 log                  -- show commit logs
 ls-files             -- information about files in index/working directory
 ls-remote            -- show references in a remote repository
@@ -109,12 +82,8 @@ pack-redundant       -- find redundant pack files
 pack-refs            -- pack heads and tags for efficient repository access
 parse-remote         -- routines to help parsing remote repository access parameters
 patch-id             -- compute unique ID for a patch
-pl                   -- alias for 'pull'
-pr                   -- alias for '!hub pull-request'
 prune                -- prune all unreachable objects from the object database
 prune-packed         -- remove extra objects that are already in pack files
-ps                   -- alias for 'push'
-psu                  -- alias for '!git push -u origin "$(git symbolic-ref --short HEAD)"'
 pull                 -- fetch from and merge with another repository or local branch
 push                 -- update remote refs along with associated objects
 quiltimport          -- apply a quilt patchset
@@ -134,8 +103,6 @@ rev-list             -- list commit object in reverse chronological order
 rev-parse            -- pick out and massage parameters for other git commands
 revert               -- revert existing commits
 rm                   -- remove files from the working tree and from the index
-root                 -- alias for 'rev-parse --show-toplevel'
-s                    -- alias for 'status'
 send-email           -- send collection of patches as emails
 send-pack            -- push objects over git protocol to another repository
 shell                -- restricted login shell for GIT-only SSH access
@@ -144,33 +111,22 @@ show                 -- show various types of objects
 show-branch          -- show branches and their commits
 show-index           -- show packed archive index
 show-ref             -- list references in a local repository
-st                   -- alias for 'diff --stat'
 stash                -- stash away changes to dirty working directory
-stat                 -- alias for 'diff --stat'
 status               -- show working-tree status
 stripspace           -- filter out empty lines
-sts                  -- alias for 'diff --stat --staged'
 submodule            -- initialize, update, or inspect submodules
 subtree              -- split repository into subtrees and merge them
 svn                  -- bidirectional operation between a Subversion repository and git
-sw                   -- alias for 'switch'
 switch               -- switch branches
-switch-log           -- alias for '!git reflog | grep 'checkout:' | awk '{ print $6 " " $1 " " $8  }' | sed -E 's/^([^ ]{12})[^ ]+/\1…/g' | xargs -r -n3
 symbolic-ref         -- read and modify symbolic references
-sync                 -- alias for '!hub sync'
 tag                  -- create, list, delete or verify tag object signed with GPG
-tags                 -- alias for 'tag -l'
-uncommit             -- alias for 'reset --soft HEAD^'
 unpack-file          -- create temporary file with blob's contents
 unpack-objects       -- unpack objects from packed archive
-update-all           -- alias for '!ghq list | ghq get --update --parallel'
 update-index         -- register file contents in the working directory to the index
 update-ref           -- update object name stored in a reference safely
 update-server-info   -- update auxiliary information file to help dumb servers
 upload-archive       -- send archive back to git-archive
 upload-pack          -- send objects packed back to git fetch-pack
-user                 -- alias for '!git-user'
-users                -- alias for '!git-users'
 var                  -- show git logical variable
 verify-commit        -- check GPG signature of commits
 verify-pack          -- validate packed git archive files
