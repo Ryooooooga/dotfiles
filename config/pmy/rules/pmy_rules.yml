@@ -1,5 +1,5 @@
 - description: file
-  regexp-left: ^(?P<cmd>(e|vi|vim|nvim|view|cat|bat|less|head|tail|hexdump|grep|sed))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
+  regexp-left: ^(?P<cmd>(e|vi|vim|nvim|view|cat|bat|less|head|tail|hexdump|grep|sed))(\s+|$)(?P<args>((\\ |[^\\\s])+\s+)*)(?P<query>(\\ |[^\\\s])*)$
   cmd-groups:
     - stmt: fd --color=always --type=f
       after: sed 's/ /\\ /g' | tr '\n' ' ' | sed 's/ $//'
@@ -8,7 +8,7 @@
   buffer-right: '[]'
 
 - description: file or directory
-  regexp-left: ^(?P<cmd>(cp|mv|rm))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
+  regexp-left: ^(?P<cmd>(cp|mv|rm))(\s+|$)(?P<args>((\\ |[^\\\s])+\s+)*)(?P<query>(\\ |[^\\\s])*)$
   cmd-groups:
     - stmt: fd --color=always
       after: sed 's/ /\\ /g'
@@ -17,7 +17,7 @@
   buffer-right: '[]'
 
 - description: cd
-  regexp-left: ^(?P<cmd>(cd))(\s+|$)(?P<query>.*)$
+  regexp-left: ^(?P<cmd>(cd))(\s+|$)(?P<query>(\\ |[^\\\s])*)$
   cmd-groups:
     - stmt: fd --color=always --type=d
       after: sed 's/ /\\ /g'
