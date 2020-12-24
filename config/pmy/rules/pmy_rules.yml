@@ -20,7 +20,7 @@
   regexp-left: ^(?P<cmd>(cd))(\s+|$)(?P<query>(\\ |[^\\\s])*)$
   cmd-groups:
     - stmt: fd --color=always --type=d
-      after: sed 's/ /\\ /g'
+      after: sed -E 's/ /\\ /g; s:(.)/?$:\1/:'
   fuzzy-finder-cmd: fzf --exit-0 --select-1 --height="40%" --preview="fzf-preview-directory {}" --preview-window="right:50%" --query=<query> || echo <query>
   buffer-left: '<cmd> '
   buffer-right: '[]'
