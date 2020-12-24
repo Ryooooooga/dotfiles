@@ -2,8 +2,8 @@
   regexp-left: ^(?P<cmd>(e|vi|vim|nvim|view|cat|bat|less|head|tail|hexdump|grep|sed))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
   cmd-groups:
     - stmt: fd --color=always --type=f
-      after: sed 's/ /\\\\\\\\ /g' | tr '\n' ' ' | sed 's/ $//'
-  fuzzy-finder-cmd: fzf --exit-0 --select-1 --multi --height="40%" --preview="fzf-preview-file {}" --preview-window="right:50%" --query="<query>" || echo <query>
+      after: sed 's/ /\\ /g' | tr '\n' ' ' | sed 's/ $//'
+  fuzzy-finder-cmd: fzf --exit-0 --select-1 --multi --height="40%" --preview="fzf-preview-file {}" --preview-window="right:50%" --query=<query> || echo <query>
   buffer-left: '<cmd> <args>'
   buffer-right: '[]'
 
@@ -11,8 +11,8 @@
   regexp-left: ^(?P<cmd>(cp|mv|rm))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
   cmd-groups:
     - stmt: fd --color=always
-      after: sed 's/ /\\\\\\\\ /g'
-  fuzzy-finder-cmd: fzf --exit-0 --select-1 --height="40%" --preview="fzf-preview-file {}" --preview-window="right:50%" --query="<query>" || echo <query>
+      after: sed 's/ /\\ /g'
+  fuzzy-finder-cmd: fzf --exit-0 --select-1 --height="40%" --preview="fzf-preview-file {}" --preview-window="right:50%" --query=<query> || echo <query>
   buffer-left: '<cmd> <args>'
   buffer-right: '[]'
 
@@ -20,8 +20,8 @@
   regexp-left: ^(?P<cmd>(cd))(\s+|$)(?P<query>.*)$
   cmd-groups:
     - stmt: fd --color=always --type=d
-      after: sed 's/ /\\\\\\\\ /g'
-  fuzzy-finder-cmd: fzf --exit-0 --select-1 --height="40%" --preview="fzf-preview-directory {}" --preview-window="right:50%" --query="<query>" || echo <query>
+      after: sed 's/ /\\ /g'
+  fuzzy-finder-cmd: fzf --exit-0 --select-1 --height="40%" --preview="fzf-preview-directory {}" --preview-window="right:50%" --query=<query> || echo <query>
   buffer-left: '<cmd> '
   buffer-right: '[]'
 
