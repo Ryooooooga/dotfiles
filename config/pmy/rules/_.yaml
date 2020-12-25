@@ -22,7 +22,7 @@
   cmd-groups:
     - stmt: fd --color=always --hidden --type=d
       after: sed 's/ /\\ /g'
-  fuzzy-finder-cmd: (fzf --exit-0 --select-1 --height="40%" --preview="fzf-preview-directory {}" --preview-window="right:50%" --query=<query> | sed -E 's:/?$:/:'; (( ! ${pipestatus[1]} )))
+  fuzzy-finder-cmd: fzf --exit-0 --select-1 --height="40%" --preview="fzf-preview-directory {}" --preview-window="right:50%" --query=<query> | sed -E 's:/?$:/:'; (( ! ${pipestatus[1]} ))
   buffer-left: '<cmd> '
   buffer-right: '[]'
 
