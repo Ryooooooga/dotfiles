@@ -2,7 +2,7 @@
 - description: file
   regexp-left: ^\s*(?P<cmd>(bat|cat|e|grep|head|hexdump|less|nvim|sed|tail|vim|view|vi))(\s+|$)(?P<args>((\\ |[^\\\s])+\s+)*)(?P<query>(\\ |[^\\\s])*)$
   cmd-groups:
-    - stmt: fd --color=always --type=f
+    - stmt: fd --color=always --hidden --type=f
       after: sed 's/ /\\ /g' | tr '\n' ' ' | sed 's/ $//'
   fuzzy-finder-cmd: fzf --exit-0 --select-1 --multi --height="40%" --preview="fzf-preview-file {}" --preview-window="right:50%" --query=<query>
   buffer-left: '<cmd> <args>'
@@ -11,7 +11,7 @@
 - description: file or directory
   regexp-left: ^\s*(?P<cmd>(cp|mv|rm))(\s+|$)(?P<args>((\\ |[^\\\s])+\s+)*)(?P<query>(\\ |[^\\\s])*)$
   cmd-groups:
-    - stmt: fd --color=always
+    - stmt: fd --color=always --hidden
       after: sed 's/ /\\ /g'
   fuzzy-finder-cmd: fzf --exit-0 --select-1 --height="40%" --preview="fzf-preview-file {}" --preview-window="right:50%" --query=<query>
   buffer-left: '<cmd> <args>'
@@ -20,7 +20,7 @@
 - description: directory
   regexp-left: ^\s*(?P<cmd>(cd|la|ll|ls|tree))(\s+|$)(?P<query>(\\ |[^\\\s])*)$
   cmd-groups:
-    - stmt: fd --color=always --type=d
+    - stmt: fd --color=always --hidden --type=d
       after: sed 's/ /\\ /g'
   fuzzy-finder-cmd: (fzf --exit-0 --select-1 --height="40%" --preview="fzf-preview-directory {}" --preview-window="right:50%" --query=<query> | sed -E 's:/?$:/:'; (( ! ${pipestatus[1]} )))
   buffer-left: '<cmd> '
