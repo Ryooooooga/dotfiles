@@ -17,7 +17,6 @@ format="$(print "$icon\t$header\t$name\t$subject\t$commiter_date")"
 
 git --no-pager for-each-ref \
     'refs/heads' \
-    --color \
     --format="$format" \
     --sort='-committerdate' \
     2> /dev/null \

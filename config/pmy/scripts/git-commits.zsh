@@ -17,7 +17,6 @@ date_style="$ansi[blue]$ansi[dim]"
 format="$(print "$icon\t$header\t$hash\t$subject\t$commiter_date")"
 
 git --no-pager log \
-    --color \
     --format="$format" \
     --max-count="$max_count" \
     2> /dev/null \

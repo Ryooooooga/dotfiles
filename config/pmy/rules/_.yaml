@@ -2,8 +2,7 @@
 - description: file
   regexp-left: ^\s*(?P<cmd>(bat|cat|e|grep|head|hexdump|less|nvim|sed|tail|vim|view|vi))(\s+|$)(?P<args>((\\ |[^\\\s])+\s+)*)(?P<query>(\\ |[^\\\s])*)$
   cmd-groups:
-    - stmt: |
-        fd --color=always --hidden --type=f
+    - stmt: fd --color=always --hidden --type=f
       after: |
         sed 's/ /\\ /g' | # Escape spaces
           tr '\n' ' '   | # Replace EOL
@@ -19,10 +18,8 @@
 - description: file or directory
   regexp-left: ^\s*(?P<cmd>(cp|mv|rm))(\s+|$)(?P<args>((\\ |[^\\\s])+\s+)*)(?P<query>(\\ |[^\\\s])*)$
   cmd-groups:
-    - stmt: |
-        fd --color=always --hidden
-      after: |
-        sed 's/ /\\ /g' # Escape spaces
+    - stmt: fd --color=always --hidden
+      after: sed 's/ /\\ /g' # Escape spaces
   fuzzy-finder-cmd: |
     "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
       --preview="fzf-preview-file {}" \
@@ -33,10 +30,8 @@
 - description: directory
   regexp-left: ^\s*(?P<cmd>(cd|la|ll|ls|tree))(\s+|$)(?P<query>(\\ |[^\\\s])*)$
   cmd-groups:
-    - stmt: |
-        fd --color=always --hidden --type=d
-      after: |
-        sed -E 's/ /\\ /g; s,/?$,/,' # Escape spaces and add trailing slash
+    - stmt: fd --color=always --hidden --type=d
+      after: sed -E 's/ /\\ /g; s,/?$,/,' # Escape spaces and add trailing slash
   fuzzy-finder-cmd: |
     "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
       --preview="fzf-preview-directory {}" \
@@ -65,11 +60,15 @@
 - description: git
   regexp-left: ^\s*(?P<cmd>(git|g))(\s+|$)(?P<query>\S*)$
   cmd-groups:
-    - stmt: "%git% | sed -E 's/^/\\x1b[33m\ufb32\\tcommand\\x1b[m\\t/'"
-    - stmt: "git config --get-regexp '^alias\\.' | sed -E 's/^alias\\.(\\S+) /\\x1b[31m\uf8e9\\talias\\x1b[m\\t\\1\\t -- /'"
-    - stmt: "%git-opts% | sed -E 's/^/\\x1b[34m\uf73a\\toption\\x1b[m\\t/'"
-      after: awk '{ print $3" " }'
-  fuzzy-finder-cmd: awk -F '\t' '{ printf "%s %-11s %-20s %s\n", $1, $2, $3, $4 }' | sed -E 's/ -- (.*)/\x1b[38;5;65m\1\x1b[m/' | "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" --nth=3 --tiebreak=begin,length --query=<query>
+    - stmt: '"$PMY_SCRIPT_PATH/git-subcommands.zsh"'
+    - stmt: '"$PMY_SCRIPT_PATH/git-aliases.zsh"'
+    - stmt: '"$PMY_SCRIPT_PATH/git-options.zsh"'
+      after: awk '{ printf "%s ", $3 }'
+  fuzzy-finder-cmd: |
+    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
+      --nth=3 \
+      --tiebreak='begin,length' \
+      --query=<query>
   buffer-left: '<cmd> '
   buffer-right: '[]'
 
