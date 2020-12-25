@@ -9,7 +9,7 @@
           tr '\n' ' '   | # Replace EOL
           sed 's/ $//'    # Remove trailing spaces
   fuzzy-finder-cmd: |
-    ${(z)PMY_FUZZY_FINDER_DEFAULT_CMD} \
+    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
       --multi \
       --preview="fzf-preview-file {}" \
       --query=<query>
@@ -24,7 +24,7 @@
       after: |
         sed 's/ /\\ /g' # Escape spaces
   fuzzy-finder-cmd: |
-    ${(z)PMY_FUZZY_FINDER_DEFAULT_CMD} \
+    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
       --preview="fzf-preview-file {}" \
       --query=<query>
   buffer-left: '<cmd> <args>'
@@ -38,7 +38,7 @@
       after: |
         sed -E 's/ /\\ /g; s,/?$,/,' # Escape spaces and add trailing slash
   fuzzy-finder-cmd: |
-    ${(z)PMY_FUZZY_FINDER_DEFAULT_CMD} \
+    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
       --preview="fzf-preview-directory {}" \
       --query=<query>
   buffer-left: '<cmd> '
@@ -48,12 +48,17 @@
 - description: git-switch
   regexp-left: ^\s*(?P<cmd>(git|g))\s+(?P<subcmd>(switch|sw))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
   cmd-groups:
-    - stmt: "git for-each-ref 'refs/heads' --color --format='%(color:blue)\uf418\tbranch%(color:reset)\t%(color:bold blue)%(refname:short)%(color:reset)\t%(color:dim white)%(subject)%(color:reset) %(color:dim blue)%(committerdate:relative)%(color:reset)' --sort=-committerdate 2> /dev/null"
-    - stmt: "git for-each-ref 'refs/remotes' --color --format='%(color:red)\uf65e\tremote%(color:reset)\t%(color:bold red)%(refname:short)%(color:reset)\t%(color:dim white)%(subject)%(color:reset) %(color:dim blue)%(committerdate:relative)%(color:reset)' --sort=-committerdate 2> /dev/null"
-    - stmt: "git for-each-ref 'refs/tags' --color --format='%(color:green)\uf412\ttag%(color:reset)\t%(color:bold green)%(refname:short)%(color:reset)\t%(color:dim white)%(subject)%(color:reset) %(color:dim blue)%(committerdate:relative)%(color:reset)' --sort='-version:refname' 2> /dev/null"
-    - stmt: "git log --color --format='%C(yellow)\uf417\tcommit%C(reset)\t%C(bold yellow)%h%C(reset)\t%C(dim white)%s%C(reset) %C(dim blue)%cr%C(reset)' --max-count=100 2> /dev/null"
+    - stmt: '"$PMY_SCRIPT_PATH/git-local-branches.zsh"'
+    - stmt: '"$PMY_SCRIPT_PATH/git-remote-branches.zsh"'
+    - stmt: '"$PMY_SCRIPT_PATH/git-tags.zsh"'
+    - stmt: '"$PMY_SCRIPT_PATH/git-commits.zsh"'
       after: awk '{ print $3 }'
-  fuzzy-finder-cmd: awk -F '\t' '{ printf "%s %-10s %-18s %s\n", $1, $2, $3, $4 }' | ${(z)PMY_FUZZY_FINDER_DEFAULT_CMD} --nth=3 --tiebreak=begin,length --preview="echo {} | awk '{ print \$3 }' | xargs -r git show --color | delta" --query=<query>
+  fuzzy-finder-cmd: |
+    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
+      --nth=3 \
+      --tiebreak='begin,length' \
+      --preview="echo {} | awk '{ print \$3 }' | xargs -r git show --color | delta" \
+      --query=<query>
   buffer-left: '<cmd> <subcmd> <args>'
   buffer-right: '[]'
 
@@ -64,7 +69,7 @@
     - stmt: "git config --get-regexp '^alias\\.' | sed -E 's/^alias\\.(\\S+) /\\x1b[31m\uf8e9\\talias\\x1b[m\\t\\1\\t -- /'"
     - stmt: "%git-opts% | sed -E 's/^/\\x1b[34m\uf73a\\toption\\x1b[m\\t/'"
       after: awk '{ print $3" " }'
-  fuzzy-finder-cmd: awk -F '\t' '{ printf "%s %-11s %-20s %s\n", $1, $2, $3, $4 }' | sed -E 's/ -- (.*)/\x1b[38;5;65m\1\x1b[m/' | ${(z)PMY_FUZZY_FINDER_DEFAULT_CMD} --nth=3 --tiebreak=begin,length --query=<query>
+  fuzzy-finder-cmd: awk -F '\t' '{ printf "%s %-11s %-20s %s\n", $1, $2, $3, $4 }' | sed -E 's/ -- (.*)/\x1b[38;5;65m\1\x1b[m/' | "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" --nth=3 --tiebreak=begin,length --query=<query>
   buffer-left: '<cmd> '
   buffer-right: '[]'
 

@@ -145,9 +145,11 @@ zinit ice lucid wait"0" as"program" from"gh-r" \
     pick"pmy*/pmy" \
     atload'
         export PMY_TRIGGER_KEY="^P"
-        export PMY_RULE_PATH="$XDG_CONFIG_HOME/pmy/rules"
-        export PMY_SNIPPET_PATH="$XDG_CONFIG_HOME/pmy/snippets"
+        export PMY_CONFIG_HOME="$XDG_CONFIG_HOME/pmy"
+        export PMY_RULE_PATH="$PMY_CONFIG_HOME/rules"
+        export PMY_SNIPPET_PATH="$PMY_CONFIG_HOME/snippets"
         export PMY_LOG_PATH="$XDG_CACHE_HOME/pmy/log.txt"
+        export PMY_SCRIPT_PATH="$PMY_CONFIG_HOME/scripts"
         export PMY_FUZZY_FINDER_DEFAULT_CMD="fzf --exit-0 --select-1 --height=40% --preview-window=right:50%"
         eval "$(pmy init)"
     '
