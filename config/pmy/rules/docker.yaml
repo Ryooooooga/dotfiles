@@ -1,9 +1,9 @@
 - description: docker
   regexp-left: ^\s*(?P<cmd>(docker|dok))(\s+|$)(?P<query>\S*)$
   cmd-groups:
-    - stmt: '"$PMY_SCRIPT_PATH/options.zsh" "docker-subcommands" "\ufb32" "command" "yellow"'
-    - stmt: '"$PMY_SCRIPT_PATH/options.zsh" "docker-aliases" "\uf8e9" "alias" "red"'
-    - stmt: '"$PMY_SCRIPT_PATH/options.zsh" "docker-options" "\uf73a" "option" "blue"'
+    - stmt: '"$PMY_SCRIPT_PATH/options.zsh" "docker/subcommands" "\ufb32" "command" "yellow"'
+    - stmt: '"$PMY_SCRIPT_PATH/options.zsh" "docker/aliases" "\uf8e9" "alias" "red"'
+    - stmt: '"$PMY_SCRIPT_PATH/options.zsh" "docker/options" "\uf73a" "option" "blue"'
       after: awk '{ printf "%s ", $3 }'
   fuzzy-finder-cmd: |
     "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
