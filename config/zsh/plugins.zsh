@@ -214,7 +214,7 @@ alias gdb='gdb -q -nh -x "$XDG_DATA_HOME/gdb-dashboard/.gdbinit"'
 
 ### Tmux ###
 alias tmux='tmux -f "$XDG_CONFIG_HOME/tmux/tmux.conf"'
-alias t='tmux has-session && tmux attach || tmux new-session'
+alias t='tmux has-session && tmux attach || tmux new-session -s main'
 
 ### Docker ###
 docker() {
