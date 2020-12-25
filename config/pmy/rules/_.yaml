@@ -51,7 +51,6 @@
   fuzzy-finder-cmd: |
     "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
       --nth=3 \
-      --tiebreak='begin,length' \
       --preview="echo {} | awk '{ print \$3 }' | xargs -r git show --color | delta" \
       --query=<query>
   buffer-left: '<cmd> <subcmd> <args>'
@@ -67,7 +66,6 @@
   fuzzy-finder-cmd: |
     "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
       --nth=3 \
-      --tiebreak='begin,length' \
       --query=<query>
   buffer-left: '<cmd> '
   buffer-right: '[]'
@@ -83,7 +81,6 @@
   fuzzy-finder-cmd: |
     "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
       --nth=3 \
-      --tiebreak='begin,length' \
       --query=<query>
   buffer-left: '<cmd> '
   buffer-right: '[]'
