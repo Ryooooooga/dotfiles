@@ -35,7 +35,7 @@
     - stmt: "git for-each-ref 'refs/tags' --color --format='%(color:green)\uf412\ttag%(color:reset)\t%(color:bold green)%(refname:short)%(color:reset)\t%(color:dim white)%(subject)%(color:reset) %(color:dim blue)%(committerdate:relative)%(color:reset)' --sort='-version:refname' 2> /dev/null"
     - stmt: "git log --color --format='%C(yellow)\uf417\tcommit%C(reset)\t%C(bold yellow)%h%C(reset)\t%C(dim white)%s%C(reset) %C(dim blue)%cr%C(reset)' --max-count=100 2> /dev/null"
       after: awk '{ print $3 }'
-  fuzzy-finder-cmd: awk -F '\t' '{ printf "%s %-10s %-18s %s\n", $1, $2, $3, $4 }' | fzf --exit-0 --select-1 --height="40%" --tiebreak=begin,length --query=<query>
+  fuzzy-finder-cmd: awk -F '\t' '{ printf "%s %-10s %-18s %s\n", $1, $2, $3, $4 }' | fzf --exit-0 --select-1 --height="40%" --tiebreak=begin,length --preview="echo {} | awk '{ print \$3 }' | xargs -r git show --color | delta" --preview-window="right:50%" --query=<query>
   buffer-left: '<cmd> <subcmd> <args>'
   buffer-right: '[]'
 
