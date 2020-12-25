@@ -1,6 +1,6 @@
 ### File and Directories
 - description: file
-  regexp-left: ^\s*(?P<cmd>(bat|cat|e|grep|head|hexdump|less|nvim|sed|tail|vim|view|vi))(\s+|$)(?P<args>((\\ |[^\\\s])+\s+)*)(?P<query>(\\ |[^\\\s])*)$
+  regexp-left: ^\s*(?P<cmd>(bat|cat|e|grep|head|hexdump|less|nvim|sed|tail|vim|view|vi))(\s+|$)(?P<args>((\\.|[^\\\s])+\s+)*)(?P<query>(\\.|[^\\\s])*)$
   cmd-groups:
     - stmt: fd --color=always --hidden --type=f
       after: sed 's/ /\\ /g' | paste -s -d ' ' - # Escape spaces and replace EOL
@@ -13,7 +13,7 @@
   buffer-right: '[]'
 
 - description: file or directory
-  regexp-left: ^\s*(?P<cmd>(cp|mv|rm))(\s+|$)(?P<args>((\\ |[^\\\s])+\s+)*)(?P<query>(\\ |[^\\\s])*)$
+  regexp-left: ^\s*(?P<cmd>(cp|mv|rm))(\s+|$)(?P<args>((\\.|[^\\\s])+\s+)*)(?P<query>(\\.|[^\\\s])*)$
   cmd-groups:
     - stmt: fd --color=always --hidden
       after: sed 's/ /\\ /g' # Escape spaces
@@ -25,7 +25,7 @@
   buffer-right: '[]'
 
 - description: directory
-  regexp-left: ^\s*(?P<cmd>(cd|la|ll|ls|tree))(\s+|$)(?P<query>(\\ |[^\\\s])*)$
+  regexp-left: ^\s*(?P<cmd>(cd|la|ll|ls|tree))(\s+|$)(?P<query>(\\.|[^\\\s])*)$
   cmd-groups:
     - stmt: fd --color=always --hidden --type=d
       after: sed -E 's/ /\\ /g; s,/?$,/,' # Escape spaces and add trailing slash
