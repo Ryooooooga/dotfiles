@@ -45,7 +45,7 @@
     - stmt: "%git% | sed -E 's/^/\\x1b[33m\ufb32\\tcommand\\x1b[m\\t/'"
     - stmt: "git config --get-regexp '^alias\\.' | sed -E 's/^alias\\.(\\S+) /\\x1b[31m\uf8e9\\talias\\x1b[m\\t\\1\\t -- /'"
     - stmt: "%git-opts% | sed -E 's/^/\\x1b[34m\uf73a\\toption\\x1b[m\\t/'"
-      after: awk '{ print $3 }'
+      after: awk '{ print $3" " }'
   fuzzy-finder-cmd: awk -F '\t' '{ printf "%s %-11s %-20s %s\n", $1, $2, $3, $4 }' | sed -E 's/ -- (.*)/\x1b[38;5;65m\1\x1b[m/' | fzf --exit-0 --select-1 --height="40%" --tiebreak=begin,length --query=<query>
   buffer-left: '<cmd> '
   buffer-right: '[]'
