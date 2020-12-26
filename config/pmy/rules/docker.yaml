@@ -6,7 +6,6 @@
   fuzzy-finder-cmd: |
     "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
       --nth=3 \
-      --tiebreak=begin \
       --query=<query>
   buffer-left: '<cmd> <subcmd> <args>'
   buffer-right: '[]'
@@ -20,7 +19,6 @@
   fuzzy-finder-cmd: |
     "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
       --nth=3 \
-      --tiebreak=begin \
       --query=<query>
   buffer-left: '<cmd> <subcmd> <args>'
   buffer-right: '[]'
@@ -35,7 +33,6 @@
   fuzzy-finder-cmd: |
     "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
       --nth=3 \
-      --tiebreak=begin \
       --query=<query>
   buffer-left: '<cmd> '
   buffer-right: '[]'
