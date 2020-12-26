@@ -214,7 +214,31 @@ alias gdb='gdb -q -nh -x "$XDG_DATA_HOME/gdb-dashboard/.gdbinit"'
 
 ### Tmux ###
 alias tmux='tmux -f "$XDG_CONFIG_HOME/tmux/tmux.conf"'
-alias t='tmux has-session && tmux attach || tmux new-session -s main'
+
+t() {
+    local query="$1"
+    local session_name="${query:-main}"
+    local create_session_msg="Create a New Session: '$session_name'"
+    local selected="$((tmux list-sessions -F "#S" 2> /dev/null; print "\x1b[33m\x1b[1m$create_session_msg\x1b[m") \
+        | fzf --height='40%' --cycle --query="$query")"
+
+    local new_session="$selected"
+
+    if [ -z "$selected" ]; then
+        # no sessions were selected
+        return 1
+    elif [ "$selected" = "$create_session_msg" ]; then
+        # create a new session
+        new_session="$session_name"
+        tmux new-session -d -s "$new_session" || return 1
+    fi
+
+    if [ -z "$TMUX" ]; then
+        tmux attach-session -t "$new_session"
+    else
+        tmux switch-client -t "$new_session"
+    fi
+}
 
 ### Docker ###
 docker() {
