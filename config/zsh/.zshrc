@@ -50,7 +50,7 @@ add-zsh-hook preexec almel_preexec
 
 ### key bindings ###
 select_history() {
-    local selected="$(history -nr 1 | awk '!a[$0]++' | fzf --query "$LBUFFER" | sed 's/\\n/\n/g')"
+    local selected="$(history -nr 1 | awk '!a[$0]++' | fzf --exit-0 --query "$LBUFFER" | sed 's/\\n/\n/g')"
     if [ -n "$selected" ]; then
         BUFFER="$selected"
         CURSOR=$#BUFFER
@@ -59,7 +59,7 @@ select_history() {
 }
 
 select_cdr() {
-    local selected="$(cdr -l | awk '{ $1=""; print }' | sed 's/^ //' | fzf --preview="fzf-preview-directory '{}'" --preview-window="right:50%")"
+    local selected="$(cdr -l | awk '{ $1=""; print }' | sed 's/^ //' | fzf --exit-0 --preview="fzf-preview-directory '{}'" --preview-window="right:50%")"
     if [ -n "$selected" ]; then
         BUFFER="cd $selected"
         zle accept-line
@@ -69,7 +69,7 @@ select_cdr() {
 
 select_ghq() {
     local root="$(ghq root)"
-    local selected="$(GHQ_ROOT="$root" ghq list | fzf --preview="fzf-preview-git $root/{}" --preview-window="right:60%")"
+    local selected="$(GHQ_ROOT="$root" ghq list | fzf --exit-0 --preview="fzf-preview-git $root/{}" --preview-window="right:60%")"
     if [ -n "$selected" ]; then
         BUFFER="cd \"$(GHQ_ROOT="$root" ghq list --exact --full-path "$selected")\""
         zle accept-line
@@ -79,7 +79,7 @@ select_ghq() {
 
 select_ghq_go() {
     local root="$GOPATH/src"
-    local selected="$(GHQ_ROOT="$root" ghq list | fzf --preview="fzf-preview-git $root/{}" --preview-window="right:60%")"
+    local selected="$(GHQ_ROOT="$root" ghq list | fzf --exit-0 --preview="fzf-preview-git $root/{}" --preview-window="right:60%")"
     if [ -n "$selected" ]; then
         BUFFER="cd \"$(GHQ_ROOT="$root" ghq list --exact --full-path "$selected")\""
         zle accept-line
@@ -88,7 +88,7 @@ select_ghq_go() {
 }
 
 select_dir() {
-    local selected="$(fd --hidden --color=always --exclude='.git' --type=d . $(git rev-parse --show-cdup 2> /dev/null) | fzf --preview="fzf-preview-directory '{}'" --preview-window="right:50%")"
+    local selected="$(fd --hidden --color=always --exclude='.git' --type=d . $(git rev-parse --show-cdup 2> /dev/null) | fzf --exit-0 --preview="fzf-preview-directory '{}'" --preview-window="right:50%")"
     if [ -n "$selected" ]; then
         BUFFER="cd $selected"
         zle accept-line

@@ -83,7 +83,7 @@ zinit ice lucid wait"0"
 zinit light 'hlissner/zsh-autopair'
 
 ### FZF ###
-export FZF_DEFAULT_OPTS="--reverse --exit-0 --border --ansi"
+export FZF_DEFAULT_OPTS="--reverse --border --ansi"
 export FZF_DEFAULT_COMMAND='fd --color=always --hidden'
 
 zinit ice lucid wait"0" as"program" from"gh-r"
@@ -239,14 +239,14 @@ docker-cleani() {
 }
 docker-rm() {
     if [ "$#" -eq 0 ]; then
-        command docker ps -a | fzf --multi --header-lines=1 | awk '{ print $1 }' | xargs -r docker rm --
+        command docker ps -a | fzf --exit-0 --multi --header-lines=1 | awk '{ print $1 }' | xargs -r docker rm --
     else
         command docker rm "$@"
     fi
 }
 docker-rmi() {
     if [ "$#" -eq 0 ]; then
-        command docker images | fzf --multi --header-lines=1 | awk '{ print $3 }' | xargs -r docker rmi --
+        command docker images | fzf --exit-0 --multi --header-lines=1 | awk '{ print $3 }' | xargs -r docker rmi --
     else
         command docker rmi "$@"
     fi
@@ -263,7 +263,7 @@ export GIT_EDITOR="$EDITOR"
 
 e() {
     if [ $# -eq 0 ]; then
-        local selected="$(fd --hidden --color=always --exclude='.git' --type=f  | fzf --multi --preview="fzf-preview-file '{}'" --preview-window="right:60%")"
+        local selected="$(fd --hidden --color=always --exclude='.git' --type=f  | fzf --exit-0 --multi --preview="fzf-preview-file '{}'" --preview-window="right:60%")"
         [ -n "$selected" ] && "$EDITOR" -- ${(f)selected}
     else
         command "$EDITOR" "$@"
