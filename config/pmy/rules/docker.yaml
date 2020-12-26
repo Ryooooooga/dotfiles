@@ -7,6 +7,7 @@
   fuzzy-finder-cmd: |
     "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
       --nth=3 \
+      --tiebreak=begin,length \
       --query=<query>
   buffer-left: '<cmd> <subcmd> <args>'
   buffer-right: '[]'
