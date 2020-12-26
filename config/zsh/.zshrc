@@ -68,23 +68,35 @@ select_cdr() {
 }
 
 select_ghq() {
-    local root="$(ghq root)"
+    local root="$1"
     local selected="$(GHQ_ROOT="$root" ghq list | fzf --exit-0 --preview="fzf-preview-git $root/{}" --preview-window="right:60%")"
-    if [ -n "$selected" ]; then
-        BUFFER="cd \"$(GHQ_ROOT="$root" ghq list --exact --full-path "$selected")\""
-        zle accept-line
+
+    if [ -z "$selected" ]; then
+        return
     fi
+
+    local repo_dir="$(GHQ_ROOT="$root" ghq list --exact --full-path "$selected")"
+    local session_name="$(sed -E 's/[:. ]/-/g' <<<"$selected")"
+
+    if [ -z "$TMUX" ]; then
+        BUFFER="tmux new-session -A -s ${(q)session_name} -c ${(qq)repo_dir}"
+    else
+        if ! tmux has-session -t "$session_name" 2> /dev/null; then
+            tmux new-session -d -s "$session_name" -c "$repo_dir"
+        fi
+        BUFFER="tmux switch-client -t ${(q)session_name}"
+    fi
+
+    zle accept-line
     zle -R -c # refresh screen
 }
 
-select_ghq_go() {
-    local root="$GOPATH/src"
-    local selected="$(GHQ_ROOT="$root" ghq list | fzf --exit-0 --preview="fzf-preview-git $root/{}" --preview-window="right:60%")"
-    if [ -n "$selected" ]; then
-        BUFFER="cd \"$(GHQ_ROOT="$root" ghq list --exact --full-path "$selected")\""
-        zle accept-line
-    fi
-    zle -R -c # refresh screen
+select_repo() {
+    select_ghq "$(ghq root)"
+}
+
+select_go_repo() {
+    select_ghq "$GOPATH/src"
 }
 
 select_dir() {
@@ -98,15 +110,15 @@ select_dir() {
 
 zle -N select_history
 zle -N select_cdr
-zle -N select_ghq
-zle -N select_ghq_go
+zle -N select_repo
+zle -N select_go_repo
 zle -N select_dir
 
 bindkey -v
 bindkey "^R"       select_history        # C-r
 bindkey "^F"       select_cdr            # C-f
-bindkey "^G"       select_ghq            # C-g
-bindkey "^[g"      select_ghq_go         # Alt-g
+bindkey "^G"       select_repo           # C-g
+bindkey "^[g"      select_go_repo        # Alt-g
 bindkey "^O"       select_dir            # C-o
 bindkey "^A"       beginning-of-line     # C-a
 bindkey "^E"       end-of-line           # C-e
