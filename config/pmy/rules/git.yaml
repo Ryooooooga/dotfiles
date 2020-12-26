@@ -14,6 +14,17 @@
   buffer-left: '<cmd> <subcmd> <args>'
   buffer-right: '[]'
 
+- description: git-user
+  regexp-left: ^\s*(?P<cmd>(git|g))\s+(?P<subcmd>(user))(\s+|$)(?P<query>\S*)$
+  cmd-groups:
+    - stmt: git users | sed -E 's/:\s*/\t/'
+      after: awk '{ print $1 }'
+  fuzzy-finder-cmd: |
+    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
+      --query=<query>
+  buffer-left: '<cmd> <subcmd> '
+  buffer-right: '[]'
+
 - description: git
   regexp-left: ^\s*(?P<cmd>(git|g))(\s+|$)(?P<query>\S*)$
   cmd-groups:
