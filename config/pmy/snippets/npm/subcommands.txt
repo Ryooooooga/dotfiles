@@ -1,6 +1,5 @@
 access	Set access level on published packages
 add	Install a package
-add-user	Add a registry user account
 adduser	Add a registry user account
 apihelp	Get help on npm
 audit	Run a security audit
@@ -20,7 +19,6 @@ ddp	Reduce duplication
 dedupe	Reduce duplication
 deprecate	Deprecate a version of a package
 dist-tag	Modify package distribution tags
-dist-tags	Modify package distribution tags
 docs	Docs for a package in a web browser maybe
 doctor	Check your environments
 edit	Edit an installed package
@@ -37,7 +35,6 @@ i	Install a package
 ic	Install a project with a clean slate
 info	View registry info
 init	create a package.json file
-innit	create a package.json file
 install	Install a package
 install-ci-test	Run an npm ci followed immediately by an npm test
 install-clean	Install a project with a clean slate
@@ -52,7 +49,6 @@ ln	Symlink a package folder
 login	Add a registry user account
 logout	Log out of the registry
 ls	List installed packages
-ogr	Manage orgs
 org	Manage orgs
 outdated	Check for outdated packages
 owner	Manage package owners
@@ -70,7 +66,6 @@ repo	Open package repository page in the browser
 restart	Restart a package
 rm	Remove a package
 root	Display npm root
-rum	Run arbitrary package scripts
 run	Run arbitrary package scripts
 run-script	Run arbitrary package scripts
 s	Search for packages
@@ -97,7 +92,6 @@ unstar	Mark your favorite packages
 up	Update a package
 update	Update a package
 upgrade	Update a package
-urn	Run arbitrary package scripts
 v	View registry info
 version	Bump a package version
 view	View registry info
