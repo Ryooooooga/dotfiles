@@ -116,6 +116,8 @@ bindkey "^[[1;3D"  backward-word         # Alt + arrow-left
 bindkey "^[[1;3C"  forward-word          # Alt + arrow-right
 bindkey "^[^?"     vi-backward-kill-word # Alt + backspace
 bindkey "^[[1;33~" kill-word             # Alt + delete
+bindkey -M vicmd "^A" beginning-of-line  # vi: C-a
+bindkey -M vicmd "^E" end-of-line        # vi: C-e
 
 # Change the cursor between 'Line' and 'Block' shape
 function zle-keymap-select zle-line-init zle-line-finish {
