@@ -78,10 +78,10 @@
 
     # diff
     df = !git-df
-    diffs = df --staged
     dfs = df --staged
-    stat = diff --stat
+    diffs = df --staged
     st = diff --stat
+    stat = diff --stat
     sts = diff --stat --staged
 
     # hub
@@ -100,8 +100,8 @@
     update-all = "!ghq list | ghq get --update --parallel"
 
     # git subcommands
-    users = !git-users
     user = !git-user
+    users = !git-users
     exec = !git-exec
     ignore = !git-ignore
 
