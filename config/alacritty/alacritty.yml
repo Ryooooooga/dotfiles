@@ -319,10 +319,12 @@ background_opacity: 1.0
 #   - (macOS) /bin/bash --login
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
-#shell:
-#  program: /bin/bash
-#  args:
-#    - --login
+shell:
+  program: /bin/zsh
+  args:
+    - --login
+    - -c
+    - tmux -f "$XDG_CONFIG_HOME/tmux/tmux.conf" new-session -A -s main
 
 # Startup directory
 #

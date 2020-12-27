@@ -175,9 +175,6 @@ zinit ice lucid wait"0" as"program" from"gh-r" \
     pick"mmv*/mmv"
 zinit light 'itchyny/mmv'
 
-### locale ###
-export LANG="en_US.UTF-8"
-
 ### chpwd-recent-dirs ###
 add-zsh-hook chpwd chpwd_recent_dirs
 zstyle ':chpwd:*' recent-dirs-file "$XDG_CACHE_HOME/chpwd-recent-dirs"
