@@ -69,7 +69,26 @@ select_cdr() {
 
 select_ghq() {
     local root="$1"
-    local selected="$(GHQ_ROOT="$root" ghq list | fzf --exit-0 --preview="fzf-preview-git $root/{}" --preview-window="right:60%")"
+    local selected="$(GHQ_ROOT="$root" ghq list | fzf --exit-0 --preview="fzf-preview-git ${(q)root}/{}" --preview-window="right:60%")"
+    if [ -n "$selected" ]; then
+        local repo_dir="$(GHQ_ROOT="$root" ghq list --exact --full-path "$selected")"
+        BUFFER="cd ${(q)repo_dir}"
+        zle accept-line
+    fi
+    zle -R -c # refresh screen
+}
+
+select_repo() {
+    select_ghq "$(ghq root)"
+}
+
+select_go_repo() {
+    select_ghq "$GOPATH/src"
+}
+
+select_ghq_session() {
+    local root="$1"
+    local selected="$(GHQ_ROOT="$root" ghq list | fzf --exit-0 --preview="fzf-preview-git ${(q)root}/{}" --preview-window="right:60%")"
 
     if [ -z "$selected" ]; then
         return
@@ -91,12 +110,12 @@ select_ghq() {
     zle -R -c # refresh screen
 }
 
-select_repo() {
-    select_ghq "$(ghq root)"
+select_repo_session() {
+    select_ghq_session "$(ghq root)"
 }
 
-select_go_repo() {
-    select_ghq "$GOPATH/src"
+select_go_repo_session() {
+    select_ghq_session "$GOPATH/src"
 }
 
 select_dir() {
@@ -111,25 +130,29 @@ select_dir() {
 zle -N select_history
 zle -N select_cdr
 zle -N select_repo
+zle -N select_repo_session
 zle -N select_go_repo
+zle -N select_go_repo_session
 zle -N select_dir
 
 bindkey -v
-bindkey "^R"       select_history        # C-r
-bindkey "^F"       select_cdr            # C-f
-bindkey "^G"       select_repo           # C-g
-bindkey "^[g"      select_go_repo        # Alt-g
-bindkey "^O"       select_dir            # C-o
-bindkey "^A"       beginning-of-line     # C-a
-bindkey "^E"       end-of-line           # C-e
-bindkey "^?"       backward-delete-char  # backspace
-bindkey "^[[3~"    delete-char           # delete
-bindkey "^[[1;3D"  backward-word         # Alt + arrow-left
-bindkey "^[[1;3C"  forward-word          # Alt + arrow-right
-bindkey "^[^?"     vi-backward-kill-word # Alt + backspace
-bindkey "^[[1;33~" kill-word             # Alt + delete
-bindkey -M vicmd "^A" beginning-of-line  # vi: C-a
-bindkey -M vicmd "^E" end-of-line        # vi: C-e
+bindkey "^R"       select_history           # C-r
+bindkey "^F^F"     select_cdr               # C-f C-f
+bindkey "^F^G"     select_repo              # C-f C-g
+bindkey "^Fg"      select_go_repo           # C-f g
+bindkey "^G"       select_repo_session      # C-g
+bindkey "^[g"      select_go_repo_session   # Alt-g
+bindkey "^O"       select_dir               # C-o
+bindkey "^A"       beginning-of-line        # C-a
+bindkey "^E"       end-of-line              # C-e
+bindkey "^?"       backward-delete-char     # backspace
+bindkey "^[[3~"    delete-char              # delete
+bindkey "^[[1;3D"  backward-word            # Alt + arrow-left
+bindkey "^[[1;3C"  forward-word             # Alt + arrow-right
+bindkey "^[^?"     vi-backward-kill-word    # Alt + backspace
+bindkey "^[[1;33~" kill-word                # Alt + delete
+bindkey -M vicmd "^A" beginning-of-line     # vi: C-a
+bindkey -M vicmd "^E" end-of-line           # vi: C-e
 
 # Change the cursor between 'Line' and 'Block' shape
 function zle-keymap-select zle-line-init zle-line-finish {
