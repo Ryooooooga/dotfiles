@@ -222,7 +222,7 @@ t() {
 
     if [ -z "$selected" ]; then
         # no sessions were selected
-        return 1
+        return
     elif [ "$selected" = "$create_session_msg" ]; then
         # create a new session
         session_name="$((random-word 2> /dev/null || echo "$RANDOM") | sed -E $'s/[:. \'"]/-/g')"
