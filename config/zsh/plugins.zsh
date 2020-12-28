@@ -56,6 +56,12 @@ alias view='"$EDITOR" -R'
 mkcd() { mkdir -p -- "$@" && cd "$(realpath -- "${@[-1]}")"}
 touch() { dirname -- "$@" | xargs -r -d"\n" mkdir -p -- && command touch -- "$@" }
 
+### Tmux ###
+source "${0:a:h}/tmux.zsh"
+
+alias tmux='tmux -f "$XDG_CONFIG_HOME/tmux/tmux.conf"'
+alias t='tmux-fzf'
+
 ### zsh-history-substring-search ###
 zinit ice lucid wait"0" \
     atload'
@@ -208,34 +214,6 @@ alias cmakeb='cmake --build'
 
 ### GDB ###
 alias gdb='gdb -q -nh -x "$XDG_DATA_HOME/gdb-dashboard/.gdbinit"'
-
-### Tmux ###
-alias tmux='tmux -f "$XDG_CONFIG_HOME/tmux/tmux.conf"'
-
-t() {
-    local query="$1"
-    local create_session_msg="Create a New Session"
-    local selected="$((tmux list-sessions -F "#S" 2> /dev/null; print "\x1b[33m\x1b[1m$create_session_msg\x1b[m") \
-        | fzf --select-1 --height='40%' --cycle --query="$query")"
-
-    local session_name="$selected"
-
-    if [ -z "$selected" ]; then
-        # no sessions were selected
-        return
-    elif [ "$selected" = "$create_session_msg" ]; then
-        # create a new session
-        session_name="$((random-word 2> /dev/null || echo "$RANDOM") | sed -E $'s/[:. \'"]/-/g')"
-        echo $session_name
-        tmux new-session -d -s "$session_name" || return 1
-    fi
-
-    if [ -z "$TMUX" ]; then
-        tmux attach-session -t "$session_name"
-    else
-        tmux switch-client -t "$session_name"
-    fi
-}
 
 ### Docker ###
 docker() {
