@@ -66,7 +66,7 @@ tmux-fzf() {
         kill|k)
             tmux-fzf-kill "${@:2}"
             ;;
-         help|h|--help|-h)
+        help|h|--help|-h)
             tmux-fzf-help "${@:2}"
             ;;
         version|--version|-v|-V)
@@ -77,4 +77,20 @@ tmux-fzf() {
             ;;
     esac
 }
+
+_tmux-fzf() {
+    _arguments \
+        '(- *)*: :->commands'
+
+    case "$state" in
+        commands)
+            _values 'commands' \
+                'switch' \
+                'kill' \
+                'help' \
+                'version'
+            ;;
+    esac
+}
+compdef _tmux-fzf tmux-fzf
 
