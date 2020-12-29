@@ -58,6 +58,7 @@ touch() { dirname -- "$@" | xargs -r -d"\n" mkdir -p -- && command touch -- "$@"
 
 ### Tmux ###
 source "${0:a:h}/tmux.zsh"
+source "${0:a:h}/completions/tmux.completion.zsh"
 
 alias tmux='tmux -f "$XDG_CONFIG_HOME/tmux/tmux.conf"'
 alias t='tmux-fzf'

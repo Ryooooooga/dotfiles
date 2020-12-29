@@ -78,20 +78,3 @@ tmux-fzf() {
             ;;
     esac
 }
-
-_tmux-fzf() {
-    _arguments \
-        '(- *)*: :->commands'
-
-    case "$state" in
-        commands)
-            _values 'commands' \
-                'switch' \
-                'kill' \
-                'help' \
-                'version'
-            ;;
-    esac
-}
-compdef _tmux-fzf tmux-fzf
-
