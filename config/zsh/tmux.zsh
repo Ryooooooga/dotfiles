@@ -26,8 +26,14 @@ tmux-fzf-kill() {
     local query="$1"
     local current_session="$([ -n "$TMUX" ] && tmux display-message -p "#S" 2> /dev/null)"
 
-    local selected="$(tmux list-sessions -F "#S" 2> /dev/null \
-        | fzf --multi --height='40%' --cycle --query="$query")"
+    local selected
+    if [ "$#" -le 1 ]; then
+        selected="$(tmux list-sessions -F "#S" 2> /dev/null \
+            | fzf --multi --height='40%' --cycle --query="$query")"
+    else
+        selected="${(F)@}"
+    fi
+
     [ -z "$selected" ] && return
 
     local kill_current_session=0

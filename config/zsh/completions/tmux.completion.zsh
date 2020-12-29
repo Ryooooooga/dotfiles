@@ -14,7 +14,7 @@ _tmux-fzf-switch() {
 
 _tmux-fzf-kill() {
     _arguments \
-        '1:session:->sessions'
+        '*:session:->sessions'
 
     case "$state" in
         sessions)
