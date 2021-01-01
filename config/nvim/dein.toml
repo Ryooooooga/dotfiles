@@ -185,10 +185,17 @@ repo = 'romgrk/barbar.nvim'
 repo = 'Xuyuanp/scrollbar.nvim'
 hook_add = '''
 let g:scrollbar_max_size = 30
+
 let g:scrollbar_shape = {
 \ 'head': '█',
 \ 'body': '█',
 \ 'tail': '█',
+\ }
+
+let g:scrollbar_highlight = {
+\ 'head': 'Scrollbar',
+\ 'body': 'Scrollbar',
+\ 'tail': 'Scrollbar',
 \ }
 
 augroup Scrollbar
