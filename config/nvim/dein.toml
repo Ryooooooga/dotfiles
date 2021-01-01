@@ -180,10 +180,17 @@ repo = 'romgrk/barbar.nvim'
 [[plugins]]
 repo = 'Xuyuanp/scrollbar.nvim'
 hook_add = '''
+let g:scrollbar_max_size = 30
+let g:scrollbar_shape = {
+\ 'head': '█',
+\ 'body': '█',
+\ 'tail': '█',
+\ }
+
 augroup Scrollbar
   autocmd!
   autocmd CursorMoved,VimResized,QuitPre * silent! lua require('scrollbar').show()
-  autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
-  autocmd WinLeave,FocusLost             * silent! lua require('scrollbar').clear()
+  autocmd WinEnter,BufEnter,FocusGained  * silent! lua require('scrollbar').show()
+  autocmd WinLeave,BufLeave,FocusLost    * silent! lua require('scrollbar').clear()
 augroup end
 '''
