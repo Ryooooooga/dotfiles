@@ -18,6 +18,13 @@ repo = 'vim-airline/vim-airline-themes'
 depends = ['vim-airline']
 
 [[plugins]]
+repo = 'ojroques/vim-scrollstatus'
+hook_add = '''
+let g:airline_section_x = '%{ScrollStatus()}'
+let g:scrollstatus_size = 8
+'''
+
+[[plugins]]
 repo = 'tomasiser/vim-code-dark'
 hook_add = '''
 colorscheme codedark
@@ -29,6 +36,7 @@ repo = 'airblade/vim-gitgutter'
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
+### defx.nvim ###
 [[plugins]]
 repo = 'Shougo/defx.nvim'
 hook_add = '''
@@ -64,7 +72,7 @@ call defx#custom#option('_', {
 \   'winwidth': 32,
 \ })
 
-nnoremap <silent><C-o> :Defx -toggle -show-ignored-files<CR>
+nnoremap <silent><C-o> <cmd>Defx -toggle -show-ignored-files<CR>
 '''
 
 [[plugins]]
@@ -75,9 +83,11 @@ depends = ['defx.nvim']
 repo = 'kristijanhusak/defx-icons'
 depends = ['defx.nvim']
 
+### lexima.vim ###
 [[plugins]]
 repo = 'cohama/lexima.vim'
 
+### vim-json ###
 [[plugins]]
 repo = 'elzr/vim-json'
 hook_add = '''
@@ -86,6 +96,7 @@ set concealcursor=niv
 let g:vim_json_syntax_conceal = 0
 '''
 
+### nerdcommenter ###
 [[plugins]]
 repo = 'preservim/nerdcommenter'
 hook_add = '''
@@ -97,25 +108,27 @@ nmap <C-c> <Plug>NERDCommenterToggle
 vmap <C-c> <Plug>NERDCommenterToggle<CR>gv
 '''
 
+### fzf-preview.vim ###
 [[plugins]]
-repo = 'liuchengxu/vim-clap'
-build = 'bash install.sh'
-hook_add = '''
-let g:clap_theme = 'material_design_dark'
-let g:clap_layout = {
-\   'width': '80%',
-\   'height': '60%',
-\   'row': '20%',
-\   'col': '10%',
-\ }
+repo = 'junegunn/fzf'
+build = 'bash install'
 
-nnoremap <silent>//    :Clap blines<CR>
-nnoremap <silent><C-p> :Clap filer<CR>
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+
+[[plugins]]
+repo = 'yuki-ycino/fzf-preview.vim'
+rev = 'release/rpc'
+hook_add = '''
+nnoremap <silent>//     <cmd>FzfPreviewBufferLinesRpc<CR>
+nnoremap <silent><C-p>  <cmd>FzfPreviewProjectFilesRpc<CR>
 '''
 
+### completion-nvim ###
 [[plugins]]
 repo = 'nvim-lua/completion-nvim'
 
+### nvim-lspconfig ###
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
 depends = ['completion-nvim']
@@ -139,6 +152,7 @@ vmap v <Plug>(expand_region_expand)
 vmap V <Plug>(expand_region_shrink)
 '''
 
+### nvim-treesitter ###
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
 merged = 1
@@ -158,13 +172,7 @@ require'nvim-treesitter.configs'.setup {
 EOF
 '''
 
-[[plugins]]
-repo = 'ojroques/vim-scrollstatus'
-hook_add = '''
-let g:airline_section_x = '%{ScrollStatus()}'
-let g:scrollstatus_size = 8
-'''
-
+### barbar.nvim ###
 [[plugins]]
 repo = 'kyazdani42/nvim-web-devicons'
 
