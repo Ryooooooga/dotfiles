@@ -15,6 +15,7 @@ set number
 set termguicolors
 set cursorline
 set showmatch
+set showtabline=2
 set laststatus=2
 " Controls
 set mouse=a

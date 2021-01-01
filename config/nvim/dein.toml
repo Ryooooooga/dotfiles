@@ -1,10 +1,11 @@
+### editorconfig-vim ###
 [[plugins]]
 repo = 'editorconfig/editorconfig-vim'
 
+### vim-airline ###
 [[plugins]]
 repo = 'vim-airline/vim-airline'
 hook_add = '''
-let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'deus'
 let g:airline_symbols = {
@@ -17,22 +18,18 @@ let g:airline_symbols = {
 repo = 'vim-airline/vim-airline-themes'
 depends = ['vim-airline']
 
-[[plugins]]
-repo = 'ojroques/vim-scrollstatus'
-hook_add = '''
-let g:airline_section_x = '%{ScrollStatus()}'
-let g:scrollstatus_size = 8
-'''
-
+### colorschemes ###
 [[plugins]]
 repo = 'tomasiser/vim-code-dark'
 hook_add = '''
 colorscheme codedark
 '''
 
+### vim-gitgutter ###
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
 
+### vim-fugitive ###
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
@@ -178,3 +175,15 @@ repo = 'kyazdani42/nvim-web-devicons'
 
 [[plugins]]
 repo = 'romgrk/barbar.nvim'
+
+### scrollbar.nvim ###
+[[plugins]]
+repo = 'Xuyuanp/scrollbar.nvim'
+hook_add = '''
+augroup Scrollbar
+  autocmd!
+  autocmd CursorMoved,VimResized,QuitPre * silent! lua require('scrollbar').show()
+  autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
+  autocmd WinLeave,FocusLost             * silent! lua require('scrollbar').clear()
+augroup end
+'''
