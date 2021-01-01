@@ -304,7 +304,7 @@ export MYSQL_HISTFILE="$XDG_CACHE_HOME/mysql_history"
 export PSQL_HISTORY="$XDG_CACHE_HOME/psql_history"
 
 ### fd ###
-alias fd='"${commands[fdfind]:-fd}" --ignore-file="$XDG_CONFIG_HOME/fd/ignore"'
+(( ${+commands[fdfind]} )) && alias fd='fdfind'
 
 ### youtube-dl ###
 if (( ${+commands[youtube-dl]} )); then
