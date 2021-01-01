@@ -117,7 +117,8 @@ repo = 'junegunn/fzf.vim'
 repo = 'yuki-ycino/fzf-preview.vim'
 rev = 'release/rpc'
 hook_add = '''
-nnoremap <silent>//     <cmd>FzfPreviewBufferLinesRpc<CR>
+nnoremap <silent>//     <cmd>FzfPreviewLinesRpc<CR>
+nnoremap <silent><C-f>  <cmd>FzfPreviewBufferLinesRpc<CR>
 nnoremap <silent><C-p>  <cmd>FzfPreviewProjectFilesRpc<CR>
 '''
 
