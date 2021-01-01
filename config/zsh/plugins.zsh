@@ -53,7 +53,7 @@ alias view='"$EDITOR" -R'
 (( ${+commands[trash]} )) && alias rm='trash'
 (( ${+commands[colordiff]} )) && alias diff='colordiff'
 
-mkcd() { mkdir -p -- "$@" && cd "$(realpath -- "${@[-1]}")"}
+mkcd() { mkdir -p -- "$@" && cd "$(realpath -- "${@[-1]}")" }
 touch() { dirname -- "$@" | xargs -r -d"\n" mkdir -p -- && command touch -- "$@" }
 
 ### Tmux ###
@@ -229,7 +229,7 @@ alias make='make -j$(($(nproc)+1))'
 ### CMake ###
 alias cmaked='cmake -DCMAKE_BUILD_TYPE=Debug'
 alias cmakerel='cmake -DCMAKE_BUILD_TYPE=Release'
-alias cmakeb='cmake --build'
+cmakeb() { cmake --build "$1" -j$(($(nproc)+1)) "${@:2}" }
 
 ### GDB ###
 alias gdb='gdb -q -nh -x "$XDG_DATA_HOME/gdb-dashboard/.gdbinit"'
