@@ -1,3 +1,15 @@
+- description: git-fetch
+  regexp-left: ^\s*(?P<cmd>(git|g))\s+(?P<subcmd>(fetch|f))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
+  cmd-groups:
+    - stmt: git remote
+      after: awk '{ print $1 }'
+  fuzzy-finder-cmd: |
+    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
+      --preview="git remote get-url {}" \
+      --query=<query>
+  buffer-left: '<cmd> <subcmd> <args>'
+  buffer-right: '[]'
+
 - description: git-switch
   regexp-left: ^\s*(?P<cmd>(git|g))\s+(?P<subcmd>(switch|sw))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
   cmd-groups:
