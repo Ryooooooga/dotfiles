@@ -122,6 +122,11 @@ zinit ice lucid wait"0" as"program" from"gh-r" \
     "
 zinit light 'sharkdp/bat'
 
+### fd ###
+zinit ice lucid wait"0" as"program" from"gh-r" \
+    pick"fd*/fd"
+zinit light 'sharkdp/fd'
+
 ### hexyl ###
 zinit ice lucid wait"0" as"program" from"gh-r" \
     pick"hexyl*/hexyl"
@@ -307,9 +312,6 @@ export MYSQL_HISTFILE="$XDG_CACHE_HOME/mysql_history"
 
 ### PostgreSQL ###
 export PSQL_HISTORY="$XDG_CACHE_HOME/psql_history"
-
-### fd ###
-(( ${+commands[fdfind]} )) && alias fd='fdfind'
 
 ### youtube-dl ###
 if (( ${+commands[youtube-dl]} )); then

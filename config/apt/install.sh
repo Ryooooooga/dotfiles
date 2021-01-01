@@ -34,7 +34,6 @@ if [ "$ubuntu_version" -ge 2004 ]; then
     # Ubuntu 20.04 or later
     apt-get install -y \
         clangd \
-        fd-find \
         hub \
         python3-pynvim
 
