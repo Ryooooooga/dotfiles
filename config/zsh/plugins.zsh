@@ -122,6 +122,11 @@ zinit ice lucid wait"0" as"program" from"gh-r" \
     "
 zinit light 'sharkdp/bat'
 
+### ripgrep ###
+zinit ice lucid wait"0" as"program" from"gh-r" \
+    pick"ripgrep*/rg"
+zinit light 'BurntSushi/ripgrep'
+
 ### delta ###
 zinit ice lucid wait"0" as"program" from"gh-r" \
     pick"delta*/delta"
