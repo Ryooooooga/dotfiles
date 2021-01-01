@@ -134,7 +134,10 @@ zinit light 'sharkdp/hexyl'
 
 ### ripgrep ###
 zinit ice lucid wait"0" as"program" from"gh-r" \
-    pick"ripgrep*/rg"
+    pick"ripgrep*/rg" \
+    atload'
+        alias rg="rg --ignore-file=\"\$XDG_CONFIG_HOME/rg/ignore\""
+    '
 zinit light 'BurntSushi/ripgrep'
 
 ### delta ###
