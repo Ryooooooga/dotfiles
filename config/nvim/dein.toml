@@ -164,3 +164,9 @@ hook_add = '''
 let g:airline_section_x = '%{ScrollStatus()}'
 let g:scrollstatus_size = 8
 '''
+
+[[plugins]]
+repo = 'kyazdani42/nvim-web-devicons'
+
+[[plugins]]
+repo = 'romgrk/barbar.nvim'
