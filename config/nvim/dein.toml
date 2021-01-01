@@ -25,6 +25,9 @@ hook_add = '''
 colorscheme codedark
 '''
 
+[[plugins]]
+repo = 'romgrk/doom-one.vim'
+
 ### vim-gitgutter ###
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
