@@ -122,6 +122,11 @@ zinit ice lucid wait"0" as"program" from"gh-r" \
     "
 zinit light 'sharkdp/bat'
 
+### hexyl ###
+zinit ice lucid wait"0" as"program" from"gh-r" \
+    pick"hexyl*/hexyl"
+zinit light 'sharkdp/hexyl'
+
 ### ripgrep ###
 zinit ice lucid wait"0" as"program" from"gh-r" \
     pick"ripgrep*/rg"
