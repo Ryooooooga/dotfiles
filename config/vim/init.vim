@@ -16,6 +16,7 @@ set listchars=tab:>-,trail:-,extends:>,precedes:<,nbsp:%
 " Views
 set title
 set number
+set relativenumber
 set cursorline
 set showmatch
 set laststatus=2
