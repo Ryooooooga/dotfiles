@@ -5,6 +5,20 @@ autoload -Uz chpwd_recent_dirs
 autoload -Uz _zinit
 
 ### Aliases ###
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+alias la='ls -a'
+alias ll='ls -al'
+
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+
+alias tailf='tail -f'
+alias view='"$EDITOR" -R'
+
 case "$OSTYPE" in
     linux*)
         (( ${+commands[wslview]} )) && alias open='wslview'
@@ -27,8 +41,9 @@ case "$OSTYPE" in
         alias p='pbpaste'
         (( ${+commands[gdate]} )) && alias date='gdate'
         (( ${+commands[gls]} )) && alias ls='gls --color=auto'
-        (( ${+commands[gcp]} )) && alias cp='gcp'
-        (( ${+commands[gmv]} )) && alias mv='gmv'
+        (( ${+commands[gcp]} )) && alias cp='gcp -i'
+        (( ${+commands[gmv]} )) && alias mv='gmv -i'
+        (( ${+commands[grm]} )) && alias rm='grm -i'
         (( ${+commands[gdu]} )) && alias du='gdu'
         (( ${+commands[ghead]} )) && alias head='ghead'
         (( ${+commands[gtail]} )) && alias tail='gtail'
@@ -39,16 +54,6 @@ case "$OSTYPE" in
         (( ${+commands[gxargs]} )) && alias xargs='gxargs'
     ;;
 esac
-
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-
-alias la='ls -a'
-alias ll='ls -al'
-
-alias tailf='tail -f'
-alias view='"$EDITOR" -R'
 
 (( ${+commands[trash]} )) && alias rm='trash'
 (( ${+commands[colordiff]} )) && alias diff='colordiff'
