@@ -12,6 +12,7 @@ set list
 " Views
 set title
 set number
+set relativenumber
 set termguicolors
 set cursorline
 set showmatch
