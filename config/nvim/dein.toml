@@ -186,5 +186,9 @@ repo = 'dstein64/nvim-scrollview'
 hook_add = '''
 " https://github.com/dstein64/nvim-scrollview/issues/10
 command Bdelete silent! ScrollViewDisable | bdelete | silent! ScrollViewEnable
-nnoremap <silent><C-w> :Bdelete<CR>
+nnoremap <silent><C-w> <cmd>Bdelete<CR>
 '''
+
+### vim-highlightedyank ###
+[[plugins]]
+repo = 'machakann/vim-highlightedyank'

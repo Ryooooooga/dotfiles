@@ -4,6 +4,7 @@ syntax on
 set fenc=utf-8
 set hidden
 set autoread
+set showcmd
 " Indentation
 set tabstop=4
 set softtabstop=4
@@ -24,6 +25,7 @@ set showtabline=2
 set mouse=a
 set whichwrap=b,s,h,l,<,>,[,],~
 " Search
+set hlsearch
 set incsearch
 set smartcase
 set ignorecase
@@ -32,6 +34,9 @@ set splitbelow
 set splitright
 " Backspace
 set backspace=indent,eol,start
+" Menu
+set wildmenu
+set wildmode=longest:full,full
 
 " .viminfo
 set viminfo+=n~/.local/share/vim/viminfo
