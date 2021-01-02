@@ -92,4 +92,4 @@ highlight BufferCurrentSign guifg=#5faefe
 highlight BufferVisibleSign guifg=#7be4a4
 highlight BufferInactive    guifg=#808080 guibg=#262626
 highlight BufferTabpageFill guifg=#444444 guibg=#303030
-highlight Scrollbar         guifg=#5e5e6a
+highlight Scrollbar         guibg=#5e5e6a

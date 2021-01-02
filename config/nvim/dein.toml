@@ -187,9 +187,9 @@ hook_add = '''
 let g:scrollbar_max_size = 30
 
 let g:scrollbar_shape = {
-\ 'head': '█',
-\ 'body': '█',
-\ 'tail': '█',
+\ 'head': ' ',
+\ 'body': ' ',
+\ 'tail': ' ',
 \ }
 
 let g:scrollbar_highlight = {
@@ -200,8 +200,7 @@ let g:scrollbar_highlight = {
 
 augroup Scrollbar
   autocmd!
-  autocmd CursorMoved,VimResized,QuitPre * silent! lua require('scrollbar').show()
-  autocmd WinEnter,BufEnter,FocusGained  * silent! lua require('scrollbar').show()
-  autocmd WinLeave,BufLeave,FocusLost    * silent! lua require('scrollbar').clear()
+  autocmd CursorMoved,VimResized,BufEnter,FocusGained  * silent! lua require('scrollbar').show()
+  autocmd BufLeave,FocusLost,QuitPre                   * silent! lua require('scrollbar').clear()
 augroup end
 '''
