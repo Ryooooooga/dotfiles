@@ -180,27 +180,11 @@ repo = 'kyazdani42/nvim-web-devicons'
 [[plugins]]
 repo = 'romgrk/barbar.nvim'
 
-### scrollbar.nvim ###
+### nvim-scrollview ###
 [[plugins]]
-repo = 'Xuyuanp/scrollbar.nvim'
+repo = 'dstein64/nvim-scrollview'
 hook_add = '''
-let g:scrollbar_max_size = 30
-
-let g:scrollbar_shape = {
-\ 'head': ' ',
-\ 'body': ' ',
-\ 'tail': ' ',
-\ }
-
-let g:scrollbar_highlight = {
-\ 'head': 'Scrollbar',
-\ 'body': 'Scrollbar',
-\ 'tail': 'Scrollbar',
-\ }
-
-augroup Scrollbar
-  autocmd!
-  autocmd CursorMoved,VimResized,BufEnter,FocusGained  * silent! lua require('scrollbar').show()
-  autocmd BufLeave,FocusLost,QuitPre                   * silent! lua require('scrollbar').clear()
-augroup end
+" https://github.com/dstein64/nvim-scrollview/issues/10
+command Bdelete silent! ScrollViewDisable | bdelete | silent! ScrollViewEnable
+nnoremap <silent><C-w> :Bdelete<CR>
 '''
