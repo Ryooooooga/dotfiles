@@ -77,13 +77,13 @@ command! -nargs=* T botright term <args>
 """ Packages """
 let g:Packages = {}
 let g:PackageDir = $HOME . '/.vim/pack/plugins'
-let g:PackageStart = g:PackageDir . '/start'
 
 function! Package(repo, ...)
     let arg = get(a:, 1, {})
+    let base = has_key(arg, 'base') ? arg.base : 'start'
 
     let url = 'https://github.com/' . a:repo
-    let path = g:PackageStart . '/' . substitute(a:repo, '/', '--', 'g')
+    let path = g:PackageDir . '/' . base . '/' . substitute(a:repo, '/', '--', 'g')
 
     let g:Packages[a:repo] = {
     \   'path': path,
@@ -105,8 +105,10 @@ endfunction
 
 function! PackageUpdate()
     for repo in keys(g:Packages)
+        let path = g:Packages[repo].path
+
         echo 'update ' . repo
-        echo system('git -C ' . g:Packages[repo].path . ' pull')
+        echo system('git -C ' . shellescape(path) . ' pull')
     endfor
 endfunction
 
@@ -152,6 +154,12 @@ nnoremap <silent><C-o> :NERDTreeToggle<CR>
 
 " lexima.vim
 call Package('cohama/lexima.vim')
+
+" vim-expand-region
+call Package('terryma/vim-expand-region')
+
+vmap v <Plug>(expand_region_expand)
+vmap V <Plug>(expand_region_shrink)
 
 " nerdcommenter
 call Package('preservim/nerdcommenter')
