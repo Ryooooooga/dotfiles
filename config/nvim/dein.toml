@@ -111,7 +111,7 @@ vmap <C-c> <Plug>NERDCommenterToggle<CR>gv
 ### fzf-preview.vim ###
 [[plugins]]
 repo = 'junegunn/fzf'
-build = 'bash install --xdg'
+build = 'bash install --bin'
 
 [[plugins]]
 repo = 'junegunn/fzf.vim'

@@ -5,6 +5,9 @@
 *.zwc
 .zcomp*
 
+### Vim ###
+/config/vim/pack/plugins/
+
 ### Clangd settings ###
 !/config/clangd/compile_flags.txt
 

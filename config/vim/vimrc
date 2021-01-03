@@ -1,4 +1,5 @@
 syntax on
+filetype plugin on
 
 """ Options """
 set fenc=utf-8
@@ -6,6 +7,7 @@ set hidden
 set autoread
 set showcmd
 " Indentation
+set autoindent
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -60,9 +62,9 @@ nnoremap <silent><C-a> ^
 nnoremap <silent><C-e> $
 nnoremap <silent><C-\> :vsplit<CR>
 nnoremap <silent><C-_> :split<CR>
-nnoremap <silent><C-h> :tabprev<CR>
-nnoremap <silent><C-l> :tabnext<CR>
-nnoremap <silent><C-w> :tabclose<CR>
+nnoremap <silent><C-h> :bprev<CR>
+nnoremap <silent><C-l> :bnext<CR>
+nnoremap <silent><C-w> :bdelete<CR>
 inoremap jj     <ESC>
 inoremap <Down> <C-\><C-o>gj
 inoremap <Up>   <C-\><C-o>gk
@@ -72,7 +74,102 @@ inoremap <C-e>  <End>
 """ terminal """
 command! -nargs=* T botright term <args>
 
-augroup vimrc
-    autocmd!
-    autocmd VimEnter * if !&diff | tab all | tabfirst | endif
-augroup END
+""" Packages """
+let g:Packages = {}
+let g:PackageDir = $HOME . '/.vim/pack/plugins'
+let g:PackageStart = g:PackageDir . '/start'
+
+function! Package(repo, ...)
+    let arg = get(a:, 1, {})
+
+    let url = 'https://github.com/' . a:repo
+    let path = g:PackageStart . '/' . substitute(a:repo, '/', '--', 'g')
+
+    let g:Packages[a:repo] = {
+    \   'path': path,
+    \   'url': url,
+    \   'arg': arg,
+    \ }
+
+    if isdirectory(path)
+        return
+    endif
+
+    echo 'install ' . a:repo
+    echo system('git clone ' . shellescape(url) . ' ' . shellescape(path))
+
+    if has_key(arg, 'build')
+        echo system('cd ' . shellescape(path) . ';' . arg.build)
+    endif
+endfunction
+
+function! PackageUpdate()
+    for repo in keys(g:Packages)
+        echo 'update ' . repo
+        echo system('git -C ' . g:Packages[repo].path . ' pull')
+    endfor
+endfunction
+
+" Editorconfig
+call Package('editorconfig/editorconfig-vim')
+
+" lightline.vim
+call Package('itchyny/lightline.vim')
+call Package('mengelbrecht/lightline-bufferline')
+
+let g:lightline = {
+\   'colorscheme': 'one',
+\   'active': {
+\       'left': [ [ 'mode', 'paste'  ], [ 'readonly', 'filename', 'modified'  ]  ]
+\   },
+\   'tabline': {
+\       'left': [ ['buffers']  ],
+\       'right': [ ['close']  ]
+\   },
+\   'component_expand': {
+\       'buffers': 'lightline#bufferline#buffers'
+\   },
+\   'component_type': {
+\       'buffers': 'tabsel'
+\   }
+\ }
+
+" Colorschemes
+call Package('tomasiser/vim-code-dark')
+
+colorscheme codedark
+
+" vim-gitgutter
+call Package('airblade/vim-gitgutter')
+
+" vim-fugitive
+call Package('tpope/vim-fugitive')
+
+" nerdtree
+call Package('preservim/nerdtree')
+
+nnoremap <silent><C-o> :NERDTreeToggle<CR>
+
+" lexima.vim
+call Package('cohama/lexima.vim')
+
+" nerdcommenter
+call Package('preservim/nerdcommenter')
+
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultAlign = 'left'
+
+nmap <C-c> <Plug>NERDCommenterToggle
+vmap <C-c> <Plug>NERDCommenterToggle<CR>gv
+
+" fzf.vim
+call Package('junegunn/fzf', { 'build': 'bash install --bin' })
+call Package('junegunn/fzf.vim')
+
+nnoremap <silent>//     :BLines<CR>
+nnoremap <silent><C-f>  :Lines<CR>
+nnoremap <silent><C-p>  :Files<CR>
+
+" vim-highlightedyank
+call Package('machakann/vim-highlightedyank')
