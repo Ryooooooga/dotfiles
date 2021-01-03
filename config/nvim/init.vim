@@ -52,6 +52,8 @@ nnoremap <silent>sK     <C-w>K
 nnoremap <silent>sL     <C-w>L
 nnoremap <silent><C-a>  ^
 nnoremap <silent><C-e>  $
+nnoremap <silent>+      <C-a>
+nnoremap <silent>-      <C-x>
 nnoremap <silent><C-\>  :vsplit<CR>
 nnoremap <silent><C-_>  :split<CR>
 nnoremap <silent><C-h>  :bprev<CR>
@@ -65,6 +67,10 @@ inoremap <silent><C-a>  <C-o>I
 inoremap <silent><C-e>  <End>
 vnoremap <silent><C-a>  ^
 vnoremap <silent><C-e>  $
+vnoremap <silent>+      <C-a>gv
+vnoremap <silent>-      <C-x>gv
+vnoremap <silent>i      g<C-a>gv
+vnoremap <silent>I      g<C-x>gv
 tnoremap <silent><ESC>  <C-\><C-n>
 
 """ Terminal """
