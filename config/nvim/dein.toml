@@ -87,6 +87,10 @@ depends = ['defx.nvim']
 [[plugins]]
 repo = 'cohama/lexima.vim'
 
+### vim-surround ###
+[[plugins]]
+repo = 'tpope/vim-surround'
+
 ### vim-json ###
 [[plugins]]
 repo = 'elzr/vim-json'

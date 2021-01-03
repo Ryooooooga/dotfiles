@@ -164,6 +164,9 @@ nnoremap <silent><C-o> :NERDTreeToggle<CR>
 " lexima.vim
 call Package('cohama/lexima.vim')
 
+" vim-surround
+call Package('tpope/vim-surround')
+
 " vim-expand-region
 call Package('terryma/vim-expand-region')
 
