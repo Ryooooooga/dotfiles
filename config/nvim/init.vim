@@ -63,6 +63,8 @@ inoremap <silent><Up>   <C-\><C-o>gk
 inoremap <silent><S-Tab> <C-\><C-o><<<C-o>I
 inoremap <silent><C-a>  <C-o>I
 inoremap <silent><C-e>  <End>
+vnoremap <silent><C-a>  ^
+vnoremap <silent><C-e>  $
 tnoremap <silent><ESC>  <C-\><C-n>
 
 """ Terminal """
