@@ -165,13 +165,24 @@ merged = 1
 hook_add = '''
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-    ensure_installed = "maintained",
+    ensure_installed = {
+        'bash',
+        'c',
+        'cpp',
+        'css',
+        'go',
+        'html',
+        'javascript',
+        'json',
+        'python',
+        'ruby',
+        'rust',
+        'toml',
+        'typescript',
+    },
     highlight = {
         enable = true,
-        disable = {
-            'rst',
-            'nix',
-        },
+        disable = {},
     },
 }
 EOF
