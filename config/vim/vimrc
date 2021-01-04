@@ -173,6 +173,16 @@ call Package('terryma/vim-expand-region')
 vmap v <Plug>(expand_region_expand)
 vmap V <Plug>(expand_region_shrink)
 
+" asynchronous lint engine
+call Package('dense-analysis/ale')
+
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines'],
+\   'c': ['clang-format'],
+\   'cpp': ['clang-format'],
+\ }
+
 " nerdcommenter
 call Package('preservim/nerdcommenter')
 

@@ -157,6 +157,18 @@ vmap v <Plug>(expand_region_expand)
 vmap V <Plug>(expand_region_shrink)
 '''
 
+### asynchronous lint engine ###
+[[plugins]]
+repo = 'dense-analysis/ale'
+hook_add = '''
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines'],
+\   'c': ['clang-format'],
+\   'cpp': ['clang-format'],
+\ }
+'''
+
 ### nvim-treesitter ###
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
