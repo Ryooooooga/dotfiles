@@ -80,6 +80,11 @@ vnoremap <silent>-      <C-x>gv
 vnoremap <silent><C-i>  g<C-a>gv
 vnoremap <silent>I      g<C-x>gv
 
+augroup MyKeyMaps
+    autocmd!
+    autocmd FileType html inoremap <buffer></ </<C-x><C-o>
+augroup END
+
 """ terminal """
 command! -nargs=* T botright term <args>
 

@@ -73,11 +73,16 @@ vnoremap <silent><C-i>  g<C-a>gv
 vnoremap <silent>I      g<C-x>gv
 tnoremap <silent><ESC>  <C-\><C-n>
 
+augroup MyKeyMaps
+    autocmd!
+    autocmd FileType html inoremap <buffer></ </<C-x><C-o>
+augroup END
+
 """ Terminal """
 source $XDG_CONFIG_HOME/nvim/terminal.vim
 
 """ Filetype """
-augroup vimrc
+augroup MyFileType
     autocmd!
     autocmd BufNewFile,BufRead .envrc   set filetype=sh
     autocmd BufNewFile,BufRead config   set filetype=gitconfig
