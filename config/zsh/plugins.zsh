@@ -18,6 +18,7 @@ alias rm='rm -i'
 
 alias tailf='tail -f'
 alias view='"$EDITOR" -R'
+alias teepp="tee >(pp)"
 
 case "$OSTYPE" in
     linux*)
