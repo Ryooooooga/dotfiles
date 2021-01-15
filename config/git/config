@@ -126,7 +126,7 @@
 
 [ghq]
     root = ~/.local/share/go/src
-    root = ~/Workspace
+    root = ~/repos
 
 [include]
     path = config.local

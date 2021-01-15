@@ -7,8 +7,8 @@
 ## How to Install
 
 ```shell
-$ git clone https://github.com/Ryooooooga/dotfiles.git ~/Workspace/github.com/Ryooooooga/dotfiles
-$ cd ~/Workspace/github.com/Ryooooooga/dotfiles
+$ git clone https://github.com/Ryooooooga/dotfiles.git ~/repos/github.com/Ryooooooga/dotfiles
+$ cd ~/repos/github.com/Ryooooooga/dotfiles
 
 $ sudo ./config/apt/install.sh  # Ubuntu only
 $ ./setup.bash
