@@ -1,3 +1,19 @@
+- description: git-diff
+  regexp-left: ^\s*(?P<cmd>(git|g))\s+(?P<subcmd>(dfs|df|diffs|diff|stat))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
+  cmd-groups:
+    - stmt: '"$PMY_SCRIPT_PATH/git-local-branches.zsh"'
+    - stmt: '"$PMY_SCRIPT_PATH/git-remote-branches.zsh"'
+    - stmt: '"$PMY_SCRIPT_PATH/git-tags.zsh"'
+    - stmt: '"$PMY_SCRIPT_PATH/git-commits.zsh"'
+    - stmt: '"$PMY_SCRIPT_PATH/diff-options.zsh" "git/options" "\uf73a" "option" "blue"'
+      after: awk '{ print $3 }'
+  fuzzy-finder-cmd: |
+    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
+      --nth=3 \
+      --query=<query>
+  buffer-left: '<cmd> <subcmd> <args>'
+  buffer-right: '[]'
+
 - description: git-fetch
   regexp-left: ^\s*(?P<cmd>(git|g))\s+(?P<subcmd>(fetch|f))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
   cmd-groups:
