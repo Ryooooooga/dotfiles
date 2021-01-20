@@ -48,7 +48,7 @@ if [ "$(uname)" = "Darwin" ]; then
     brew update
 
     echo "Installing Homebrew apps..."
-    brew bundle install --file "${REPO_DIR}/config/homebrew/Brewfile" --no-lock
+    brew bundle install --file "${REPO_DIR}/config/homebrew/Brewfile" --no-lock --verbose
 fi
 
 # zinit
