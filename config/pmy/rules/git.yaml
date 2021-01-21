@@ -5,7 +5,7 @@
     - stmt: '"$PMY_SCRIPT_PATH/git-remote-branches.zsh"'
     - stmt: '"$PMY_SCRIPT_PATH/git-tags.zsh"'
     - stmt: '"$PMY_SCRIPT_PATH/git-commits.zsh"'
-    - stmt: '"$PMY_SCRIPT_PATH/diff-options.zsh" "git/options" "\uf73a" "option" "blue"'
+    - stmt: '"$PMY_SCRIPT_PATH/options.zsh" "git/diff-options" "\uf73a" "option" "blue"'
       after: awk '{ print $3 }'
   fuzzy-finder-cmd: |
     "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
