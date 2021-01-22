@@ -32,15 +32,16 @@ zinit ice from"gh-r" as"program" \
 zinit light 'Ryooooooga/almel'
 
 almel_preexec() {
+    unset ALMEL_STATUS
     ALMEL_START="$EPOCHREALTIME"
 }
 
 almel_precmd() {
-    STATUS="$?"
-    NUM_JOBS="$#jobstates"
-    END="$EPOCHREALTIME"
-    DURATION="$(($END - ${ALMEL_START:-$END}))"
-    PROMPT="$(almel prompt zsh -s"$STATUS" -j"$NUM_JOBS" -d"$DURATION")"
+    local s="${ALMEL_STATUS:-$?}"
+    local j="$#jobstates"
+    local end="$EPOCHREALTIME"
+    local dur="$(($end - ${ALMEL_START:-$end}))"
+    PROMPT="$(almel prompt zsh -s"$s" -j"$j" -d"$dur")"
     unset ALMEL_START
 }
 
@@ -50,6 +51,7 @@ add-zsh-hook preexec almel_preexec
 
 ### key bindings ###
 clear_screen_and_update_prompt() {
+    ALMEL_STATUS=0
     almel_precmd
     zle clear-screen
     zle reset-prompt
