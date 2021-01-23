@@ -106,15 +106,13 @@ select_ghq_session() {
     local session_name="$(sed -E 's/[:. ]/-/g' <<<"$selected")"
 
     if [ -z "$TMUX" ]; then
-        BUFFER="tmux new-session -A -s ${(q)session_name} -c ${(qq)repo_dir}"
+        tmux new-session -A -s "$session_name" -c "$repo_dir"
     else
         if ! tmux has-session -t "$session_name" 2> /dev/null; then
             tmux new-session -d -s "$session_name" -c "$repo_dir"
         fi
-        BUFFER="tmux switch-client -t ${(q)session_name}"
+        tmux switch-client -t "$session_name"
     fi
-
-    zle accept-line
     zle -R -c # refresh screen
 }
 
