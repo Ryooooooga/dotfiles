@@ -53,9 +53,9 @@ add-zsh-hook preexec almel_preexec
 clear_screen_and_update_prompt() {
     ALMEL_STATUS=0
     almel_precmd
-    zle clear-screen
-    zle reset-prompt
+    zle .clear-screen
 }
+zle -N clear-screen clear_screen_and_update_prompt
 
 select_history() {
     local selected="$(history -nr 1 | awk '!a[$0]++' | fzf --exit-0 --query "$LBUFFER" | sed 's/\\n/\n/g')"
@@ -133,7 +133,6 @@ select_dir() {
     zle -R -c # refresh screen
 }
 
-zle -N clear_screen_and_update_prompt
 zle -N select_history
 zle -N select_cdr
 zle -N select_repo
@@ -143,7 +142,6 @@ zle -N select_go_repo_session
 zle -N select_dir
 
 bindkey -v
-bindkey "^L"        clear_screen_and_update_prompt  # C-l
 bindkey "^R"        select_history                  # C-r
 bindkey "^F^F"      select_cdr                      # C-f C-f
 bindkey "^F^G"      select_repo                     # C-f C-g
