@@ -323,8 +323,6 @@ shell:
   program: /bin/zsh
   args:
     - --login
-    - -c
-    - tmux -f "$XDG_CONFIG_HOME/tmux/tmux.conf" new-session -A -s main
 
 # Startup directory
 #
