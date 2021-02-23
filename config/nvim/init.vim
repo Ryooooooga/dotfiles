@@ -69,8 +69,8 @@ vnoremap <silent><C-a>  ^
 vnoremap <silent><C-e>  $
 vnoremap <silent>+      <C-a>gv
 vnoremap <silent>-      <C-x>gv
-vnoremap <silent><C-i>  g<C-a>gv
-vnoremap <silent>I      g<C-x>gv
+" vnoremap <silent><C-i>  g<C-a>gv
+" vnoremap <silent>I      g<C-x>gv
 tnoremap <silent><ESC>  <C-\><C-n>
 
 augroup MyKeyMaps
