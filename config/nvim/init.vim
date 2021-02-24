@@ -73,9 +73,19 @@ vnoremap <silent>-      <C-x>gv
 " vnoremap <silent>I      g<C-x>gv
 tnoremap <silent><ESC>  <C-\><C-n>
 
+function! MyKeyMapsDiff()
+    nnoremap <silent>J  /^[+-]<CR>
+    nnoremap <silent>K  ?^[+-]<CR>
+endfunction
+
+function! MyKeyMapsHtml()
+    inoremap <buffer></ </<C-x><C-o>
+endfunction
+
 augroup MyKeyMaps
     autocmd!
-    autocmd FileType html inoremap <buffer></ </<C-x><C-o>
+    autocmd FileType diff call MyKeyMapsDiff()
+    autocmd FileType html call MyKeyMapsHtml()
 augroup END
 
 """ Terminal """
