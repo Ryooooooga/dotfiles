@@ -30,6 +30,7 @@
     # add
     a = !git-a
     aa = add -vA
+    ae = add -e
     ai = add -i
 
     # config
