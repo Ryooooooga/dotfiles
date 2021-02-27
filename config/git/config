@@ -96,7 +96,7 @@
 
     # ghq
     create = !ghq create
-    get = !ghq get
+    get = !ghq get -p
     list = !ghq list
     update-all = "!ghq list | ghq get --update --parallel"
 
