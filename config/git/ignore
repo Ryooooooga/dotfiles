@@ -28,6 +28,10 @@ node_modules/
 ### Logs ###
 *.log
 
+### Bazel ###
+.bazelrc
+user.bazelrc
+
 ### Memo ###
 _MEMO*
 _memo*
