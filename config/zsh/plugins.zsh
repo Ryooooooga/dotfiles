@@ -61,13 +61,6 @@ esac
 
 mkcd() { mkdir -p -- "$@" && cd "$(realpath -- "${@[-1]}")" }
 
-touch() {
-    for f in "$@"; do
-        mkdir -p -- "$(dirname -- "$f")"
-        command touch -- "$f"
-    done
-}
-
 ### Tmux ###
 source "${0:a:h}/tmux.zsh"
 source "${0:a:h}/completions/tmux.completion.zsh"
