@@ -5,6 +5,7 @@ tap "nektos/tap"
 
 brew "autoconf"
 brew "bash"
+brew "bazel"
 brew "cmake"
 brew "colordiff"
 brew "coreutils"
