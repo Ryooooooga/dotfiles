@@ -4,16 +4,3 @@
 ### Zsh cache ###
 *.zwc
 .zcomp*
-
-### Vim ###
-/config/vim/pack/plugins/
-
-### Clangd settings ###
-!/config/clangd/compile_flags.txt
-
-### GitHub CLI ###
-/config/gh/*.yml
-!/config/gh/config.yml
-
-### Espanso ###
-/config/espanso/user/local.yml
