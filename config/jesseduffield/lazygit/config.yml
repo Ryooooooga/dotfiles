@@ -1,0 +1,3 @@
+disableStartupPopups: true
+gui:
+  showFileTree: true
