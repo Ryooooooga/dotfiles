@@ -21,7 +21,3 @@ local caps = 'F20'
 
 -- shortcuts
 remap({'cmd'}, 'Y', keyStroke({'cmd', 'shift'}, 'Z'))
-
--- caps lock
-remap({}, caps, keyStrokes('_'))
-remap({'shift'}, caps, keyStrokes('->'))
