@@ -187,7 +187,7 @@ zinit light 'relastle/pmy'
 
 ### Emojify ###
 zinit ice lucid wait"0" as"program" \
-    atclone'rm *.{py,bats}' atpull'%atclone'
+    atclone'rm -f *.{py,bats}' atpull'%atclone'
 zinit light 'mrowa44/emojify'
 
 ### Forgit ###
