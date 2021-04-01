@@ -17,6 +17,7 @@ if [ "$(uname)" = "Darwin" ]; then
     defaults write com.apple.dock autohide -bool false
     defaults write com.apple.dock tilesize -int 50
     defaults write com.apple.dock magnification -bool false
+    defaults write com.apple.dock show-recents -bool false
 
     # Menubar
     defaults write com.apple.menuextra.battery ShowPercent -bool true
