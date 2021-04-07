@@ -109,7 +109,7 @@ zinit light 'direnv/direnv'
 
 ### exa ###
 zinit ice lucid wait"0" as"program" from"gh-r" \
-    mv"exa* -> exa" \
+    pick"bin/exa" \
     atload"
         alias ls='exa --group-directories-first'
         alias la='exa --group-directories-first -a'
