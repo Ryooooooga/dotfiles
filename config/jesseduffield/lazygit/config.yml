@@ -1,3 +1,5 @@
 disableStartupPopups: true
+quitOnTopLevelReturn: true
+notARepository: 'skip'
 gui:
   showFileTree: true
