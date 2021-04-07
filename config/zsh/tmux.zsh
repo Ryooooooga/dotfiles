@@ -2,7 +2,7 @@ tmux-fzf-switch() {
     local query="$1"
     local create_session_msg="Create a New Session"
     local selected="$((tmux list-sessions -F "#S" 2> /dev/null; print "\x1b[33m\x1b[1m$create_session_msg\x1b[m") \
-        | fzf --select-1 --height='40%' --cycle --query="$query")"
+        | fzf --height='40%' --cycle --query="$query")"
 
     local session_name="$selected"
 
