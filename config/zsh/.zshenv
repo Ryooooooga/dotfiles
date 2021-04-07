@@ -16,6 +16,7 @@ export CARGO_HOME="$XDG_DATA_HOME/cargo"
 
 ### Go ###
 export GOPATH="$XDG_DATA_HOME/go"
+export GO111MODULE="on"
 
 ### npm ###
 export NPM_CONFIG_DIR="$XDG_CONFIG_HOME/npm"
