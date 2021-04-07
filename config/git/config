@@ -125,7 +125,6 @@
 
 [ghq]
     user = Ryooooooga
-    root = ~/.local/share/go/src
     root = ~/repos
 
 [include]
