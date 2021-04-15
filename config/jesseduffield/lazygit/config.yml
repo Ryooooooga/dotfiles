@@ -1,5 +1,7 @@
 disableStartupPopups: true
 quitOnTopLevelReturn: true
 notARepository: 'skip'
+git:
+  disableForcePushing: true
 gui:
   showFileTree: true
