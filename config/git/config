@@ -10,6 +10,7 @@
 [commit]
     verbose = true
     gpgSign = false # overwriten in config.local
+	template = .git/commit-template.txt
 
 [merge]
     ff = false
