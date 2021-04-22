@@ -411,7 +411,7 @@
                                             "shift"
                                         ],
                                         "optional": [
-                                          "caps_lock"
+                                            "caps_lock"
                                         ]
                                     }
                                 },
