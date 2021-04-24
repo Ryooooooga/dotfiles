@@ -206,6 +206,11 @@ zinit ice lucid wait"0" as"program" from"gh-r" \
     pick"mmv*/mmv"
 zinit light 'itchyny/mmv'
 
+### zouch ###
+zinit ice lucid wait"0" as"program" from"gh-r" \
+    pick"zouch*/zouch"
+zinit light 'Ryooooooga/zouch'
+
 ### chpwd-recent-dirs ###
 add-zsh-hook chpwd chpwd_recent_dirs
 zstyle ':chpwd:*' recent-dirs-file "$XDG_CACHE_HOME/chpwd-recent-dirs"
