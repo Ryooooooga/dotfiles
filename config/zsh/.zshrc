@@ -76,6 +76,7 @@ select_cdr() {
 }
 
 select_ghq() {
+    local root="$(ghq root)"
     local selected="$(ghq list | sort | fzf --exit-0 --preview="fzf-preview-git ${(q)root}/{}" --preview-window="right:60%")"
     if [ -n "$selected" ]; then
         local repo_dir="$(ghq list --exact --full-path "$selected")"
@@ -86,6 +87,7 @@ select_ghq() {
 }
 
 select_ghq_session() {
+    local root="$(ghq root)"
     local selected="$(ghq list | sort | fzf --exit-0 --preview="fzf-preview-git ${(q)root}/{}" --preview-window="right:60%")"
 
     if [ -z "$selected" ]; then
