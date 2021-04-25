@@ -1,0 +1,9 @@
+<snippet>
+	<description>clean</description>
+	<content><![CDATA[
+.PHONY: clean
+clean:
+	\${RM} $0]]></content>
+	<tabTrigger>clean</tabTrigger>
+	<scope>source.makefile</scope>
+</snippet>

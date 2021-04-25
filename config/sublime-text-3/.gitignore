@@ -10,6 +10,7 @@
 /Packages/User/*
 !/Packages/User/C++
 !/Packages/User/CMake
+!/Packages/User/Makefile
 !/Packages/User/Markdown
 !/Packages/User/*.sublime-build
 !/Packages/User/*.sublime-commands
