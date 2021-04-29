@@ -1,1 +1,1 @@
-# {{ .Path | Dir | Base }}
+# {{ .Filename | Abs | Dir | Base }}
