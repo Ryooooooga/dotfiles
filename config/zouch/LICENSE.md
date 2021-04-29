@@ -1,6 +1,6 @@
 # MIT License (MIT)
 
-Copyright (c) {{Now.Year}} {{Shell `git config user.name || echo "Ryooooooga"`}}
+Copyright (c) {{Now.Year}} {{Shell `git config user.name || yq eval '."github.com".user' "$XDG_CONFIG_HOME/gh/hosts.yml" || yq eval '."github.com"[0].user' "$XDG_CONFIG_HOME/hub" || echo "$USER"`}}
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
