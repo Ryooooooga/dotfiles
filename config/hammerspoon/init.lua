@@ -17,7 +17,5 @@ local function remap(mod, key, stroke)
     hs.hotkey.bind(mod, key, stroke, nil, stroke)
 end
 
-local caps = 'F20'
-
 -- shortcuts
 remap({'cmd'}, 'Y', keyStroke({'cmd', 'shift'}, 'Z'))
