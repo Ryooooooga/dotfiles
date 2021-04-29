@@ -5,3 +5,6 @@ git:
   disableForcePushing: true
 gui:
   showFileTree: true
+keybinding:
+  commits:
+    viewResetOptions: 'G'
