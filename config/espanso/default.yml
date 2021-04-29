@@ -8,6 +8,7 @@
 # it gets replaced by the "replace" string.
 secure_input_notification: false
 undo_backspace: false
+toggle_key: OFF
 
 matches:
   - trigger: ";mail"
