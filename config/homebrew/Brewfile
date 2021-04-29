@@ -26,10 +26,10 @@ brew "pinentry-mac"
 brew "sqlite"
 brew "tmux"
 brew "trash"
-brew "wget"
 brew "vim"
+brew "wget"
+brew "yq"
 brew "LouisBrunner/valgrind/valgrind", args: ["HEAD"]
-brew "nektos/tap/act"
 
 cask "alacritty"
 cask "alfred"
