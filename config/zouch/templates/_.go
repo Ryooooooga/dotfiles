@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func Test{{RegexReplaceAll .Filename `_test.go$` "" | Base | UpperCamelCase}}(t *testing.T) {
+func Test{{RegexReplaceAll .Filename `_test\.go$` "" | Base | UpperCamelCase}}(t *testing.T) {
 }
 {{ else -}}
 package {{.Filename | Abs | Dir | Base}}

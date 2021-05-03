@@ -1,1 +1,1 @@
-#include "{{ RegexReplaceAll .Filename `.c$` `.h` }}"
+#include "{{ RegexReplaceAll .Filename `\.c$` `.h` }}"
