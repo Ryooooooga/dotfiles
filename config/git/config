@@ -4,13 +4,13 @@
     pager = delta --dark
 
 [init]
-    defaultBranch = master
+    defaultBranch = main
     templateDir = ~/.config/git/template
 
 [commit]
     verbose = true
     gpgSign = false # overwriten in config.local
-	template = .git/commit-template.txt
+    template = .git/commit-template.txt
 
 [merge]
     ff = false
