@@ -5,9 +5,9 @@ autoload -Uz chpwd_recent_dirs
 autoload -Uz _zinit
 
 ### Aliases ###
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
+alias ..='builtin cd ..'
+alias ...='builtin cd ../..'
+alias ....='builtin cd ../../..'
 
 alias la='ls -a'
 alias ll='ls -al'
@@ -59,7 +59,7 @@ esac
 (( ${+commands[trash]} )) && alias rm='trash'
 (( ${+commands[colordiff]} )) && alias diff='colordiff'
 
-mkcd() { mkdir -p -- "$@" && cd "$(realpath -- "${@[-1]}")" }
+mkcd() { command mkdir -p -- "$@" && builtin cd "$(realpath -- "${@[-1]}")" }
 
 ### Tmux ###
 source "${0:a:h}/tmux.zsh"
@@ -93,6 +93,14 @@ zinit light 'zdharma/fast-syntax-highlighting'
 ### Autopair ###
 zinit ice lucid wait"0"
 zinit light 'hlissner/zsh-autopair'
+
+### zsh-abbrev-alias ###
+zinit ice lucid wait"0" \
+    atload"
+        abbrev-alias -c g='git'
+        abbrev-alias -c dok='docker'
+    "
+zinit light 'momo-lab/zsh-abbrev-alias'
 
 ### FZF ###
 export FZF_DEFAULT_OPTS="--reverse --border --ansi"
@@ -225,9 +233,6 @@ export LESSHISTFILE='-'
 zstyle ':completion:*:default' menu select=1
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
-### Git ###
-alias g='git'
-
 ### GPG ###
 export GPG_TTY="$(tty)"
 
@@ -238,9 +243,9 @@ alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 alias make='make -j$(($(nproc)+1))'
 
 ### CMake ###
-alias cmaked='cmake -DCMAKE_BUILD_TYPE=Debug'
-alias cmakerel='cmake -DCMAKE_BUILD_TYPE=Release'
-cmakeb() { cmake --build "$1" -j$(($(nproc)+1)) "${@:2}" }
+alias cmaked='cmake -DCMAKE_BUILD_TYPE=Debug -B "$(git rev-parse --show-toplevel)/build"'
+alias cmakerel='cmake -DCMAKE_BUILD_TYPE=Release -B "$(git rev-parse --show-toplevel)/build"'
+cmakeb() { cmake --build "${1:-$(git rev-parse --show-toplevel)/build}" -j"$(($(nproc)+1))" "${@:2}" }
 
 ### GDB ###
 alias gdb='gdb -q -nh -x "$XDG_DATA_HOME/gdb-dashboard/.gdbinit"'
@@ -280,8 +285,6 @@ docker-rmi() {
         command docker rmi "$@"
     fi
 }
-
-alias dok='docker'
 
 ### Vim ###
 export EDITOR="vi"
