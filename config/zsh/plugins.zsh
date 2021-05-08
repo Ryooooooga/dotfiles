@@ -196,11 +196,10 @@ zinit ice lucid wait"0" as"program" from"gh-r" \
                 zle __abbrev_alias::magic_abbrev_expand
                 zle -R -c
             }
-            zle pmy-widget
+            zle .pmy-widget
         }
-        zle -N pmy-widget-expand-abbrev
-
-        bindkey "$PMY_TRIGGER_KEY" pmy-widget-expand-abbrev
+        zle -N .pmy-widget pmy-widget
+        zle -N pmy-widget pmy-widget-expand-abbrev
     '
 zinit light 'relastle/pmy'
 

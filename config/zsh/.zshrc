@@ -50,14 +50,14 @@ add-zsh-hook precmd almel_precmd
 add-zsh-hook preexec almel_preexec
 
 ### key bindings ###
-clear_screen_and_update_prompt() {
+clear-screen-and-update-prompt() {
     ALMEL_STATUS=0
     almel_precmd
     zle .clear-screen
 }
-zle -N clear-screen clear_screen_and_update_prompt
+zle -N clear-screen clear-screen-and-update-prompt
 
-select_history() {
+select-history() {
     local selected="$(history -nr 1 | awk '!a[$0]++' | fzf --exit-0 --query "$LBUFFER" | sed 's/\\n/\n/g')"
     if [ -n "$selected" ]; then
         BUFFER="$selected"
@@ -66,7 +66,7 @@ select_history() {
     zle -R -c # refresh screen
 }
 
-select_cdr() {
+select-cdr() {
     local selected="$(cdr -l | awk '{ $1=""; print }' | sed 's/^ //' | fzf --exit-0 --preview="fzf-preview-directory '{}'" --preview-window="right:50%")"
     if [ -n "$selected" ]; then
         BUFFER="cd $selected"
@@ -75,7 +75,7 @@ select_cdr() {
     zle -R -c # refresh screen
 }
 
-select_ghq() {
+select-ghq() {
     local root="$(ghq root)"
     local selected="$(ghq list | sort | fzf --exit-0 --preview="fzf-preview-git ${(q)root}/{}" --preview-window="right:60%")"
     if [ -n "$selected" ]; then
@@ -86,7 +86,7 @@ select_ghq() {
     zle -R -c # refresh screen
 }
 
-select_ghq_session() {
+select-ghq-session() {
     local root="$(ghq root)"
     local selected="$(ghq list | sort | fzf --exit-0 --preview="fzf-preview-git ${(q)root}/{}" --preview-window="right:60%")"
 
@@ -112,7 +112,7 @@ select_ghq_session() {
     zle -R -c # refresh screen
 }
 
-select_dir() {
+select-dir() {
     local selected="$(fd --hidden --color=always --exclude='.git' --type=d . $(git rev-parse --show-cdup 2> /dev/null) | fzf --exit-0 --preview="fzf-preview-directory '{}'" --preview-window="right:50%")"
     if [ -n "$selected" ]; then
         BUFFER="cd $selected"
@@ -126,19 +126,19 @@ forward-kill-word() {
     zle vi-backward-kill-word
 }
 
-zle -N select_history
-zle -N select_cdr
-zle -N select_ghq
-zle -N select_ghq_session
-zle -N select_dir
+zle -N select-history
+zle -N select-cdr
+zle -N select-ghq
+zle -N select-ghq-session
+zle -N select-dir
 zle -N forward-kill-word
 
 bindkey -v
-bindkey "^R"        select_history                  # C-r
-bindkey "^F"        select_cdr                      # C-f
-bindkey "^G"        select_ghq_session              # C-g
-bindkey "^[g"       select_ghq                      # Alt-g
-bindkey "^O"        select_dir                      # C-o
+bindkey "^R"        select-history                  # C-r
+bindkey "^F"        select-cdr                      # C-f
+bindkey "^G"        select-ghq-session              # C-g
+bindkey "^[g"       select-ghq                      # Alt-g
+bindkey "^O"        select-dir                      # C-o
 bindkey "^A"        beginning-of-line               # C-a
 bindkey "^E"        end-of-line                     # C-e
 bindkey "^W"        vi-backward-kill-word           # C-w
