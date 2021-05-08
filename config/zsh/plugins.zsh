@@ -62,10 +62,9 @@ esac
 mkcd() { command mkdir -p -- "$@" && builtin cd "$(realpath -- "${@[-1]}")" }
 
 ### Tmux ###
-source "${0:a:h}/tmux.zsh"
-source "${0:a:h}/completions/tmux.completion.zsh"
+source "${0:a:h}/tmux-fzf.zsh"
+source "${0:a:h}/completions/tmux-fzf.completion.zsh"
 
-alias tmux='tmux -f "$XDG_CONFIG_HOME/tmux/tmux.conf"'
 alias t='tmux-fzf'
 
 ### zsh-history-substring-search ###
