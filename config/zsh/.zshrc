@@ -121,20 +121,28 @@ select_dir() {
     zle -R -c # refresh screen
 }
 
+forward-kill-word() {
+    zle vi-forward-word
+    zle vi-backward-kill-word
+}
+
 zle -N select_history
 zle -N select_cdr
 zle -N select_ghq
 zle -N select_ghq_session
 zle -N select_dir
+zle -N forward-kill-word
 
 bindkey -v
 bindkey "^R"        select_history                  # C-r
-bindkey "^F^F"      select_cdr                      # C-f C-f
+bindkey "^F"        select_cdr                      # C-f
 bindkey "^G"        select_ghq_session              # C-g
 bindkey "^[g"       select_ghq                      # Alt-g
 bindkey "^O"        select_dir                      # C-o
 bindkey "^A"        beginning-of-line               # C-a
 bindkey "^E"        end-of-line                     # C-e
+bindkey "^W"        vi-backward-kill-word           # C-w
+bindkey "^X^W"      forward-kill-word               # C-x C-w
 bindkey "^?"        backward-delete-char            # backspace
 bindkey "^[[3~"     delete-char                     # delete
 bindkey "^[[1;3D"   backward-word                   # Alt + arrow-left
