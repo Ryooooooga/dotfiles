@@ -14,6 +14,9 @@ ln -sfv "$XDG_CONFIG_HOME/editorconfig/.editorconfig" "$HOME/.editorconfig"
 ln -sfv "$XDG_CONFIG_HOME/commitizen/.czrc" "$HOME/.czrc"
 ln -sfnv "$XDG_CONFIG_HOME/vim" "$HOME/.vim"
 
+# tealdeer
+mkdir "$XDG_CACHE_HOME/tealdeer"
+
 if [ "$(uname)" = "Darwin" ]; then
     touch "$HOME/.hushlogin"
 

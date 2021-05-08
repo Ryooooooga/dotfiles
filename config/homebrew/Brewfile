@@ -24,7 +24,7 @@ brew "llvm"
 brew "neovim", args: ['HEAD']
 brew "pinentry-mac"
 brew "sqlite"
-brew "tldr"
+brew "tealdeer"
 brew "tmux"
 brew "trash"
 brew "vim"

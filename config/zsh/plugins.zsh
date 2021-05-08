@@ -330,6 +330,10 @@ export MYSQL_HISTFILE="$XDG_CACHE_HOME/mysql_history"
 ### PostgreSQL ###
 export PSQL_HISTORY="$XDG_CACHE_HOME/psql_history"
 
+### tealdeer ###
+export TEALDEER_CONFIG_DIR="$XDG_CONFIG_HOME/tealdeer"
+export TEALDEER_CACHE_DIR="$XDG_CACHE_HOME/tealdeer"
+
 ### youtube-dl ###
 if (( ${+commands[youtube-dl]} )); then
     alias youtube-audio='youtube-dl -x --no-playlist'
