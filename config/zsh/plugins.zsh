@@ -190,6 +190,17 @@ zinit ice lucid wait"0" as"program" from"gh-r" \
         export PMY_SCRIPT_PATH="$PMY_CONFIG_HOME/scripts"
         export PMY_FUZZY_FINDER_DEFAULT_CMD="fzf --exit-0 --select-1 --tiebreak='begin,index' --height=40% --cycle --preview-window=right:50%"
         eval "$(pmy init)"
+
+        pmy-widget-expand-abbrev() {
+            (( ${+functions[__abbrev_alias::magic_abbrev_expand]} )) && {
+                zle __abbrev_alias::magic_abbrev_expand
+                zle -R -c
+            }
+            zle pmy-widget
+        }
+        zle -N pmy-widget-expand-abbrev
+
+        bindkey "$PMY_TRIGGER_KEY" pmy-widget-expand-abbrev
     '
 zinit light 'relastle/pmy'
 
