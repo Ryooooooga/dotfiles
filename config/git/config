@@ -87,6 +87,9 @@
     stat = diff --stat
     sts = diff --stat --staged
 
+    # cherry-pick
+    cp = cherry-pick
+
     # hub
     sync = !hub sync
     pr = !hub pull-request
