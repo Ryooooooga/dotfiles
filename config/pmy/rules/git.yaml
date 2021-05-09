@@ -1,5 +1,5 @@
 - description: git-diff
-  regexp-left: ^\s*(?P<cmd>(git|g))\s+(?P<subcmd>(dfs|df|diffs|diff|stat))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
+  regexp-left: ^\s*(?P<cmd>(git))\s+(?P<subcmd>(dfs|df|diffs|diff|stat))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
   cmd-groups:
     - stmt: '"$PMY_SCRIPT_PATH/git-local-branches.zsh"'
     - stmt: '"$PMY_SCRIPT_PATH/git-remote-branches.zsh"'
@@ -15,7 +15,7 @@
   buffer-right: '[]'
 
 - description: git-fetch
-  regexp-left: ^\s*(?P<cmd>(git|g))\s+(?P<subcmd>(fetch|f))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
+  regexp-left: ^\s*(?P<cmd>(git))\s+(?P<subcmd>(fetch|f))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
   cmd-groups:
     - stmt: git remote
       after: awk '{ print $1 }'
@@ -27,7 +27,7 @@
   buffer-right: '[]'
 
 - description: git-switch
-  regexp-left: ^\s*(?P<cmd>(git|g))\s+(?P<subcmd>(switch|sw))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
+  regexp-left: ^\s*(?P<cmd>(git))\s+(?P<subcmd>(switch|sw))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
   cmd-groups:
     - stmt: '"$PMY_SCRIPT_PATH/git-local-branches.zsh"'
     - stmt: '"$PMY_SCRIPT_PATH/git-remote-branches.zsh"'
@@ -43,7 +43,7 @@
   buffer-right: '[]'
 
 - description: git-user
-  regexp-left: ^\s*(?P<cmd>(git|g))\s+(?P<subcmd>(user))(\s+|$)(?P<query>\S*)$
+  regexp-left: ^\s*(?P<cmd>(git))\s+(?P<subcmd>(user))(\s+|$)(?P<query>\S*)$
   cmd-groups:
     - stmt: git users | sed -E 's/:\s*/\t/'
       after: awk '{ print $1 }'
@@ -54,7 +54,7 @@
   buffer-right: '[]'
 
 - description: git
-  regexp-left: ^\s*(?P<cmd>(git|g))(\s+|$)(?P<query>\S*)$
+  regexp-left: ^\s*(?P<cmd>(git))(\s+|$)(?P<query>\S*)$
   cmd-groups:
     - stmt: '"$PMY_SCRIPT_PATH/options.zsh" "git/subcommands" "\ufb32" "command" "yellow"'
     - stmt: '"$PMY_SCRIPT_PATH/git-aliases.zsh"'
