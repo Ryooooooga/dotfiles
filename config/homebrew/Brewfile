@@ -35,7 +35,6 @@ brew "LouisBrunner/valgrind/valgrind", args: ["HEAD"]
 cask "alacritty"
 cask "alfred"
 cask "bitwarden"
-cask "dash"
 cask "docker"
 cask "firefox"
 cask "font-sauce-code-pro-nerd-font"
