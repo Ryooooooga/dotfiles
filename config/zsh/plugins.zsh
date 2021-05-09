@@ -255,7 +255,7 @@ alias make='make -j$(($(nproc)+1))'
 alias cmaked='cmake -DCMAKE_BUILD_TYPE=Debug -B "$(git rev-parse --show-toplevel)/build"'
 alias cmakerel='cmake -DCMAKE_BUILD_TYPE=Release -B "$(git rev-parse --show-toplevel)/build"'
 cmakeb() { cmake --build "${1:-$(git rev-parse --show-toplevel)/build}" -j"$(($(nproc)+1))" "${@:2}" }
-ctest() { command ctest --output-on-failure --test-dir "${1:-$(git rev-parse --show-toplevel)/build}" "${@:2}" }
+cmaket() { ctest --output-on-failure --test-dir "${1:-$(git rev-parse --show-toplevel)/build}" "${@:2}" }
 
 ### GDB ###
 alias gdb='gdb -q -nh -x "$XDG_DATA_HOME/gdb-dashboard/.gdbinit"'
