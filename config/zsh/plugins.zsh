@@ -109,9 +109,12 @@ zinit ice lucid wait"0" as"program" from"gh-r"
 zinit light 'junegunn/fzf'
 
 ### direnv ###
-zinit ice lucid wait"0" as"program" from"gh-r" \
+zinit ice lucid wait"!0" as"program" from"gh-r" \
     mv"direnv* -> direnv" \
-    atload'eval "$(direnv hook zsh)"'
+    nocd atload'
+        eval "$(direnv hook zsh)"
+        eval "$(direnv export zsh)"
+    '
 zinit light 'direnv/direnv'
 
 ### exa ###
