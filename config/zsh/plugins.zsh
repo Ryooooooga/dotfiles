@@ -8,6 +8,8 @@ autoload -Uz _zinit
 alias ..='builtin cd ..'
 alias ...='builtin cd ../..'
 alias ....='builtin cd ../../..'
+alias ..2='builtin cd ../..'
+alias ..3='builtin cd ../../..'
 
 alias la='ls -a'
 alias ll='ls -al'
