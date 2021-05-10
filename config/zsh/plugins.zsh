@@ -170,7 +170,7 @@ zinit light 'cli/cli'
 ### Lazygit ###
 zinit ice lucid wait"0" as"program" from"gh-r" \
     mv"lazygit* -> lazygit" \
-    atload"alias lg='lazygit'"
+    atload"abbrev-alias -c lg='lazygit'"
 zinit light 'jesseduffield/lazygit'
 
 ### GHQ ###
