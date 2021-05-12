@@ -1,7 +1,7 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 if [ -f "$FORGIT_PLUGIN_ZSH" ]; then
     source "$FORGIT_PLUGIN_ZSH"
-    forgit::diff "$@"
+    forgit::diff "$*"
     true
 else
     git diff "$@"
