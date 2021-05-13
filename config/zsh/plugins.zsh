@@ -113,7 +113,7 @@ zinit ice lucid wait"0" \
         abbrev-alias g="git"
         abbrev-alias dok="docker"
     '
-zinit light 'momo-lab/zsh-abbrev-alias'
+zinit light 'Ryooooooga/zsh-abbrev-alias'
 
 ### zsh-replace-multiple-dots ###
 zinit ice lucid wait"0"
