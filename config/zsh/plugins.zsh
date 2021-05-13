@@ -117,7 +117,7 @@ zinit light 'momo-lab/zsh-abbrev-alias'
 
 ### zsh-replace-multiple-dots ###
 zinit ice lucid wait"0"
-zinit light 'momo-lab/zsh-replace-multiple-dots'
+zinit light 'Ryooooooga/zsh-replace-multiple-dots'
 
 ### FZF ###
 export FZF_DEFAULT_OPTS="--reverse --border --ansi"
