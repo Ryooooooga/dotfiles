@@ -81,8 +81,9 @@
 
     # diff
     df = !git-df
+    dfi = df --ignore-all-space
     dfs = df --staged
-    diffs = df --staged
+    dfsi = df --staged --ignore-all-space
     st = diff --stat
     stat = diff --stat
     sts = diff --stat --staged
