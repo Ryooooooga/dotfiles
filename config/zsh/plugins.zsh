@@ -6,8 +6,8 @@ autoload -Uz _zinit
 
 ### Aliases ###
 alias ..='builtin cd ..'
-alias ...='builtin cd ../..'
-alias ....='builtin cd ../../..'
+alias ../..='builtin cd ../..'
+alias ../../..='builtin cd ../../..'
 alias ..2='builtin cd ../..'
 alias ..3='builtin cd ../../..'
 
@@ -102,6 +102,10 @@ zinit ice lucid wait"0" \
         abbrev-alias -c dok='docker'
     "
 zinit light 'momo-lab/zsh-abbrev-alias'
+
+### zsh-replace-multiple-dots ###
+zinit ice lucid wait"0"
+zinit light 'momo-lab/zsh-replace-multiple-dots'
 
 ### FZF ###
 export FZF_DEFAULT_OPTS="--reverse --border --ansi"
