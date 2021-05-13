@@ -97,10 +97,22 @@ zinit light 'hlissner/zsh-autopair'
 
 ### zsh-abbrev-alias ###
 zinit ice lucid wait"0" \
-    atload"
-        abbrev-alias -c g='git'
-        abbrev-alias -c dok='docker'
-    "
+    atload$'
+        abbrev-alias ..="cd .."
+        abbrev-alias ../..="cd ../.."
+        abbrev-alias ../../..="cd ../../.."
+        abbrev-alias ..2="cd ../.."
+        abbrev-alias ..3="cd ../../.."
+
+        abbrev-alias -g .1="awk \'{ print \\$1 }\'"
+        abbrev-alias -g .2="awk \'{ print \\$2 }\'"
+        abbrev-alias -g .3="awk \'{ print \\$3 }\'"
+        abbrev-alias -g .4="awk \'{ print \\$4 }\'"
+        abbrev-alias -g .5="awk \'{ print \\$5 }\'"
+
+        abbrev-alias g="git"
+        abbrev-alias dok="docker"
+    '
 zinit light 'momo-lab/zsh-abbrev-alias'
 
 ### zsh-replace-multiple-dots ###
