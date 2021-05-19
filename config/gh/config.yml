@@ -9,3 +9,4 @@ pager:
 # Aliases allow you to create nicknames for gh commands
 aliases:
     fork: repo fork
+    browse: repo view --web
