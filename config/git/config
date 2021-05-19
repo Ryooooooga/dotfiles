@@ -8,7 +8,7 @@
 
 [commit]
     verbose = true
-    gpgSign = false # overwriten in config.local
+    gpgSign = false # overwriten in conf.d/local.conf
     template = .git/commit-template.txt
 
 [merge]
@@ -25,7 +25,7 @@
     prune = true
 
 [tag]
-    forceSignAnnotated = false # overwriten in config.local
+    forceSignAnnotated = false # overwriten in conf.d/local.conf
 
 [alias]
     # add
@@ -92,12 +92,6 @@
 
     # hub
     sync = !hub sync
-    pr = !hub pull-request
-    browse = !hub browse
-    browse-issues = !hub browse -- issues
-    browse-pr = !hub browse -- pulls
-    browse-releases = !hub browse -- releases
-    browse-actions = !hub browse -- actions
 
     # git subcommands
     user = !git-user
@@ -111,18 +105,14 @@
 [users "ryoga"]
     name = Ryooooooga
     email = eial5q265e5@gmail.com
-    signingKey = "" # overwriten in config.local
+    signingKey = "" # overwriten in conf.d/local.conf
 
 [gpg]
     program = gpg
 
-[url "git@github.com:"]
-    pushInsteadOf = https://github.com/
-
-[url "git@gist.github.com:"]
-    pushInsteadOf = https://gist.github.com/Ryooooooga/
-
 [include]
     path = conf.d/delta.conf
     path = conf.d/ghq.conf
+    path = conf.d/gist.conf
+    path = conf.d/github.conf
     path = conf.d/local.conf
