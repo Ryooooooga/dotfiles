@@ -94,8 +94,9 @@ source $XDG_CONFIG_HOME/nvim/terminal.vim
 """ Filetype """
 augroup MyFileType
     autocmd!
-    autocmd BufNewFile,BufRead .envrc   set filetype=sh
-    autocmd BufNewFile,BufRead config   set filetype=gitconfig
+    autocmd BufNewFile,BufRead .envrc               set filetype=sh
+    autocmd BufNewFile,BufRead */git/config*        set filetype=gitconfig
+    autocmd BufNewFile,BufRead */git/conf.d/*.conf  set filetype=gitconfig
 augroup END
 
 """ dein.vim """

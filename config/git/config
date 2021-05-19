@@ -1,7 +1,6 @@
 [core]
     autocrlf = false
     ignoreCase = false
-    pager = delta --dark
 
 [init]
     defaultBranch = main
@@ -100,12 +99,6 @@
     browse-releases = !hub browse -- releases
     browse-actions = !hub browse -- actions
 
-    # ghq
-    create = !ghq create
-    get = !ghq get -p
-    list = !ghq list
-    update-all = "!ghq list | ghq get --update --parallel"
-
     # git subcommands
     user = !git-user
     users = !git-users
@@ -129,9 +122,7 @@
 [url "git@gist.github.com:"]
     pushInsteadOf = https://gist.github.com/Ryooooooga/
 
-[ghq]
-    user = Ryooooooga
-    root = ~/repos
-
 [include]
-    path = config.local
+    path = conf.d/delta.conf
+    path = conf.d/ghq.conf
+    path = conf.d/local.conf
