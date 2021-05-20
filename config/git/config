@@ -27,90 +27,12 @@
 [tag]
     forceSignAnnotated = false # overwriten in conf.d/local.conf
 
-[alias]
-    # add
-    a = !git-a
-    aa = add -vA
-    ae = !git-ae
-    ai = add -i
-
-    # config
-    aliases = config --get-regexp '^alias.*'
-
-    # branch
-    b = branch
-
-    # commit
-    c = commit
-    cm = commit -m
-    cz = !git-cz
-    uncommit = reset --soft HEAD^
-
-    # checkout
-    co = !echo 'use `switch` or `restore` instead of co (checkout)' && false
-    sw = switch
-
-    # tag
-    tags = tag -l
-
-    # fetch
-    f = fetch
-    fu = fetch upstream
-
-    # log
-    lg = !git-lg
-    graph = lg
-
-    # push
-    ps = push
-    psu = !git push -u origin \"$(git symbolic-ref --short HEAD)\"
-
-    # pull
-    pl = pull
-
-    # rev-parse
-    is-inside-repository = !git rev-parse 2> /dev/null || false
-    root = rev-parse --show-toplevel
-
-    # reflog
-    switch-log = !git reflog | grep 'checkout:' | awk '{ print $6 \" \" $1 \" \" $8 }' | sed -E 's/^([^ ]{12})[^ ]+/\\1…/g' | xargs -r -n3 printf '%-13s → (%s) %s\\n'
-
-    # status
-    s = status
-
-    # diff
-    df = !git-df
-    dfi = df --ignore-all-space
-    dfs = df --staged
-    dfsi = df --staged --ignore-all-space
-    st = diff --stat
-    stat = diff --stat
-    sts = diff --stat --staged
-
-    # cherry-pick
-    cp = cherry-pick
-
-    # hub
-    sync = !hub sync
-
-    # git subcommands
-    user = !git-user
-    users = !git-users
-    exec = !git-exec
-    ignore = !git-ignore
-
-[user]
-    useConfigOnly = true
-
-[users "ryoga"]
-    name = Ryooooooga
-    email = eial5q265e5@gmail.com
-    signingKey = "" # overwriten in conf.d/local.conf
-
 [gpg]
     program = gpg
 
 [include]
+    path = conf.d/alias.conf
+    path = conf.d/user.conf
     path = conf.d/delta.conf
     path = conf.d/ghq.conf
     path = conf.d/gist.conf
