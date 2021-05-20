@@ -1,0 +1,4 @@
+--map-syntax=".clang-format:YAML"
+--map-syntax="vimrc:VimL"
+--map-syntax="**/git/conf.d/*.conf:Git Config"
+--map-syntax="**/git/conf.d/*.conf.sample:Git Config"
