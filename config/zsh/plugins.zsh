@@ -156,6 +156,12 @@ zinit ice lucid wait"0" as"program" from"gh-r" \
     "
 zinit light 'sharkdp/bat'
 
+### bat-extras ###
+zinit ice lucid wait"0" as"program" from"gh-r" \
+    pick"bin/batgrep" \
+    atload"abbrev-alias brg='batgrep'"
+zinit light 'eth-p/bat-extras'
+
 ### fd ###
 zinit ice lucid wait"0" as"program" from"gh-r" \
     pick"fd*/fd"
