@@ -2,3 +2,4 @@
 --map-syntax="vimrc:VimL"
 --map-syntax="**/git/conf.d/*.conf:Git Config"
 --map-syntax="**/git/conf.d/*.conf.sample:Git Config"
+--map-syntax="ignore:Git Ignore"
