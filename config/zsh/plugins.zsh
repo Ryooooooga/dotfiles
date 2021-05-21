@@ -340,9 +340,17 @@ e() {
 }
 
 ### asdf-vm ###
+export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
+export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf/.asdfrc"
+
 if [ -e "$ASDF_DATA_DIR" ]; then
     source "$ASDF_DATA_DIR/asdf.sh"
 fi
+
+fpath=(
+    "$ASDF_DATA_DIR/completions"(N-/)
+    "$fpath[@]"
+)
 
 ### Node.js ###
 export NODE_REPL_HISTORY="$XDG_CACHE_HOME/node_history"

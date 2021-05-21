@@ -4,10 +4,18 @@ export ZINIT[HOME_DIR]="$XDG_DATA_HOME/zinit"
 source "${ZINIT[HOME_DIR]}/bin/zinit.zsh"
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-### zsh ###
-export ZSH_CONFIG_HOME="$XDG_CONFIG_HOME/zsh"
-export ZSH_DATA_HOME="$XDG_DATA_HOME/zsh"
-export ZSH_CACHE_HOME="$XDG_CACHE_HOME/zsh"
+### paths ###
+typeset -U path
+typeset -U fpath
+
+path=(
+    "$HOME/.local/bin"(N-/)
+    "$CARGO_HOME/bin"(N-/)
+    "$GEM_HOME/bin"(N-/)
+    "$GOPATH/bin"(N-/)
+    "$XDG_CONFIG_HOME/scripts/bin"(N-/)
+    "$path[@]"
+)
 
 ### history ###
 export HISTFILE="$XDG_CACHE_HOME/zsh_history"
@@ -169,6 +177,6 @@ zle -N zle-line-finish
 zle -N zle-keymap-select
 
 ### plugins ###
-zinit ice lucid wait"0" as"program" \
+zinit ice lucid wait"0" \
     atinit'. "$ZDOTDIR/plugins.zsh"'
 zinit light 'zdharma/null'
