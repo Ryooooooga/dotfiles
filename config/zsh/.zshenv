@@ -34,3 +34,7 @@ export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
 export BUNDLE_USER_HOME="$XDG_CONFIG_HOME/bundle"
 export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle"
 export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME/bundle/plugin"
+
+### asdf-vm ###
+export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
+export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf/.asdfrc"

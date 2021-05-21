@@ -70,33 +70,25 @@ source "${0:a:h}/completions/tmux-fzf.completion.zsh"
 alias t='tmux-fzf'
 
 ### zsh-history-substring-search ###
-zinit ice lucid wait"0" \
+zinit wait lucid light-mode \
     atload'
         bindkey "${terminfo[kcuu1]}" history-substring-search-up   # arrow-up
         bindkey "${terminfo[kcud1]}" history-substring-search-down # arrow-down
         bindkey "^[[A" history-substring-search-up   # arrow-up
         bindkey "^[[B" history-substring-search-down # arrow-down
-    '
-zinit light 'zsh-users/zsh-history-substring-search'
+    ' \
+    for 'zsh-users/zsh-history-substring-search'
 
-### AutoSuggestions ###
-zinit ice lucid wait"0"
-zinit light 'zsh-users/zsh-autosuggestions'
-
-### zsh-completions ###
-zinit ice lucid wait"0"
-zinit light 'zsh-users/zsh-completions'
-
-### Fast-Syntax-Highlight ###
-zinit ice lucid wait"0"
-zinit light 'zdharma/fast-syntax-highlighting'
-
-### Autopair ###
-zinit ice lucid wait"0"
-zinit light 'hlissner/zsh-autopair'
+### zsh plugins ###
+zinit wait lucid light-mode for \
+    'zsh-users/zsh-autosuggestions' \
+    'zsh-users/zsh-completions' \
+    'zdharma/fast-syntax-highlighting' \
+    'hlissner/zsh-autopair' \
+    'Ryooooooga/zsh-replace-multiple-dots'
 
 ### zsh-abbrev-alias ###
-zinit ice lucid wait"0" \
+zinit wait lucid light-mode \
     atload$'
         abbrev-alias ..="cd .."
         abbrev-alias ../..="cd ../.."
@@ -112,12 +104,8 @@ zinit ice lucid wait"0" \
 
         abbrev-alias g="git"
         abbrev-alias dok="docker"
-    '
-zinit light 'Ryooooooga/zsh-abbrev-alias'
-
-### zsh-replace-multiple-dots ###
-zinit ice lucid wait"0"
-zinit light 'Ryooooooga/zsh-replace-multiple-dots'
+    ' \
+    for 'Ryooooooga/zsh-abbrev-alias'
 
 ### FZF ###
 export FZF_DEFAULT_OPTS="--reverse --border --ansi"
@@ -162,15 +150,14 @@ zinit ice lucid wait"0" as"program" from"gh-r" \
     atload"abbrev-alias brg='batgrep'"
 zinit light 'eth-p/bat-extras'
 
-### fd ###
-zinit ice lucid wait"0" as"program" from"gh-r" \
-    pick"fd*/fd"
-zinit light 'sharkdp/fd'
-
-### hexyl ###
-zinit ice lucid wait"0" as"program" from"gh-r" \
-    pick"hexyl*/hexyl"
-zinit light 'sharkdp/hexyl'
+### programs ###
+zinit wait lucid light-mode as"program" from"gh-r" for \
+    pick"fd*/fd" @'sharkdp/fd' \
+    pick"hexyl*/hexyl" @'sharkdp/hexyl' \
+    pick"delta*/delta" @'dandavison/delta' \
+    pick"ghq*/ghq" @'x-motemen/ghq' \
+    pick"mmv*/mmv" @'itchyny/mmv' \
+    pick"zouch*/zouch" @'Ryooooooga/zouch'
 
 ### ripgrep ###
 zinit ice lucid wait"0" as"program" from"gh-r" \
@@ -179,11 +166,6 @@ zinit ice lucid wait"0" as"program" from"gh-r" \
         export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/config"
     '
 zinit light 'BurntSushi/ripgrep'
-
-### delta ###
-zinit ice lucid wait"0" as"program" from"gh-r" \
-    pick"delta*/delta"
-zinit light 'dandavison/delta'
 
 ### GitHub CLI ###
 zinit ice lucid wait"0" as"program" from"gh-r" \
@@ -199,11 +181,6 @@ zinit ice lucid wait"0" as"program" from"gh-r" \
     mv"lazygit* -> lazygit" \
     atload"abbrev-alias -c lg='lazygit'"
 zinit light 'jesseduffield/lazygit'
-
-### GHQ ###
-zinit ice lucid wait"0" as"program" from"gh-r" \
-    pick"ghq*/ghq"
-zinit light 'x-motemen/ghq'
 
 ### pmy ###
 zinit ice lucid wait"0" as"program" from"gh-r" \
@@ -244,16 +221,6 @@ zinit ice lucid wait"1" \
         export FORGIT_GI_TEMPLATES="$FORGIT_GI_REPO_LOCAL/templates"
     '
 zinit light 'wfxr/forgit'
-
-### mmv ###
-zinit ice lucid wait"0" as"program" from"gh-r" \
-    pick"mmv*/mmv"
-zinit light 'itchyny/mmv'
-
-### zouch ###
-zinit ice lucid wait"0" as"program" from"gh-r" \
-    pick"zouch*/zouch"
-zinit light 'Ryooooooga/zouch'
 
 ### chpwd-recent-dirs ###
 add-zsh-hook chpwd chpwd_recent_dirs
@@ -340,17 +307,9 @@ e() {
 }
 
 ### asdf-vm ###
-export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
-export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf/.asdfrc"
-
 if [ -e "$ASDF_DATA_DIR" ]; then
     source "$ASDF_DATA_DIR/asdf.sh"
 fi
-
-fpath=(
-    "$ASDF_DATA_DIR/completions"(N-/)
-    "$fpath[@]"
-)
 
 ### Node.js ###
 export NODE_REPL_HISTORY="$XDG_CACHE_HOME/node_history"

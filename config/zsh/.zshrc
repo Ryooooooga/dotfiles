@@ -17,6 +17,11 @@ path=(
     "$path[@]"
 )
 
+fpath=(
+    "$ASDF_DATA_DIR/completions"(N-/)
+    "$fpath[@]"
+)
+
 ### history ###
 export HISTFILE="$XDG_CACHE_HOME/zsh_history"
 export HISTSIZE=1000
@@ -35,10 +40,9 @@ setopt MAGIC_EQUAL_SUBST
 setopt PRINT_EIGHT_BIT
 
 ### theme ###
-zinit ice from"gh-r" as"program" \
+zinit light-mode from"gh-r" as"program" \
     mv"almel* -> almel" \
-    atclone"chmod +x almel" atpull"%atclone"
-zinit light 'Ryooooooga/almel'
+    for 'Ryooooooga/almel'
 
 almel_preexec() {
     unset ALMEL_STATUS
@@ -177,6 +181,6 @@ zle -N zle-line-finish
 zle -N zle-keymap-select
 
 ### plugins ###
-zinit ice lucid wait"0" \
-    atinit'. "$ZDOTDIR/plugins.zsh"'
-zinit light 'zdharma/null'
+zinit wait lucid light-mode as"null" \
+    atinit'. "$ZDOTDIR/plugins.zsh"' \
+    for 'zdharma/null'
