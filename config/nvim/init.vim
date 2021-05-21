@@ -97,6 +97,7 @@ augroup MyFileType
     autocmd BufNewFile,BufRead .envrc               set filetype=sh
     autocmd BufNewFile,BufRead */git/config*        set filetype=gitconfig
     autocmd BufNewFile,BufRead */git/conf.d/*.conf  set filetype=gitconfig
+    autocmd BufNewFile,BufRead Brewfile             set filetype=ruby
 augroup END
 
 """ dein.vim """
