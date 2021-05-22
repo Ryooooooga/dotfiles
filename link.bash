@@ -30,8 +30,8 @@ if [ "$(uname)" = "Darwin" ]; then
         cp -v "$XDG_CONFIG_HOME/dash/library.dash" "$DASH_LIBRARY"
     fi
 
-    # Sublime Text 3
-    SUBL_DIR="$HOME/Library/Application Support/Sublime Text 3"
+    # Sublime Text
+    SUBL_DIR="$HOME/Library/Application Support/Sublime Text"
     mkdir -p "$SUBL_DIR"
-    ln -sfv "$XDG_CONFIG_HOME/sublime-text-3/Packages" "$SUBL_DIR"
+    ln -sfv "$XDG_CONFIG_HOME/sublime-text/Packages" "$SUBL_DIR"
 fi
