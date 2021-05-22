@@ -1,9 +1,3 @@
-### autoloads ###
-autoload -Uz compinit && compinit
-autoload -Uz cdr
-autoload -Uz chpwd_recent_dirs
-autoload -Uz _zinit
-
 ### Aliases ###
 alias la='ls -a'
 alias ll='ls -al'
@@ -80,12 +74,6 @@ alias batman='bat --language=man'
 
 ### ripgrep ###
 export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/config"
-
-### Tmux ###
-source "${0:a:h}/tmux-fzf.zsh"
-source "${0:a:h}/completions/tmux-fzf.completion.zsh"
-
-alias t='tmux-fzf'
 
 ### zsh-abbrev-alias ###
 zinit light-mode for 'Ryooooooga/zsh-abbrev-alias'
@@ -287,13 +275,30 @@ e() {
     fi
 }
 
-### asdf-vm ###
-if [ -e "$ASDF_DATA_DIR" ]; then
-    source "$ASDF_DATA_DIR/asdf.sh"
-fi
+### Go ###
+export GOPATH="$XDG_DATA_HOME/go"
+export GO111MODULE="on"
+
+path=("$GOPATH/bin"(N-/) "$path[@]")
 
 ### Node.js ###
 export NODE_REPL_HISTORY="$XDG_CACHE_HOME/node_history"
+
+### npm ###
+export NPM_CONFIG_DIR="$XDG_CONFIG_HOME/npm"
+export NPM_DATA_DIR="$XDG_DATA_HOME/npm"
+export NPM_CACHE_DIR="$XDG_CACHE_HOME/npm"
+export NPM_CONFIG_USERCONFIG="$NPM_CONFIG_DIR/npmrc"
+
+### Rubygems ###
+export GEM_HOME="$XDG_DATA_HOME/gem"
+export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
+
+export BUNDLE_USER_HOME="$XDG_CONFIG_HOME/bundle"
+export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle"
+export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME/bundle/plugin"
+
+path=("$GEM_HOME/bin"(N-/) "$path[@]")
 
 ### irb ###
 export IRBRC="$XDG_CONFIG_HOME/irb/irbrc"
@@ -323,6 +328,28 @@ export TEALDEER_CACHE_DIR="$XDG_CACHE_HOME/tealdeer"
 if (( ${+commands[youtube-dl]} )); then
     alias youtube-audio='youtube-dl -x --no-playlist'
 fi
+
+### asdf-vm ###
+export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
+export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf/.asdfrc"
+
+if [ -e "$ASDF_DATA_DIR" ]; then
+    source "$ASDF_DATA_DIR/asdf.sh"
+fi
+
+fpath=("$ASDF_DATA_DIR/completions"(N-/) "$fpath[@]")
+
+### autoloads ###
+autoload -Uz compinit && compinit
+autoload -Uz cdr
+autoload -Uz chpwd_recent_dirs
+autoload -Uz _zinit
+
+### Tmux ###
+source "${0:a:h}/tmux-fzf.zsh"
+source "${0:a:h}/completions/tmux-fzf.completion.zsh"
+
+alias t='tmux-fzf'
 
 ### local ###
 if [ -f "$ZDOTDIR/.zshrc.local" ]; then

@@ -11,15 +11,8 @@ typeset -U fpath
 path=(
     "$HOME/.local/bin"(N-/)
     "$CARGO_HOME/bin"(N-/)
-    "$GEM_HOME/bin"(N-/)
-    "$GOPATH/bin"(N-/)
     "$XDG_CONFIG_HOME/scripts/bin"(N-/)
     "$path[@]"
-)
-
-fpath=(
-    "$ASDF_DATA_DIR/completions"(N-/)
-    "$fpath[@]"
 )
 
 ### history ###
