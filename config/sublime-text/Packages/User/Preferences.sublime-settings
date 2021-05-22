@@ -26,6 +26,8 @@
 		"selection",
 		"trailing",
 	],
+	"draw_unicode_white_space": "all",
+	"control_character_style": "names",
 
 	// Status bar
 	"show_encoding": true,
