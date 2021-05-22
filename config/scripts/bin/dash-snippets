@@ -2,7 +2,7 @@
 DASH_LIBRARY="$HOME/Library/Application Support/Dash/library.dash"
 
 if [ ! -f "$DASH_LIBRARY" ]; then
-    echo "$DASH_LIBRARY not found." > /dev/stderr
+    echo "$DASH_LIBRARY not found." >/dev/stderr
     exit 1
 fi
 
@@ -23,6 +23,6 @@ elif [ "$1" = "add" ] && [ "$#" -eq 3 ]; then
 
     list
 else
-    echo "dash-snippet [add <shorthand> <text>]" 2> /dev/stderr
+    echo "dash-snippet [add <shorthand> <text>]" 2>/dev/stderr
     exit 1
 fi

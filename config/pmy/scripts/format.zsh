@@ -33,4 +33,3 @@ awk -F '\t' \
     -v icon="$icon" \
     -v header="$header" \
     '{ printf fmt, icon, header, $1, $2, $3 }'
-

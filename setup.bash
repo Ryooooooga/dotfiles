@@ -39,7 +39,7 @@ if [ "$(uname)" = "Darwin" ]; then
 
     # Homebrew
     echo "Installing Homebrew..."
-    if type brew > /dev/null; then
+    if type brew >/dev/null; then
         echo "Homebrew is already installed."
     else
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"

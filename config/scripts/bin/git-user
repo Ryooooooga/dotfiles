@@ -9,7 +9,7 @@ if [ "$#" -gt 0 ]; then
         exit 1
     fi
 
-    prev_committer_email="$(git --no-pager show --quiet --pretty="format:%ce" 2> /dev/null)"
+    prev_committer_email="$(git --no-pager show --quiet --pretty="format:%ce" 2>/dev/null)"
     if [ -n "$prev_committer_email" ] && [ "$prev_committer_email" != "$email" ]; then
         committer="$(git --no-pager show --quiet --pretty="format:%cn <%ce>")"
         printf "\x1b[41m!!! The Last Committer is %s !!!\x1b[m\n" "$committer"

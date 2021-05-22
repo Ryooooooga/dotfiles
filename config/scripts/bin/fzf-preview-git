@@ -14,4 +14,3 @@ elif [ -f "$1/README" ]; then
 else
     git -C "$1" log --graph --color -n50
 fi
-
