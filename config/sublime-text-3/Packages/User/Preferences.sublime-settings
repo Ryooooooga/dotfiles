@@ -1,16 +1,27 @@
 {
+	// Themes and Color schemes
+	"theme": "Adaptive.sublime-theme",
+	"color_scheme": "Packages/Color Scheme - Default/Mariana.sublime-color-scheme",
+
+	// Fonts
+	"font_size": 12,
+	"font_face": "JetBrains Mono",
+	"font_options": ["subpixel_antialias"],
+
 	"bold_folder_labels": true,
 	"close_windows_when_empty": false,
 	"default_line_ending": "unix",
-	"draw_white_space": "all",
-	"font_size": 12,
+	"draw_white_space": [
+		"all_tabs",
+		"selection",
+		"trailing",
+	],
 	"ignored_packages":
 	[
-		"Vintage"
+		"Vintage",
 	],
 	"scroll_past_end": true,
 	"shift_tab_unindent": true,
 	"show_encoding": true,
 	"show_line_endings": true,
-	"theme": "Adaptive.sublime-theme"
 }
