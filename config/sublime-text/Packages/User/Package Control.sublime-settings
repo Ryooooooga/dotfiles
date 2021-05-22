@@ -7,7 +7,6 @@
 	[
 		"A File Icon",
 		"AdvancedNewFile",
-		"All Autocomplete",
 		"BracketHighlighter",
 		"Case Conversion",
 		"Clang Format",
@@ -30,7 +29,7 @@
 		"SublimeGHQ",
 		"SyncedSideBar",
 		"TodoReview",
-		"TOML"
+		"TOML",
 	],
 	"repositories":
 	[
