@@ -126,8 +126,36 @@ zinit wait lucid light-mode for \
 
 ### programs ###
 zinit wait lucid light-mode as"program" from"gh-r" for \
-    pick"delta*/delta" @'dandavison/delta' \
-    pick"zouch*/zouch" @'Ryooooooga/zouch'
+    pick"delta*/delta"  @'dandavison/delta' \
+    pick"mmv*/mmv"      @'itchyny/mmv' \
+    pick"ripgrep*/rg"   @'BurntSushi/ripgrep' \
+    pick"zouch*/zouch"  @'Ryooooooga/zouch'
+
+### GitHub CLI ###
+zinit wait lucid light-mode as"program" from"gh-r" for \
+    pick"gh*/bin/gh" \
+    atload'eval "$(gh completion -s zsh)"' \
+    'cli/cli'
+
+### exa ###
+zinit wait lucid light-mode as"program" from"gh-r" for \
+    pick"bin/exa" \
+    atload'
+        ln -sf "$PWD/completions/exa.zsh" "${ZINIT[COMPLETIONS_DIR]}/_exa"
+    ' \
+    'ogham/exa'
+
+### tealdeer ###
+zinit wait lucid light-mode as"program" from"gh-r" for \
+    if'[[ "$OSTYPE" =~ "linux" ]]' \
+    mv"tldr* -> tldr" \
+    'dbrgn/tealdeer'
+
+### yq ###
+zinit wait lucid light-mode as"program" from"gh-r" for \
+    mv"yq* -> yq" \
+    atload'eval "$(yq shell-completion zsh)"' \
+    'mikefarah/yq'
 
 ### bat-extras ###
 zinit wait lucid light-mode as"program" from"gh-r" \
