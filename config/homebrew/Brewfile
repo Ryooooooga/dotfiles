@@ -29,7 +29,6 @@ brew "hub"
 brew "jq"
 brew "lazygit"
 brew "llvm"
-brew "mmv"
 brew "neovim", args: ['HEAD']
 brew "pinentry-mac"
 brew "ripgrep"
@@ -40,6 +39,7 @@ brew "trash"
 brew "vim"
 brew "wget"
 brew "yq"
+brew "itchyny/tap/mmv"
 brew "LouisBrunner/valgrind/valgrind", args: ["HEAD"]
 
 cask "alacritty"
