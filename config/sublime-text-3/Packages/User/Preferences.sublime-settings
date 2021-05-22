@@ -3,25 +3,47 @@
 	"theme": "Adaptive.sublime-theme",
 	"color_scheme": "Packages/Color Scheme - Default/Mariana.sublime-color-scheme",
 
-	// Fonts
+	// Font
 	"font_size": 12,
 	"font_face": "JetBrains Mono",
-	"font_options": ["subpixel_antialias"],
+	"font_options": [
+		"subpixel_antialias",
+		// "no_calt", // disable ligatures
+	],
 
-	"bold_folder_labels": true,
+	// Window
 	"close_windows_when_empty": false,
+
+	// Editor
+	"rulers": [120],
+	"scroll_past_end": true,
+
+	// Whitespaces
+	"word_separators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?　「」（）、。",
 	"default_line_ending": "unix",
 	"draw_white_space": [
 		"all_tabs",
 		"selection",
 		"trailing",
 	],
-	"ignored_packages":
-	[
-		"Vintage",
-	],
-	"scroll_past_end": true,
-	"shift_tab_unindent": true,
+
+	// Status bar
 	"show_encoding": true,
 	"show_line_endings": true,
+
+	// Controls
+	"shift_tab_unindent": true,
+
+	// Sidebar
+	"bold_folder_labels": true,
+
+	// Snippets
+	"ignored_snippets": [
+		"C++/*",
+	],
+
+	// Packages
+	"ignored_packages": [
+		"Vintage",
+	],
 }
