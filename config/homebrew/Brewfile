@@ -1,7 +1,6 @@
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "LouisBrunner/valgrind"
-tap "nektos/tap"
 
 brew "autoconf"
 brew "bash"
