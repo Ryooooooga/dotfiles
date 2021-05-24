@@ -76,7 +76,7 @@ alias batman='bat --language=man'
 export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/config"
 
 ### zsh-abbrev-alias ###
-zinit light-mode for 'Ryooooooga/zsh-abbrev-alias'
+zinit blockf light-mode for 'Ryooooooga/zsh-abbrev-alias'
 
 abbrev-alias ..="cd .."
 abbrev-alias ../..="cd ../.."
