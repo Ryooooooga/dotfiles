@@ -3,19 +3,17 @@ REPO_DIR="$(cd "$(dirname "$0")" || exit 1; pwd)"
 XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
 
-mkdir -p "$XDG_CONFIG_HOME"
-mkdir -p "$XDG_DATA_HOME/vim"
 mkdir -p "$HOME/.gnupg"
 chmod 700 "$HOME/.gnupg"
+mkdir -p "$XDG_CONFIG_HOME"
+mkdir -p "$XDG_DATA_HOME/vim"
+mkdir -p "$XDG_CACHE_HOME/tealdeer"
 
 ln -sfv "$REPO_DIR/config/"* "$XDG_CONFIG_HOME"
 ln -sfv "$XDG_CONFIG_HOME/zsh/.zshenv" "$HOME/.zshenv"
 ln -sfv "$XDG_CONFIG_HOME/editorconfig/.editorconfig" "$HOME/.editorconfig"
 ln -sfv "$XDG_CONFIG_HOME/commitizen/.czrc" "$HOME/.czrc"
 ln -sfnv "$XDG_CONFIG_HOME/vim" "$HOME/.vim"
-
-# tealdeer
-mkdir "$XDG_CACHE_HOME/tealdeer"
 
 if [ "$(uname)" = "Darwin" ]; then
     touch "$HOME/.hushlogin"
