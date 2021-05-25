@@ -70,7 +70,7 @@ export FZF_DEFAULT_COMMAND='fd --color=always --hidden'
 export MANPAGER="sh -c 'col -bx | bat --color=always --language=man --plain'"
 
 alias cat='bat --paging=never'
-alias batman='bat --language=man'
+alias batman='bat --language=man --plain'
 
 ### ripgrep ###
 export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/config"
