@@ -11,8 +11,15 @@
     gpgSign = false # overwritten in conf.d/local.conf
     template = .git/commit-template.txt
 
+[tag]
+    forceSignAnnotated = false # overwritten in conf.d/local.conf
+
 [merge]
     ff = false
+    conflictStyle = diff3
+
+[fetch]
+    prune = true
 
 [pull]
     ff = only
@@ -20,12 +27,6 @@
 [push]
     default = simple
     followTags = true
-
-[fetch]
-    prune = true
-
-[tag]
-    forceSignAnnotated = false # overwritten in conf.d/local.conf
 
 [gpg]
     program = gpg
