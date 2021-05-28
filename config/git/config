@@ -6,6 +6,9 @@
     defaultBranch = main
     templateDir = ~/.config/git/template
 
+[status]
+    showUntrackedFiles = all
+
 [commit]
     verbose = true
     gpgSign = false # overwritten in conf.d/local.conf
