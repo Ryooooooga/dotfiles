@@ -95,13 +95,14 @@ abbrev-alias g="git"
 abbrev-alias lg="lazygit"
 
 ### zsh-history-substring-search ###
+__zsh_history_substring_search_atload() {
+    bindkey "${terminfo[kcuu1]}" history-substring-search-up   # arrow-up
+    bindkey "${terminfo[kcud1]}" history-substring-search-down # arrow-down
+    bindkey "^[[A" history-substring-search-up   # arrow-up
+    bindkey "^[[B" history-substring-search-down # arrow-down
+}
 zinit wait lucid light-mode \
-    atload'
-        bindkey "${terminfo[kcuu1]}" history-substring-search-up   # arrow-up
-        bindkey "${terminfo[kcud1]}" history-substring-search-down # arrow-down
-        bindkey "^[[A" history-substring-search-up   # arrow-up
-        bindkey "^[[B" history-substring-search-down # arrow-down
-    ' \
+    atload'__zsh_history_substring_search_atload' \
     for 'zsh-users/zsh-history-substring-search'
 
 ### zsh plugins ###
@@ -120,17 +121,23 @@ zinit wait lucid light-mode as"program" from"gh-r" for \
     pick"zouch*/zouch"  @'Ryooooooga/zouch'
 
 ### GitHub CLI ###
+__gh_atload() {
+    eval "$(gh completion -s zsh)"
+}
+
 zinit wait lucid light-mode as"program" from"gh-r" for \
     pick"gh*/bin/gh" \
-    atload'eval "$(gh completion -s zsh)"' \
+    atload'__gh_atload' \
     'cli/cli'
 
 ### exa ###
+__exa_atclone() {
+    ln -sf "$PWD/completions/exa.zsh" "${ZINIT[COMPLETIONS_DIR]}/_exa"
+}
+
 zinit wait lucid light-mode as"program" from"gh-r" for \
     pick"bin/exa" \
-    atload'
-        ln -sf "$PWD/completions/exa.zsh" "${ZINIT[COMPLETIONS_DIR]}/_exa"
-    ' \
+    atclone'__exa_atclone' atpull'%atclone' \
     'ogham/exa'
 
 ### tealdeer ###
@@ -140,40 +147,50 @@ zinit wait lucid light-mode as"program" from"gh-r" for \
     'dbrgn/tealdeer'
 
 ### yq ###
+__yq_atload() {
+    eval "$(yq shell-completion zsh)"
+}
+
 zinit wait lucid light-mode as"program" from"gh-r" for \
     mv"yq* -> yq" \
-    atload'eval "$(yq shell-completion zsh)"' \
+    atload'__yq_atload' \
     'mikefarah/yq'
 
 ### bat-extras ###
+__bat_extras_atload() {
+    abbrev-alias brg='batgrep'
+}
+
 zinit wait lucid light-mode as"program" from"gh-r" \
     pick"bin/batgrep" \
-    atload"abbrev-alias brg='batgrep'" \
+    atload"__bat_extras_atload" \
     for 'eth-p/bat-extras'
 
 ### pmy ###
+__pmy_atload() {
+    export PMY_TRIGGER_KEY="^P"
+    export PMY_CONFIG_HOME="$XDG_CONFIG_HOME/pmy"
+    export PMY_RULE_PATH="$PMY_CONFIG_HOME/rules"
+    export PMY_SNIPPET_PATH="$PMY_CONFIG_HOME/snippets"
+    export PMY_LOG_PATH="$XDG_CACHE_HOME/pmy/log.txt"
+    export PMY_SCRIPT_PATH="$PMY_CONFIG_HOME/scripts"
+    export PMY_FUZZY_FINDER_DEFAULT_CMD="fzf --exit-0 --select-1 --tiebreak=begin,index --height=40% --cycle --preview-window=right:50%"
+    eval "$(pmy init)"
+
+    pmy-widget-expand-abbrev() {
+        (( ${+functions[__abbrev_alias::magic_abbrev_expand]} )) && {
+            zle __abbrev_alias::magic_abbrev_expand
+            zle -R -c
+        }
+        zle .pmy-widget
+    }
+    zle -N .pmy-widget pmy-widget
+    zle -N pmy-widget pmy-widget-expand-abbrev
+}
+
 zinit wait lucid light-mode as"program" from"gh-r" \
     pick"pmy*/pmy" \
-    atload'
-        export PMY_TRIGGER_KEY="^P"
-        export PMY_CONFIG_HOME="$XDG_CONFIG_HOME/pmy"
-        export PMY_RULE_PATH="$PMY_CONFIG_HOME/rules"
-        export PMY_SNIPPET_PATH="$PMY_CONFIG_HOME/snippets"
-        export PMY_LOG_PATH="$XDG_CACHE_HOME/pmy/log.txt"
-        export PMY_SCRIPT_PATH="$PMY_CONFIG_HOME/scripts"
-        export PMY_FUZZY_FINDER_DEFAULT_CMD="fzf --exit-0 --select-1 --tiebreak=begin,index --height=40% --cycle --preview-window=right:50%"
-        eval "$(pmy init)"
-
-        pmy-widget-expand-abbrev() {
-            (( ${+functions[__abbrev_alias::magic_abbrev_expand]} )) && {
-                zle __abbrev_alias::magic_abbrev_expand
-                zle -R -c
-            }
-            zle .pmy-widget
-        }
-        zle -N .pmy-widget pmy-widget
-        zle -N pmy-widget pmy-widget-expand-abbrev
-    ' \
+    atload'__pmy_atload' \
     for 'relastle/pmy'
 
 ### Emojify ###
@@ -182,13 +199,18 @@ zinit wait lucid light-mode as"program" \
     for 'mrowa44/emojify'
 
 ### Forgit ###
+__forgit_atinit() {
+    export FORGIT_NO_ALIASES=1
+}
+__forgit_atload() {
+    export FORGIT_PLUGIN_ZSH="${ZINIT[PLUGINS_DIR]}/wfxr---forgit/forgit.plugin.zsh"
+    export FORGIT_GI_REPO_LOCAL="$XDG_DATA_HOME/gitignore"
+    export FORGIT_GI_TEMPLATES="$FORGIT_GI_REPO_LOCAL/templates"
+}
+
 zinit wait'1' lucid light-mode \
-    atinit'export FORGIT_NO_ALIASES=1' \
-    atload'
-        export FORGIT_PLUGIN_ZSH="${ZINIT[PLUGINS_DIR]}/wfxr---forgit/forgit.plugin.zsh"
-        export FORGIT_GI_REPO_LOCAL="$XDG_DATA_HOME/gitignore"
-        export FORGIT_GI_TEMPLATES="$FORGIT_GI_REPO_LOCAL/templates"
-    ' \
+    atinit'__forgit_atinit' \
+    atload'__forgit_atload' \
     for 'wfxr/forgit'
 
 ### chpwd-recent-dirs ###
