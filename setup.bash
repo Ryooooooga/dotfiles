@@ -30,6 +30,9 @@ if [ "$(uname)" = "Darwin" ]; then
     # Disable .DS_Store on network disks
     defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
+    # Screen capture
+    defaults write com.apple.screencapture disable-shadow -bool true
+
     killall Dock
     killall Finder
     killall SystemUIServer
