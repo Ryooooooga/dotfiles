@@ -110,9 +110,7 @@ select-ghq-session() {
         BUFFER="cd ${(q)repo_dir}"
         zle accept-line
     else
-        if ! tmux has-session -t "$session_name" 2> /dev/null; then
-            tmux new-session -d -s "$session_name" -c "$repo_dir"
-        fi
+        tmux new-session -d -s "$session_name" -c "$repo_dir" 2>/dev/null
         tmux switch-client -t "$session_name"
     fi
     zle -R -c # refresh screen
