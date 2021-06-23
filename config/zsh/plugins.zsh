@@ -32,6 +32,7 @@ case "$OSTYPE" in
         alias p='pbpaste'
         (( ${+commands[gdate]} )) && alias date='gdate'
         (( ${+commands[gls]} )) && alias ls='gls --color=auto'
+        (( ${+commands[gmkdir]} )) && alias mkdir='gmkdir'
         (( ${+commands[gcp]} )) && alias cp='gcp -i'
         (( ${+commands[gmv]} )) && alias mv='gmv -i'
         (( ${+commands[grm]} )) && alias rm='grm -i'
