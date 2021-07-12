@@ -28,7 +28,7 @@ brew "hub"
 brew "jq"
 brew "lazygit"
 brew "llvm"
-brew "neovim", args: ['HEAD']
+brew "neovim"
 brew "pinentry-mac"
 brew "ripgrep"
 brew "shellcheck"
