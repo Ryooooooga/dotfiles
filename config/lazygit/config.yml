@@ -3,6 +3,9 @@ quitOnTopLevelReturn: true
 notARepository: 'skip'
 git:
   disableForcePushing: true
+  paging:
+    colorArg: always
+    useConfig: true
 gui:
   showFileTree: true
   showRandomTip: false
