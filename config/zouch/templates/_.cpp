@@ -1,1 +1,1 @@
-#include "{{ RegexReplaceAll .Filename `\.cpp$` `.hpp` }}"
+#include "{{ RegexReplaceAll (.Filename | Base) `\.cpp$` `.hpp` }}"
