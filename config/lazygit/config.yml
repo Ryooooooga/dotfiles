@@ -9,6 +9,8 @@ git:
 gui:
   showFileTree: true
   showRandomTip: false
+os:
+  openCommand: "code --goto {{filename}}"
 keybinding:
   commits:
     viewResetOptions: 'G'
