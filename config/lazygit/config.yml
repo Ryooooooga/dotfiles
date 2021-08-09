@@ -6,6 +6,7 @@ git:
   paging:
     colorArg: always
     useConfig: true
+  parseEmoji: true
 gui:
   showFileTree: true
   showRandomTip: false
