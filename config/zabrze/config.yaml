@@ -61,6 +61,24 @@ abbrevs:
     global: true
     context: '^git\s'
 
+  - name: git df --ignore-all-space
+    abbr: dfi
+    snippet: df --ignore-all-space
+    global: true
+    context: '^git\s'
+
+  - name: git df --staged
+    abbr: dfs
+    snippet: df --staged
+    global: true
+    context: '^git\s'
+
+  - name: git df --staged --ignore-all-space
+    abbr: dfsi
+    snippet: df --staged --ignore-all-space
+    global: true
+    context: '^git\s'
+
   - name: git fetch
     abbr: f
     snippet: fetch
@@ -82,6 +100,25 @@ abbrevs:
   - name: git push
     abbr: ps
     snippet: push
+    global: true
+    context: '^git\s'
+
+  - name: git push -u origin BRANCH
+    abbr: psu
+    snippet: push -u origin $(git symbolic-ref --short HEAD)
+    evaluate: true
+    global: true
+    context: '^git\s'
+
+  - name: git stat
+    abbr: st
+    snippet: stat
+    global: true
+    context: '^git\s'
+
+  - name: git stat --staged
+    abbr: sts
+    snippet: stat --staged
     global: true
     context: '^git\s'
 
