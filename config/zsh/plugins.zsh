@@ -55,6 +55,11 @@ mkcd() { command mkdir -p -- "$@" && builtin cd "$(realpath -- "${@[-1]}")" }
 ### direnv ###
 (( ${+commands[direnv]} )) && eval "$(direnv hook zsh)"
 
+### zabrze ###
+zinit blockf light-mode as'program' from'gh-r' for \
+    atload'eval "$(zabrze init --bind-keys)"' \
+    'Ryooooooga/zabrze'
+
 ### exa ###
 if (( ${+commands[exa]} )); then
     alias ls='exa --group-directories-first'
@@ -75,25 +80,6 @@ alias batman='bat --language=man --plain'
 
 ### ripgrep ###
 export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/config"
-
-### zsh-abbrev-alias ###
-zinit blockf light-mode for 'Ryooooooga/zsh-abbrev-alias'
-
-abbrev-alias ..="cd .."
-abbrev-alias ../..="cd ../.."
-abbrev-alias ../../..="cd ../../.."
-abbrev-alias ..2="cd ../.."
-abbrev-alias ..3="cd ../../.."
-
-abbrev-alias -g .1="awk '{ print \$1 }'"
-abbrev-alias -g .2="awk '{ print \$2 }'"
-abbrev-alias -g .3="awk '{ print \$3 }'"
-abbrev-alias -g .4="awk '{ print \$4 }'"
-abbrev-alias -g .5="awk '{ print \$5 }'"
-
-abbrev-alias dok="docker"
-abbrev-alias g="git"
-abbrev-alias lg="lazygit"
 
 ### zsh-history-substring-search ###
 __zsh_history_substring_search_atload() {
@@ -158,13 +144,8 @@ zinit wait lucid light-mode as"program" from"gh-r" for \
     'mikefarah/yq'
 
 ### bat-extras ###
-__bat_extras_atload() {
-    abbrev-alias brg='batgrep'
-}
-
 zinit wait lucid light-mode as"program" from"gh-r" \
     pick"bin/batgrep" \
-    atload"__bat_extras_atload" \
     for 'eth-p/bat-extras'
 
 ### pmy ###
@@ -179,8 +160,8 @@ __pmy_atload() {
     eval "$(pmy init)"
 
     pmy-widget-expand-abbrev() {
-        (( ${+functions[__abbrev_alias::magic_abbrev_expand]} )) && {
-            zle __abbrev_alias::magic_abbrev_expand
+        (( ${+functions[zabrze::expand]} )) && {
+            zle zabrze::expand
             zle -R -c
         }
         zle .pmy-widget

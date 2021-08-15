@@ -1,0 +1,140 @@
+abbrevs:
+  # cd
+  - name: ..
+    abbr: ..
+    snippet: cd ..
+
+  - name: ../..
+    abbr: ../..
+    snippet: cd ../..
+
+  - name: ../../..
+    abbr: ../../..
+    snippet: cd ../../..
+
+  - name: ..2
+    abbr: ..2
+    snippet: cd ../..
+
+  - name: ..3
+    abbr: ..3
+    snippet: cd ../../..
+
+  # git
+  - name: git
+    abbr: g
+    snippet: git
+
+  - name: git add -vA
+    abbr: aa
+    snippet: add -vA
+    global: true
+    context: '^git\s'
+
+  - name: git add -i
+    abbr: ai
+    snippet: add -i
+    global: true
+    context: '^git\s'
+
+  - name: git branch
+    abbr: b
+    snippet: branch
+    global: true
+    context: '^git\s'
+
+  - name: git commit
+    abbr: c
+    snippet: commit
+    global: true
+    context: '^git\s'
+
+  - name: git commit -m
+    abbr: cm
+    snippet: commit -m
+    global: true
+    context: '^git\s'
+
+  - name: git cherry-pick
+    abbr: cp
+    snippet: cherry-pick
+    global: true
+    context: '^git\s'
+
+  - name: git fetch
+    abbr: f
+    snippet: fetch
+    global: true
+    context: '^git\s'
+
+  - name: git fetch upstream
+    abbr: fu
+    snippet: fetch upstream
+    global: true
+    context: '^git\s'
+
+  - name: git pull
+    abbr: pl
+    snippet: pull
+    global: true
+    context: '^git\s'
+
+  - name: git push
+    abbr: ps
+    snippet: push
+    global: true
+    context: '^git\s'
+
+  - name: git status
+    abbr: s
+    snippet: status
+    global: true
+    context: '^git\s'
+
+  - name: git switch
+    abbr: sw
+    snippet: switch
+    global: true
+    context: '^git\s'
+
+  - name: git tag -l
+    abbr: tags
+    snippet: tag -l
+    global: true
+    context: '^git\s'
+
+  # lazygit
+  - name: lg
+    abbr: lg
+    snippet: lazygit
+
+  # docker
+  - name: docker
+    abbr: dok
+    snippet: docker
+
+  # batgrep
+  - name: batgrep
+    abbr: brg
+    snippet: batgrep
+
+  # awk
+  - name: awk '{ print $1 }'
+    abbr: .1
+    snippet: awk '{ print $1 }'
+
+  - name: awk '{ print $2 }'
+    abbr: .2
+    snippet: awk '{ print $2 }'
+
+  - name: awk '{ print $3 }'
+    abbr: .3
+    snippet: awk '{ print $3 }'
+
+  - name: awk '{ print $4 }'
+    abbr: .4
+    snippet: awk '{ print $4 }'
+
+  - name: awk '{ print $5 }'
+    abbr: .5
+    snippet: awk '{ print $5 }'
