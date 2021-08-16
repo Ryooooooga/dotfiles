@@ -150,6 +150,24 @@ abbrevs:
     abbr: dok
     snippet: docker
 
+  - name: docker run -it
+    abbr: ri
+    snippet: run -it
+    global: true
+    context: '^docker\s'
+
+  - name: docker run --rm
+    abbr: rrm
+    snippet: run --rm
+    global: true
+    context: '^docker\s'
+
+  - name: docker run --rm -it
+    abbr: rrmi
+    snippet: run --rm -it
+    global: true
+    context: '^docker\s'
+
   # batgrep
   - name: batgrep
     abbr: brg

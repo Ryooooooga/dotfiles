@@ -231,16 +231,10 @@ alias gdb='gdb -q -nh -x "$XDG_DATA_HOME/gdb-dashboard/.gdbinit"'
 docker() {
     if [ "$#" -eq 0 ] || ! command -v "docker-$1" > /dev/null; then
         command docker "${@:1}"
-    elif (( ${+aliases[docker-$1]} )); then
-        eval "${aliases[docker-$1]} ${(q)@:2}"
     else
         "docker-$1" "${@:2}"
     fi
 }
-
-alias docker-ri='command docker run -it'
-alias docker-rrm='command docker run --rm'
-alias docker-rrmi='command docker run --rm -it'
 
 docker-clean() {
     command docker ps -aqf status=exited | xargs -r docker rm --
