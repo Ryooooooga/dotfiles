@@ -1,17 +1,28 @@
 disableStartupPopups: true
 quitOnTopLevelReturn: true
 notARepository: 'skip'
+
 git:
   disableForcePushing: true
   paging:
     colorArg: always
     useConfig: true
   parseEmoji: true
+
 gui:
   showFileTree: true
   showRandomTip: false
+
 os:
   openCommand: "code --goto {{filename}}"
+
 keybinding:
   commits:
     viewResetOptions: 'G'
+
+customCommands:
+  - key: "C"
+    command: "git cz"
+    context: "files"
+    loadingText: "opening commitizen commit tool"
+    subprocess: true
