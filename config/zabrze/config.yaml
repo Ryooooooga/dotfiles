@@ -141,7 +141,7 @@ abbrevs:
     context: '^git\s'
 
   # lazygit
-  - name: lg
+  - name: lazygit
     abbr: lg
     snippet: lazygit
 
