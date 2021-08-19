@@ -15,6 +15,7 @@ gui:
 
 os:
   openCommand: "code --goto {{filename}}"
+  editCommandTemplate: "{{editor}} +{{line}} {{filename}}"
 
 keybinding:
   commits:
