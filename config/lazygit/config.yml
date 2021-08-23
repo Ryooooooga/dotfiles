@@ -6,7 +6,7 @@ git:
   disableForcePushing: true
   paging:
     colorArg: always
-    useConfig: true
+    pager: delta --paging=never
   parseEmoji: true
 
 gui:
