@@ -6,6 +6,7 @@ llvm_map_components_to_libnames(llvm_libs
     analysis
     executionengine
     interpreter
+    native
 )
 
 add_library(llvm INTERFACE)
