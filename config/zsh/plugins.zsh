@@ -160,8 +160,8 @@ __pmy_atload() {
     eval "$(pmy init)"
 
     pmy-widget-expand-abbrev() {
-        (( ${+functions[zabrze::expand]} )) && {
-            zle zabrze::expand
+        (( ${+functions[__zabrze::expand]} )) && {
+            zle __zabrze::expand
             zle -R -c
         }
         zle .pmy-widget
