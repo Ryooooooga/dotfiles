@@ -25,6 +25,7 @@ abbrevs:
     abbr: g
     snippet: git
 
+  # git add
   - name: git add -vA
     abbr: aa
     snippet: add -vA
@@ -37,12 +38,14 @@ abbrevs:
     global: true
     context: '^git\s'
 
+  # git branch
   - name: git branch
     abbr: b
     snippet: branch
     global: true
     context: '^git\s'
 
+  # git commit
   - name: git commit
     abbr: c
     snippet: commit
@@ -55,9 +58,29 @@ abbrevs:
     global: true
     context: '^git\s'
 
+  # git cherry-pick
   - name: git cherry-pick
     abbr: cp
     snippet: cherry-pick
+    global: true
+    context: '^git\s'
+
+  # git diff
+  - name: git diff --stat
+    abbr: st
+    snippet: diff --stat
+    global: true
+    context: '^git\s'
+
+  - name: git diff --stat
+    abbr: stat
+    snippet: diff --stat
+    global: true
+    context: '^git\s'
+
+  - name: git diff --stat --staged
+    abbr: sts
+    snippet: diff --stat --staged
     global: true
     context: '^git\s'
 
@@ -79,6 +102,7 @@ abbrevs:
     global: true
     context: '^git\s'
 
+  # git fetch
   - name: git fetch
     abbr: f
     snippet: fetch
@@ -91,12 +115,14 @@ abbrevs:
     global: true
     context: '^git\s'
 
+  # git pull
   - name: git pull
     abbr: pl
     snippet: pull
     global: true
     context: '^git\s'
 
+  # git push
   - name: git push
     abbr: ps
     snippet: push
@@ -110,30 +136,21 @@ abbrevs:
     global: true
     context: '^git\s'
 
-  - name: git stat
-    abbr: st
-    snippet: stat
-    global: true
-    context: '^git\s'
-
-  - name: git stat --staged
-    abbr: sts
-    snippet: stat --staged
-    global: true
-    context: '^git\s'
-
+  # git status
   - name: git status
     abbr: s
     snippet: status
     global: true
     context: '^git\s'
 
+  # git switch
   - name: git switch
     abbr: sw
     snippet: switch
     global: true
     context: '^git\s'
 
+  # git tag
   - name: git tag -l
     abbr: tags
     snippet: tag -l
@@ -150,6 +167,7 @@ abbrevs:
     abbr: dok
     snippet: docker
 
+  # docker run
   - name: docker run -it
     abbr: ri
     snippet: run -it
