@@ -115,6 +115,13 @@ abbrevs:
     global: true
     context: '^git\s'
 
+  # git log
+  - name: git graph
+    abbr: lg
+    snippet: graph
+    global: true
+    context: '^git\s'
+
   # git pull
   - name: git pull
     abbr: pl
