@@ -1,5 +1,9 @@
 abbrevs:
   # cd
+  - name: --
+    abbr: --
+    snippet: cd -
+
   - name: ..
     abbr: ..
     snippet: cd ..
