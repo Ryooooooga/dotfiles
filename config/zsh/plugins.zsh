@@ -60,6 +60,11 @@ zinit blockf light-mode as'program' from'gh-r' for \
     atload'eval "$(zabrze init --bind-keys)"' \
     'Ryooooooga/zabrze'
 
+### nekko ###
+zinit wait lucid light-mode as'program' from'gh-r' for \
+    atload'eval "$(nekko init --bindkey='^K')"' \
+    'Ryooooooga/nekko'
+
 ### exa ###
 if (( ${+commands[exa]} )); then
     alias ls='exa --group-directories-first'
