@@ -1,9 +1,0 @@
-snippets:
-  - description: Edit SSH config
-    command: e ~/.ssh/config
-
-  - description: Generate SSH key (ED25519)
-    command: ssh-keygen -t ed25519
-
-  - description: Generate SSH key (RSA)
-    command: ssh-keygen -t rsa -b 4096

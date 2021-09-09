@@ -60,11 +60,6 @@ zinit blockf light-mode as'program' from'gh-r' for \
     atload'eval "$(zabrze init --bind-keys)"' \
     'Ryooooooga/zabrze'
 
-### nekko ###
-zinit wait lucid light-mode as'program' from'gh-r' for \
-    atload'eval "$(nekko init --bindkey='^K')"' \
-    'Ryooooooga/nekko'
-
 ### exa ###
 if (( ${+commands[exa]} )); then
     alias ls='exa --group-directories-first'
@@ -152,6 +147,27 @@ zinit wait lucid light-mode as"program" from"gh-r" for \
 zinit wait lucid light-mode as"program" from"gh-r" \
     pick"bin/batgrep" \
     for 'eth-p/bat-extras'
+
+### navi ###
+__navi_search() {
+    if [ -z "$LBUFFER" ]; then
+        LBUFFER="$(navi --print)"
+    else
+        LBUFFER="$(navi --print --query="$LBUFFER")"
+    fi
+    zle reset-prompt
+}
+
+__navi_atload() {
+    export NAVI_CONFIG="$XDG_CONFIG_HOME/navi/config.yaml"
+
+    zle -N __navi_search
+    bindkey '^K' __navi_search
+}
+
+zinit wait lucid light-mode as'program' from'gh-r' for \
+    atload'__navi_atload' \
+    'denisidoro/navi'
 
 ### pmy ###
 __pmy_atload() {
