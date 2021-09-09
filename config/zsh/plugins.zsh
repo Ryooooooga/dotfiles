@@ -69,7 +69,7 @@ if (( ${+commands[exa]} )); then
 fi
 
 ### FZF ###
-export FZF_DEFAULT_OPTS='--reverse --border --ansi'
+export FZF_DEFAULT_OPTS='--reverse --border --ansi --bind="ctrl-d:print-query,ctrl-p:replace-query"'
 export FZF_DEFAULT_COMMAND='fd --color=always --hidden'
 
 ### bat ###
