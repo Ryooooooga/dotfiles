@@ -130,12 +130,17 @@ forward-kill-word() {
     zle vi-backward-kill-word
 }
 
+show-help() {
+    tmux popup -w90% -h90% -E man "${LBUFFER[(w)1]}"
+}
+
 zle -N select-history
 zle -N select-cdr
 zle -N select-ghq
 zle -N select-ghq-session
 zle -N select-dir
 zle -N forward-kill-word
+zle -N show-help
 
 bindkey -v
 bindkey "^R"        select-history                  # C-r
@@ -147,6 +152,7 @@ bindkey "^A"        beginning-of-line               # C-a
 bindkey "^E"        end-of-line                     # C-e
 bindkey "^W"        vi-backward-kill-word           # C-w
 bindkey "^X^W"      forward-kill-word               # C-x C-w
+bindkey "^X^H"      show-help                       # C-x C-h
 bindkey "^?"        backward-delete-char            # backspace
 bindkey "^[[3~"     delete-char                     # delete
 bindkey "^[[1;3D"   backward-word                   # Alt + arrow-left
