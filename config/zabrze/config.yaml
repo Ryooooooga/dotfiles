@@ -178,6 +178,13 @@ abbrevs:
     abbr: dok
     snippet: docker
 
+  # docker compose
+  - name: docker compose
+    abbr: c
+    snippet: compose
+    global: true
+    context: '^docker\s'
+
   # docker run
   - name: docker run -it
     abbr: ri
