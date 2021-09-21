@@ -24,7 +24,7 @@ case "$OSTYPE" in
     ;;
     msys)
         alias cmake='command cmake -G"Unix Makefiles"'
-        alias pp='cat > /dev/clipboard'
+        alias pp='cat >/dev/clipboard'
         alias p='cat /dev/clipboard'
     ;;
     darwin*)
@@ -250,7 +250,7 @@ alias gdb='gdb -q -nh -x "$XDG_DATA_HOME/gdb-dashboard/.gdbinit"'
 
 ### Docker ###
 docker() {
-    if [ "$#" -eq 0 ] || [ "$1" = "compose" ] || ! command -v "docker-$1" > /dev/null; then
+    if [ "$#" -eq 0 ] || [ "$1" = "compose" ] || ! command -v "docker-$1" >/dev/null; then
         command docker "${@:1}"
     else
         "docker-$1" "${@:2}"

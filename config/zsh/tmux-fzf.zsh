@@ -1,7 +1,7 @@
 tmux-fzf-switch() {
     local query="$1"
     local create_session_msg="Create a New Session"
-    local selected="$((tmux list-sessions -F "#S" 2> /dev/null; print "\x1b[33m\x1b[1m$create_session_msg\x1b[m") \
+    local selected="$((tmux list-sessions -F "#S" 2>/dev/null; print "\x1b[33m\x1b[1m$create_session_msg\x1b[m") \
         | fzf --height='40%' --cycle --query="$query")"
 
     local session_name="$selected"
@@ -11,7 +11,7 @@ tmux-fzf-switch() {
         return
     elif [ "$selected" = "$create_session_msg" ]; then
         # create a new session
-        session_name="$((random-word 2> /dev/null || echo "$RANDOM") | sed -E $'s/[:. \'"]/-/g')"
+        session_name="$((random-word 2>/dev/null || echo "$RANDOM") | sed -E $'s/[:. \'"]/-/g')"
         tmux new-session -d -s "$session_name" || return 1
     fi
 
@@ -24,11 +24,11 @@ tmux-fzf-switch() {
 
 tmux-fzf-kill() {
     local query="$1"
-    local current_session="$([ -n "$TMUX" ] && tmux display-message -p "#S" 2> /dev/null)"
+    local current_session="$([ -n "$TMUX" ] && tmux display-message -p "#S" 2>/dev/null)"
 
     local selected
     if [ "$#" -le 1 ]; then
-        selected="$(tmux list-sessions -F "#S" 2> /dev/null \
+        selected="$(tmux list-sessions -F "#S" 2>/dev/null \
             | fzf --multi --height='40%' --cycle --query="$query")"
     else
         selected="${(F)@}"
