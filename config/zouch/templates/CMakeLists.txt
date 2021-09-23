@@ -18,10 +18,4 @@ project({{.Filename | Abs | Dir | Base}} VERSION 0.1.0 LANGUAGES CXX)
 
 enable_testing()
 
-find_package(Boost 1.65.0 REQUIRED)
-
-include_directories(
-    ${Boost_INCLUDE_DIR}
-)
-
 add_subdirectory(src)
