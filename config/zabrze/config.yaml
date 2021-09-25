@@ -147,6 +147,12 @@ abbrevs:
     global: true
     context: '^git\s'
 
+  - name: git push --force-with-lease
+    abbr: -f
+    snippet: --force-with-lease
+    global: true
+    context: '^git(\s+\S+)*\s+push\s'
+
   # git status
   - name: git status
     abbr: s
