@@ -1,5 +1,5 @@
 - description: git-diff
-  regexp-left: ^\s*(?P<cmd>(git))\s+(?P<subcmd>(df|diff|stat))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
+  regexp-left: ^\s*(?P<cmd>(git))\s+(?P<subcmd>(df|diff))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
   cmd-groups:
     - stmt: '"$PMY_SCRIPT_PATH/git-local-branches.zsh"'
     - stmt: '"$PMY_SCRIPT_PATH/git-remote-branches.zsh"'
