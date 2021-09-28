@@ -1,11 +1,20 @@
 #!/usr/bin/env bash
+profile="$1"
+
+if [ "$profile" == "--unset" ]; then
+    git config --unset user.name
+    git config --unset user.email
+    git config --unset user.signingKey
+    exit
+fi
+
 if [ "$#" -gt 0 ]; then
-    email="$(git config users."$1".email)"
-    name="$(git config users."$1".name)"
-    signingKey="$(git config users."$1".signingKey)"
+    email="$(git config users."$profile".email)"
+    name="$(git config users."$profile".name)"
+    signingKey="$(git config users."$profile".signingKey)"
 
     if [ -z "$email" ] || [ -z "$name" ]; then
-        echo "No such user $1"
+        echo "No such user $profile"
         exit 1
     fi
 
