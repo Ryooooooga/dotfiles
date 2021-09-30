@@ -11,6 +11,7 @@ if [ "$(uname)" = "Darwin" ]; then
     defaults write com.apple.finder AppleShowAllFiles -bool true
     defaults write com.apple.finder ShowPathbar -bool true
     defaults write com.apple.finder ShowTabView -bool true
+    defaults write com.apple.finder NewWindowTarget -string PfHm
 
     # Dock
     defaults write com.apple.dock orientation right
