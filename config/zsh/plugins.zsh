@@ -204,6 +204,11 @@ zinit wait'1' lucid light-mode \
     atload'__forgit_atload' \
     for 'wfxr/forgit'
 
+### tmux-fzf ###
+zinit wait lucid light-mode \
+    atload'alias t=tmux-fzf' \
+    for 'Ryooooooga/tmux-fzf'
+
 ### chpwd-recent-dirs ###
 add-zsh-hook chpwd chpwd_recent_dirs
 zstyle ':chpwd:*' recent-dirs-file "$XDG_CACHE_HOME/chpwd-recent-dirs"
@@ -351,12 +356,6 @@ autoload -Uz compinit && compinit
 autoload -Uz cdr
 autoload -Uz chpwd_recent_dirs
 autoload -Uz _zinit
-
-### Tmux ###
-source "${0:a:h}/tmux-fzf.zsh"
-source "${0:a:h}/completions/tmux-fzf.completion.zsh"
-
-alias t='tmux-fzf'
 
 ### local ###
 if [ -f "$ZDOTDIR/.zshrc.local" ]; then
