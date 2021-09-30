@@ -101,51 +101,39 @@ zinit wait lucid light-mode for \
     'Ryooooooga/zsh-replace-multiple-dots'
 
 ### programs ###
-zinit wait lucid light-mode as"program" from"gh-r" for \
-    pick"delta*/delta"  @'dandavison/delta' \
-    pick"mmv*/mmv"      @'itchyny/mmv' \
-    pick"ripgrep*/rg"   @'BurntSushi/ripgrep' \
-    pick"zouch*/zouch"  @'Ryooooooga/zouch'
+zinit wait lucid light-mode as'program' from'gh-r' for \
+    pick'delta*/delta'  @'dandavison/delta' \
+    pick'mmv*/mmv'      @'itchyny/mmv' \
+    pick'ripgrep*/rg'   @'BurntSushi/ripgrep' \
+    pick'zouch*/zouch'  @'Ryooooooga/zouch'
 
 ### GitHub CLI ###
-__gh_atload() {
-    eval "$(gh completion -s zsh)"
-}
-
-zinit wait lucid light-mode as"program" from"gh-r" for \
-    pick"gh*/bin/gh" \
-    atload'__gh_atload' \
+zinit wait lucid light-mode as'program' from'gh-r' for \
+    pick'gh*/bin/gh' \
+    atclone'gh completion -s zsh >_gh' atpull'%atclone' \
     'cli/cli'
 
 ### exa ###
-__exa_atclone() {
-    ln -sf "$PWD/completions/exa.zsh" "${ZINIT[COMPLETIONS_DIR]}/_exa"
-}
-
-zinit wait lucid light-mode as"program" from"gh-r" for \
-    pick"bin/exa" \
-    atclone'__exa_atclone' atpull'%atclone' \
+zinit wait lucid light-mode as'program' from'gh-r' for \
+    pick'bin/exa' \
+    atclone'ln -sf "$PWD/completions/exa.zsh" _exa' atpull'%atclone' \
     'ogham/exa'
 
 ### tealdeer ###
-zinit wait lucid light-mode as"program" from"gh-r" for \
+zinit wait lucid light-mode as'program' from'gh-r' for \
     if'[[ "$OSTYPE" =~ "linux" ]]' \
-    mv"tldr* -> tldr" \
+    mv'tldr* -> tldr' \
     'dbrgn/tealdeer'
 
 ### yq ###
-__yq_atload() {
-    eval "$(yq shell-completion zsh)"
-}
-
-zinit wait lucid light-mode as"program" from"gh-r" for \
-    mv"yq* -> yq" \
-    atload'__yq_atload' \
+zinit wait lucid light-mode as'program' from'gh-r' for \
+    mv'yq* -> yq' \
+    atclone'yq shell-completion zsh >_yq' atpull'%atclone' \
     'mikefarah/yq'
 
 ### bat-extras ###
-zinit wait lucid light-mode as"program" from"gh-r" \
-    pick"bin/batgrep" \
+zinit wait lucid light-mode as'program' from'gh-r' \
+    pick'bin/batgrep' \
     for 'eth-p/bat-extras'
 
 ### navi ###
@@ -191,13 +179,13 @@ __pmy_atload() {
     zle -N pmy-widget pmy-widget-expand-abbrev
 }
 
-zinit wait lucid light-mode as"program" from"gh-r" \
-    pick"pmy*/pmy" \
+zinit wait lucid light-mode as'program' from'gh-r' \
+    pick'pmy*/pmy' \
     atload'__pmy_atload' \
     for 'relastle/pmy'
 
 ### Emojify ###
-zinit wait lucid light-mode as"program" \
+zinit wait lucid light-mode as'program' \
     atclone'rm -f *.{py,bats}' atpull'%atclone' \
     for 'mrowa44/emojify'
 

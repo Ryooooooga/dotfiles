@@ -34,8 +34,8 @@ setopt MAGIC_EQUAL_SUBST
 setopt PRINT_EIGHT_BIT
 
 ### theme ###
-zinit light-mode from"gh-r" as"program" \
-    mv"almel* -> almel" \
+zinit light-mode from'gh-r' as'program' \
+    mv'almel* -> almel' \
     for 'Ryooooooga/almel'
 
 almel_preexec() {
@@ -179,6 +179,6 @@ zle -N zle-line-finish
 zle -N zle-keymap-select
 
 ### plugins ###
-zinit wait lucid light-mode as"null" \
+zinit wait lucid light-mode as'null' \
     atinit'. "$ZDOTDIR/plugins.zsh"' \
     for 'zdharma/null'
