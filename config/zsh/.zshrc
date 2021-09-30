@@ -11,6 +11,7 @@ typeset -U fpath
 path=(
     "$HOME/.local/bin"(N-/)
     "$CARGO_HOME/bin"(N-/)
+    "$DENO_INSTALL/bin"(N-/)
     "$XDG_CONFIG_HOME/scripts/bin"(N-/)
     "$path[@]"
 )

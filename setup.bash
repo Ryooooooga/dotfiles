@@ -41,18 +41,30 @@ if [ "$(uname)" = "Darwin" ]; then
     defaults write org.hammerspoon.Hammerspoon MJConfigFile "$XDG_CONFIG_HOME/hammerspoon/init.lua"
 
     # Homebrew
-    echo "Installing Homebrew..."
-    if type brew >/dev/null; then
-        echo "Homebrew is already installed."
+    if [ -z "$SKIP_HOMEBREW" ]; then
+        echo "Installing Homebrew..."
+        if type brew >/dev/null; then
+            echo "Homebrew is already installed."
+        else
+            /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+        fi
+
+        echo "Updating Homebrew..."
+        brew update
+
+        echo "Installing Homebrew apps..."
+        brew bundle install --file "${REPO_DIR}/config/homebrew/Brewfile" --no-lock --verbose
     else
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+        echo "Skipping Homebrew"
     fi
+fi
 
-    echo "Updating Homebrew..."
-    brew update
-
-    echo "Installing Homebrew apps..."
-    brew bundle install --file "${REPO_DIR}/config/homebrew/Brewfile" --no-lock --verbose
+# deno
+if [ -z "$SKIP_DENO" ]; then
+    echo "Installing Deno..."
+    curl -fsSL https://deno.land/x/install/install.sh | DENO_INSTALL="$XDG_DATA_HOME/deno" /bin/sh
+else
+    echo "Skipping Deno"
 fi
 
 # zinit
