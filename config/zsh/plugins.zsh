@@ -60,14 +60,6 @@ zinit blockf light-mode as'program' from'gh-r' for \
     atload'eval "$(zabrze init --bind-keys)"' \
     'Ryooooooga/zabrze'
 
-### exa ###
-if (( ${+commands[exa]} )); then
-    alias ls='exa --group-directories-first'
-    alias la='exa --group-directories-first -a'
-    alias ll='exa --group-directories-first -al --header --color-scale --git --icons --time-style=long-iso'
-    alias tree='exa --group-directories-first -T --icons'
-fi
-
 ### FZF ###
 export FZF_DEFAULT_OPTS='--reverse --border --ansi --bind="ctrl-d:print-query,ctrl-p:replace-query"'
 export FZF_DEFAULT_COMMAND='fd --color=always --hidden'
@@ -114,9 +106,16 @@ zinit wait lucid light-mode as'program' from'gh-r' for \
     'cli/cli'
 
 ### exa ###
+__exa_atload() {
+    alias ls='exa --group-directories-first'
+    alias la='exa --group-directories-first -a'
+    alias ll='exa --group-directories-first -al --header --color-scale --git --icons --time-style=long-iso'
+    alias tree='exa --group-directories-first -T --icons'
+}
 zinit wait lucid light-mode as'program' from'gh-r' for \
     pick'bin/exa' \
     atclone'ln -sf "$PWD/completions/exa.zsh" _exa' atpull'%atclone' \
+    atload'__exa_atload' \
     'ogham/exa'
 
 ### tealdeer ###
