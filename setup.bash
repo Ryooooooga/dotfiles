@@ -62,7 +62,12 @@ fi
 # deno
 if [ -z "$SKIP_DENO" ]; then
     echo "Installing Deno..."
-    curl -fsSL https://deno.land/x/install/install.sh | DENO_INSTALL="$XDG_DATA_HOME/deno" /bin/sh
+    DENO_INSTALL="$XDG_DATA_HOME/deno"
+    curl -fsSL https://deno.land/x/install/install.sh | /bin/sh
+
+    echo "Install completions"
+    mkdir -p "$XDG_DATA_HOME/zsh/completions"
+    "$DENO_INSTALL/bin/deno" completions zsh >"$XDG_DATA_HOME/zsh/completions/_deno"
 else
     echo "Skipping Deno"
 fi

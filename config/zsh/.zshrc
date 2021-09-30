@@ -16,6 +16,11 @@ path=(
     "$path[@]"
 )
 
+fpath=(
+    "$XDG_DATA_HOME/zsh/completions"(N-/)
+    "$fpath[@]"
+)
+
 ### history ###
 export HISTFILE="$XDG_CACHE_HOME/zsh_history"
 export HISTSIZE=1000
