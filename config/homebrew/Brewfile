@@ -1,6 +1,5 @@
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
-tap "LouisBrunner/valgrind"
 
 brew "autoconf"
 brew "bash"
@@ -41,7 +40,6 @@ brew "vim"
 brew "wget"
 brew "yq"
 brew "itchyny/tap/mmv"
-brew "LouisBrunner/valgrind/valgrind", args: ["HEAD"]
 
 cask "alacritty"
 cask "alfred"
