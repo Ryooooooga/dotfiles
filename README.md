@@ -4,7 +4,7 @@
 ![](https://github.com/Ryooooooga/dotfiles/workflows/macOS/badge.svg)
 ![](https://github.com/Ryooooooga/dotfiles/workflows/Lint/badge.svg)
 
-## How to Install
+## Installation
 
 ```shell
 $ curl -sL https://ryooooooga.github.io/dotfiles/install.sh | sh
