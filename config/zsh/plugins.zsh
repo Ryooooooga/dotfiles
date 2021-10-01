@@ -114,7 +114,7 @@ __exa_atload() {
 }
 zinit wait lucid light-mode as'program' from'gh-r' for \
     pick'bin/exa' \
-    atclone'ln -sf "$PWD/completions/exa.zsh" _exa' atpull'%atclone' \
+    atclone'cp -f completions/exa.zsh _exa' atpull'%atclone' \
     atload'__exa_atload' \
     'ogham/exa'
 
