@@ -8,8 +8,5 @@ jobs:
     runs-on: macOS-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
       - name: Setup
-        run: bash ./scripts/setup.bash
+        run: curl -sL https://ryooooooga.github.io/dotfiles/install.sh | sh

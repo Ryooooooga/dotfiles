@@ -15,4 +15,4 @@ jobs:
         run: sudo apt install -y shellcheck
 
       - name: Run ShellCheck
-        run: shellcheck -x ./scripts/*.bash
+        run: shellcheck ./install.sh ./scripts/*.bash

@@ -7,8 +7,5 @@
 ## How to Install
 
 ```shell
-$ git clone https://github.com/Ryooooooga/dotfiles.git ~/repos/github.com/Ryooooooga/dotfiles
-$ cd ~/repos/github.com/Ryooooooga/dotfiles
-
-$ ./scripts/setup.bash
+$ curl -sL https://ryooooooga.github.io/dotfiles/install.sh | sh
 ```

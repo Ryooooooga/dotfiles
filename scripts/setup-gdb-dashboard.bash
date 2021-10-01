@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -x
+# shellcheck source=./scripts/common.bash
 source "$(dirname "$0")/common.bash"
 
 if [ -d "$XDG_DATA_HOME/gdb-dashboard" ]; then
