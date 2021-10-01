@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -x
+source "$(dirname "$0")/common.bash"
+
+export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
+
+if [ -d "$ASDF_DATA_DIR" ]; then
+    echo "asdf-vm is already installed."
+    source "$ASDF_DATA_DIR/asdf.sh"
+
+    echo "Updating asdf-vm plugins..."
+    asdf update
+    asdf plugin update --all
+else
+    echo "Installing asdf-vm..."
+    git clone "https://github.com/asdf-vm/asdf" "$ASDF_DATA_DIR"
+    source "$ASDF_DATA_DIR/asdf.sh"
+
+    echo "Installing asdf-vm plugins..."
+    asdf plugin add nodejs
+    /bin/bash "${ASDF_DATA_DIR}/plugins/nodejs/bin/import-release-team-keyring"
+fi

@@ -11,8 +11,5 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Install dependencies
-        run: sudo ./config/apt/install.sh
-
       - name: Setup
-        run: bash ./setup.bash
+        run: bash ./scripts/setup.bash
