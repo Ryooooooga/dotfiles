@@ -3,7 +3,7 @@
 	<content><![CDATA[
 add_test(NAME ${1:tests::name}
 	COMMAND \$<TARGET_FILE:${3:target}>
-	WORKING_DIRECTORY \${CMAKE_SOURCE_DIR}
+	WORKING_DIRECTORY \${CMAKE_CURRENT_SOURCE_DIR}
 )]]></content>
 	<tabTrigger>add_test</tabTrigger>
 	<scope>source.cmake</scope>
