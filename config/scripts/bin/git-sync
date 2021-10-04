@@ -22,10 +22,10 @@ current_branch="$(git symbolic-ref --short HEAD)"
 
 git fetch --prune --progress "$remote"
 
-branches="$(git branch --list | sed -E 's/^[* ] //')"
+branches="$(git branch --list --format="%(refname)")"
 
-for branch in $branches; do
-    full_branch="refs/heads/$branch"
+for full_branch in $branches; do
+    branch="${full_branch#refs/heads/}"
     remote_branch="refs/remotes/$remote/$branch"
     gone=0
 
@@ -56,15 +56,14 @@ for branch in $branches; do
         fi
     elif [ "$gone" -eq 1 ]; then
         local_hash="$(git rev-parse -q "$full_branch")"
-        remote_hash="$(git rev-parse -q "$full_default_branch")"
 
-        if git merge-base --is-ancestor "$local_hash" "$remote_hash"; then
+        if git merge-base --is-ancestor "$full_branch" "$full_default_branch"; then
             if [ "$branch" = "$current_branch" ]; then
                 git switch "$default_branch"
                 current_branch="$default_branch"
             fi
             git branch -D "$branch"
-            echo "${red}Deleted branch ${light_red}${branch}${reset_color} (was ${local_hash::7})."
+            echo -e "${red}Deleted branch ${light_red}${branch}${reset_color} (was ${local_hash::7})."
         else
             echo "warning: '${branch}' was deleted on ${remote}, but appears not merged into '${default_branch}'"
         fi
