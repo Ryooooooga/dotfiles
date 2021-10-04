@@ -7,9 +7,8 @@ reset_color="\e[0m"
 
 git rev-parse || exit 1
 
-if git rev-parse --verify -q main >/dev/null; then
-    default_branch="main"
-else
+default_branch="$(git config init.defaultBranch)"
+if ! git rev-parse --verify -q "$default_branch" >/dev/null; then
     default_branch="master"
 fi
 
