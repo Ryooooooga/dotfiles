@@ -19,7 +19,6 @@ apt-get install -y \
     git \
     git-lfs \
     gpg \
-    hub \
     jq \
     libsqlite3-dev \
     libssl-dev \
