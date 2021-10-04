@@ -29,14 +29,12 @@ if [ "$#" -gt 0 ]; then
     git config user.signingKey "$signingKey"
 fi
 
-name="$(git config user.name)"
-if [ "$?" -ne 0 ]; then
+if ! name="$(git config user.name)"; then
     echo "git config user.name is not set"
     exit 1
 fi
 
-email="$(git config user.email)"
-if [ "$?" -ne 0 ]; then
+if ! email="$(git config user.email)"; then
     echo "git config user.email is not set"
     exit 1
 fi

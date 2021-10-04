@@ -1,4 +1,4 @@
-#/usr/bin/env bash
+#!/usr/bin/env bash
 git rev-parse || exit 1
 
 if git rev-parse HEAD &>/dev/null; then
