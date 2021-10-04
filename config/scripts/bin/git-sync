@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+
+# from hub-sync
+# https://github.com/github/hub/blob/master/commands/sync.go
+
 green="\e[32m"
 light_green="\e[32;1m"
 red="\e[31m"
