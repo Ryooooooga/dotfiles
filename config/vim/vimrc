@@ -126,6 +126,8 @@ function! PackageUpdate()
     endfor
 endfunction
 
+command! PackageUpdate call PackageUpdate()
+
 " Editorconfig
 call Package('editorconfig/editorconfig-vim')
 
