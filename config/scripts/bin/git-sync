@@ -62,7 +62,7 @@ for full_branch in $branches; do
                 git switch "$default_branch"
                 current_branch="$default_branch"
             fi
-            git branch -D "$branch"
+            git branch -D "$branch" >/dev/null
             echo -e "${red}Deleted branch ${light_red}${branch}${reset_color} (was ${local_hash::7})."
         else
             echo "warning: '${branch}' was deleted on ${remote}, but appears not merged into '${default_branch}'"
