@@ -1,16 +1,13 @@
-BasedOnStyle: LLVM
+BasedOnStyle: Chromium
 IndentWidth: 4
 AlignAfterOpenBracket: AlwaysBreak
 AllowShortFunctionsOnASingleLine: None
-AlwaysBreakBeforeMultilineStrings: true
 BinPackArguments: false
 BinPackParameters: false
-ColumnLimit: 0
+ColumnLimit: 120
 CommentPragmas: ^
 IncludeCategories:
   - Regex:      '^<'
     Priority:   1
   - Regex:      '^"'
     Priority:   2
-IndentCaseLabels: true
-PointerAlignment: Right
