@@ -14,8 +14,8 @@ gui:
   showRandomTip: false
 
 os:
-  openCommand: "code --goto {{filename}}"
-  editCommandTemplate: "{{editor}} +{{line}} {{filename}}"
+  openCommand: "code --goto -- {{filename}}"
+  editCommandTemplate: "{{editor}} +{{line}} -- {{filename}}"
 
 keybinding:
   commits:
