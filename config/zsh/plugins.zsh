@@ -350,13 +350,13 @@ fi
 
 fpath=("$ASDF_DATA_DIR/completions"(N-/) "$fpath[@]")
 
+### local ###
+if [ -f "$ZDOTDIR/.zshrc.local" ]; then
+    source "$ZDOTDIR/.zshrc.local"
+fi
+
 ### autoloads ###
 autoload -Uz compinit && compinit
 autoload -Uz cdr
 autoload -Uz chpwd_recent_dirs
 autoload -Uz _zinit
-
-### local ###
-if [ -f "$ZDOTDIR/.zshrc.local" ]; then
-    source "$ZDOTDIR/.zshrc.local"
-fi
