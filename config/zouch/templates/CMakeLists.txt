@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.21.0)
 
 set(CMAKE_CXX_STANDARD "23")
-set(CMAKE_CXX_FLAGS "-Wall -Wextra -Werror -pedantic -fprofile-arcs -ftest-coverage")
-set(CMAKE_CXX_FLAGS_DEBUG "-g3 -O0")
+set(CMAKE_CXX_FLAGS "-Wall -Wextra -Werror -pedantic")
+set(CMAKE_CXX_FLAGS_DEBUG "-g3 -O0 -fprofile-arcs -ftest-coverage")
 set(CMAKE_CXX_FLAGS_RELEASE "-O2 -DNDEBUG")
 set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-g3 -Og")
 set(CMAKE_CXX_FLAGS_MINSIZEREL "-Os -DNDEBUG")
