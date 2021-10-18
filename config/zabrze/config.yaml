@@ -83,6 +83,12 @@ abbrevs:
     context: '^git\s'
 
   - name: git diff --stat --staged
+    abbr: stats
+    snippet: diff --stat --staged
+    global: true
+    context: '^git\s'
+
+  - name: git diff --stat --staged
     abbr: sts
     snippet: diff --stat --staged
     global: true
