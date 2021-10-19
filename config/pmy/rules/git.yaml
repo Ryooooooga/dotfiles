@@ -54,6 +54,38 @@
   buffer-left: '<cmd> <subcmd> <args>'
   buffer-right: '[]'
 
+- description: git-rebase
+  regexp-left: ^\s*(?P<cmd>(git))\s+(?P<subcmd>(rebase))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
+  cmd-groups:
+    - stmt: '"$PMY_SCRIPT_PATH/git-local-branches.zsh"'
+    - stmt: '"$PMY_SCRIPT_PATH/git-remote-branches.zsh"'
+    - stmt: '"$PMY_SCRIPT_PATH/git-tags.zsh"'
+    - stmt: '"$PMY_SCRIPT_PATH/git-commits.zsh"'
+    - stmt: '"$PMY_SCRIPT_PATH/options.zsh" "git/diff-options" "\uf73a" "option" "blue"'
+      after: awk '{ print $3 }'
+  fuzzy-finder-cmd: |
+    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
+      --nth=3 \
+      --query=<query>
+  buffer-left: '<cmd> <subcmd> <args>'
+  buffer-right: '[]'
+
+- description: git-reset
+  regexp-left: ^\s*(?P<cmd>(git))\s+(?P<subcmd>(reset))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
+  cmd-groups:
+    - stmt: '"$PMY_SCRIPT_PATH/git-local-branches.zsh"'
+    - stmt: '"$PMY_SCRIPT_PATH/git-remote-branches.zsh"'
+    - stmt: '"$PMY_SCRIPT_PATH/git-tags.zsh"'
+    - stmt: '"$PMY_SCRIPT_PATH/git-commits.zsh"'
+    - stmt: '"$PMY_SCRIPT_PATH/options.zsh" "git/diff-options" "\uf73a" "option" "blue"'
+      after: awk '{ print $3 }'
+  fuzzy-finder-cmd: |
+    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
+      --nth=3 \
+      --query=<query>
+  buffer-left: '<cmd> <subcmd> <args>'
+  buffer-right: '[]'
+
 - description: git-switch
   regexp-left: ^\s*(?P<cmd>(git))\s+(?P<subcmd>(merge|rebase|switch))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
   cmd-groups:
