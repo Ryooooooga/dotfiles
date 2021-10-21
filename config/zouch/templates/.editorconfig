@@ -13,4 +13,6 @@ indent_style = space
 indent_size = 4
 trim_trailing_whitespace = false
 {{ $x := Shell `dir="$XDG_CONFIG_HOME/editorconfig"; ls "$dir" | fzf --multi --preview="bat --color=always '$dir/{}/.editorconfig'" | xargs -I{} cat "$dir/{}/.editorconfig"` -}}
-{{ if $x }}{{ $x }}{{ end -}}
+{{ if $x -}}
+{{ $x }}
+{{ end -}}
