@@ -174,35 +174,35 @@ let g:ale_fixers = {
 '''
 
 ### nvim-treesitter ###
-[[plugins]]
-repo = 'nvim-treesitter/nvim-treesitter'
-merged = 1
-# hook_post_update = 'TSUpdate'
-hook_add = '''
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-    ensure_installed = {
-        'bash',
-        'c',
-        'cpp',
-        'css',
-        'go',
-        'html',
-        'javascript',
-        'json',
-        'python',
-        'ruby',
-        'rust',
-        'toml',
-        'typescript',
-    },
-    highlight = {
-        enable = true,
-        disable = {},
-    },
-}
-EOF
-'''
+# [[plugins]]
+# repo = 'nvim-treesitter/nvim-treesitter'
+# merged = 1
+# # hook_post_update = 'TSUpdate'
+# hook_add = '''
+# lua <<EOF
+# require'nvim-treesitter.configs'.setup {
+#     ensure_installed = {
+#         'bash',
+#         'c',
+#         'cpp',
+#         'css',
+#         'go',
+#         'html',
+#         'javascript',
+#         'json',
+#         'python',
+#         'ruby',
+#         'rust',
+#         'toml',
+#         'typescript',
+#     },
+#     highlight = {
+#         enable = true,
+#         disable = {},
+#     },
+# }
+# EOF
+# '''
 
 ### barbar.nvim ###
 [[plugins]]

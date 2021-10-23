@@ -11,7 +11,6 @@ if [ -d "$XDG_DATA_HOME/dein/repos/github.com/Shougo/dein.vim" ]; then
     nvim \
         -c ":call dein#update()" \
         -c ":call clap#installer#download_binary()" \
-        -c ":TSUpdate" \
         -c ":q"
 else
     echo "Installing dein.vim..."
@@ -20,6 +19,5 @@ else
     echo "Installing dein.vim plugins..."
     nvim \
         -c ":call clap#installer#download_binary()" \
-        -c ":TSUpdate" \
         -c ":q"
 fi
