@@ -188,6 +188,13 @@ abbrevs:
     evaluate: true
     context: '^git\s'
 
+  # git upstream
+  - name: git upstream
+    abbr: U
+    snippet: upstream
+    global: true
+    context: '^git\s'
+
   # lazygit
   - name: lazygit
     abbr: lg
