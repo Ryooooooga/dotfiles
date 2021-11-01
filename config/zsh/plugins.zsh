@@ -88,7 +88,7 @@ zinit wait lucid light-mode \
 zinit wait lucid light-mode for \
     'zsh-users/zsh-autosuggestions' \
     'zsh-users/zsh-completions' \
-    'zdharma/fast-syntax-highlighting' \
+    'zdharma-continuum/fast-syntax-highlighting' \
     'hlissner/zsh-autopair' \
     'Ryooooooga/zsh-replace-multiple-dots'
 

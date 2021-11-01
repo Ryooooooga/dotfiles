@@ -186,4 +186,4 @@ zle -N zle-keymap-select
 ### plugins ###
 zinit wait lucid light-mode as'null' \
     atinit'. "$ZDOTDIR/plugins.zsh"' \
-    for 'zdharma/null'
+    for 'zdharma-continuum/null'

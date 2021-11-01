@@ -8,5 +8,5 @@ if [ -d "$XDG_DATA_HOME/zinit/bin" ]; then
     git -C "$XDG_DATA_HOME/zinit/bin" pull
 else
     echo "Installing zinit..."
-    git clone "https://github.com/zdharma/zinit" "$XDG_DATA_HOME/zinit/bin"
+    git clone "https://github.com/zdharma-continuum/zinit" "$XDG_DATA_HOME/zinit/bin"
 fi
