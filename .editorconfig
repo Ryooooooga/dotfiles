@@ -12,23 +12,3 @@ insert_final_newline = true
 indent_style = space
 indent_size = 4
 trim_trailing_whitespace = false
-
-[*.{js,json}]
-indent_style = space
-indent_size = 2
-
-[*.{yml,yaml}]
-indent_style = space
-indent_size = 2
-
-[.*rc]
-indent_style = space
-indent_size = 2
-
-[{*.sh,*.bash,*.zsh,.zsh*}]
-indent_style = space
-indent_size = 4
-
-[*.sublime-*]
-indent_style = tab
-indent_size = 2
