@@ -164,8 +164,8 @@ __pmy_atload() {
     export PMY_SNIPPET_PATH="$PMY_CONFIG_HOME/snippets"
     export PMY_LOG_PATH="$XDG_CACHE_HOME/pmy/log.txt"
     export PMY_SCRIPT_PATH="$PMY_CONFIG_HOME/scripts"
-    export PMY_FUZZY_FINDER_DEFAULT_CMD="fzf --exit-0 --select-1 --tiebreak=begin,index --height=40% --cycle --preview-window=right:50%"
-    eval "$(pmy init)"
+    export PMY_FUZZY_FINDER_DEFAULT_CMD="fzf --exit-0 --select-1 --tiebreak=begin,index --height=60% --cycle --preview-window=right:50%"
+    source pmy.zsh
 
     pmy-widget-expand-abbrev() {
         (( ${+functions[__zabrze::expand]} )) && {
@@ -179,9 +179,9 @@ __pmy_atload() {
 }
 
 zinit wait lucid light-mode as'program' from'gh-r' \
-    pick'pmy*/pmy' \
+    atclone'./pmy init >pmy.zsh' atpull'%atclone' \
     atload'__pmy_atload' \
-    for 'relastle/pmy'
+    for 'Ryooooooga/pmy'
 
 ### Emojify ###
 zinit wait lucid light-mode as'program' \
