@@ -25,163 +25,163 @@ abbrevs:
     snippet: cd ../../..
 
   # git
-  - name: git
+  - name: g
     abbr: g
     snippet: git
 
   # git add
-  - name: git add -vA
+  - name: git aa
     abbr: aa
     snippet: add -vA
     global: true
     context: '^git\s'
 
-  - name: git add -i
+  - name: git ai
     abbr: ai
     snippet: add -i
     global: true
     context: '^git\s'
 
   # git branch
-  - name: git branch
+  - name: git b
     abbr: b
     snippet: branch
     global: true
     context: '^git\s'
 
   # git commit
-  - name: git commit
+  - name: git c
     abbr: c
     snippet: commit
     global: true
     context: '^git\s'
 
-  - name: git commit -m
+  - name: git cm
     abbr: cm
     snippet: commit -m
     global: true
     context: '^git\s'
 
   # git cherry-pick
-  - name: git cherry-pick
+  - name: git cp
     abbr: cp
     snippet: cherry-pick
     global: true
     context: '^git\s'
 
   # git diff
-  - name: git diff --stat
+  - name: git st
     abbr: st
     snippet: diff --stat
     global: true
     context: '^git\s'
 
-  - name: git diff --stat
+  - name: git stat
     abbr: stat
     snippet: diff --stat
     global: true
     context: '^git\s'
 
-  - name: git diff --stat --staged
+  - name: git stats
     abbr: stats
     snippet: diff --stat --staged
     global: true
     context: '^git\s'
 
-  - name: git diff --stat --staged
+  - name: git sts
     abbr: sts
     snippet: diff --stat --staged
     global: true
     context: '^git\s'
 
-  - name: git df --ignore-all-space
+  - name: git dfi
     abbr: dfi
     snippet: df --ignore-all-space
     global: true
     context: '^git\s'
 
-  - name: git df --staged
+  - name: git dfs
     abbr: dfs
     snippet: df --staged
     global: true
     context: '^git\s'
 
-  - name: git df --staged --ignore-all-space
+  - name: git dfsi
     abbr: dfsi
     snippet: df --staged --ignore-all-space
     global: true
     context: '^git\s'
 
   # git fetch
-  - name: git fetch
+  - name: git f
     abbr: f
     snippet: fetch
     global: true
     context: '^git\s'
 
-  - name: git fetch upstream
+  - name: git fu
     abbr: fu
     snippet: fetch upstream
     global: true
     context: '^git\s'
 
   # git log
-  - name: git graph
+  - name: git lg
     abbr: lg
     snippet: graph
     global: true
     context: '^git\s'
 
   # git pull
-  - name: git pull
+  - name: git pl
     abbr: pl
     snippet: pull
     global: true
     context: '^git\s'
 
   # git push
-  - name: git push
+  - name: git ps
     abbr: ps
     snippet: push
     global: true
     context: '^git\s'
 
-  - name: git push -u origin BRANCH
+  - name: git psu
     abbr: psu
     snippet: push -u origin $(git symbolic-ref --short HEAD)
     evaluate: true
     global: true
     context: '^git\s'
 
-  - name: git push --force-with-lease
+  - name: git push -f
     abbr: -f
     snippet: --force-with-lease
     global: true
     context: '^git(\s+\S+)*\s+push\s'
 
   # git status
-  - name: git status
+  - name: git s
     abbr: s
     snippet: status
     global: true
     context: '^git\s'
 
   # git switch
-  - name: git switch
+  - name: git sw
     abbr: sw
     snippet: switch
     global: true
     context: '^git\s'
 
   # git tag
-  - name: git tag -l
+  - name: git tags
     abbr: tags
     snippet: tag -l
     global: true
     context: '^git\s'
 
   # git current branch name
-  - name: $(git symbolic-ref --short HEAD)
+  - name: B
     abbr: B
     snippet: $(git symbolic-ref --short HEAD)
     global: true
@@ -189,70 +189,75 @@ abbrevs:
     context: '^git\s'
 
   # git upstream
-  - name: git upstream
+  - name: git U
     abbr: U
     snippet: upstream
     global: true
     context: '^git\s'
 
   # lazygit
-  - name: lazygit
+  - name: lg
     abbr: lg
     snippet: lazygit
 
   # docker
-  - name: docker
+  - name: dok
     abbr: dok
     snippet: docker
 
   # docker compose
-  - name: docker compose
+  - name: docker c
     abbr: c
     snippet: compose
     global: true
     context: '^docker\s'
 
   # docker run
-  - name: docker run -it
+  - name: docker ri
     abbr: ri
     snippet: run -it
     global: true
     context: '^docker\s'
 
-  - name: docker run --rm
+  - name: docker rrm
     abbr: rrm
     snippet: run --rm
     global: true
     context: '^docker\s'
 
-  - name: docker run --rm -it
+  - name: docker rrmi
     abbr: rrmi
     snippet: run --rm -it
     global: true
     context: '^docker\s'
 
+  # terraform
+  - name: tf
+    abbr: tf
+    snippet: terraform
+
   # batgrep
-  - name: batgrep
+  - name: brg
     abbr: brg
     snippet: batgrep
 
   # awk
-  - name: awk '{ print $1 }'
+  - name: .1
     abbr: .1
     snippet: awk '{ print $1 }'
 
-  - name: awk '{ print $2 }'
+  - name: .2
     abbr: .2
     snippet: awk '{ print $2 }'
 
-  - name: awk '{ print $3 }'
+  - name: .3
     abbr: .3
     snippet: awk '{ print $3 }'
 
-  - name: awk '{ print $4 }'
+  - name: .4
     abbr: .4
     snippet: awk '{ print $4 }'
 
-  - name: awk '{ print $5 }'
+  - name: .5
     abbr: .5
     snippet: awk '{ print $5 }'
