@@ -62,6 +62,12 @@ abbrevs:
     global: true
     context: '^git\s'
 
+  - name: git C
+    abbr: C
+    snippet: cz
+    global: true
+    context: '^git\s'
+
   # git cherry-pick
   - name: git cp
     abbr: cp
