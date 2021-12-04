@@ -242,11 +242,6 @@ abbrevs:
     abbr: tf
     snippet: terraform
 
-  # batgrep
-  - name: brg
-    abbr: brg
-    snippet: batgrep
-
   # awk
   - name: .1
     abbr: .1

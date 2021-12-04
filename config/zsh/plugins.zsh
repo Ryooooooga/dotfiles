@@ -130,10 +130,10 @@ zinit wait lucid light-mode as'program' from'gh-r' for \
     atclone'yq shell-completion zsh >_yq' atpull'%atclone' \
     'mikefarah/yq'
 
-### bat-extras ###
+### hgrep ###
 zinit wait lucid light-mode as'program' from'gh-r' \
-    pick'bin/batgrep' \
-    for 'eth-p/bat-extras'
+    pick'hgrep*/hgrep' \
+    for 'rhysd/hgrep'
 
 ### navi ###
 __navi_search() {
