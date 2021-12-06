@@ -8,5 +8,6 @@ prompt: enabled
 pager:
 # Aliases allow you to create nicknames for gh commands
 aliases:
+    create: repo create
     fork: repo fork
     open: repo view --web
