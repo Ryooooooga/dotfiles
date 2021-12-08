@@ -2,5 +2,3 @@
 export const {{ $component }}: React.FC = () => {
   return <>{{ $component }}</>;
 };
-
-export default {{ $component }};
