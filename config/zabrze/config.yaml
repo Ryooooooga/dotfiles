@@ -242,6 +242,11 @@ abbrevs:
     abbr: tf
     snippet: terraform
 
+  # hgrep
+  - name: hg
+    abbr: hg
+    snippet: hgrep
+
   # awk
   - name: .1
     abbr: .1
