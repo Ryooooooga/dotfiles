@@ -48,9 +48,13 @@ case "$OSTYPE" in
 esac
 
 (( ${+commands[trash]} )) && alias rm='trash'
-(( ${+commands[colordiff]} )) && alias diff='colordiff'
 
 mkcd() { command mkdir -p -- "$@" && builtin cd "$(realpath -- "${@[-1]}")" }
+
+### diff ###
+(( ${+commands[colordiff]} )) && alias diff='colordiff'
+
+alias diffall='diff --new-line-format="+%L" --old-line-format="-%L" --unchanged-line-format=" %L"'
 
 ### direnv ###
 (( ${+commands[direnv]} )) && eval "$(direnv hook zsh)"
