@@ -93,8 +93,7 @@ zinit wait lucid light-mode for \
     'zsh-users/zsh-autosuggestions' \
     'zsh-users/zsh-completions' \
     'zdharma-continuum/fast-syntax-highlighting' \
-    'hlissner/zsh-autopair' \
-    'Ryooooooga/zsh-replace-multiple-dots'
+    'hlissner/zsh-autopair'
 
 ### programs ###
 zinit wait lucid light-mode as'program' from'gh-r' for \
@@ -206,6 +205,24 @@ zinit wait'1' lucid light-mode \
     atinit'__forgit_atinit' \
     atload'__forgit_atload' \
     for 'wfxr/forgit'
+
+### zsh-replace-multiple-dots ###
+__replace_multiple_dots_atload() {
+    __replace_multiple_dots_exclude_go() {
+        if [[ "$LBUFFER" =~ '^go ' ]]; then
+            zle self-insert
+        else
+            zle .__replace_multiple_dots
+        fi
+    }
+
+    zle -N .__replace_multiple_dots __replace_multiple_dots
+    zle -N __replace_multiple_dots __replace_multiple_dots_exclude_go
+}
+
+zinit wait lucid light-mode \
+    atload'__replace_multiple_dots_atload' \
+    for 'Ryooooooga/zsh-replace-multiple-dots'
 
 ### tmux-fzf ###
 zinit wait lucid light-mode \
