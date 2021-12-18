@@ -2,7 +2,9 @@
 	"log_stderr": true,
 	"clients": {
 		"clangd": {
-			"command": ["clangd", "--header-insertion=never"]
+			"command": ["clangd", "--header-insertion=never"],
+			"enabled": true,
+			"scopes": ["source.c", "source.cpp"],
 		}
 	}
 }
