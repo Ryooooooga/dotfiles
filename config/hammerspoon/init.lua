@@ -18,4 +18,4 @@ local function remap(mod, key, stroke)
 end
 
 -- shortcuts
-remap({'cmd'}, 'Y', keyStroke({'cmd', 'shift'}, 'Z'))
+-- remap({'cmd'}, 'Y', keyStroke({'cmd', 'shift'}, 'Z'))
