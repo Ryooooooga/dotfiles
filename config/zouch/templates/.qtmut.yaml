@@ -1,0 +1,14 @@
+active:
+  window: main
+  pane: 1
+
+windows:
+  - name: main
+    layout: even-horizontal
+    panes:
+      - command:
+      - command: vim
+  - layout: tile
+    panes:
+      - command: bundle exec rails s
+      - command: tail -f logs/development.log

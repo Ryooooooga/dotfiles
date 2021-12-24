@@ -108,22 +108,12 @@ select-ghq-session() {
 
     local repo_dir="$(ghq list --exact --full-path "$selected")"
     local session_name="$(sed -E 's/[:. ]/-/g' <<<"$selected")"
-    local tmuxinator_config="$repo_dir/.tmuxinator.yml"
 
     if [ -z "$TMUX" ]; then
-        if [ -f "$tmuxinator_config" ]; then
-            BUFFER="tmuxinator start -a -n ${(q)session_name} -p ${(q)tmuxinator_config}"
-        else
-            BUFFER="tmux new-session -A -s ${(q)session_name} -c ${(q)repo_dir}"
-        fi
+        BUFFER="qtmut -s ${(q)session_name} -c ${(q)repo_dir}"
         zle accept-line
     elif [ "$(tmux display-message -p "#S")" != "$session_name" ]; then
-        if [ -f "$tmuxinator_config" ]; then
-            tmuxinator start -a -n "$session_name" -p "$tmuxinator_config"
-        else
-            tmux new-session -d -s "$session_name" -c "$repo_dir" 2>/dev/null
-            tmux switch-client -t "$session_name"
-        fi
+        qtmut -s "$session_name" -c "$repo_dir"
     elif [ "$PWD" != "$repo_dir" ]; then
         BUFFER="cd ${(q)repo_dir}"
         zle accept-line

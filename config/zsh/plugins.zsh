@@ -229,6 +229,10 @@ zinit wait lucid light-mode \
     atload'alias t=tmux-fzf' \
     for 'Ryooooooga/tmux-fzf'
 
+### qtmut ###
+zinit wait lucid light-mode as'program' \
+    for 'Ryooooooga/qtmut'
+
 ### chpwd-recent-dirs ###
 add-zsh-hook chpwd chpwd_recent_dirs
 zstyle ':chpwd:*' recent-dirs-file "$XDG_CACHE_HOME/chpwd-recent-dirs"
