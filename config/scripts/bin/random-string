@@ -1,2 +1,15 @@
-#!/bin/sh
-cat /dev/urandom | tr -d -c "[:alnum:]" | fold -w "${1:-32}" | head -n"${2:-1}"
+#!/usr/bin/env perl
+my $s = shift // "alnum";
+my $len = shift // 32;
+my $n = shift // 1;
+
+my @digit = (0..9);
+my @hex = (0..9, A..F);
+my @alpha = (A..Z, a..z);
+my @alnum = (@digit, @alpha);
+my @chars = $s eq 'digit' ? @digit :
+            $s eq 'hex'   ? @hex   :
+            $s eq 'alpha' ? @alpha : @alnum;
+for (1..$n) {
+    print((map { @chars[rand(@chars)] } (1..$len)), "\n");
+}
