@@ -3,7 +3,16 @@ local wezterm = require('wezterm');
 return {
   font = wezterm.font("JetBrainsMono Nerd Font"),
   font_size = 11.0,
+  initial_cols = 300,
+  initial_rows = 100,
   use_ime = true,
+
+  window_padding = {
+    left = '0.5cell',
+    right = '0.5cell',
+    top = 0,
+    bottom = 0,
+  },
 
   colors = {
     background = '#1c2022',
