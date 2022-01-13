@@ -26,6 +26,9 @@ defaults write com.apple.finder ShowPathbar -bool true
 defaults write com.apple.finder ShowTabView -bool true
 defaults write com.apple.finder NewWindowTarget -string PfHm
 
+# Keyboard
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
 # Dock
 defaults write com.apple.dock orientation right
 defaults write com.apple.dock autohide -bool false
