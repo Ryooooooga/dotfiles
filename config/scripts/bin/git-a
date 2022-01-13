@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-if [ "$#" -ne 0 ]; then
-    git add -v "$@"
-elif [ -f "$FORGIT_PLUGIN_ZSH" ]; then
-    source "$FORGIT_PLUGIN_ZSH"
-    forgit::add
-else
-    git add -i
-fi

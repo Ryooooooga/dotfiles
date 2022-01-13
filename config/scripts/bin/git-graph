@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-if [ -f "$FORGIT_PLUGIN_ZSH" ]; then
-    source "$FORGIT_PLUGIN_ZSH"
-    forgit::log "$@"
-    true
-else
-    git log "$@"
-fi

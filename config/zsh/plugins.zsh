@@ -192,18 +192,16 @@ zinit wait lucid light-mode as'program' \
     for 'mrowa44/emojify'
 
 ### Forgit ###
-__forgit_atinit() {
-    export FORGIT_NO_ALIASES=1
-}
 __forgit_atload() {
-    export FORGIT_PLUGIN_ZSH="${ZINIT[PLUGINS_DIR]}/wfxr---forgit/forgit.plugin.zsh"
+    export FORGIT_INSTALL_DIR="${ZINIT[PLUGINS_DIR]}/wfxr---forgit"
+    export FORGIT_NO_ALIASES=1
     export FORGIT_GI_REPO_LOCAL="$XDG_DATA_HOME/gitignore"
     export FORGIT_GI_TEMPLATES="$FORGIT_GI_REPO_LOCAL/templates"
 }
 
-zinit wait'1' lucid light-mode \
-    atinit'__forgit_atinit' \
+zinit wait lucid light-mode as'program' \
     atload'__forgit_atload' \
+    pick'bin/git-forgit' \
     for 'wfxr/forgit'
 
 ### zsh-replace-multiple-dots ###
