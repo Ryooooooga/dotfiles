@@ -59,6 +59,7 @@ nnoremap <silent><C-_>  :split<CR>
 nnoremap <silent><C-h>  :bprev<CR>
 nnoremap <silent><C-l>  :bnext<CR>
 nnoremap <silent><C-w>  :bdelete<CR>
+nnoremap <silent><C-k><C-w> :close<CR>
 inoremap <silent>jj     <ESC>
 inoremap <silent><Down> <C-\><C-o>gj
 inoremap <silent><Up>   <C-\><C-o>gk
