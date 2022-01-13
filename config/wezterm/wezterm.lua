@@ -60,4 +60,9 @@ return {
       },
     },
   },
+
+  keys = {
+    {mods="CTRL", key="-", action=wezterm.action{SendString="\x1F"}},
+    {mods="CTRL", key="=", action="DisableDefaultAssignment"},
+  },
 }
