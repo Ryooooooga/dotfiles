@@ -1,0 +1,6 @@
+<snippet>
+	<content><![CDATA[size_t]]></content>
+	<tabTrigger>size_t</tabTrigger>
+	<scope>source.d</scope>
+	<description>size_t</description>
+</snippet>

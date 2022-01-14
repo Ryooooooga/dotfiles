@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[
+else if
+{
+	$0
+}]]></content>
+	<tabTrigger>elif</tabTrigger>
+	<scope>source.d</scope>
+	<description>else if</description>
+</snippet>

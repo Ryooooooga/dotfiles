@@ -43,6 +43,7 @@
 	// Snippets
 	"ignored_snippets": [
 		"C++/*",
+		"D/*",
 	],
 
 	// Packages

@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[struct ${1:name}
+{
+	$2
+}]]></content>
+	<tabTrigger>struct</tabTrigger>
+	<scope>source.d</scope>
+	<description>struct</description>
+</snippet>

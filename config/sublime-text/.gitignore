@@ -9,6 +9,7 @@
 /Packages/User/*
 !/Packages/User/C++
 !/Packages/User/CMake
+!/Packages/User/D
 !/Packages/User/Flex
 !/Packages/User/Makefile
 !/Packages/User/Markdown

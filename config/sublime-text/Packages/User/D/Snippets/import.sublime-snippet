@@ -1,0 +1,6 @@
+<snippet>
+	<content><![CDATA[import ${1:std.stdio};]]></content>
+	<tabTrigger>import</tabTrigger>
+	<scope>source.d</scope>
+	<description>import</description>
+</snippet>
