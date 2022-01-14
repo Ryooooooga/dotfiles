@@ -10,6 +10,20 @@
   buffer-left: '<cmd> <subcmd> <args>'
   buffer-right: '[]'
 
+- description: git-cherry-pick
+  regexp-left: ^\s*(?P<cmd>(git))\s+(?P<subcmd>(cherry-pick))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
+  cmd-groups:
+    - stmt: '"$PMY_SCRIPT_PATH/git-commits.zsh" --all'
+    - stmt: '"$PMY_SCRIPT_PATH/options.zsh" "git/cherry-pick-options" "\uf73a" "option" "blue"'
+      after: awk '{ print $3 }' | tr '\n' ' '
+  fuzzy-finder-cmd: |
+    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
+      --multi \
+      --nth=3 \
+      --query=<query>
+  buffer-left: '<cmd> <subcmd> <args>'
+  buffer-right: '[]'
+
 - description: git-diff
   regexp-left: ^\s*(?P<cmd>(git))\s+(?P<subcmd>(df|diff))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
   cmd-groups:
