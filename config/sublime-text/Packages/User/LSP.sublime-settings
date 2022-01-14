@@ -5,6 +5,13 @@
 			"command": ["clangd", "--header-insertion=never"],
 			"enabled": true,
 			"scopes": ["source.c", "source.cpp"],
-		}
-	}
+		},
+		"dls": {
+			"command": ["~/.dub/packages/.bin/dls-latest/dls"],
+			"enabled": true,
+			"languageId": "d",
+			"scopes": ["source.d"],
+			"syntaxes": ["Packages/D/D.sublime-syntax"],
+		},
+	},
 }
