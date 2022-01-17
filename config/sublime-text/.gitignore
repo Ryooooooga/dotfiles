@@ -3,7 +3,6 @@
 !/Packages
 
 /Packages/*
-!/Packages/Go
 !/Packages/User*
 
 /Packages/User/*
