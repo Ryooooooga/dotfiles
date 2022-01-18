@@ -34,163 +34,163 @@ abbrevs:
     abbr: aa
     snippet: add -vA
     global: true
-    context: '^git\s'
+    context: ^git\s
 
   - name: git ai
     abbr: ai
     snippet: add -i
     global: true
-    context: '^git\s'
+    context: ^git\s
 
   # git branch
   - name: git b
     abbr: b
     snippet: branch
     global: true
-    context: '^git\s'
+    context: ^git\s
 
   # git commit
   - name: git c
     abbr: c
     snippet: commit
     global: true
-    context: '^git\s'
+    context: ^git\s
 
   - name: git cam
     abbr: cam
     snippet: commit --amend --no-edit
     global: true
-    context: '^git\s'
+    context: ^git\s
 
   - name: git cm
     abbr: cm
     snippet: commit -m
     global: true
-    context: '^git\s'
+    context: ^git\s
 
   - name: git C
     abbr: C
     snippet: cz
     global: true
-    context: '^git\s'
+    context: ^git\s
 
   # git cherry-pick
   - name: git cp
     abbr: cp
     snippet: cherry-pick
     global: true
-    context: '^git\s'
+    context: ^git\s
 
   # git diff
   - name: git st
     abbr: st
     snippet: diff --stat
     global: true
-    context: '^git\s'
+    context: ^git\s
 
   - name: git stat
     abbr: stat
     snippet: diff --stat
     global: true
-    context: '^git\s'
+    context: ^git\s
 
   - name: git stats
     abbr: stats
     snippet: diff --stat --staged
     global: true
-    context: '^git\s'
+    context: ^git\s
 
   - name: git sts
     abbr: sts
     snippet: diff --stat --staged
     global: true
-    context: '^git\s'
+    context: ^git\s
 
   - name: git dfi
     abbr: dfi
     snippet: df --ignore-all-space
     global: true
-    context: '^git\s'
+    context: ^git\s
 
   - name: git dfs
     abbr: dfs
     snippet: df --staged
     global: true
-    context: '^git\s'
+    context: ^git\s
 
   - name: git dfsi
     abbr: dfsi
     snippet: df --staged --ignore-all-space
     global: true
-    context: '^git\s'
+    context: ^git\s
 
   # git fetch
   - name: git f
     abbr: f
     snippet: fetch
     global: true
-    context: '^git\s'
+    context: ^git\s
 
   - name: git fu
     abbr: fu
     snippet: fetch upstream
     global: true
-    context: '^git\s'
+    context: ^git\s
 
   # git log
   - name: git lg
     abbr: lg
     snippet: graph
     global: true
-    context: '^git\s'
+    context: ^git\s
 
   # git pull
   - name: git pl
     abbr: pl
     snippet: pull
     global: true
-    context: '^git\s'
+    context: ^git\s
 
   # git push
   - name: git ps
     abbr: ps
     snippet: push
     global: true
-    context: '^git\s'
+    context: ^git\s
 
   - name: git psu
     abbr: psu
     snippet: push -u origin $(git symbolic-ref --short HEAD)
     evaluate: true
     global: true
-    context: '^git\s'
+    context: ^git\s
 
   - name: git push -f
     abbr: -f
     snippet: --force-with-lease
     global: true
-    context: '^git(\s+\S+)*\s+push\s'
+    context: ^git(\s+\S+)*\s+push\s
 
   # git status
   - name: git s
     abbr: s
     snippet: status
     global: true
-    context: '^git\s'
+    context: ^git\s
 
   # git switch
   - name: git sw
     abbr: sw
     snippet: switch
     global: true
-    context: '^git\s'
+    context: ^git\s
 
   # git tag
   - name: git tags
     abbr: tags
     snippet: tag -l
     global: true
-    context: '^git\s'
+    context: ^git\s
 
   # git current branch name
   - name: B
@@ -198,14 +198,14 @@ abbrevs:
     snippet: $(git symbolic-ref --short HEAD)
     global: true
     evaluate: true
-    context: '^git\s'
+    context: ^git\s
 
   # git upstream
   - name: git U
     abbr: U
     snippet: upstream
     global: true
-    context: '^git\s'
+    context: ^git\s
 
   # lazygit
   - name: lg
@@ -222,26 +222,26 @@ abbrevs:
     abbr: c
     snippet: compose
     global: true
-    context: '^docker\s'
+    context: ^docker\s
 
   # docker run
   - name: docker ri
     abbr: ri
     snippet: run -it
     global: true
-    context: '^docker\s'
+    context: ^docker\s
 
   - name: docker rrm
     abbr: rrm
     snippet: run --rm
     global: true
-    context: '^docker\s'
+    context: ^docker\s
 
   - name: docker rrmi
     abbr: rrmi
     snippet: run --rm -it
     global: true
-    context: '^docker\s'
+    context: ^docker\s
 
   # terraform
   - name: tf
