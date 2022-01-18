@@ -56,6 +56,12 @@ abbrevs:
     global: true
     context: '^git\s'
 
+  - name: git cam
+    abbr: cam
+    snippet: commit --amend --no-edit
+    global: true
+    context: '^git\s'
+
   - name: git cm
     abbr: cm
     snippet: commit -m
