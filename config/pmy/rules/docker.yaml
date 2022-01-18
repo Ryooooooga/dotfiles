@@ -3,10 +3,10 @@
   cmd-groups:
     - stmt: '"$PMY_SCRIPT_PATH/options.zsh" "docker/build-options" "\uf73a" "option" "blue"'
       after: awk '{ printf "%s ", $3 }'
-  fuzzy-finder-cmd: |
-    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
-      --nth=3 \
-      --query=<query>
+  fuzzy-finder-cmd: >
+    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}"
+    --nth=3
+    --query=<query>
   buffer-left: '<cmd> <args>'
   buffer-right: '[]'
 
@@ -16,10 +16,10 @@
     - stmt: '"$PMY_SCRIPT_PATH/docker-images.zsh"'
     - stmt: '"$PMY_SCRIPT_PATH/options.zsh" "docker/run-options" "\uf73a" "option" "blue"'
       after: awk '{ printf "%s ", $3 }'
-  fuzzy-finder-cmd: |
-    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
-      --nth=3 \
-      --query=<query>
+  fuzzy-finder-cmd: >
+    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}"
+    --nth=3
+    --query=<query>
   buffer-left: '<cmd> <args>'
   buffer-right: '[]'
 
@@ -30,9 +30,9 @@
     - stmt: '"$PMY_SCRIPT_PATH/options.zsh" "docker/aliases" "\uf8e9" "alias" "red"'
     - stmt: '"$PMY_SCRIPT_PATH/options.zsh" "docker/options" "\uf73a" "option" "blue"'
       after: awk '{ printf "%s ", $3 }'
-  fuzzy-finder-cmd: |
-    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
-      --nth=3 \
-      --query=<query>
+  fuzzy-finder-cmd: >
+    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}"
+    --nth=3
+    --query=<query>
   buffer-left: '<cmd> '
   buffer-right: '[]'

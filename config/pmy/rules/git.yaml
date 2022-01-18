@@ -3,10 +3,10 @@
   cmd-groups:
     - stmt: '"$PMY_SCRIPT_PATH/git-local-branches.zsh"'
       after: awk '{ print $3 }'
-  fuzzy-finder-cmd: |
-    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
-      --nth=3 \
-      --query=<query>
+  fuzzy-finder-cmd: >
+    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}"
+    --nth=3
+    --query=<query>
   buffer-left: '<cmd> <args>'
   buffer-right: '[]'
 
@@ -16,11 +16,11 @@
     - stmt: '"$PMY_SCRIPT_PATH/git-commits.zsh" --all'
     - stmt: '"$PMY_SCRIPT_PATH/options.zsh" "git/cherry-pick-options" "\uf73a" "option" "blue"'
       after: awk '{ print $3 }' | tr '\n' ' '
-  fuzzy-finder-cmd: |
-    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
-      --multi \
-      --nth=3 \
-      --query=<query>
+  fuzzy-finder-cmd: >
+    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}"
+    --multi
+    --nth=3
+    --query=<query>
   buffer-left: '<cmd> <args>'
   buffer-right: '[]'
 
@@ -33,10 +33,10 @@
     - stmt: '"$PMY_SCRIPT_PATH/git-commits.zsh"'
     - stmt: '"$PMY_SCRIPT_PATH/options.zsh" "git/diff-options" "\uf73a" "option" "blue"'
       after: awk '{ print $3 }' | sed 's|^origin/||'
-  fuzzy-finder-cmd: |
-    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
-      --nth=3 \
-      --query=<query>
+  fuzzy-finder-cmd: >
+    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}"
+    --nth=3
+    --query=<query>
   buffer-left: '<cmd> <args>'
   buffer-right: '[]'
 
@@ -45,10 +45,10 @@
   cmd-groups:
     - stmt: git remote
       after: awk '{ print $1 }'
-  fuzzy-finder-cmd: |
-    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
-      --preview="git remote get-url {}" \
-      --query=<query>
+  fuzzy-finder-cmd: >
+    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}"
+    --preview="git remote get-url {}"
+    --query=<query>
   buffer-left: '<cmd> <args>'
   buffer-right: '[]'
 
@@ -61,10 +61,10 @@
     - stmt: '"$PMY_SCRIPT_PATH/git-commits.zsh"'
     - stmt: '"$PMY_SCRIPT_PATH/options.zsh" "git/diff-options" "\uf73a" "option" "blue"'
       after: awk '{ print $3 }'
-  fuzzy-finder-cmd: |
-    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
-      --nth=3 \
-      --query=<query>
+  fuzzy-finder-cmd: >
+    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}"
+    --nth=3
+    --query=<query>
   buffer-left: '<cmd> <args>'
   buffer-right: '[]'
 
@@ -77,10 +77,10 @@
     - stmt: '"$PMY_SCRIPT_PATH/git-commits.zsh"'
     - stmt: '"$PMY_SCRIPT_PATH/options.zsh" "git/diff-options" "\uf73a" "option" "blue"'
       after: awk '{ print $3 }'
-  fuzzy-finder-cmd: |
-    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
-      --nth=3 \
-      --query=<query>
+  fuzzy-finder-cmd: >
+    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}"
+    --nth=3
+    --query=<query>
   buffer-left: '<cmd> <args>'
   buffer-right: '[]'
 
@@ -93,10 +93,10 @@
     - stmt: '"$PMY_SCRIPT_PATH/git-commits.zsh"'
     - stmt: '"$PMY_SCRIPT_PATH/options.zsh" "git/diff-options" "\uf73a" "option" "blue"'
       after: awk '{ print $3 }'
-  fuzzy-finder-cmd: |
-    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
-      --nth=3 \
-      --query=<query>
+  fuzzy-finder-cmd: >
+    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}"
+    --nth=3
+    --query=<query>
   buffer-left: '<cmd> <args>'
   buffer-right: '[]'
 
@@ -108,11 +108,11 @@
     - stmt: '"$PMY_SCRIPT_PATH/git-tags.zsh"'
     - stmt: '"$PMY_SCRIPT_PATH/git-commits.zsh"'
       after: awk '{ print $3 }' | sed 's|^origin/||'
-  fuzzy-finder-cmd: |
-    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
-      --nth=3 \
-      --preview="echo {} | awk '{ print \$3 }' | xargs -r git show --color | delta" \
-      --query=<query>
+  fuzzy-finder-cmd: >
+    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}"
+    --nth=3
+    --preview="echo {} | awk '{ print \$3 }' | xargs -r git show --color | delta"
+    --query=<query>
   buffer-left: '<cmd> <args>'
   buffer-right: '[]'
 
@@ -121,9 +121,9 @@
   cmd-groups:
     - stmt: git users | sed -E 's/:\s*/\t/'
       after: awk '{ print $1 }'
-  fuzzy-finder-cmd: |
-    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
-      --query=<query>
+  fuzzy-finder-cmd: >
+    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}"
+    --query=<query>
   buffer-left: '<cmd> '
   buffer-right: '[]'
 
@@ -134,9 +134,9 @@
     - stmt: '"$PMY_SCRIPT_PATH/git-aliases.zsh"'
     - stmt: '"$PMY_SCRIPT_PATH/options.zsh" "git/options" "\uf73a" "option" "blue"'
       after: awk '{ printf "%s ", $3 }'
-  fuzzy-finder-cmd: |
-    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
-      --nth=3 \
-      --query=<query>
+  fuzzy-finder-cmd: >
+    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}"
+    --nth=3
+    --query=<query>
   buffer-left: '<cmd> '
   buffer-right: '[]'

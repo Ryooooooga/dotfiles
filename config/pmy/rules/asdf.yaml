@@ -4,9 +4,9 @@
     - stmt: '"$PMY_SCRIPT_PATH/options.zsh" "asdf/subcommands" "\ufb32" "command" "yellow"'
     - stmt: '"$PMY_SCRIPT_PATH/options.zsh" "asdf/options" "\uf73a" "option" "blue"'
       after: awk '{ printf "%s ", $3 }'
-  fuzzy-finder-cmd: |
-    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
-      --nth=3 \
-      --query=<query>
+  fuzzy-finder-cmd: >
+    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}"
+    --nth=3
+    --query=<query>
   buffer-left: '<cmd> '
   buffer-right: '[]'
