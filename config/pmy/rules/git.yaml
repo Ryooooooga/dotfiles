@@ -1,5 +1,5 @@
 - description: git-branch
-  regexp-left: ^\s*(?P<cmd>(git))\s+(?P<subcmd>(branch))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
+  regexp-left: ^\s*(?P<cmd>git\s+(branch))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
   cmd-groups:
     - stmt: '"$PMY_SCRIPT_PATH/git-local-branches.zsh"'
       after: awk '{ print $3 }'
@@ -7,11 +7,11 @@
     "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
       --nth=3 \
       --query=<query>
-  buffer-left: '<cmd> <subcmd> <args>'
+  buffer-left: '<cmd> <args>'
   buffer-right: '[]'
 
 - description: git-cherry-pick
-  regexp-left: ^\s*(?P<cmd>(git))\s+(?P<subcmd>(cherry-pick))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
+  regexp-left: ^\s*(?P<cmd>git\s+(cherry-pick))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
   cmd-groups:
     - stmt: '"$PMY_SCRIPT_PATH/git-commits.zsh" --all'
     - stmt: '"$PMY_SCRIPT_PATH/options.zsh" "git/cherry-pick-options" "\uf73a" "option" "blue"'
@@ -21,11 +21,11 @@
       --multi \
       --nth=3 \
       --query=<query>
-  buffer-left: '<cmd> <subcmd> <args>'
+  buffer-left: '<cmd> <args>'
   buffer-right: '[]'
 
 - description: git-diff
-  regexp-left: ^\s*(?P<cmd>(git))\s+(?P<subcmd>(df|diff))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
+  regexp-left: ^\s*(?P<cmd>git\s+(df|diff))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
   cmd-groups:
     - stmt: '"$PMY_SCRIPT_PATH/git-local-branches.zsh"'
     - stmt: '"$PMY_SCRIPT_PATH/git-remote-branches.zsh"'
@@ -37,11 +37,11 @@
     "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
       --nth=3 \
       --query=<query>
-  buffer-left: '<cmd> <subcmd> <args>'
+  buffer-left: '<cmd> <args>'
   buffer-right: '[]'
 
 - description: git-fetch
-  regexp-left: ^\s*(?P<cmd>(git))\s+(?P<subcmd>(fetch))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
+  regexp-left: ^\s*(?P<cmd>git\s+(fetch))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
   cmd-groups:
     - stmt: git remote
       after: awk '{ print $1 }'
@@ -49,11 +49,11 @@
     "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
       --preview="git remote get-url {}" \
       --query=<query>
-  buffer-left: '<cmd> <subcmd> <args>'
+  buffer-left: '<cmd> <args>'
   buffer-right: '[]'
 
 - description: git-log
-  regexp-left: ^\s*(?P<cmd>(git))\s+(?P<subcmd>(graph|log))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
+  regexp-left: ^\s*(?P<cmd>git\s+(graph|log))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
   cmd-groups:
     - stmt: '"$PMY_SCRIPT_PATH/git-local-branches.zsh"'
     - stmt: '"$PMY_SCRIPT_PATH/git-remote-branches.zsh"'
@@ -65,11 +65,11 @@
     "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
       --nth=3 \
       --query=<query>
-  buffer-left: '<cmd> <subcmd> <args>'
+  buffer-left: '<cmd> <args>'
   buffer-right: '[]'
 
 - description: git-rebase
-  regexp-left: ^\s*(?P<cmd>(git))\s+(?P<subcmd>(rebase))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
+  regexp-left: ^\s*(?P<cmd>git\s+(rebase))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
   cmd-groups:
     - stmt: '"$PMY_SCRIPT_PATH/git-local-branches.zsh"'
     - stmt: '"$PMY_SCRIPT_PATH/git-remote-branches.zsh"'
@@ -81,11 +81,11 @@
     "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
       --nth=3 \
       --query=<query>
-  buffer-left: '<cmd> <subcmd> <args>'
+  buffer-left: '<cmd> <args>'
   buffer-right: '[]'
 
 - description: git-reset
-  regexp-left: ^\s*(?P<cmd>(git))\s+(?P<subcmd>(reset))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
+  regexp-left: ^\s*(?P<cmd>git\s+(reset))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
   cmd-groups:
     - stmt: '"$PMY_SCRIPT_PATH/git-local-branches.zsh"'
     - stmt: '"$PMY_SCRIPT_PATH/git-remote-branches.zsh"'
@@ -97,11 +97,11 @@
     "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
       --nth=3 \
       --query=<query>
-  buffer-left: '<cmd> <subcmd> <args>'
+  buffer-left: '<cmd> <args>'
   buffer-right: '[]'
 
 - description: git-switch
-  regexp-left: ^\s*(?P<cmd>(git))\s+(?P<subcmd>(merge|rebase|switch))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
+  regexp-left: ^\s*(?P<cmd>git\s+(merge|rebase|switch))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
   cmd-groups:
     - stmt: '"$PMY_SCRIPT_PATH/git-local-branches.zsh"'
     - stmt: '"$PMY_SCRIPT_PATH/git-remote-branches.zsh"'
@@ -113,22 +113,22 @@
       --nth=3 \
       --preview="echo {} | awk '{ print \$3 }' | xargs -r git show --color | delta" \
       --query=<query>
-  buffer-left: '<cmd> <subcmd> <args>'
+  buffer-left: '<cmd> <args>'
   buffer-right: '[]'
 
 - description: git-user
-  regexp-left: ^\s*(?P<cmd>(git))\s+(?P<subcmd>(user))(\s+|$)(?P<query>\S*)$
+  regexp-left: ^\s*(?P<cmd>git\s+(user))(\s+|$)(?P<query>\S*)$
   cmd-groups:
     - stmt: git users | sed -E 's/:\s*/\t/'
       after: awk '{ print $1 }'
   fuzzy-finder-cmd: |
     "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
       --query=<query>
-  buffer-left: '<cmd> <subcmd> '
+  buffer-left: '<cmd> '
   buffer-right: '[]'
 
 - description: git
-  regexp-left: ^\s*(?P<cmd>(git))(\s+|$)(?P<query>\S*)$
+  regexp-left: ^\s*(?P<cmd>git)(\s+|$)(?P<query>\S*)$
   cmd-groups:
     - stmt: '"$PMY_SCRIPT_PATH/options.zsh" "git/subcommands" "\ufb32" "command" "yellow"'
     - stmt: '"$PMY_SCRIPT_PATH/git-aliases.zsh"'

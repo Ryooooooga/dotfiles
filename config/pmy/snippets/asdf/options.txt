@@ -1,1 +1,1 @@
---version   display version information
+--version	display version information

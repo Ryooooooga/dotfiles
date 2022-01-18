@@ -1,5 +1,5 @@
 - description: docker-build
-  regexp-left: ^\s*(?P<cmd>(docker))\s+(?P<subcmd>(build))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
+  regexp-left: ^\s*(?P<cmd>docker\s+(build))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
   cmd-groups:
     - stmt: '"$PMY_SCRIPT_PATH/options.zsh" "docker/build-options" "\uf73a" "option" "blue"'
       after: awk '{ printf "%s ", $3 }'
@@ -7,11 +7,11 @@
     "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
       --nth=3 \
       --query=<query>
-  buffer-left: '<cmd> <subcmd> <args>'
+  buffer-left: '<cmd> <args>'
   buffer-right: '[]'
 
 - description: docker-run
-  regexp-left: ^\s*(?P<cmd>(docker))\s+(?P<subcmd>(run))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
+  regexp-left: ^\s*(?P<cmd>docker\s+(run))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
   cmd-groups:
     - stmt: '"$PMY_SCRIPT_PATH/docker-images.zsh"'
     - stmt: '"$PMY_SCRIPT_PATH/options.zsh" "docker/run-options" "\uf73a" "option" "blue"'
@@ -20,11 +20,11 @@
     "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
       --nth=3 \
       --query=<query>
-  buffer-left: '<cmd> <subcmd> <args>'
+  buffer-left: '<cmd> <args>'
   buffer-right: '[]'
 
 - description: docker
-  regexp-left: ^\s*(?P<cmd>(docker))(\s+|$)(?P<query>\S*)$
+  regexp-left: ^\s*(?P<cmd>docker)(\s+|$)(?P<query>\S*)$
   cmd-groups:
     - stmt: '"$PMY_SCRIPT_PATH/options.zsh" "docker/subcommands" "\ufb32" "command" "yellow"'
     - stmt: '"$PMY_SCRIPT_PATH/options.zsh" "docker/aliases" "\uf8e9" "alias" "red"'
