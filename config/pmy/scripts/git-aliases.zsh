@@ -1,6 +1,4 @@
 #!/usr/bin/env zsh
-. "${0:a:h}/ansi.zsh"
-
 icon="\uf8e9"
 header="alias"
 
