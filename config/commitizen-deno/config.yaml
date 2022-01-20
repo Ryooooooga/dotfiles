@@ -51,7 +51,7 @@ message:
       required: true
       form: input
 
-    - name: body
+    - name: detail
       # description: Provide a longer description of the change
       description: "変更内容の詳細: (enterでスキップ)"
       form: input
@@ -59,6 +59,7 @@ message:
     - name: breakingChange
       # description: Describe the breaking changes if exist
       description: "破壊的変更についての記述: (enterでスキップ)"
+      prompt: "BREAKING CHANGE > "
       form: input
 
     - name: issue
@@ -66,4 +67,4 @@ message:
       description: '関連issueを追記 (例:"fix #123", "re #123"): (enterでスキップ)'
       form: input
 
-  template: "<%- type %><% if (scope) { %>(<%- scope %>)<% } %>: <%- subject %><% if (body) { %>\n\n<%- body %><% } %><% if (breakingChange) { %>\n\nBREAKING CHANGE: <%- breakingChange %><% } %><% if (issue) { %>\n\n<%- issue %><% } %>"
+  template: "<%- type %><% if (scope) { %>(<%- scope %>)<% } %>: <%- subject %><% if (detail) { %>\n\n<%- detail %><% } %><% if (breakingChange) { %>\n\nBREAKING CHANGE: <%- breakingChange %><% } %><% if (issue) { %>\n\n<%- issue %><% } %>"
