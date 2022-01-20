@@ -134,8 +134,13 @@ zinit wait lucid light-mode as'program' from'gh-r' for \
     'mikefarah/yq'
 
 ### hgrep ###
+__hgrep_atload() {
+    alias hgrep="hgrep --hidden --glob='!.git/'"
+}
+
 zinit wait lucid light-mode as'program' from'gh-r' \
     pick'hgrep*/hgrep' \
+    atload'__hgrep_atload' \
     for 'rhysd/hgrep'
 
 ### navi ###
