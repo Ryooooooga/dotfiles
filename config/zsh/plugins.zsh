@@ -231,6 +231,10 @@ zinit wait lucid light-mode \
 zinit wait lucid light-mode as'program' \
     for 'Ryooooooga/qtmut'
 
+### commitizen-deno ###
+zinit wait lucid light-mode as'program' \
+    for 'Ryooooooga/commitizen-deno'
+
 ### chpwd-recent-dirs ###
 add-zsh-hook chpwd chpwd_recent_dirs
 zstyle ':chpwd:*' recent-dirs-file "$XDG_CACHE_HOME/chpwd-recent-dirs"
