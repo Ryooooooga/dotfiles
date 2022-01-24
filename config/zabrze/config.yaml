@@ -224,6 +224,13 @@ abbrevs:
     global: true
     context: ^docker\s
 
+  # docker pull
+  - name: docker pl
+    abbr: pl
+    snippet: pull
+    global: true
+    context: ^docker\s
+
   # docker run
   - name: docker ri
     abbr: ri
@@ -247,6 +254,18 @@ abbrevs:
   - name: tf
     abbr: tf
     snippet: terraform
+
+  - name: terraform plan
+    abbr: p
+    snippet: plan
+    global: true
+    context: ^terraform\s
+
+  - name: terraform apply
+    abbr: ap
+    snippet: apply
+    global: true
+    context: ^terraform\s
 
   # hgrep
   - name: hg
