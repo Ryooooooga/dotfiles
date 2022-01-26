@@ -122,7 +122,7 @@ select-ghq-session() {
 }
 
 select-dir() {
-    local selected="$(fd --hidden --color=always --exclude='.git' --type=d . $(git rev-parse --show-cdup 2>/dev/null) | fzf --exit-0 --preview="fzf-preview-directory '{}'" --preview-window="right:50%")"
+    local selected="$(fd --hidden --color=always --exclude='.git' --type=d . $(git rev-parse --show-cdup 2>/dev/null) | fzf --exit-0 --preview="fzf-preview-directory {}" --preview-window="right:50%")"
     if [ -n "$selected" ]; then
         BUFFER="cd $selected"
         zle accept-line
