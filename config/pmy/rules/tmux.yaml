@@ -1,4 +1,4 @@
-- description: t
+- description: tmux
   regexp-left: ^\s*(?P<cmd>tmux)(\s+|$)(?P<query>\S*)$
   cmd-groups:
     - stmt: '"$PMY_SCRIPT_PATH/options.zsh" "tmux/subcommands" "\ufb32" "command" "yellow"'
