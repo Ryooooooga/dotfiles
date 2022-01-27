@@ -4,11 +4,11 @@
   cmd-groups:
     - stmt: fd --color=always --hidden --type=f
       after: sed 's/ /\\ /g' | paste -s -d ' ' - # Escape spaces and replace EOL
-  fuzzy-finder-cmd: |
-    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
-      --multi \
-      --preview="fzf-preview-file {}" \
-      --query=<query>
+  fuzzy-finder-cmd: >
+    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}"
+    --multi
+    --preview="fzf-preview-file {}"
+    --query=<query>
   buffer-left: '<cmd> <args>'
   buffer-right: '[]'
 
@@ -17,10 +17,10 @@
   cmd-groups:
     - stmt: fd --color=always --hidden
       after: sed 's/ /\\ /g' # Escape spaces
-  fuzzy-finder-cmd: |
-    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
-      --preview="fzf-preview-file {}" \
-      --query=<query>
+  fuzzy-finder-cmd: >
+    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}"
+    --preview="fzf-preview-file {}"
+    --query=<query>
   buffer-left: '<cmd> <args>'
   buffer-right: '[]'
 
@@ -29,14 +29,9 @@
   cmd-groups:
     - stmt: fd --color=always --hidden --type=d
       after: sed -E 's/ /\\ /g; s,/?$,/,' # Escape spaces and add trailing slash
-  fuzzy-finder-cmd: |
-    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}" \
-      --preview="fzf-preview-directory {}" \
-      --query=<query>
+  fuzzy-finder-cmd: >
+    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}"
+    --preview="fzf-preview-directory {}"
+    --query=<query>
   buffer-left: '<cmd> '
-  buffer-right: '[]'
-
-### Fallthrough
-- description: fallthrough
-  buffer-left: '[]'
   buffer-right: '[]'
