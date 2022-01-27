@@ -2,6 +2,7 @@ attach	Attach local standard input, output, and error streams to a running conta
 build	Build an image from a Dockerfile
 builder	Manage builds
 commit	Create a new image from a container's changes
+compose	Docker Compose
 config	Manage Docker configs
 container	Manage containers
 context	Manage contexts
