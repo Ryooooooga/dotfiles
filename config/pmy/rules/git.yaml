@@ -132,6 +132,7 @@
   cmd-groups:
     - stmt: '"$PMY_SCRIPT_PATH/options.zsh" "git/subcommands" "\ufb32" "command" "yellow"'
     - stmt: '"$PMY_SCRIPT_PATH/git-aliases.zsh"'
+    - stmt: '"$PMY_SCRIPT_PATH/git-tools.zsh"'
     - stmt: '"$PMY_SCRIPT_PATH/options.zsh" "git/options" "\uf73a" "option" "blue"'
       after: awk '{ printf "%s ", $3 }'
   fuzzy-finder-cmd: >
