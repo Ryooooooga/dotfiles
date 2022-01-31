@@ -61,7 +61,8 @@ alias diffall='command diff --new-line-format="+%L" --old-line-format="-%L" --un
 
 ### zabrze ###
 zinit blockf light-mode as'program' from'gh-r' for \
-    atload'eval "$(zabrze init --bind-keys)"' \
+    atclone'zabrze init --bind-keys >zabrze.zsh; zcompile zabrze.zsh' atpull'%atclone' \
+    atload'source zabrze.zsh' \
     'Ryooooooga/zabrze'
 
 ### FZF ###
@@ -185,7 +186,7 @@ __pmy_atload() {
 }
 
 zinit wait lucid light-mode as'program' from'gh-r' \
-    atclone'./pmy init >pmy.zsh' atpull'%atclone' \
+    atclone'./pmy init >pmy.zsh; zcompile pmy.zsh' atpull'%atclone' \
     atload'__pmy_atload' \
     for 'Ryooooooga/pmy'
 
