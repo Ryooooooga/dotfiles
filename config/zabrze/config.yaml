@@ -64,7 +64,7 @@ abbrevs:
 
   - name: git cm
     abbr: cm
-    snippet: commit -m
+    snippet: commit -m '{}'
     global: true
     context: ^git\s
 
