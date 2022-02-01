@@ -160,8 +160,7 @@ abbrevs:
 
   - name: git psu
     abbr: psu
-    snippet: push -u origin $(git symbolic-ref --short HEAD)
-    evaluate: true
+    snippet: push -u origin HEAD
     global: true
     context: ^git\s
 
