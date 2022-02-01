@@ -94,7 +94,7 @@ zinit wait'1' lucid light-mode for \
     'hlissner/zsh-autopair'
 
 ### zsh plugins ###
-zinit wait lucid light-mode for \
+zinit wait lucid blockf light-mode for \
     'zsh-users/zsh-autosuggestions' \
     'zsh-users/zsh-completions' \
     'zdharma-continuum/fast-syntax-highlighting'
