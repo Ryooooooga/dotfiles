@@ -60,8 +60,8 @@ alias diffall='command diff --new-line-format="+%L" --old-line-format="-%L" --un
 (( ${+commands[direnv]} )) && eval "$(direnv hook zsh)"
 
 ### zabrze ###
-zinit blockf light-mode as'program' from'gh-r' for \
-    atclone'zabrze init --bind-keys >zabrze.zsh; zcompile zabrze.zsh' atpull'%atclone' \
+zinit wait lucid blockf light-mode as'program' from'gh-r' for \
+    atclone'./zabrze init --bind-keys >zabrze.zsh; zcompile zabrze.zsh' atpull'%atclone' \
     atload'source zabrze.zsh' \
     'Ryooooooga/zabrze'
 
@@ -89,12 +89,15 @@ zinit wait lucid light-mode \
     atload'__zsh_history_substring_search_atload' \
     for 'zsh-users/zsh-history-substring-search'
 
+### zsh-autopair ###
+zinit wait'1' lucid light-mode for \
+    'hlissner/zsh-autopair'
+
 ### zsh plugins ###
 zinit wait lucid light-mode for \
     'zsh-users/zsh-autosuggestions' \
     'zsh-users/zsh-completions' \
-    'zdharma-continuum/fast-syntax-highlighting' \
-    'hlissner/zsh-autopair'
+    'zdharma-continuum/fast-syntax-highlighting'
 
 ### programs ###
 zinit wait lucid light-mode as'program' from'gh-r' for \
@@ -106,7 +109,7 @@ zinit wait lucid light-mode as'program' from'gh-r' for \
 ### GitHub CLI ###
 zinit wait lucid light-mode as'program' from'gh-r' for \
     pick'gh*/bin/gh' \
-    atclone'gh completion -s zsh >_gh' atpull'%atclone' \
+    atclone'./gh*/bin/gh completion -s zsh >_gh' atpull'%atclone' \
     'cli/cli'
 
 ### exa ###
@@ -131,7 +134,7 @@ zinit wait lucid light-mode as'program' from'gh-r' for \
 ### yq ###
 zinit wait lucid light-mode as'program' from'gh-r' for \
     mv'yq* -> yq' \
-    atclone'yq shell-completion zsh >_yq' atpull'%atclone' \
+    atclone'./yq shell-completion zsh >_yq' atpull'%atclone' \
     'mikefarah/yq'
 
 ### hgrep ###
