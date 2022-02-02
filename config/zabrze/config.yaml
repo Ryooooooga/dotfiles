@@ -4,25 +4,10 @@ abbrevs:
     abbr: --
     snippet: cd -
 
-  - name: ..
-    abbr: ..
-    snippet: cd ..
-
-  - name: ../..
-    abbr: ../..
-    snippet: cd ../..
-
-  - name: ../../..
-    abbr: ../../..
-    snippet: cd ../../..
-
-  - name: ..2
-    abbr: ..2
-    snippet: cd ../..
-
-  - name: ..3
-    abbr: ..3
-    snippet: cd ../../..
+  - name: cd
+    abbr-pattern: (\.\.|/)$
+    snippet: cd
+    action: prepend
 
   # git
   - name: g
@@ -170,6 +155,13 @@ abbrevs:
     global: true
     context: ^git(\s+\S+)*\s+push\s
 
+  # git rev-parse
+  - name: git root
+    abbr: root
+    snippet: rev-parse --show-toplevel
+    global: true
+    context: ^git\s
+
   # git status
   - name: git s
     abbr: s
@@ -272,24 +264,24 @@ abbrevs:
     snippet: hgrep
 
   # awk
-  - name: .1
-    abbr: .1
+  - name: '.1'
+    abbr: '.1'
     snippet: awk '{ print $1 }'
 
-  - name: .2
-    abbr: .2
+  - name: '.2'
+    abbr: '.2'
     snippet: awk '{ print $2 }'
 
-  - name: .3
-    abbr: .3
+  - name: '.3'
+    abbr: '.3'
     snippet: awk '{ print $3 }'
 
-  - name: .4
-    abbr: .4
+  - name: '.4'
+    abbr: '.4'
     snippet: awk '{ print $4 }'
 
-  - name: .5
-    abbr: .5
+  - name: '.5'
+    abbr: '.5'
     snippet: awk '{ print $5 }'
 
   # editor

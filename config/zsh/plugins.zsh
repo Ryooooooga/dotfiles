@@ -317,6 +317,40 @@ e() {
     fi
 }
 
+### run utility ###
+run-c() {
+    if [ "$#" -ne 1 ]; then
+        echo "$0 <file>" >/dev/stderr
+        return 1
+    fi
+    src="$1"
+    out="${TMPDIR}run-c/$(basename "${src%.*}")-$(md5sum "$src" | awk '{print $1}').out"
+    mkdir -p -- "$(dirname "$out")"
+    [ -e "$out" ] || "${CC:-gcc}" "${(z)CFLAGS:--std=c2x -Wall -Wextra -pedantic ${(z)cflags}}" "$src" -o "$out" "${(z)LDFLAGS:-${(z)ldflags}}"
+    [ "$?" -eq 0 ] && "$out"
+}
+
+run-cpp() {
+    if [ "$#" -ne 1 ]; then
+        echo "$0 <file>" >/dev/stderr
+        return 1
+    fi
+    src="$1"
+    out="${TMPDIR}run-cpp/$(basename "${src%.*}")-$(md5sum "$src" | awk '{print $1}').out"
+    mkdir -p -- "$(dirname "$out")"
+    [ -e "$out" ] || "${CXX:-g++}" "${(z)CXXFLAGS:--std=c++2a -Wall -Wextra -pedantic ${(z)cxxflags}}" "$src" -o "$out" "${(z)LDFLAGS:-${(z)ldflags}}"
+    [ "$?" -eq 0 ] && "$out"
+}
+
+### Suffix alias ###
+alias -s bz2='tar xvf'
+alias -s gz='tar xvf'
+alias -s tar='tar xvf'
+alias -s xz='tar xvf'
+alias -s c=run-c
+alias -s cpp=run-cpp
+alias -s d=rdmd
+
 ### Go ###
 export GOPATH="$XDG_DATA_HOME/go"
 export GO111MODULE="on"
