@@ -6,10 +6,6 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 
-alias tailf='tail -f'
-alias view='"$EDITOR" -R'
-alias teepp="tee >(pp)"
-
 case "$OSTYPE" in
     linux*)
         (( ${+commands[wslview]} )) && alias open='wslview'
@@ -30,6 +26,7 @@ case "$OSTYPE" in
     darwin*)
         alias pp='pbcopy'
         alias p='pbpaste'
+        alias chrome='open -a "Google Chrome"'
         (( ${+commands[gdate]} )) && alias date='gdate'
         (( ${+commands[gls]} )) && alias ls='gls --color=auto'
         (( ${+commands[gmkdir]} )) && alias mkdir='gmkdir'

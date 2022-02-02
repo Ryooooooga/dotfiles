@@ -291,3 +291,19 @@ abbrevs:
   - name: .5
     abbr: .5
     snippet: awk '{ print $5 }'
+
+  # editor
+  - name: view
+    abbr: view
+    snippet: ${EDITOR} -R
+    evaluate: true
+
+  # tee
+  - name: teep
+    abbr: teep
+    snippet: tee >(pp)
+
+  # coreutils
+  - name: tailf
+    abbr: tailf
+    snippet: tail -f
