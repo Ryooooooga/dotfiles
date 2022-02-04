@@ -146,11 +146,7 @@ zinit wait lucid light-mode as'program' from'gh-r' \
 
 ### navi ###
 __navi_search() {
-    if [ -z "$LBUFFER" ]; then
-        LBUFFER="$(navi --print)"
-    else
-        LBUFFER="$(navi --print --query="$LBUFFER")"
-    fi
+    LBUFFER="$(navi --print --query="$LBUFFER")"
     zle reset-prompt
 }
 
