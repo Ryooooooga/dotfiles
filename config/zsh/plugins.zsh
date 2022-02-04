@@ -347,6 +347,7 @@ alias -s bz2='tar xvf'
 alias -s gz='tar xvf'
 alias -s tar='tar xvf'
 alias -s xz='tar xvf'
+alias -s zip=unzip
 alias -s c=run-c
 alias -s cpp=run-cpp
 alias -s d=rdmd
