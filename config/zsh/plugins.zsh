@@ -320,8 +320,8 @@ run-c() {
         return 1
     fi
     src="$1"
-    out="${TMPDIR}run-c/$(basename "${src%.*}")-$(md5sum "$src" | awk '{print $1}').out"
-    mkdir -p -- "$(dirname "$out")"
+    out="${TMPDIR}run-c/${${src:t}%.*}-$(md5sum "$src" | awk '{print $1}').out"
+    mkdir -p -- "${out:h}"
     [ -e "$out" ] || "${CC:-gcc}" "${(z)CFLAGS:--std=c2x -Wall -Wextra -pedantic ${(z)cflags}}" "$src" -o "$out" "${(z)LDFLAGS:-${(z)ldflags}}"
     [ "$?" -eq 0 ] && "$out"
 }
@@ -332,8 +332,8 @@ run-cpp() {
         return 1
     fi
     src="$1"
-    out="${TMPDIR}run-cpp/$(basename "${src%.*}")-$(md5sum "$src" | awk '{print $1}').out"
-    mkdir -p -- "$(dirname "$out")"
+    out="${TMPDIR}run-cpp/${${src:t}%.*}-$(md5sum "$src" | awk '{print $1}').out"
+    mkdir -p -- "${out:h}"
     [ -e "$out" ] || "${CXX:-g++}" "${(z)CXXFLAGS:--std=c++2a -Wall -Wextra -pedantic ${(z)cxxflags}}" "$src" -o "$out" "${(z)LDFLAGS:-${(z)ldflags}}"
     [ "$?" -eq 0 ] && "$out"
 }

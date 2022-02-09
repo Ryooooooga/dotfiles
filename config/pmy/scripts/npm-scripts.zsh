@@ -10,7 +10,7 @@ name_style="$ansi[bold]"
 desc_style="$ansi[dark_green]"
 
 root="$(npm root)"
-package="$(dirname -- "$root")/package.json"
+package="${root:h}/package.json"
 
 out_format=""
 out_format+="$header_style%s %-7s$reset  " # header
