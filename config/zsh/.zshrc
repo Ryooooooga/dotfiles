@@ -90,8 +90,13 @@ select-cdr() {
 }
 
 select-ghq() {
+    function __ghq-source() {
+        ghq list | sort
+    }
     local root="$(ghq root)"
-    local selected="$(ghq list | sort | fzf --exit-0 --preview="fzf-preview-git ${(q)root}/{}" --preview-window="right:60%")"
+    local selected="$(__ghq-source | fzf --exit-0 --preview="fzf-preview-git ${(q)root}/{}" --preview-window="right:60%")"
+    unfunction __ghq-source
+
     if [ -n "$selected" ]; then
         local repo_dir="$(ghq list --exact --full-path "$selected")"
         BUFFER="cd ${(q)repo_dir}"
@@ -101,8 +106,22 @@ select-ghq() {
 }
 
 select-ghq-session() {
+    function __ghq-source() {
+        local session color icon reset="\e[m"
+        ghq list | sort | while read -r repo; do
+            session="$(sed -E 's/[:. ]/-/g' <<<"$repo")"
+            color="\e[34m"
+            icon="\uf630"
+            if tmux has-session -t "=$session" 2>/dev/null; then
+                color="\e[32m"
+                icon="\uf631"
+            fi
+            printf "$color$icon %s$reset\n" "$repo"
+        done
+    }
     local root="$(ghq root)"
-    local selected="$(ghq list | sort | fzf --exit-0 --preview="fzf-preview-git ${(q)root}/{}" --preview-window="right:60%")"
+    local selected="$(__ghq-source | fzf --exit-0 --preview="fzf-preview-git ${(q)root}/{+2}" --preview-window="right:60%" | cut -d' ' -f2)"
+    unfunction __ghq-source
 
     if [ -z "$selected" ]; then
         return
