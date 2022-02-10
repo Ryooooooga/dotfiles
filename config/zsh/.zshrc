@@ -108,11 +108,12 @@ select-ghq() {
 select-ghq-session() {
     function __ghq-source() {
         local session color icon reset="\e[m"
+        local sessions=($(tmux list-sessions -F "#S"))
         ghq list | sort | while read -r repo; do
             session="$(sed -E 's/[:. ]/-/g' <<<"$repo")"
             color="\e[34m"
             icon="\uf630"
-            if tmux has-session -t "=$session" 2>/dev/null; then
+            if (( ${+sessions[(r)$session]} )); then
                 color="\e[32m"
                 icon="\uf631"
             fi
