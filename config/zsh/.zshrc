@@ -108,7 +108,7 @@ select-ghq() {
 select-ghq-session() {
     function __ghq-source() {
         local session color icon reset="\e[m"
-        local sessions=($(tmux list-sessions -F "#S"))
+        local sessions=($(tmux list-sessions -F "#S" 2>/dev/null))
         ghq list | sort | while read -r repo; do
             session="$(sed -E 's/[:. ]/-/g' <<<"$repo")"
             color="\e[34m"
