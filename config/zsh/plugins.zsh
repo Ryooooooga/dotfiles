@@ -103,6 +103,16 @@ zinit wait lucid light-mode as'program' from'gh-r' for \
     pick'ripgrep*/rg'   @'BurntSushi/ripgrep' \
     pick'zouch*/zouch'  @'Ryooooooga/zouch'
 
+### asdf-vm ###
+__asdf_atload() {
+    export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
+    export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf/.asdfrc"
+}
+zinit wait lucid light-mode for \
+    atpull'asdf plugin update --all' \
+    atload'__asdf_atload' \
+    @'asdf-vm/asdf'
+
 ### GitHub CLI ###
 zinit wait lucid light-mode as'program' from'gh-r' for \
     pick'gh*/bin/gh' \
@@ -398,16 +408,6 @@ export TEALDEER_CACHE_DIR="$XDG_CACHE_HOME/tealdeer"
 if (( ${+commands[youtube-dl]} )); then
     alias youtube-audio='youtube-dl -x --no-playlist'
 fi
-
-### asdf-vm ###
-export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
-export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf/.asdfrc"
-
-if [ -e "$ASDF_DATA_DIR" ]; then
-    source "$ASDF_DATA_DIR/asdf.sh"
-fi
-
-fpath=("$ASDF_DATA_DIR/completions"(N-/) "$fpath[@]")
 
 ### local ###
 if [ -f "$ZDOTDIR/.zshrc.local" ]; then
