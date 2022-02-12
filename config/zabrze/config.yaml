@@ -149,6 +149,12 @@ abbrevs:
     global: true
     context: ^git\s
 
+  - name: git pst
+    abbr: pst
+    snippet: push --tags
+    global: true
+    context: ^git\s
+
   - name: git push -f
     abbr: -f
     snippet: --force-with-lease
@@ -187,6 +193,13 @@ abbrevs:
   - name: B
     abbr: B
     snippet: $(git symbolic-ref --short HEAD)
+    global: true
+    evaluate: true
+    context: ^git\s
+
+  - name: OB
+    abbr: OB
+    snippet: origin/$(git symbolic-ref --short HEAD)
     global: true
     evaluate: true
     context: ^git\s
@@ -294,6 +307,25 @@ abbrevs:
   - name: teep
     abbr: teep
     snippet: tee >(pp)
+
+  # date
+  - name: yyyymmdd
+    abbr: yyyymmdd
+    snippet: $(date "+%Y%m%d")
+    evaluate: true
+    global: true
+
+  - name: yyyy-mm-dd
+    abbr: yyyy-mm-dd
+    snippet: $(date "+%Y-%m-%d")
+    evaluate: true
+    global: true
+
+  - name: yyyy/mm/dd
+    abbr: yyyy/mm/dd
+    snippet: $(date "+%Y/%m/%d")
+    evaluate: true
+    global: true
 
   # coreutils
   - name: tailf
