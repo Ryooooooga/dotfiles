@@ -245,6 +245,14 @@ zinit wait lucid light-mode as'program' \
 zinit wait lucid light-mode as'program' \
     for 'Ryooooooga/commitizen-deno'
 
+### gdb-dashboard ###
+__gdb_dashboard_atload() {
+    alias gdb="gdb -q -nh -x '$PWD/.gdbinit'"
+}
+zinit wait lucid light-mode as'program' \
+    atload"__gdb_dashboard_atload" \
+    for @'cyrus-and/gdb-dashboard'
+
 ### chpwd-recent-dirs ###
 add-zsh-hook chpwd chpwd_recent_dirs
 zstyle ':chpwd:*' recent-dirs-file "$XDG_CACHE_HOME/chpwd-recent-dirs"
@@ -273,9 +281,6 @@ alias cmaked='cmake -DCMAKE_BUILD_TYPE=Debug -B "$(git rev-parse --show-toplevel
 alias cmakerel='cmake -DCMAKE_BUILD_TYPE=Release -B "$(git rev-parse --show-toplevel)/build"'
 cmakeb() { cmake --build "${1:-$(git rev-parse --show-toplevel)/build}" -j"$(($(nproc)+1))" "${@:2}" }
 cmaket() { ctest --verbose --test-dir "${1:-$(git rev-parse --show-toplevel)/build}" "${@:2}" }
-
-### GDB ###
-alias gdb='gdb -q -nh -x "$XDG_DATA_HOME/gdb-dashboard/.gdbinit"'
 
 ### Docker ###
 docker() {
