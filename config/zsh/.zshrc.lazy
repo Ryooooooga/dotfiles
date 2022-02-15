@@ -235,8 +235,9 @@ zinit wait lucid light-mode for \
     atload'alias t=tmux-fzf' \
     @'Ryooooooga/tmux-fzf'
 
-### gdb-dashboard ###
+### GDB ###
 __gdb_dashboard_atload() {
+    export GDBHISTFILE="$XDG_STATE_HOME/gdb_history"
     alias gdb="gdb -q -nh -x '$PWD/.gdbinit'"
 }
 zinit wait lucid light-mode as'program' for \
