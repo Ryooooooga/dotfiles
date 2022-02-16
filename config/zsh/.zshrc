@@ -42,6 +42,11 @@ setopt NO_SHARE_HISTORY
 setopt MAGIC_EQUAL_SUBST
 setopt PRINT_EIGHT_BIT
 
+zshaddhistory() {
+    local line="${1%%$'\n'}"
+    [[ ! "$line" =~ "^(cd|lazygit|la|ll|ls|rm|rmdir)($| )" ]]
+}
+
 ### theme ###
 zinit light-mode from'gh-r' as'program' \
     mv'almel* -> almel' \
