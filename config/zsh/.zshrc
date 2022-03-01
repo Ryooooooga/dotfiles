@@ -179,7 +179,7 @@ bindkey "^[g"       select-ghq                      # Alt-g
 bindkey "^O"        select-dir                      # C-o
 bindkey "^A"        beginning-of-line               # C-a
 bindkey "^E"        end-of-line                     # C-e
-bindkey "^K"        kill-word                       # C-k
+bindkey "^K"        kill-line                       # C-k
 bindkey "^W"        vi-backward-kill-word           # C-w
 bindkey "^X^W"      forward-kill-word               # C-x C-w
 bindkey "^?"        backward-delete-char            # backspace
