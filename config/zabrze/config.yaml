@@ -331,3 +331,16 @@ abbrevs:
   - name: tailf
     abbr: tailf
     snippet: tail -f
+
+  # fuck
+  - name: python -v
+    abbr: -v
+    snippet: -V
+    global: true
+    context: ^(python3?|pip3?)\s
+
+  - name: java -v
+    abbr: -v
+    snippet: -version
+    global: true
+    context: ^java\s
