@@ -107,6 +107,20 @@ zinit wait lucid light-mode as'program' for \
     @'Ryooooooga/qtmut' \
     @'Ryooooooga/commitizen-deno'
 
+### zoxide ###
+__zoxide_atclone() {
+    ./zoxide init zsh --cmd=j >zoxide.zsh
+    zcompile zoxide.zsh
+}
+__zoxide_atload() {
+    export _ZO_DATA_DIR="$XDG_STATE_HOME/zoxide"
+    source zoxide.zsh
+}
+zinit wait lucid light-mode as'program' from'gh-r' for \
+    atclone'__zoxide_atclone' atpull'%atclone' \
+    atload'__zoxide_atload' \
+    @'ajeetdsouza/zoxide'
+
 ### asdf-vm ###
 __asdf_atload() {
     export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
