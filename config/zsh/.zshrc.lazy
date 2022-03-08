@@ -254,7 +254,7 @@ __gdb_dashboard_atload() {
     export GDBHISTFILE="$XDG_STATE_HOME/gdb_history"
     alias gdb="gdb -q -nh -x '$PWD/.gdbinit'"
 }
-zinit wait lucid light-mode as'program' for \
+zinit wait lucid light-mode as'null' for \
     atload"__gdb_dashboard_atload" \
     @'cyrus-and/gdb-dashboard'
 
