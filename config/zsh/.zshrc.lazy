@@ -48,6 +48,13 @@ esac
 
 mkcd() { command mkdir -p -- "$@" && builtin cd "$(realpath -- "${@[-1]}")" }
 
+j() {
+    local root dir
+    root="${$(git rev-parse --show-toplevel 2>/dev/null):-$PWD}"
+    dir="$((command echo "$root"; fd --type=d . "$root") | fzf --select-1 --query="$*" --preview='fzf-preview-directory {}')"
+    builtin cd "$dir"
+}
+
 ### diff ###
 (( ${+commands[colordiff]} )) && alias diff='colordiff'
 
@@ -106,20 +113,6 @@ zinit wait lucid light-mode as'program' from'gh-r' for \
 zinit wait lucid light-mode as'program' for \
     @'Ryooooooga/qtmut' \
     @'Ryooooooga/commitizen-deno'
-
-### zoxide ###
-__zoxide_atclone() {
-    ./zoxide init zsh --cmd=j >zoxide.zsh
-    zcompile zoxide.zsh
-}
-__zoxide_atload() {
-    export _ZO_DATA_DIR="$XDG_STATE_HOME/zoxide"
-    source zoxide.zsh
-}
-zinit wait lucid light-mode as'program' from'gh-r' for \
-    atclone'__zoxide_atclone' atpull'%atclone' \
-    atload'__zoxide_atload' \
-    @'ajeetdsouza/zoxide'
 
 ### asdf-vm ###
 __asdf_atload() {
