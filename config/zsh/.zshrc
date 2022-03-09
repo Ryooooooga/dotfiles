@@ -44,7 +44,7 @@ setopt PRINT_EIGHT_BIT
 
 zshaddhistory() {
     local line="${1%%$'\n'}"
-    [[ ! "$line" =~ "^(cd|lazygit|la|ll|ls|rm|rmdir)($| )" ]]
+    [[ ! "$line" =~ "^(cd|j|lazygit|la|ll|ls|rm|rmdir)($| )" ]]
 }
 
 ### theme ###
