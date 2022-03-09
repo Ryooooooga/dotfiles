@@ -114,6 +114,20 @@
   buffer-left: '<cmd> <args>'
   buffer-right: '[]'
 
+- description: git-tag
+  regexp-left: ^\s*(?P<cmd>git\s+(tag))(\s+|$)(?P<args>(\S+\s+)*)(?P<query>\S*)$
+  cmd-groups:
+    - stmt: '"$PMY_SCRIPT_PATH/git-tags.zsh"'
+    - stmt: '"$PMY_SCRIPT_PATH/options.zsh" "git/tag-options" "\uf73a" "option" "blue"'
+      after: awk '{ print $3 }'
+  fuzzy-finder-cmd: >
+    "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}"
+    --nth=3
+    --preview="echo {} | awk '{ print \$3 }' | xargs -r git show --color | delta"
+    --query=<query>
+  buffer-left: '<cmd> <args>'
+  buffer-right: '[]'
+
 - description: git-user
   regexp-left: ^\s*(?P<cmd>git\s+(user))(\s+|$)(?P<query>\S*)$
   cmd-groups:

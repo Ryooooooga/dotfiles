@@ -1,0 +1,23 @@
+-l	list tag names
+--list	list tag names
+-n	print <n> lines of each tag message
+-d	delete tags
+--delete	delete tags
+-v	verify tags
+--verify	verify tags
+-a	annotated tag, needs a message
+--annotate	annotated tag, needs a message
+-m	tag message
+--message	tag message
+-F	read message from file
+--file	read message from file
+-e	force edit of tag message
+--edit	force edit of tag message
+-s	annotated and GPG-signed tag
+--sign	annotated and GPG-signed tag
+--cleanup	how to strip spaces and #comments from message
+-u	use another key to sign the tag
+--local-user	use another key to sign the tag
+-f	replace the tag if exists
+--force	replace the tag if exists
+--create-reflog	create a reflog
