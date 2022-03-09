@@ -121,7 +121,7 @@ zinit wait lucid light-mode as'program' for \
 ### asdf-vm ###
 __asdf_atload() {
     export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
-    export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf/.asdfrc"
+    export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf/asdfrc"
 }
 zinit wait lucid light-mode for \
     atpull'asdf plugin update --all' \
