@@ -108,10 +108,11 @@ zinit wait lucid blockf light-mode for \
 
 ### programs ###
 zinit wait lucid light-mode as'program' from'gh-r' for \
-    pick'delta*/delta'  @'dandavison/delta' \
-    pick'mmv*/mmv'      @'itchyny/mmv' \
-    pick'ripgrep*/rg'   @'BurntSushi/ripgrep' \
-    pick'zouch*/zouch'  @'Ryooooooga/zouch'
+    pick'delta*/delta'      @'dandavison/delta' \
+    pick'mmv*/mmv'          @'itchyny/mmv' \
+    pick'ripgrep*/rg'       @'BurntSushi/ripgrep' \
+    pick'zouch*/zouch'      @'Ryooooooga/zouch' \
+    mv'tealdeer* -> tldr'   @'dbrgn/tealdeer'
 
 zinit wait lucid light-mode as'program' for \
     @'Ryooooooga/qtmut' \
@@ -145,12 +146,6 @@ zinit wait lucid light-mode as'program' from'gh-r' for \
     atclone'cp -f completions/exa.zsh _exa' atpull'%atclone' \
     atload'__exa_atload' \
     @'ogham/exa'
-
-### tealdeer ###
-zinit wait lucid light-mode as'program' from'gh-r' for \
-    if'[[ "$OSTYPE" =~ "linux" ]]' \
-    mv'tldr* -> tldr' \
-    @'dbrgn/tealdeer'
 
 ### yq ###
 zinit wait lucid light-mode as'program' from'gh-r' for \
