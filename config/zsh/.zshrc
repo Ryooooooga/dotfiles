@@ -87,41 +87,38 @@ select-history() {
     zle -R -c # refresh screen
 }
 
-select-ghq() {
-    function __ghq-source() {
-        ghq list | sort
-    }
-    local root="$(ghq root)"
-    local selected="$(__ghq-source | fzf --exit-0 --preview="fzf-preview-git ${(q)root}/{}" --preview-window="right:60%")"
-    unfunction __ghq-source
+select-ghq::source() {
+    local session color icon green="\e[32m" blue="\e[34m" reset="\e[m" checked="\uf631" unchecked="\uf630"
+    local sessions=($(tmux list-sessions -F "#S" 2>/dev/null))
 
-    if [ -n "$selected" ]; then
-        local repo_dir="$(ghq list --exact --full-path "$selected")"
-        BUFFER="cd ${(q)repo_dir}"
-        zle accept-line
+    ghq list | sort | while read -r repo; do
+        session="$(sed -E 's/[:. ]/-/g' <<<"$repo")"
+        color="$blue"
+        icon="$unchecked"
+        if (( ${+sessions[(r)$session]} )); then
+            color="$green"
+            icon="$checked"
+        fi
+        printf "$color$icon %s$reset\n" "$repo"
+    done
+}
+select-ghq::choice() {
+    local root="$(ghq root)"
+    select-ghq::source | fzf --exit-0 --preview="fzf-preview-git ${(q)root}/{+2}" --preview-window="right:60%" | cut -c3-
+}
+select-ghq::dir() {
+    local selected="$(select-ghq::choice)"
+    if [ -z "$selected" ]; then
+        return
     fi
+
+    local repo_dir="$(ghq list --exact --full-path "$selected")"
+    BUFFER="cd ${(q)repo_dir}"
+    zle accept-line
     zle -R -c # refresh screen
 }
-
-select-ghq-session() {
-    function __ghq-source() {
-        local session color icon reset="\e[m"
-        local sessions=($(tmux list-sessions -F "#S" 2>/dev/null))
-        ghq list | sort | while read -r repo; do
-            session="$(sed -E 's/[:. ]/-/g' <<<"$repo")"
-            color="\e[34m"
-            icon="\uf630"
-            if (( ${+sessions[(r)$session]} )); then
-                color="\e[32m"
-                icon="\uf631"
-            fi
-            printf "$color$icon %s$reset\n" "$repo"
-        done
-    }
-    local root="$(ghq root)"
-    local selected="$(__ghq-source | fzf --exit-0 --preview="fzf-preview-git ${(q)root}/{+2}" --preview-window="right:60%" | cut -d' ' -f2)"
-    unfunction __ghq-source
-
+select-ghq::session() {
+    local selected="$(select-ghq::choice)"
     if [ -z "$selected" ]; then
         return
     fi
@@ -147,14 +144,14 @@ forward-kill-word() {
 }
 
 zle -N select-history
-zle -N select-ghq
-zle -N select-ghq-session
+zle -N select-ghq::dir
+zle -N select-ghq::session
 zle -N forward-kill-word
 
 bindkey -v
 bindkey "^R"        select-history                  # C-r
-bindkey "^G"        select-ghq-session              # C-g
-bindkey "^[g"       select-ghq                      # Alt-g
+bindkey "^G"        select-ghq::session             # C-g
+bindkey "^[g"       select-ghq::dir                 # Alt-g
 bindkey "^A"        beginning-of-line               # C-a
 bindkey "^E"        end-of-line                     # C-e
 bindkey "^K"        kill-line                       # C-k
