@@ -11,3 +11,4 @@ IncludeCategories:
     Priority:   2
   - Regex:      '^<'
     Priority:   1
+PointerAlignment: Right
