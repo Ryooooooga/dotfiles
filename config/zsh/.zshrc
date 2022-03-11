@@ -92,7 +92,7 @@ widget::ghq::source() {
     local sessions=($(tmux list-sessions -F "#S" 2>/dev/null))
 
     ghq list | sort | while read -r repo; do
-        session="$(sed -E 's/[:. ]/-/g' <<<"$repo")"
+        session="${repo//[:. ]/-}"
         color="$blue"
         icon="$unchecked"
         if (( ${+sessions[(r)$session]} )); then
@@ -124,7 +124,7 @@ widget::ghq::session() {
     fi
 
     local repo_dir="$(ghq list --exact --full-path "$selected")"
-    local session_name="$(sed -E 's/[:. ]/-/g' <<<"$selected")"
+    local session_name="${selected//[:. ]/-}"
 
     if [ -z "$TMUX" ]; then
         BUFFER="qtmut -s ${(q)session_name} -c ${(q)repo_dir}"
