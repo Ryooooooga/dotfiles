@@ -1,6 +1,6 @@
 ### File and Directories
 - description: file
-  regexp-left: ^\s*(?P<cmd>(bat|cat|e|grep|head|hexdump|hexyl|less|nvim|sed|tail|vim|vi))(\s+|$)(?P<args>((\\.|[^\\\s])+\s+)*)(?P<query>(\\.|[^\\\s])*)$
+  regexp-left: ^\s*(?P<cmd>(bat|cat|delta|diff|e|grep|head|hexdump|hexyl|less|nvim|sed|tail|vim|vi))(\s+|$)(?P<args>((\\.|[^\\\s])+\s+)*)(?P<query>(\\.|[^\\\s])*)$
   cmd-groups:
     - stmt: fd --color=always --hidden --type=f
       after: sed 's/ /\\ /g' | paste -s -d ' ' - # Escape spaces and replace EOL
