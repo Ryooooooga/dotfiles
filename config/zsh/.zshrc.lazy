@@ -46,7 +46,7 @@ esac
 
 (( ${+commands[trash]} )) && alias rm='trash'
 
-mkcd() { command mkdir -p -- "$@" && builtin cd "$(realpath -- "${@[-1]}")" }
+mkcd() { command mkdir -p -- "$@" && builtin cd "${@[-1]:a}" }
 
 j() {
     local root dir
