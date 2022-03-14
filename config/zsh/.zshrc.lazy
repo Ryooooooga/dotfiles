@@ -65,7 +65,13 @@ jj() {
 }
 
 ### diff ###
-(( ${+commands[colordiff]} )) && alias diff='colordiff'
+diff() {
+    if [[ -t 1 ]] && (( ${+commands[colordiff]} )); then
+        command colordiff "$@"
+    else
+        command diff "$@"
+    fi
+}
 
 alias diffall='command diff --new-line-format="+%L" --old-line-format="-%L" --unchanged-line-format=" %L"'
 
