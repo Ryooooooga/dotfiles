@@ -113,11 +113,10 @@ zinit wait lucid blockf light-mode for \
 
 ### programs ###
 zinit wait lucid light-mode as'program' from'gh-r' for \
-    pick'delta*/delta'      @'dandavison/delta' \
-    pick'mmv*/mmv'          @'itchyny/mmv' \
-    pick'ripgrep*/rg'       @'BurntSushi/ripgrep' \
-    pick'zouch*/zouch'      @'Ryooooooga/zouch' \
-    mv'tealdeer* -> tldr'   @'dbrgn/tealdeer'
+    pick'delta*/delta'  @'dandavison/delta' \
+    pick'mmv*/mmv'      @'itchyny/mmv' \
+    pick'ripgrep*/rg'   @'BurntSushi/ripgrep' \
+    pick'zouch*/zouch'  @'Ryooooooga/zouch'
 
 zinit wait lucid light-mode as'program' for \
     @'Ryooooooga/qtmut' \
@@ -242,6 +241,20 @@ zinit wait lucid light-mode for \
 zinit wait lucid light-mode for \
     atload'alias t=tmux-fzf' \
     @'Ryooooooga/tmux-fzf'
+
+### tealdeer ###
+__tealdeer_atclone() {
+    curl -sSL 'https://raw.githubusercontent.com/dbrgn/tealdeer/main/completion/zsh_tealdeer' -o _tealdeer
+}
+__tealdeer_atload() {
+    export TEALDEER_CONFIG_DIR="$XDG_CONFIG_HOME/tealdeer"
+    export TEALDEER_CACHE_DIR="$XDG_CACHE_HOME/tealdeer"
+}
+zinit wait lucid light-mode as'program' from'gh-r' for \
+    mv'tealdeer* -> tldr' \
+    atclone'__tealdeer_atclone' atpull'%atclone' \
+    atload'__tealdeer_atload' \
+    @'dbrgn/tealdeer'
 
 ### GDB ###
 __gdb_dashboard_atload() {
@@ -387,10 +400,6 @@ export MYSQL_HISTFILE="$XDG_STATE_HOME/mysql_history"
 
 ### PostgreSQL ###
 export PSQL_HISTORY="$XDG_STATE_HOME/psql_history"
-
-### tealdeer ###
-export TEALDEER_CONFIG_DIR="$XDG_CONFIG_HOME/tealdeer"
-export TEALDEER_CACHE_DIR="$XDG_CACHE_HOME/tealdeer"
 
 ### youtube-dl ###
 if (( ${+commands[youtube-dl]} )); then
