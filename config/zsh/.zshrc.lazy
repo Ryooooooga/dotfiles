@@ -410,7 +410,7 @@ if [ -f "$ZDOTDIR/.zshrc.local" ]; then
 fi
 
 ### autoloads ###
-autoload -Uz compinit && compinit
 autoload -Uz cdr
 autoload -Uz chpwd_recent_dirs
 autoload -Uz _zinit
+zpcompinit
