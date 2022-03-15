@@ -65,7 +65,7 @@ jj() {
 }
 
 ### diff ###
-diff() { command diff "$@" | bat --plain --language=diff }
+diff() { command diff "$@" | bat --paging=never --plain --language=diff }
 
 alias diffall='command diff --new-line-format="+%L" --old-line-format="-%L" --unchanged-line-format=" %L"'
 
