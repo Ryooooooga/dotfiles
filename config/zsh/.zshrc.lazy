@@ -65,13 +65,7 @@ jj() {
 }
 
 ### diff ###
-diff() {
-    if [[ -t 1 ]] && (( ${+commands[colordiff]} )); then
-        command colordiff "$@"
-    else
-        command diff "$@"
-    fi
-}
+diff() { command diff "$@" | bat --plain --language=diff }
 
 alias diffall='command diff --new-line-format="+%L" --old-line-format="-%L" --unchanged-line-format=" %L"'
 
