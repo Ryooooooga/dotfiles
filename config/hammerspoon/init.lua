@@ -13,9 +13,21 @@ local function keyStrokes(text)
   return function() hs.eventtap.keyStrokes(text) end
 end
 
-local function remap(mod, key, stroke)
-  hs.hotkey.bind(mod, key, stroke, nil, stroke)
+local function launch(app)
+  return function() hs.application.launchOrFocus('/Applications/' .. app .. '.app') end
+end
+
+local function remap(mod, key, pressedFn, repeatFn)
+  hs.hotkey.bind(mod, key, pressedFn, nil, repeatFn)
+end
+
+local function remapRepeat(mod, key, fn)
+  remap(mod, key, fn, fn)
 end
 
 -- shortcuts
--- remap({'cmd'}, 'Y', keyStroke({'cmd', 'shift'}, 'Z'))
+-- remapRepeat({'cmd'}, 'Y', keyStroke({'cmd', 'shift'}, 'Z'))
+remap({'cmd', 'ctrl'}, 't', launch('Alacritty'))
+remap({'cmd', 'ctrl'}, 'v', launch('Visual Studio Code'))
+remap({'cmd', 'ctrl'}, 'e', launch('Sublime Text'))
+remap({'cmd', 'ctrl'}, 'c', launch('Google Chrome'))
