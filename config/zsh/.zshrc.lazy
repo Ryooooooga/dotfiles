@@ -66,8 +66,7 @@ jj() {
 
 ### diff ###
 diff() { command diff "$@" | bat --paging=never --plain --language=diff }
-
-alias diffall='command diff --new-line-format="+%L" --old-line-format="-%L" --unchanged-line-format=" %L"'
+alias diffall='diff --new-line-format="+%L" --old-line-format="-%L" --unchanged-line-format=" %L"'
 
 ### direnv ###
 (( ${+commands[direnv]} )) && eval "$(direnv hook zsh)"
