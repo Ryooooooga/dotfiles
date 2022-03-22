@@ -35,7 +35,6 @@ brew "tmux"
 brew "trash"
 brew "vim"
 brew "wget"
-brew "itchyny/tap/mmv"
 
 cask "alacritty"
 cask "alfred"
