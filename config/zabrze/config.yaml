@@ -185,7 +185,7 @@ abbrevs:
   # git tag
   - name: git tags
     abbr: tags
-    snippet: tag -l
+    snippet: tag -l --sort=v:refname
     global: true
     context: ^git\s
 
