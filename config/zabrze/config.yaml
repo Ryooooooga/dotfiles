@@ -204,6 +204,13 @@ abbrevs:
     evaluate: true
     context: ^git\s
 
+  # git origin
+  - name: git O
+    abbr: O
+    snippet: origin
+    global: true
+    context: ^git\s
+
   # git upstream
   - name: git U
     abbr: U
