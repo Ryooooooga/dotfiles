@@ -79,7 +79,7 @@ clear-screen-and-update-prompt() {
 zle -N clear-screen clear-screen-and-update-prompt
 
 widget::history() {
-    local selected="$(history -nr 1 | fzf --exit-0 --query "$LBUFFER" | sed 's/\\n/\n/g')"
+    local selected="$(history -inr 1 | fzf --exit-0 --query "$LBUFFER" | cut -d' ' -f4- | sed 's/\\n/\n/g')"
     if [ -n "$selected" ]; then
         BUFFER="$selected"
         CURSOR=$#BUFFER
