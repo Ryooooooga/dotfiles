@@ -59,7 +59,6 @@ almel::preexec() {
 almel::async::callback() {
     PROMPT="$3"
     zle .reset-prompt
-    async_stop_worker almel_async_worker
 }
 
 almel::async::prompt() {
@@ -70,6 +69,7 @@ almel::async::prompt() {
 }
 
 almel::async(){
+    async_stop_worker almel_async_worker
     async_start_worker almel_async_worker -n
     async_register_callback almel_async_worker almel::async::callback
     async_job almel_async_worker almel::async::prompt "$@"
