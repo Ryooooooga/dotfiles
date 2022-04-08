@@ -49,7 +49,6 @@ zshaddhistory() {
 
 ### theme ###
 zinit light-mode from'gh-r' as'program' for \
-    mv'almel* -> almel' \
     @'Ryooooooga/almel'
 
 almel_preexec() {
