@@ -339,6 +339,12 @@ abbrevs:
     abbr: tailf
     snippet: tail -f
 
+  # macOS
+  - name: chrome
+    abbr: chrome
+    snippet: open -a 'Google Chrome'
+    if: '[[ "$OSTYPE" =~ darwin ]]'
+
   # fuck
   - name: python -v
     abbr: -v

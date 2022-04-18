@@ -26,7 +26,6 @@ case "$OSTYPE" in
     darwin*)
         alias pp='pbcopy'
         alias p='pbpaste'
-        alias chrome='open -a "Google Chrome"'
         (( ${+commands[gdate]} )) && alias date='gdate'
         (( ${+commands[gls]} )) && alias ls='gls --color=auto'
         (( ${+commands[gmkdir]} )) && alias mkdir='gmkdir'
