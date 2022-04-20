@@ -310,6 +310,21 @@ abbrevs:
     snippet: ${EDITOR} -R
     evaluate: true
 
+  # python
+  - name: python
+    abbr: python
+    snippet: python3
+
+  - name: pip
+    abbr: pip
+    snippet: pip3
+
+  - name: python -v
+    abbr: -v
+    snippet: -V
+    global: true
+    context: ^(python3?|pip3?)\s
+
   # tee
   - name: teep
     abbr: teep
@@ -339,19 +354,19 @@ abbrevs:
     abbr: tailf
     snippet: tail -f
 
+  # trash
+  - name: trash
+    abbr: rm
+    snippet: trash
+    if: (( ${+commands[trash]} ))
+
   # macOS
   - name: chrome
     abbr: chrome
     snippet: open -a 'Google Chrome'
     if: '[[ "$OSTYPE" =~ darwin ]]'
 
-  # fuck
-  - name: python -v
-    abbr: -v
-    snippet: -V
-    global: true
-    context: ^(python3?|pip3?)\s
-
+  # java
   - name: java -v
     abbr: -v
     snippet: -version

@@ -43,8 +43,6 @@ case "$OSTYPE" in
     ;;
 esac
 
-(( ${+commands[trash]} )) && alias rm='trash'
-
 mkcd() { command mkdir -p -- "$@" && builtin cd "${@[-1]:a}" }
 
 j() {
@@ -385,8 +383,6 @@ export NPM_CONFIG_USERCONFIG="$NPM_CONFIG_DIR/npmrc"
 export IRBRC="$XDG_CONFIG_HOME/irb/irbrc"
 
 ### Python ###
-alias python="python3"
-alias pip="pip3"
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/startup.py"
 
 ### pylint ###
