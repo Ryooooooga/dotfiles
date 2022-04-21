@@ -2,10 +2,6 @@
 alias la='ls -a'
 alias ll='ls -al'
 
-alias cp='cp -i'
-alias mv='mv -i'
-alias rm='rm -i'
-
 case "$OSTYPE" in
     linux*)
         (( ${+commands[wslview]} )) && alias open='wslview'
@@ -29,9 +25,9 @@ case "$OSTYPE" in
         (( ${+commands[gdate]} )) && alias date='gdate'
         (( ${+commands[gls]} )) && alias ls='gls --color=auto'
         (( ${+commands[gmkdir]} )) && alias mkdir='gmkdir'
-        (( ${+commands[gcp]} )) && alias cp='gcp -i'
-        (( ${+commands[gmv]} )) && alias mv='gmv -i'
-        (( ${+commands[grm]} )) && alias rm='grm -i'
+        (( ${+commands[gcp]} )) && alias cp='gcp'
+        (( ${+commands[gmv]} )) && alias mv='gmv'
+        (( ${+commands[grm]} )) && alias rm='grm'
         (( ${+commands[gdu]} )) && alias du='gdu'
         (( ${+commands[ghead]} )) && alias head='ghead'
         (( ${+commands[gtail]} )) && alias tail='gtail'

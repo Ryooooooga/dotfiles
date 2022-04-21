@@ -350,6 +350,18 @@ abbrevs:
     global: true
 
   # coreutils
+  - name: cp
+    abbr: cp
+    snippet: cp -i
+
+  - name: mkdir
+    abbr: mkdir
+    snippet: mkdir -p
+
+  - name: mv
+    abbr: mv
+    snippet: mv -i
+
   - name: tailf
     abbr: tailf
     snippet: tail -f
@@ -359,6 +371,10 @@ abbrevs:
     abbr: rm
     snippet: trash
     if: (( ${+commands[trash]} ))
+
+  - name: rm
+    abbr: rm
+    snippet: rm -i
 
   # macOS
   - name: chrome
