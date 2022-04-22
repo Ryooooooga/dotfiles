@@ -1,1 +1,4 @@
-../../clangd/compile_flags.txt
+-std=c++2a
+-Wall
+-Wextra
+-pedantic
