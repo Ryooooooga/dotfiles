@@ -6,8 +6,8 @@ abbrevs:
 
   - name: cd
     abbr-pattern: (\.\.|/)$
-    snippet: cd
-    action: prepend
+    snippet: cd $current_abbr
+    evaluate: true
 
   # git
   - name: g
@@ -284,25 +284,10 @@ abbrevs:
     snippet: hgrep
 
   # awk
-  - name: '.1'
-    abbr: '.1'
-    snippet: awk '{ print $1 }'
-
-  - name: '.2'
-    abbr: '.2'
-    snippet: awk '{ print $2 }'
-
-  - name: '.3'
-    abbr: '.3'
-    snippet: awk '{ print $3 }'
-
-  - name: '.4'
-    abbr: '.4'
-    snippet: awk '{ print $4 }'
-
-  - name: '.5'
-    abbr: '.5'
-    snippet: awk '{ print $5 }'
+  - name: .N
+    abbr-pattern: ^\.\d+$
+    snippet: awk '{ print ${current_abbr/./$} }'
+    evaluate: true
 
   # editor
   - name: view
@@ -349,32 +334,25 @@ abbrevs:
     evaluate: true
     global: true
 
-  # coreutils
-  - name: cp
-    abbr: cp
-    snippet: cp -i
-
-  - name: mkdir
-    abbr: mkdir
-    snippet: mkdir -p
-
-  - name: mv
-    abbr: mv
-    snippet: mv -i
-
-  - name: tailf
-    abbr: tailf
-    snippet: tail -f
-
   # trash
   - name: trash
     abbr: rm
     snippet: trash
     if: (( ${+commands[trash]} ))
 
-  - name: rm
-    abbr: rm
-    snippet: rm -i
+  # coreutils
+  - name: mkdir
+    abbr: mkdir
+    snippet: mkdir -p
+
+  - name: cp/mv/rm -i
+    abbr-pattern: ^(cp|mv|rm)$
+    snippet: $current_abbr -i
+    evaluate: true
+
+  - name: tailf
+    abbr: tailf
+    snippet: tail -f
 
   # macOS
   - name: chrome
