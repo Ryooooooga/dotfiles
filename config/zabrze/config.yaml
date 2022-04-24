@@ -6,7 +6,7 @@ abbrevs:
 
   - name: cd
     abbr-pattern: (\.\.|/)$
-    snippet: cd $current_abbr
+    snippet: cd $abbr
     evaluate: true
 
   # git
@@ -286,7 +286,7 @@ abbrevs:
   # awk
   - name: .N
     abbr-pattern: ^\.\d+$
-    snippet: awk '{ print ${current_abbr/./$} }'
+    snippet: awk '{ print ${abbr/./$} }'
     evaluate: true
 
   # editor
@@ -347,7 +347,7 @@ abbrevs:
 
   - name: cp/mv/rm -i
     abbr-pattern: ^(cp|mv|rm)$
-    snippet: $current_abbr -i
+    snippet: $abbr -i
     evaluate: true
 
   - name: tailf
