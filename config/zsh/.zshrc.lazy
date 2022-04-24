@@ -39,8 +39,6 @@ case "$OSTYPE" in
     ;;
 esac
 
-mkcd() { command mkdir -p -- "$@" && builtin cd "${@[-1]:a}" }
-
 j() {
     local root dir
     root="${$(git rev-parse --show-cdup 2>/dev/null):-.}"

@@ -190,28 +190,26 @@ abbrevs:
     context: ^git\s
 
   # git current branch name
-  - name: B
+  - name: git B
     abbr: B
     snippet: $(git symbolic-ref --short HEAD)
     global: true
     evaluate: true
     context: ^git\s
 
-  - name: OB
+  - name: git OB
     abbr: OB
     snippet: origin/$(git symbolic-ref --short HEAD)
     global: true
     evaluate: true
     context: ^git\s
 
-  # git origin
   - name: git O
     abbr: O
     snippet: origin
     global: true
     context: ^git\s
 
-  # git upstream
   - name: git U
     abbr: U
     snippet: upstream
@@ -334,6 +332,19 @@ abbrevs:
     evaluate: true
     global: true
 
+  # mkdir
+  - name: mkdir
+    abbr: mkdir
+    snippet: mkdir -p
+
+  - name: mkcd DIR
+    abbr-pattern: .+
+    snippet: mkdir -p $abbr && cd $abbr
+    action: replace-all
+    evaluate: true
+    global: true
+    context: ^mkcd\s
+
   # trash
   - name: trash
     abbr: rm
@@ -341,11 +352,7 @@ abbrevs:
     if: (( ${+commands[trash]} ))
 
   # coreutils
-  - name: mkdir
-    abbr: mkdir
-    snippet: mkdir -p
-
-  - name: cp/mv/rm -i
+  - name: cp/mv/rm
     abbr-pattern: ^(cp|mv|rm)$
     snippet: $abbr -i
     evaluate: true
