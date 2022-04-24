@@ -13,7 +13,7 @@
   buffer-right: '[]'
 
 - description: file or directory
-  regexp-left: ^\s*(?P<cmd>(code|cp|ln|mv|rm|subl))(\s+|$)(?P<args>((\\.|[^\\\s])+\s+)*)(?P<query>(\\.|[^\\\s])*)$
+  regexp-left: ^\s*(?P<cmd>(code|cp|ln|mv|rm|subl|trash))(\s+|$)(?P<args>((\\.|[^\\\s])+\s+)*)(?P<query>(\\.|[^\\\s])*)$
   cmd-groups:
     - stmt: fd --color=always --hidden
       after: sed 's/ /\\ /g' # Escape spaces
