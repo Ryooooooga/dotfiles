@@ -6,16 +6,20 @@ notARepository: skip
 git:
   autoFetch: false
   disableForcePushing: true
+  parseEmoji: true
   paging:
     colorArg: always
     pager: delta --paging=never
-  parseEmoji: true
+  log:
+    showGraph: always
 
 gui:
   showRandomTip: false
+  showIcons: true
 
 os:
-  openCommand: 'code --goto -- {{filename}}'
+  openCommand: 'code --goto -- {{filename}}:{{line}}'
+  editCommand: 'nvim'
   editCommandTemplate: '{{editor}} +{{line}} -- {{filename}}'
 
 keybinding:
