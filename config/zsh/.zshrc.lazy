@@ -4,8 +4,6 @@ alias ll='ls -al'
 
 case "$OSTYPE" in
     linux*)
-        (( ${+commands[wslview]} )) && alias open='wslview'
-
         if (( ${+commands[win32yank.exe]} )); then
             alias pp='win32yank.exe -i'
             alias p='win32yank.exe -o'

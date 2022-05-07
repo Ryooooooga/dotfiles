@@ -361,15 +361,21 @@ abbrevs:
     abbr: tailf
     snippet: tail -f
 
-  # macOS
-  - name: chrome
-    abbr: chrome
-    snippet: open -a 'Google Chrome'
-    if: '[[ "$OSTYPE" =~ darwin ]]'
-
   # java
   - name: java -v
     abbr: -v
     snippet: -version
     global: true
     context: ^java\s
+
+  # macOS
+  - name: chrome
+    abbr: chrome
+    snippet: open -a 'Google Chrome'
+    if: '[[ "$OSTYPE" =~ darwin ]]'
+
+  # WSL
+  - name: wslview
+    abbr: open
+    snippet: wslview
+    if: (( ${+commands[wslview]} ))
