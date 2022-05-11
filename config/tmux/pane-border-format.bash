@@ -10,7 +10,8 @@ git_is_inside_repo() {
 }
 
 git_has_unstaged_changes() {
-    ! command git -C "$pane_current_path" diff --quiet --exit-code
+    ! command git -C "$pane_current_path" diff --quiet --exit-code ||
+        [[ -n "$(command git ls-files --other --exclude-standard)" ]]
 }
 
 git_has_staged_changes() {
