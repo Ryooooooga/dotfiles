@@ -11,6 +11,9 @@ renamed_icon=" "
 modified_icon=" "
 conflicted_icon=" "
 
+ahead_icon=""
+behind_icon=""
+
 git_is_inside_repo() {
     command git -C "$pane_current_path" rev-parse 2>/dev/null
 }
@@ -45,16 +48,22 @@ git_status() {
     local deleted=0
     local renamed=0
     local modified=0
+    local behind=0
+    local ahead=0
 
     while IFS= read -r -d $'\0' line; do
         case "${line::2}" in
+            \#\# )
+                behind="$(command sed -E 's/^.*[[ ]behind ([0-9]+).*$/\1/' <<<"$line")"
+                ahead="$(command sed -E 's/^.*\[ahead ([0-9]+).*$/\1/' <<<"$line")"
+            ;;
             *U | U* ) ((conflicted++));;
             \?\? | *A | A* ) ((added++));;
             *D | D* ) ((deleted++));;
             *R | R* ) ((renamed++));;
             * ) ((modified++));;
         esac
-    done < <(git -C "$pane_current_path" status -z)
+    done < <(git -C "$pane_current_path" status -z --branch --porcelain)
 
     local icons=""
     [[ "$added" -gt 0 ]] && icons+="$added_icon"
@@ -62,6 +71,8 @@ git_status() {
     [[ "$renamed" -gt 0 ]] && icons+="$renamed_icon"
     [[ "$modified" -gt 0 ]] && icons+="$modified_icon"
     [[ "$conflicted" -gt 0 ]] && icons+="$conflicted_icon"
+    [[ "$behind" -gt 0 ]] && icons+="$behind_icon$behind"
+    [[ "$ahead" -gt 0 ]] && icons+="$ahead_icon$ahead"
 
     command echo "$icons"
 }
