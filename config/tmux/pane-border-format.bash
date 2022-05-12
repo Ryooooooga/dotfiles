@@ -5,6 +5,12 @@ branch_icon=""
 tag_icon=""
 commit_icon=""
 
+added_icon=" "
+deleted_icon=" "
+renamed_icon=" "
+modified_icon=" "
+conflicted_icon=" "
+
 git_is_inside_repo() {
     command git -C "$pane_current_path" rev-parse 2>/dev/null
 }
@@ -14,11 +20,7 @@ git_has_unstaged_changes() {
         [[ -n "$(command git ls-files --other --exclude-standard)" ]]
 }
 
-git_has_staged_changes() {
-    ! command git -C "$pane_current_path" diff --quiet --exit-code --staged
-}
-
-git_head_status() {
+git_head() {
     local branch tag commit
 
     branch="$(command git -C "$pane_current_path" branch --show-current)"
@@ -37,23 +39,49 @@ git_head_status() {
     command echo "$commit_icon $commit"
 }
 
+git_status() {
+    local conflicted=0
+    local added=0
+    local deleted=0
+    local renamed=0
+    local modified=0
+
+    while IFS= read -r -d $'\0' line; do
+        case "${line::2}" in
+            *U | U* ) ((conflicted++));;
+            \?\? | *A | A* ) ((added++));;
+            *D | D* ) ((deleted++));;
+            *R | R* ) ((renamed++));;
+            * ) ((modified++));;
+        esac
+    done < <(git -C "$pane_current_path" status -z)
+
+    local icons=""
+    [[ "$added" -gt 0 ]] && icons+="$added_icon"
+    [[ "$deleted" -gt 0 ]] && icons+="$deleted_icon"
+    [[ "$renamed" -gt 0 ]] && icons+="$renamed_icon"
+    [[ "$modified" -gt 0 ]] && icons+="$modified_icon"
+    [[ "$conflicted" -gt 0 ]] && icons+="$conflicted_icon"
+
+    command echo "$icons"
+}
+
 main() {
     local format=" "
     format+="#P: #[bold]#{pane_current_command}#[default]"
 
     if git_is_inside_repo; then
-        local icons=""
-        local colour="colour2"
+        local head status colour
+        head="$(git_head)"
+        status="$(git_status)"
+        colour="colour2"
 
         if git_has_unstaged_changes; then
-            icons+="  "
             colour="colour3"
-        elif git_has_staged_changes; then
-            icons+="  "
         fi
 
         format+=" #[fg=colour246][#[default]"
-        format+="#[fg=$colour,bold]$(git_head_status)$icons#[default]"
+        format+="#[fg=$colour,bold]${head}${status:+ }${status}#[default]"
         format+="#[fg=colour246]]#[default]"
     fi
 
