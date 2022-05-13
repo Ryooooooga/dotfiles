@@ -32,3 +32,8 @@ customCommands:
     context: files
     loadingText: opening commitizen commit tool
     subprocess: true
+
+  - key: <c-f>
+    command: git sync
+    context: global
+    subprocess: true
