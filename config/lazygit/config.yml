@@ -14,7 +14,10 @@ git:
     showGraph: always
 
 gui:
+  language: ja
+  timeFormat: 2006-01-02 15:04
   showRandomTip: false
+  showBottomLine: false
   showIcons: true
 
 os:
