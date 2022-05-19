@@ -8,6 +8,7 @@ abbrevs:
     abbr-pattern: (\.\.|/)$
     snippet: cd $abbr
     evaluate: true
+    if: '[[ -z "$RBUFFER" ]]'
 
   # git
   - name: g
