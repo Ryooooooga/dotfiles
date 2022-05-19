@@ -403,4 +403,4 @@ fi
 autoload -Uz cdr
 autoload -Uz chpwd_recent_dirs
 autoload -Uz _zinit
-zpcompinit
+zicompinit
