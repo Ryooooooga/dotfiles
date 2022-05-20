@@ -58,7 +58,11 @@ diff() { command diff "$@" | bat --paging=never --plain --language=diff }
 alias diffall='diff --new-line-format="+%L" --old-line-format="-%L" --unchanged-line-format=" %L"'
 
 ### direnv ###
-(( ${+commands[direnv]} )) && eval "$(direnv hook zsh)"
+zinit wait lucid blockf light-mode as'program' from'gh-r' for \
+    mv'direnv* -> direnv' \
+    atclone'./direnv hook zsh >direnv.zsh; zcompile direnv.zsh' atpull'%atclone' \
+    src'direnv.zsh' \
+    @'direnv/direnv'
 
 ### zabrze ###
 zinit wait lucid blockf light-mode as'program' from'gh-r' for \

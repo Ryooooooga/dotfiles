@@ -12,7 +12,6 @@ apt-get install -y \
     clangd \
     clang-format \
     cmake \
-    direnv \
     fzf \
     git \
     git-lfs \
