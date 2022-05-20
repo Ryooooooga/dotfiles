@@ -63,7 +63,7 @@ alias diffall='diff --new-line-format="+%L" --old-line-format="-%L" --unchanged-
 ### zabrze ###
 zinit wait lucid blockf light-mode as'program' from'gh-r' for \
     atclone'./zabrze init --bind-keys >zabrze.zsh; zcompile zabrze.zsh' atpull'%atclone' \
-    atload'source zabrze.zsh' \
+    src'zabrze.zsh' \
     @'Ryooooooga/zabrze'
 
 ### FZF ###
