@@ -33,7 +33,6 @@ customCommands:
   - key: C
     command: git cz
     context: files
-    loadingText: opening commitizen commit tool
     subprocess: true
 
   - key: <c-f>
