@@ -51,7 +51,7 @@ git_status() {
     local behind=0
     local ahead=0
 
-    while IFS= read -r -d $'\0' line; do
+    while IFS= builtin read -r -d $'\0' line; do
         case "${line::2}" in
             \#\# )
                 behind="$(command sed -E 's/^.*[[ ]behind ([0-9]+).*$/\1/' <<<"$line")"
@@ -63,7 +63,7 @@ git_status() {
             *R | R* ) ((renamed++));;
             * ) ((modified++));;
         esac
-    done < <(git -C "$pane_current_path" status -z --branch --porcelain)
+    done < <(command git -C "$pane_current_path" status -z --branch --porcelain)
 
     local icons=""
     [[ "$added" -gt 0 ]] && icons+="$added_icon"
