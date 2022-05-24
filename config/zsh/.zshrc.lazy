@@ -183,16 +183,6 @@ __pmy_atload() {
     export PMY_SCRIPT_PATH="$PMY_CONFIG_HOME/scripts"
     export PMY_FUZZY_FINDER_DEFAULT_CMD="fzf --exit-0 --select-1 --tiebreak=begin,index --height=60% --cycle --preview-window=right:50%"
     source pmy.zsh
-
-    pmy-widget-expand-abbrev() {
-        (( ${+functions[__zabrze::expand]} )) && {
-            zle __zabrze::expand
-            zle -R -c
-        }
-        zle .pmy-widget
-    }
-    zle -N .pmy-widget pmy-widget
-    zle -N pmy-widget pmy-widget-expand-abbrev
 }
 zinit wait lucid light-mode as'program' from'gh-r' for \
     atclone'./pmy init >pmy.zsh; zcompile pmy.zsh' atpull'%atclone' \

@@ -1,10 +1,10 @@
 - description: curl
-  regexp-left: ^\s*(?P<cmd>curl)(?P<args>(\s+\S+)*)\s*$
+  regexp-left: ^\s*(?P<cmd>curl\s+(\S+\s+)*)$
   cmd-groups:
     - stmt: cat "$PMY_CONFIG_HOME/snippets/curl/snippet.txt"
-      after: paste -s -d ' ' -
+      after: tr '\n' ' '
   fuzzy-finder-cmd: >
     "${(z)PMY_FUZZY_FINDER_DEFAULT_CMD}"
     --multi
-  buffer-left: '<cmd><args> '
+  buffer-left: '<cmd>'
   buffer-right: '[]'
