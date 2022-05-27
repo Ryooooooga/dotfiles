@@ -1,0 +1,225 @@
+finder:
+  --exit-0: true
+  --select-1: true
+  --tiebreak: begin,index
+  --height: 60%
+  --cycle: true
+  --preview-window: right:50%
+
+.completion-base: &completion-base
+  finder: &finder-base
+    --nth: 3
+  callback: awk '{ print $3 }' | tr '\n' ' '
+
+.completion-git: &completion-git
+  <<: *completion-base
+  finder: &finder-git
+    <<: *finder-base
+    --preview: |-
+      line={}
+      type="${${(z)line}[2]}"
+      value="${${(z)line}[3]}"
+      if [[ "$type" != "option" ]]; then
+        git show --color "$value" | delta
+      else
+        printf "option: %s" "$value"
+      fi
+
+completions:
+  #########################################################
+  # Files and Directories
+  #########################################################
+  - description: file
+    patterns:
+      - ^\s*(bat|cat|delta|diff|e|grep|head|hexdump|hexyl|less|nvim|sed|tail|vim|vi)\s
+    source: |-
+      fd --color=always --hidden --type=f
+    finder:
+      --multi: true
+      --preview: fzf-preview-file {}
+    callback: sed 's/ /\\ /g' | tr '\n' ' '
+
+  - description: file or directory
+    patterns:
+      - ^\s*(code|cp|ln|mv|rm|subl|trash)\s
+    source: |-
+      fd --color=always --hidden
+    finder:
+      --multi: true
+      --preview: fzf-preview-file {}
+    callback: sed 's/ /\\ /g' | tr '\n' ' '
+
+  - description: directory
+    patterns:
+      - ^\s*(cd|la|ll|ls|tree)\s
+    source: |-
+      fd --color=always --hidden --type=d
+    finder:
+      --preview: fzf-preview-file {}
+    callback: sed -E 's/ /\\ /g; s:/?$:/:'
+
+  #########################################################
+  # asdf
+  #########################################################
+  - description: asdf
+    patterns:
+      - ^\s*asdf\s
+    source: |-
+      "$QWY_SCRIPT_PATH/options.zsh" "asdf/subcommands" "\ufb32" "command" "yellow"
+      "$QWY_SCRIPT_PATH/options.zsh" "asdf/options" "\uf73a" "option" "blue"
+    <<: *completion-base
+
+  #########################################################
+  # cURL
+  #########################################################
+  - description: curl
+    patterns:
+      - ^\s*curl\s
+    source: |-
+      cat "$QWY_CONFIG_HOME/snippets/curl/snippet.txt"
+    finder:
+      --multi: true
+    callback: tr '\n' ' '
+
+  #########################################################
+  # Docker
+  #########################################################
+  - description: docker-build
+    patterns:
+      - ^\s*docker\s+build\s
+    source: |-
+      "$QWY_SCRIPT_PATH/options.zsh" "docker/build-options" "\uf73a" "option" "blue"
+    <<: *completion-base
+
+  - description: docker-run
+    patterns:
+      - ^\s*docker\s+run\s
+    source: |-
+      "$QWY_SCRIPT_PATH/docker-images.zsh"
+      "$QWY_SCRIPT_PATH/options.zsh" "docker/run-options" "\uf73a" "option" "blue"
+    <<: *completion-base
+
+  - description: docker
+    patterns:
+      - ^\s*docker\s+\S*$
+    source: |-
+      "$QWY_SCRIPT_PATH/options.zsh" "docker/subcommands" "\ufb32" "command" "yellow"
+      "$QWY_SCRIPT_PATH/options.zsh" "docker/aliases" "\uf8e9" "alias" "red"
+      "$QWY_SCRIPT_PATH/options.zsh" "docker/options" "\uf73a" "option" "blue"
+    <<: *completion-base
+
+  #########################################################
+  # Git
+  #########################################################
+
+  - description: git-<ref>
+    patterns:
+      - ^\s*git\s+(graph|log|merge|rebase|show)\s
+    source: |-
+      "$QWY_SCRIPT_PATH/git-local-branches.zsh"
+      "$QWY_SCRIPT_PATH/git-remote-branches.zsh"
+      "$QWY_SCRIPT_PATH/git-tags.zsh"
+      "$QWY_SCRIPT_PATH/git-commits.zsh"
+    <<: *completion-git
+
+  - description: git-branch
+    patterns:
+      - ^\s*git\s+branch\s
+    source: |-
+      "$QWY_SCRIPT_PATH/git-local-branches.zsh"
+    <<: *completion-git
+
+  - description: git-cherry-pick
+    patterns:
+      - ^\s*git\s+cherry-pick\s
+    source: |-
+      "$QWY_SCRIPT_PATH/git-commits.zsh" --all
+      "$QWY_SCRIPT_PATH/options.zsh" "git/cherry-pick-options" "\uf73a" "option" "blue"
+    <<: *completion-git
+    finder:
+      <<: *finder-git
+      --multi: true
+
+  - description: git-diff
+    patterns:
+      - ^\s*git\s+(df|diff)\s
+    source: |-
+      "$QWY_SCRIPT_PATH/git-local-branches.zsh"
+      "$QWY_SCRIPT_PATH/git-remote-branches.zsh"
+      "$QWY_SCRIPT_PATH/git-tags.zsh"
+      "$QWY_SCRIPT_PATH/git-commits.zsh"
+      "$QWY_SCRIPT_PATH/options.zsh" "git/diff-options" "\uf73a" "option" "blue"
+    <<: *completion-git
+
+  - description: git-fetch
+    patterns:
+      - ^\s*git\s+fetch\s
+    source: |-
+      git remote
+    finder:
+      --preview: git remote get-url {}
+    callback: awk '{ print $1 }' | tr '\n' ' '
+
+  - description: git-switch
+    patterns:
+      - ^\s*git\s+switch\s
+    source: |-
+      "$QWY_SCRIPT_PATH/git-local-branches.zsh"
+      "$QWY_SCRIPT_PATH/git-remote-branches.zsh"
+      "$QWY_SCRIPT_PATH/git-tags.zsh"
+      "$QWY_SCRIPT_PATH/git-commits.zsh"
+    <<: *completion-git
+    callback: awk '{ print $3 }' | sed 's:^origin/::'
+
+  - description: git-tag
+    patterns:
+      - ^\s*git\s+tag\s
+    source: |-
+      "$QWY_SCRIPT_PATH/git-tags.zsh"
+      "$QWY_SCRIPT_PATH/options.zsh" "git/tag-options" "\uf73a" "option" "blue"
+    <<: *completion-git
+
+  - description: git-user
+    patterns:
+      - ^\s*git\s+user\s+\S*$
+    source: |-
+      git users | sed -E 's/:\s*/\t/'
+    callback: awk '{ print $1 }'
+
+  - description: git
+    patterns:
+      - ^\s*git\s\S*$
+    source: |-
+      "$QWY_SCRIPT_PATH/options.zsh" "git/subcommands" "\ufb32" "command" "yellow"
+      "$QWY_SCRIPT_PATH/git-aliases.zsh"
+      "$QWY_SCRIPT_PATH/git-tools.zsh"
+      "$QWY_SCRIPT_PATH/options.zsh" "git/options" "\uf73a" "option" "blue"
+    <<: *completion-base
+
+  #########################################################
+  # NPM
+  #########################################################
+  - description: npm-run
+    patterns:
+      - ^\s*npm\s+run\s+\S*$
+    source: |-
+      "$QWY_SCRIPT_PATH/npm-scripts.zsh"
+    <<: *completion-base
+
+  - description: npm
+    patterns:
+      - ^\s*npm\s+\S*$
+    source: |-
+      "$QWY_SCRIPT_PATH/options.zsh" "npm/subcommands" "\ufb32" "command" "yellow"
+    <<: *completion-base
+
+  #########################################################
+  # Tmux
+  #########################################################
+  - description: tmux
+    patterns:
+      - ^\s*tmux\s+\S*$
+    source: |-
+      "$QWY_SCRIPT_PATH/options.zsh" "tmux/subcommands" "\ufb32" "command" "yellow"
+      "$QWY_SCRIPT_PATH/options.zsh" "tmux/options" "\uf73a" "option" "blue"
+    <<: *completion-base

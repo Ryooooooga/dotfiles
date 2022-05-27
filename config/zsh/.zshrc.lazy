@@ -175,19 +175,18 @@ zinit wait lucid light-mode as'program' from'gh-r' for \
     atload'__navi_atload' \
     @'denisidoro/navi'
 
-### pmy ###
-__pmy_atload() {
-    export PMY_TRIGGER_KEY="^P"
-    export PMY_CONFIG_HOME="$XDG_CONFIG_HOME/pmy"
-    export PMY_RULE_PATH="$PMY_CONFIG_HOME/rules"
-    export PMY_SCRIPT_PATH="$PMY_CONFIG_HOME/scripts"
-    export PMY_FUZZY_FINDER_DEFAULT_CMD="fzf --exit-0 --select-1 --tiebreak=begin,index --height=60% --cycle --preview-window=right:50%"
-    source pmy.zsh
+### qwy ###
+__qwy_atload() {
+    export QWY_TRIGGER_KEY="^P"
+    export QWY_DEFAULT_ACTION="expand-or-complete"
+    export QWY_CONFIG_HOME="$XDG_CONFIG_HOME/qwy"
+    export QWY_SCRIPT_PATH="$QWY_CONFIG_HOME/scripts"
+    source qwy.zsh
 }
 zinit wait lucid light-mode as'program' from'gh-r' for \
-    atclone'./pmy init >pmy.zsh; zcompile pmy.zsh' atpull'%atclone' \
-    atload'__pmy_atload' \
-    @'Ryooooooga/pmy'
+    atclone'./qwy init >qwy.zsh; zcompile qwy.zsh' atpull'%atclone' \
+    atload'__qwy_atload' \
+    @'Ryooooooga/qwy'
 
 ### Emojify ###
 zinit wait lucid light-mode as'program' for \
