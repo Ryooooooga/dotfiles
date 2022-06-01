@@ -16,13 +16,10 @@ finder:
   finder: &finder-git
     <<: *finder-base
     --preview: |-
-      line={}
-      type="${${(z)line}[2]}"
-      value="${${(z)line}[3]}"
-      if [[ "$type" != "option" ]]; then
-        git show --color "$value" | delta
+      if [[ {2} != option ]]; then
+        git show --color {3} | delta
       else
-        printf "option: %s" "$value"
+        printf "option: %s" {3}
       fi
 
 completions:
@@ -159,6 +156,25 @@ completions:
     finder:
       --preview: git remote get-url {}
     callback: awk '{ print $1 }' | tr '\n' ' '
+
+  - description: git-push <remote> <branch>
+    patterns:
+      - ^\s*git\s+push\s+(-\S*\s+)*[^-]\S*\s
+    source: |-
+      "$QWY_SCRIPT_PATH/git-local-branches.zsh"
+      "$QWY_SCRIPT_PATH/git-remote-branches.zsh"
+      "$QWY_SCRIPT_PATH/git-tags.zsh"
+    <<: *completion-git
+    callback: awk '{ print $3 }' | sed 's:^origin/::'
+
+  - description: git-push <remote>
+    patterns:
+      - ^\s*git\s+push\s+(-\S*\s+)*([^-]\S*)?$
+    source: |-
+      git remote
+    finder:
+      --preview: git remote get-url {}
+    callback: tr '\n' ' '
 
   - description: git-switch
     patterns:
