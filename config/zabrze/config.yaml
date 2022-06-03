@@ -22,6 +22,7 @@ abbrevs:
   - name: g
     abbr: g
     snippet: git
+    if: '[[ -z "$RBUFFER" ]]'
 
   # git add
   - name: git aa
