@@ -1,4 +1,8 @@
 abbrevs:
+  #########################################################
+  # cd
+  #########################################################
+
   # cd
   - name: --
     abbr: --
@@ -9,6 +13,10 @@ abbrevs:
     snippet: cd $abbr
     evaluate: true
     if: '[[ -z "$RBUFFER" ]]'
+
+  #########################################################
+  # Git
+  #########################################################
 
   # git
   - name: g
@@ -217,10 +225,18 @@ abbrevs:
     global: true
     context: ^git\s
 
+  #########################################################
+  # lazygit
+  #########################################################
+
   # lazygit
   - name: lg
     abbr: lg
     snippet: lazygit
+
+  #########################################################
+  # Docker
+  #########################################################
 
   # docker
   - name: dok
@@ -260,6 +276,34 @@ abbrevs:
     global: true
     context: ^docker\s
 
+  #########################################################
+  # NPM
+  #########################################################
+
+  # npm install
+  - name: npm i
+    abbr: i
+    snippet: install
+    global: true
+    context: ^\s*(git\s+exec\s+)?npm\s
+
+  - name: npm -D
+    abbr: -D
+    snippet: --save-dev
+    global: true
+    context: ^\s*(git\s+exec\s+)?npm\s+install\s
+
+  # npm test
+  - name: npm t
+    abbr: t
+    snippet: test
+    global: true
+    context: ^\s*(git\s+exec\s+)?npm\s
+
+  #########################################################
+  # Terraform
+  #########################################################
+
   # terraform
   - name: tf
     abbr: tf
@@ -276,6 +320,10 @@ abbrevs:
     snippet: apply
     global: true
     context: ^terraform\s
+
+  #########################################################
+  # Misc
+  #########################################################
 
   # hgrep
   - name: hg
