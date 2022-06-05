@@ -31,12 +31,6 @@ abbrevs:
     global: true
     context: ^git\s
 
-  - name: git ai
-    abbr: ai
-    snippet: add -i
-    global: true
-    context: ^git\s
-
   # git branch
   - name: git b
     abbr: b
