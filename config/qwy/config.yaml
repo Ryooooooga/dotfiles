@@ -30,7 +30,8 @@ completions:
     patterns:
       - ^\s*(bat|cat|delta|diff|e|grep|head|hexdump|hexyl|less|nvim|sed|tail|vim|vi)\s
     source: |-
-      fd --color=always --hidden --type=f
+      local dir="$(sed -E "s:^~/:$HOME/:; s:[^/]*\$::" <<<"${(Q)query}")"
+      fd --color=always --hidden --type=f --follow . "${dir:-.}" 2>/dev/null | sed -E "s:$HOME/:~/:"
     finder:
       --multi: true
       --preview: fzf-preview-file {}
@@ -40,7 +41,8 @@ completions:
     patterns:
       - ^\s*(code|cp|ln|mv|rm|subl|trash)\s
     source: |-
-      fd --color=always --hidden
+      local dir="$(sed -E "s:^~/:$HOME/:; s:[^/]*\$::" <<<"${(Q)query}")"
+      fd --color=always --hidden --follow . "${dir:-.}" 2>/dev/null | sed -E "s:$HOME/:~/:"
     finder:
       --multi: true
       --preview: fzf-preview-file {}
@@ -50,7 +52,8 @@ completions:
     patterns:
       - ^\s*(cd|la|ll|ls|tree)\s
     source: |-
-      fd --color=always --hidden --type=d
+      local dir="$(sed -E "s:^~/:$HOME/:; s:[^/]*\$::" <<<"${(Q)query}")"
+      fd --color=always --hidden --type=d --follow . "${dir:-.}" 2>/dev/null | sed -E "s:$HOME/:~/:"
     finder:
       --preview: fzf-preview-file {}
     callback: sed -E 's/ /\\ /g; s:/?$:/:'
