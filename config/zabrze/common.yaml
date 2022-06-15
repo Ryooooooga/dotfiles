@@ -1,0 +1,153 @@
+abbrevs:
+  #########################################################
+  # cd
+  #########################################################
+
+  # cd
+  - name: --
+    abbr: --
+    snippet: cd -
+
+  - name: cd
+    abbr-pattern: (\.\.|/)$
+    snippet: cd $abbr
+    evaluate: true
+    if: '[[ -z "$RBUFFER" ]]'
+
+  #########################################################
+  # lazygit
+  #########################################################
+
+  # lazygit
+  - name: lg
+    abbr: lg
+    snippet: lazygit
+
+  #########################################################
+  # Terraform
+  #########################################################
+
+  # terraform
+  - name: tf
+    abbr: tf
+    snippet: terraform
+
+  - name: terraform plan
+    abbr: p
+    snippet: plan
+    global: true
+    context: ^terraform\s
+
+  - name: terraform apply
+    abbr: ap
+    snippet: apply
+    global: true
+    context: ^terraform\s
+
+  #########################################################
+  # Misc
+  #########################################################
+
+  # hgrep
+  - name: hg
+    abbr: hg
+    snippet: hgrep
+
+  # awk
+  - name: .N
+    abbr-pattern: ^\.\d+$
+    snippet: awk '{ print ${abbr/./$} }'
+    evaluate: true
+
+  # editor
+  - name: view
+    abbr: view
+    snippet: ${EDITOR} -R
+    evaluate: true
+
+  # python
+  - name: python
+    abbr: python
+    snippet: python3
+
+  - name: pip
+    abbr: pip
+    snippet: pip3
+
+  - name: python -v
+    abbr: -v
+    snippet: -V
+    global: true
+    context: ^(python3?|pip3?)\s
+
+  # tee
+  - name: teep
+    abbr: teep
+    snippet: tee >(pp)
+
+  # date
+  - name: yyyymmdd
+    abbr: yyyymmdd
+    snippet: $(date "+%Y%m%d")
+    evaluate: true
+    global: true
+
+  - name: yyyy-mm-dd
+    abbr: yyyy-mm-dd
+    snippet: $(date "+%Y-%m-%d")
+    evaluate: true
+    global: true
+
+  - name: yyyy/mm/dd
+    abbr: yyyy/mm/dd
+    snippet: $(date "+%Y/%m/%d")
+    evaluate: true
+    global: true
+
+  # mkdir
+  - name: mkdir
+    abbr: mkdir
+    snippet: mkdir -p
+
+  - name: mkcd DIR
+    abbr-pattern: .+
+    snippet: mkdir -p $abbr && cd $abbr
+    action: replace-all
+    evaluate: true
+    global: true
+    context: ^mkcd\s
+
+  # trash
+  - name: trash
+    abbr: rm
+    snippet: trash
+    if: (( ${+commands[trash]} ))
+
+  # coreutils
+  - name: cp/mv/rm
+    abbr-pattern: ^(cp|mv|rm)$
+    snippet: $abbr -i
+    evaluate: true
+
+  - name: tailf
+    abbr: tailf
+    snippet: tail -f
+
+  # java
+  - name: java -v
+    abbr: -v
+    snippet: -version
+    global: true
+    context: ^java\s
+
+  # macOS
+  - name: chrome
+    abbr: chrome
+    snippet: open -a 'Google Chrome'
+    if: '[[ "$OSTYPE" =~ darwin ]]'
+
+  # WSL
+  - name: wslview
+    abbr: open
+    snippet: wslview
+    if: (( ${+commands[wslview]} ))

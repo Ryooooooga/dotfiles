@@ -1,0 +1,20 @@
+abbrevs:
+  # npm install
+  - name: npm i
+    abbr: i
+    snippet: install
+    global: true
+    context: ^\s*(git\s+exec\s+)?npm\s
+
+  - name: npm -D
+    abbr: -D
+    snippet: --save-dev
+    global: true
+    context: ^\s*(git\s+exec\s+)?npm\s+install\s
+
+  # npm test
+  - name: npm t
+    abbr: t
+    snippet: test
+    global: true
+    context: ^\s*(git\s+exec\s+)?npm\s

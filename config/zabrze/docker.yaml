@@ -1,0 +1,38 @@
+abbrevs:
+  # docker
+  - name: dok
+    abbr: dok
+    snippet: docker
+
+  # docker compose
+  - name: docker c
+    abbr: c
+    snippet: compose
+    global: true
+    context: ^docker\s
+
+  # docker pull
+  - name: docker pl
+    abbr: pl
+    snippet: pull
+    global: true
+    context: ^docker\s
+
+  # docker run
+  - name: docker ri
+    abbr: ri
+    snippet: run -it
+    global: true
+    context: ^docker\s
+
+  - name: docker rrm
+    abbr: rrm
+    snippet: run --rm
+    global: true
+    context: ^docker\s
+
+  - name: docker rrmi
+    abbr: rrmi
+    snippet: run --rm -it
+    global: true
+    context: ^docker\s
