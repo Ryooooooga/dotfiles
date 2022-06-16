@@ -28,6 +28,9 @@ os:
 keybinding:
   commits:
     viewResetOptions: G
+  branches:
+    rebaseBranch: R
+    renameBranch: r
 
 customCommands:
   - key: C
