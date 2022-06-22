@@ -12,11 +12,6 @@ case "$OSTYPE" in
             alias p='xsel -b'
         fi
     ;;
-    msys)
-        alias cmake='command cmake -G"Unix Makefiles"'
-        alias pp='cat >/dev/clipboard'
-        alias p='cat /dev/clipboard'
-    ;;
     darwin*)
         alias pp='pbcopy'
         alias p='pbpaste'
@@ -78,7 +73,6 @@ export FZF_DEFAULT_COMMAND='fd --hidden --color=always'
 export MANPAGER="sh -c 'col -bx | bat --color=always --language=man --plain'"
 
 alias cat='bat --paging=never'
-alias batman='bat --language=man --plain'
 
 ### ripgrep ###
 export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/config"
@@ -268,9 +262,6 @@ export GPG_TTY="$(tty)"
 
 ### wget ###
 alias wget='wget --hsts-file="$XDG_STATE_HOME/wget-hsts"'
-
-### Make ###
-alias make='make -j$(($(nproc)+1))'
 
 ### CMake ###
 alias cmaked='cmake -DCMAKE_BUILD_TYPE=Debug -B "$(git rev-parse --show-toplevel)/build"'

@@ -48,11 +48,6 @@ abbrevs:
   # Misc
   #########################################################
 
-  # hgrep
-  - name: hg
-    abbr: hg
-    snippet: hgrep
-
   # awk
   - name: .N
     abbr-pattern: ^\.\d+$
@@ -104,6 +99,12 @@ abbrevs:
     evaluate: true
     global: true
 
+  # make
+  - name: make
+    abbr: make
+    snippet: make -j$(($(nproc)+1))
+    evaluate: true
+
   # mkdir
   - name: mkdir
     abbr: mkdir
@@ -116,6 +117,16 @@ abbrevs:
     evaluate: true
     global: true
     context: ^mkcd\s
+
+  # bat
+  - name: batman
+    abbr: batman
+    snippet: bat -p -lman
+
+  # hgrep
+  - name: hg
+    abbr: hg
+    snippet: hgrep
 
   # trash
   - name: trash
