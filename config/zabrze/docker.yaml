@@ -1,7 +1,7 @@
 abbrevs:
   # docker
-  - name: dok
-    abbr: dok
+  - name: d
+    abbr: d
     snippet: docker
 
   # docker compose
