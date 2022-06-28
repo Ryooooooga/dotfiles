@@ -6,13 +6,21 @@ abbrevs:
   # cd
   - name: --
     abbr: --
-    snippet: cd -
+    snippet: popd
 
   - name: cd
     abbr-pattern: (\.\.|/)$
     snippet: cd $abbr
     evaluate: true
     if: '[[ -z "$RBUFFER" ]]'
+
+  - name: cd -
+    abbr: '-'
+    snippet: popd
+    action: replace-all
+    global: true
+    context: ^cd\s+-$
+
 
   #########################################################
   # lazygit
