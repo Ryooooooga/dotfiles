@@ -19,6 +19,18 @@ abbrevs:
     global: true
     context: ^npm\s+r$
 
+  - name: npm build
+    abbr: build
+    snippet: run build
+    global: true
+    context: ^npm\s+build$
+
+  - name: npm fmt
+    abbr: fmt
+    snippet: run fmt
+    global: true
+    context: ^npm\s+fmt$
+
   # npm start
   - name: npm s
     abbr: s
