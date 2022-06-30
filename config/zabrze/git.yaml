@@ -182,6 +182,19 @@ abbrevs:
     evaluate: true
     context: ^git\s
 
+  - name: git M
+    abbr: M
+    snippet: main
+    global: true
+    context: ^git\s
+    if: git show-ref --verify --quiet refs/heads/main
+
+  - name: git M
+    abbr: M
+    snippet: master
+    global: true
+    context: ^git\s
+
   - name: git OB
     abbr: OB
     snippet: origin/$(git symbolic-ref --short HEAD)
