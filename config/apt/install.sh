@@ -12,6 +12,7 @@ apt-get install -y \
     clangd \
     clang-format \
     cmake \
+    fd-find \
     fzf \
     git \
     git-lfs \
@@ -26,6 +27,7 @@ apt-get install -y \
     shellcheck \
     sqlite3 \
     tmux \
+    trash-cli \
     unzip \
     wget \
     zip \
