@@ -143,10 +143,14 @@ abbrevs:
     if: (( ${+commands[trash]} ))
 
   # coreutils
-  - name: cp/mv/rm
-    abbr-pattern: ^(cp|mv|rm)$
+  - name: cp/mv
+    abbr-pattern: ^(cp|mv)$
     snippet: $abbr -i
     evaluate: true
+
+  - name: rm
+    abbr: rm
+    snippet: rm -ri
 
   - name: tailf
     abbr: tailf
