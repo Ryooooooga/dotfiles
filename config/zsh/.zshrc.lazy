@@ -278,12 +278,6 @@ docker() {
     fi
 }
 
-docker-clean() {
-    command docker ps -aqf status=exited | xargs -r docker rm --
-}
-docker-cleani() {
-    command docker images -qf dangling=true | xargs -r docker rmi --
-}
 docker-rm() {
     if [ "$#" -eq 0 ]; then
         command docker ps -a | fzf --exit-0 --multi --header-lines=1 | awk '{ print $1 }' | xargs -r docker rm --
@@ -291,6 +285,7 @@ docker-rm() {
         command docker rm "$@"
     fi
 }
+
 docker-rmi() {
     if [ "$#" -eq 0 ]; then
         command docker images | fzf --exit-0 --multi --header-lines=1 | awk '{ print $3 }' | xargs -r docker rmi --

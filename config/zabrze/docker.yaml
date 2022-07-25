@@ -36,3 +36,16 @@ abbrevs:
     snippet: run --rm -it
     global: true
     context: ^docker\s
+
+  # docker clean
+  - name: docker clean
+    abbr: clean
+    snippet: container prune -f
+    global: true
+    context: ^docker\s
+
+  - name: docker cleani
+    abbr: cleani
+    snippet: image prune -f
+    global: true
+    context: ^docker\s
