@@ -84,7 +84,7 @@ main() {
     if git_is_inside_repo; then
         local head status colour
         head="$(git_head)"
-        status="$(git_status)"
+        # status="$(git_status)"
         colour="colour2"
 
         if git_has_unstaged_changes; then
