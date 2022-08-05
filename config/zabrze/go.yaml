@@ -1,0 +1,21 @@
+abbrevs:
+  # go build
+  - name: go build -v
+    abbr: b
+    snippet: build -v
+    global: true
+    context: ^go\s+b$
+
+  # go run
+  - name: go run -v .
+    abbr: r
+    snippet: run -v .{}
+    global: true
+    context: ^go\s+r$
+
+  # go test
+  - name: go test -v ./...
+    abbr: t
+    snippet: test -v ./...
+    global: true
+    context: ^go\s+t$
