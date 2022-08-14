@@ -1,7 +1,7 @@
 disableStartupPopups: true
 quitOnTopLevelReturn: true
 promptToReturnFromSubprocess: false
-notARepository: skip
+notARepository: quit
 
 git:
   autoFetch: false
