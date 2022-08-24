@@ -29,6 +29,7 @@ case "$OSTYPE" in
         (( ${+commands[gfind]} )) && alias find='gfind'
         (( ${+commands[gdirname]} )) && alias dirname='gdirname'
         (( ${+commands[gxargs]} )) && alias xargs='gxargs'
+        (( ${+commands[gmake]} )) && alias make='gmake'
     ;;
 esac
 
