@@ -12,3 +12,4 @@ IncludeCategories:
   - Regex:      '^<'
     Priority:   1
 PointerAlignment: Right
+IndentPPDirectives: AfterHash

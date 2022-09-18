@@ -22,3 +22,4 @@ IncludeCategories:
 IndentCaseLabels: true
 NamespaceIndentation: All
 PointerAlignment: Left
+IndentPPDirectives: AfterHash
