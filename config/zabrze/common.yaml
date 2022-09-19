@@ -142,6 +142,11 @@ abbrevs:
     snippet: trash
     if: (( ${+commands[trash]} ))
 
+  # zouch
+  - name: zouch
+    abbr: zouch
+    snippet: zouch -r
+
   # coreutils
   - name: cp/mv
     abbr-pattern: ^(cp|mv)$
