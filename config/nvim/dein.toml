@@ -25,9 +25,6 @@ hook_add = '''
 colorscheme codedark
 '''
 
-[[plugins]]
-repo = 'romgrk/doom-one.vim'
-
 ### vim-gitgutter ###
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
@@ -66,7 +63,7 @@ function! s:defx_my_settings() abort
 endfunction
 
 call defx#custom#option('_', {
-\   'columns': 'space:indent:git:icons:filename:type',
+\   'columns': 'space:indent:git:icons:space:filename:type',
 \   'direction': 'topleft',
 \   'split': 'vertical',
 \   'winwidth': 32,
@@ -118,42 +115,15 @@ repo = 'junegunn/fzf'
 build = 'bash install --bin'
 
 [[plugins]]
-repo = 'junegunn/fzf.vim'
-
-[[plugins]]
 repo = 'yuki-ycino/fzf-preview.vim'
 rev = 'release/rpc'
 hook_add = '''
 nnoremap <silent>//     <cmd>FzfPreviewLinesRpc<CR>
 nnoremap <silent><C-f>  <cmd>FzfPreviewBufferLinesRpc<CR>
 nnoremap <silent><C-p>  <cmd>FzfPreviewProjectFilesRpc<CR>
-
-"nnoremap <silent>//     :BLines<CR>
-"nnoremap <silent><C-f>  :Lines<CR>
-"nnoremap <silent><C-p>  :Files<CR>
 '''
 
-### completion-nvim ###
-[[plugins]]
-repo = 'nvim-lua/completion-nvim'
-
-### nvim-lspconfig ###
-[[plugins]]
-repo = 'neovim/nvim-lspconfig'
-depends = ['completion-nvim']
-hook_add = '''
-set completeopt=menuone,noinsert
-set shortmess+=c
-let g:completion_enable_auto_popup = 1
-
-" C/C++
-lua require'lspconfig'.clangd.setup{}
-
-nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
-nnoremap <silent> <C-f> <cmd>lua vim.lsp.buf.formatting()<CR>
-'''
-
+### vim-expand-region ###
 [[plugins]]
 repo = 'terryma/vim-expand-region'
 hook_add = '''
@@ -173,37 +143,6 @@ let g:ale_fixers = {
 \ }
 '''
 
-### nvim-treesitter ###
-# [[plugins]]
-# repo = 'nvim-treesitter/nvim-treesitter'
-# merged = 1
-# # hook_post_update = 'TSUpdate'
-# hook_add = '''
-# lua <<EOF
-# require'nvim-treesitter.configs'.setup {
-#     ensure_installed = {
-#         'bash',
-#         'c',
-#         'cpp',
-#         'css',
-#         'go',
-#         'html',
-#         'javascript',
-#         'json',
-#         'python',
-#         'ruby',
-#         'rust',
-#         'toml',
-#         'typescript',
-#     },
-#     highlight = {
-#         enable = true,
-#         disable = {},
-#     },
-# }
-# EOF
-# '''
-
 ### barbar.nvim ###
 [[plugins]]
 repo = 'kyazdani42/nvim-web-devicons'
@@ -214,11 +153,6 @@ repo = 'romgrk/barbar.nvim'
 ### nvim-scrollview ###
 [[plugins]]
 repo = 'dstein64/nvim-scrollview'
-hook_add = '''
-" https://github.com/dstein64/nvim-scrollview/issues/10
-command Bdelete silent! ScrollViewDisable | bdelete | silent! ScrollViewEnable
-nnoremap <silent><C-w> <cmd>Bdelete<CR>
-'''
 
 ### vim-highlightedyank ###
 [[plugins]]
