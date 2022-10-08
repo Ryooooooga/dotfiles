@@ -25,6 +25,24 @@ hook_add = '''
 colorscheme codedark
 '''
 
+### coc.nvim ###
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+merged = '0'
+build = 'coc#util#install()'
+hook_add = '''
+source $XDG_CONFIG_HOME/nvim/coc.vim
+'''
+
+[[plugins]]
+repo = 'neoclide/coc-pairs'
+depends = ['coc.nvim']
+
+[[plugins]]
+repo = 'clangd/coc-clangd'
+depends = ['coc.nvim']
+
 ### vim-gitgutter ###
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
@@ -80,10 +98,6 @@ depends = ['defx.nvim']
 repo = 'kristijanhusak/defx-icons'
 depends = ['defx.nvim']
 
-### lexima.vim ###
-[[plugins]]
-repo = 'cohama/lexima.vim'
-
 ### vim-surround ###
 [[plugins]]
 repo = 'tpope/vim-surround'
@@ -129,18 +143,6 @@ repo = 'terryma/vim-expand-region'
 hook_add = '''
 vmap v <Plug>(expand_region_expand)
 vmap V <Plug>(expand_region_shrink)
-'''
-
-### asynchronous lint engine ###
-[[plugins]]
-repo = 'dense-analysis/ale'
-hook_add = '''
-let g:ale_fix_on_save = 1
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines'],
-\   'c': ['clang-format'],
-\   'cpp': ['clang-format'],
-\ }
 '''
 
 ### barbar.nvim ###

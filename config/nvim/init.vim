@@ -3,6 +3,7 @@ set fenc=utf-8
 set hidden
 set autoread
 set showcmd
+set signcolumn=yes
 " Indentation
 set tabstop=4
 set softtabstop=4
