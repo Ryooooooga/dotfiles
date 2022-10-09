@@ -159,3 +159,10 @@ repo = 'dstein64/nvim-scrollview'
 ### vim-highlightedyank ###
 [[plugins]]
 repo = 'machakann/vim-highlightedyank'
+
+### toggleterm.nvim ###
+[[plugins]]
+repo = 'akinsho/toggleterm.nvim'
+hook_add = '''
+lua require("toggleterm").setup()
+'''

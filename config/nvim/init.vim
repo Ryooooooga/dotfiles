@@ -90,9 +90,6 @@ augroup MyKeyMaps
     autocmd FileType html call MyKeyMapsHtml()
 augroup END
 
-""" Terminal """
-source $XDG_CONFIG_HOME/nvim/terminal.vim
-
 """ Filetype """
 augroup MyFileType
     autocmd!
