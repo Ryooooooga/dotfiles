@@ -15,12 +15,11 @@ abbrevs:
     if: '[[ -z "$RBUFFER" ]]'
 
   - name: cd -
-    abbr: '-'
+    abbr: "-"
     snippet: popd
     action: replace-all
     global: true
     context: ^cd\s+-$
-
 
   #########################################################
   # lazygit

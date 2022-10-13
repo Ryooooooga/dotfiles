@@ -21,9 +21,9 @@ gui:
   showIcons: true
 
 os:
-  openCommand: 'code --goto -- {{filename}}:{{line}}'
-  editCommand: 'nvim'
-  editCommandTemplate: '{{editor}} +{{line}} -- {{filename}}'
+  openCommand: "code --goto -- {{filename}}:{{line}}"
+  editCommand: "nvim"
+  editCommandTemplate: "{{editor}} +{{line}} -- {{filename}}"
 
 keybinding:
   commits:
