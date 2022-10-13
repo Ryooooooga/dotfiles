@@ -33,12 +33,24 @@ keybinding:
     renameBranch: r
 
 customCommands:
+  - key: <c-f>
+    command: git sync
+    context: global
+    subprocess: true
+
   - key: C
     command: git cz
     context: files
     subprocess: true
 
-  - key: <c-f>
-    command: git sync
-    context: global
-    subprocess: true
+  - key: r
+    prompts:
+      - key: Message
+        type: input
+        title: "Rename stash: {{.SelectedStashEntry.RefName}}"
+        initialValue: "{{.SelectedStashEntry.Name}}"
+    command: >-
+      git stash drop {{.SelectedStashEntry.RefName}}
+      | sed -E 's/.*\(([0-9a-f]+)\).*/\1/'
+      | xargs git stash store -m {{.Form.Message | quote}}
+    context: stash
