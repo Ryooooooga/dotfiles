@@ -29,6 +29,7 @@ completions:
   - description: file
     patterns:
       - ^\s*(bat|cat|delta|diff|e|grep|head|hexdump|hexyl|less|nvim|sed|tail|vim|vi)\s
+      - "[<>]\\s*$"
     source: |-
       local dir="$(sed -E "s:^~/:$HOME/:; s:[^/]*\$::" <<<"${(Q)query}")"
       fd --color=always --hidden --type=f --follow . "${dir:-.}" 2>/dev/null | sed -E "s:$HOME/:~/:"
