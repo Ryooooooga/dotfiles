@@ -52,6 +52,7 @@ completions:
   - description: directory
     patterns:
       - ^\s*(cd|la|ll|ls|tree)\s
+      - ^\s*go\s+test\s
     source: |-
       local dir="$(sed -E "s:^~/:$HOME/:; s:[^/]*\$::" <<<"${(Q)query}")"
       fd --color=always --hidden --type=d --follow . "${dir:-.}" 2>/dev/null | sed -E "s:$HOME/:~/:"
