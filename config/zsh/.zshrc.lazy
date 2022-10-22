@@ -201,16 +201,7 @@ zinit wait lucid light-mode as'program' for \
 
 ### zsh-replace-multiple-dots ###
 __replace_multiple_dots_atload() {
-    __replace_multiple_dots_ex() {
-        if [[ "$LBUFFER" =~ '^go ' ]]; then
-            zle self-insert
-        else
-            zle .__replace_multiple_dots
-        fi
-    }
-
-    zle -N .__replace_multiple_dots __replace_multiple_dots
-    zle -N __replace_multiple_dots __replace_multiple_dots_ex
+    export REPLACE_MULTIPLE_DOTS_IGNORE="^go "
 }
 zinit wait lucid light-mode for \
     atload'__replace_multiple_dots_atload' \
