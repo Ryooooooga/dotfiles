@@ -102,7 +102,8 @@ zinit wait lucid blockf light-mode for \
     atload'async_init' @'mafredri/zsh-async' \
     @'zsh-users/zsh-autosuggestions' \
     @'zsh-users/zsh-completions' \
-    @'zdharma-continuum/fast-syntax-highlighting'
+    @'zdharma-continuum/fast-syntax-highlighting' \
+    @'Ryooooooga/zsh-replace-multiple-dots'
 
 ### programs ###
 zinit wait lucid light-mode as'program' from'gh-r' for \
@@ -202,14 +203,6 @@ zinit wait lucid light-mode as'program' for \
     atload'__forgit_atload' \
     pick'bin/git-forgit' \
     @'wfxr/forgit'
-
-### zsh-replace-multiple-dots ###
-__replace_multiple_dots_atload() {
-    export REPLACE_MULTIPLE_DOTS_IGNORE="^go "
-}
-zinit wait lucid light-mode for \
-    atload'__replace_multiple_dots_atload' \
-    @'Ryooooooga/zsh-replace-multiple-dots'
 
 ### tmux-fzf ###
 zinit wait lucid light-mode for \
