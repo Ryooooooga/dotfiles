@@ -148,6 +148,12 @@ vmap V <Plug>(expand_region_shrink)
 ### barbar.nvim ###
 [[plugins]]
 repo = 'kyazdani42/nvim-web-devicons'
+hook_add = '''
+highlight BufferCurrentSign guifg=#5faefe
+highlight BufferVisibleSign guifg=#7be4a4
+highlight BufferInactive    guifg=#808080 guibg=#262626
+highlight BufferTabpageFill guifg=#444444 guibg=#303030
+'''
 
 [[plugins]]
 repo = 'romgrk/barbar.nvim'
