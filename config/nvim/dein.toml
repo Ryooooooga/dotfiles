@@ -106,7 +106,7 @@ repo = 'tpope/vim-surround'
 [[plugins]]
 repo = 'elzr/vim-json'
 hook_add = '''
-set conceallevel=2
+"set conceallevel=2
 set concealcursor=niv
 let g:vim_json_syntax_conceal = 0
 '''
