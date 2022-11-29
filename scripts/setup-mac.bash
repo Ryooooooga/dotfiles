@@ -10,11 +10,6 @@ touch "$HOME/.hushlogin"
 # GPG
 ln -sfv "$REPO_DIR/config/gnupg/gpg-agent.conf.mac" "$HOME/.gnupg/gpg-agent.conf"
 
-# Dash
-DASH_LIBRARY="$HOME/Library/Application Support/Dash/library.dash"
-mkdir -p "$(dirname "$DASH_LIBRARY")"
-cp -n "$XDG_CONFIG_HOME/dash/library.dash" "$DASH_LIBRARY"
-
 # Sublime Text
 SUBL_DIR="$HOME/Library/Application Support/Sublime Text"
 mkdir -p "$SUBL_DIR"
