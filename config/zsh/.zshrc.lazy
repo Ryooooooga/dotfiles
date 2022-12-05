@@ -247,7 +247,7 @@ zstyle ':completion:*:default' menu select=1
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 ### GPG ###
-export GPG_TTY="$(tty)"
+export GPG_TTY="$TTY"
 
 ### wget ###
 alias wget='wget --hsts-file="$XDG_STATE_HOME/wget-hsts"'
