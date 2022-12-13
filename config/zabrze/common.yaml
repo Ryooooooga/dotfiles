@@ -22,6 +22,30 @@ abbrevs:
     context: ^cd\s+-$
 
   #########################################################
+  # CMake
+  #########################################################
+
+  - name: cmakeb
+    abbr: cmakeb
+    snippet: cmake --build $(git rev-parse --show-cdup 2>/dev/null)build -j$(($(nproc)+1))
+    evaluate: true
+
+  - name: cmaked
+    abbr: cmaked
+    snippet: cmake -DCMAKE_BUILD_TYPE=Debug -B $(git rev-parse --show-cdup 2>/dev/null)build
+    evaluate: true
+
+  - name: cmakerel
+    abbr: cmakerel
+    snippet: cmake -DCMAKE_BUILD_TYPE=Release -B $(git rev-parse --show-cdup 2>/dev/null)build
+    evaluate: true
+
+  - name: cmaket
+    abbr: cmaket
+    snippet: ctest -V --test-dir $(git rev-parse --show-cdup 2>/dev/null)build
+    evaluate: true
+
+  #########################################################
   # lazygit
   #########################################################
 
