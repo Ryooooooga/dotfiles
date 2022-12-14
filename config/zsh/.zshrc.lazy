@@ -13,23 +13,16 @@ case "$OSTYPE" in
         fi
     ;;
     darwin*)
+        path=(
+            /usr/local/opt/coreutils/libexec/gnubin(N-/)
+            /usr/local/opt/findutils/libexec/gnubin(N-/)
+            /usr/local/opt/gnu-sed/libexec/gnubin(N-/)
+            /usr/local/opt/grep/libexec/gnubin(N-/)
+            /usr/local/opt/make/libexec/gnubin(N-/)
+            "$path[@]"
+        )
         alias pp='pbcopy'
         alias p='pbpaste'
-        (( ${+commands[gdate]} )) && alias date='gdate'
-        (( ${+commands[gls]} )) && alias ls='gls --color=auto'
-        (( ${+commands[gmkdir]} )) && alias mkdir='gmkdir'
-        (( ${+commands[gcp]} )) && alias cp='gcp'
-        (( ${+commands[gmv]} )) && alias mv='gmv'
-        (( ${+commands[grm]} )) && alias rm='grm'
-        (( ${+commands[gdu]} )) && alias du='gdu'
-        (( ${+commands[ghead]} )) && alias head='ghead'
-        (( ${+commands[gtail]} )) && alias tail='gtail'
-        (( ${+commands[gsed]} )) && alias sed='gsed'
-        (( ${+commands[ggrep]} )) && alias grep='ggrep'
-        (( ${+commands[gfind]} )) && alias find='gfind'
-        (( ${+commands[gdirname]} )) && alias dirname='gdirname'
-        (( ${+commands[gxargs]} )) && alias xargs='gxargs'
-        (( ${+commands[gmake]} )) && alias make='gmake'
     ;;
 esac
 
