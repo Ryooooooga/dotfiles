@@ -43,9 +43,19 @@ setopt MAGIC_EQUAL_SUBST
 setopt PRINT_EIGHT_BIT
 setopt NO_FLOW_CONTROL
 
+### hooks ###
 zshaddhistory() {
     local line="${1%%$'\n'}"
     [[ ! "$line" =~ "^(cd|history|jj?|lazygit|la|ll|ls|rm|rmdir|trash)($| )" ]]
+}
+
+chpwd() {
+    printf "\e[34m%s\e[m:\n" "${PWD/$HOME/~}"
+    if (( ${+commands[exa]} )); then
+        exa --group-directories-first --icons -a
+    else
+        ls -a
+    fi
 }
 
 ### theme ###
