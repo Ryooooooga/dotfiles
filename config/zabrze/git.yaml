@@ -142,7 +142,7 @@ abbrevs:
 
   - name: git push -f
     abbr: -f
-    snippet: --force-with-lease
+    snippet: --force-with-lease --force-if-includes
     global: true
     context: ^git(\s+\S+)*\s+push\s
 
