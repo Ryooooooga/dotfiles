@@ -151,6 +151,7 @@ __hgrep_atload() {
 }
 zinit wait lucid light-mode as'program' from'gh-r' for \
     pick'hgrep*/hgrep' \
+    atclone'./hgrep*/hgrep --generate-completion-script zsh >_hgrep' atpull'%atclone' \
     atload'__hgrep_atload' \
     @'rhysd/hgrep'
 
