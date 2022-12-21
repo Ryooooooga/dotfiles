@@ -40,7 +40,7 @@ completions:
 
   - description: file or directory
     patterns:
-      - ^\s*(code|cp|ln|mv|rm|subl|trash)\s
+      - ^\s*(code|cp|ln|mmv|mv|rm|subl|trash)\s
     source: |-
       local dir="$(sed -E "s:^~/:$HOME/:; s:[^/]*\$::" <<<"${(Q)query}")"
       fd --color=always --hidden --follow . "${dir:-.}" 2>/dev/null | sed -E "s:$HOME/:~/:"
