@@ -1,0 +1,14 @@
+#!/usr/bin/env zsh
+set -u
+
+readonly endpoint="https://www.toptal.com/developers/gitignore/api"
+
+readonly json="$(curl -sSL "$endpoint/list?format=json")"
+readonly preview="
+    jq --arg key {1} -r '.[\$key].contents' <<<${(q)json} |
+        bat --color=always --file-name={3} --language='Git Ignore'
+"
+readonly keys="$(jq -r '.[] | .key + " " + .name + " " + .fileName' <<<"$json" | sort -k1 | fzf --multi --with-nth=2 --preview="$preview" | cut -d' ' -f1)"
+
+[[ -z "$keys" ]] && exit 1
+curl -sSL "$endpoint/${keys//$'\n'/,}" | bat --paging=never --plain --language='Git Ignore'

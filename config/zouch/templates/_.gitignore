@@ -1,1 +1,1 @@
-{{ Shell `git forgit ignore || true` -}}
+{{ Shell `git ignore || true` -}}
