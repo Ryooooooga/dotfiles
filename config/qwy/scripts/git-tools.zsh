@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-icon="\uf425"
+icon=$'\uf425'
 header="tool"
 
 for k in "${(k@)commands[(R)*/git-*]}"; do

@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-icon="\uf7c9"
+icon=$'\uf7c9'
 header="image"
 
 docker images --format="{{.Repository}}:{{.Tag}}\t{{.ID}} {{.Size}}\t{{.CreatedSince}}" |

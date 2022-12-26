@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-icon="\uf412"
+icon=$'\uf412'
 header="tag"
 
 name="%(refname:short)"

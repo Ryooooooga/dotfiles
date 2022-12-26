@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-icon="\uf65e"
+icon=$'\uf65e'
 header="remote"
 
 name="%(refname:short)"

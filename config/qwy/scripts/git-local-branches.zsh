@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-icon="\uf418"
+icon=$'\uf418'
 header="branch"
 
 name="%(refname:short)"
