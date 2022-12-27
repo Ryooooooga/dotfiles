@@ -3,4 +3,4 @@
 zinit update --all
 
 # zinit: remove dead completion symlinks
-find ~/.local/share/zinit/completions -type l ! -exec test -e {} \; -exec rm {} \;
+find ~/.local/share/zinit/completions -type l ! -exec test -e {} \; -delete
