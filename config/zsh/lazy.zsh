@@ -43,7 +43,10 @@ jj() {
 }
 
 ### diff ###
-diff() { command diff "$@" | bat --paging=never --plain --language=diff }
+diff() {
+    command diff "$@" | bat --paging=never --plain --language=diff
+    return "${pipestatus[1]}"
+}
 alias diffall='diff --new-line-format="+%L" --old-line-format="-%L" --unchanged-line-format=" %L"'
 
 ### direnv ###
