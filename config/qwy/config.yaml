@@ -11,6 +11,12 @@ finder:
     --nth: 3
   callback: awk '{ print $3 }' | tr '\n' ' '
 
+.completion-multi: &completion-multi
+  <<: *completion-base
+  finder:
+    <<: *finder-base
+    --multi: true
+
 .completion-git: &completion-git
   <<: *completion-base
   finder: &finder-git
@@ -92,6 +98,20 @@ completions:
     source: |-
       "$QWY_SCRIPT_PATH/options.zsh" "docker/build-options" $'\uf73a' "option" "blue"
     <<: *completion-base
+
+  - description: docker-rm
+    patterns:
+      - ^\s*docker\s+rm\s
+    source: |-
+      "$QWY_SCRIPT_PATH/docker-ps.zsh"
+    <<: *completion-multi
+
+  - description: docker-rmi
+    patterns:
+      - ^\s*docker\s+rmi\s
+    source: |-
+      "$QWY_SCRIPT_PATH/docker-images.zsh"
+    <<: *completion-multi
 
   - description: docker-run
     patterns:
