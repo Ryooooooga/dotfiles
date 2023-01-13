@@ -284,7 +284,7 @@ export GIT_EDITOR="$EDITOR"
 e() {
     if [ $# -eq 0 ]; then
         local selected="$(fd --hidden --color=always --type=f  | fzf --exit-0 --multi --preview="fzf-preview-file {}" --preview-window="right:60%")"
-        [ -n "$selected" ] && "$EDITOR" -- ${(f)selected}
+        [ -n "$selected" ] && command "$EDITOR" -- "${(f)selected}"
     else
         command "$EDITOR" "$@"
     fi
