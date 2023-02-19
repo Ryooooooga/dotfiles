@@ -60,54 +60,91 @@ chpwd() {
 
 ### theme ###
 zinit light-mode from'gh-r' as'program' for \
-    @'Ryooooooga/almel'
+    @'Ryooooooga/croque'
 
-almel::preexec() {
-    unset ALMEL_STATUS
-    ALMEL_START="$EPOCHREALTIME"
+croque::prepare-git() {
+    croque prepare git
 }
 
-almel::async::callback() {
-    PROMPT="$3"
-    zle .reset-prompt
+croque::prepare-git-async::callback() {
+    __croque_git_info="$3"
+    zle reset-prompt
 }
 
-almel::async::prompt() {
-    local exit_status="$1"
-    local jobs="$2"
-    local duration="$3"
-    almel prompt zsh --exit-status="$exit_status" --num-jobs="$jobs" --duration="$duration"
+croque::prepare-git-async() {
+    async_stop_worker croque_async_git_worker
+    async_start_worker croque_async_git_worker -n
+    async_register_callback croque_async_git_worker croque::prepare-git-async::callback
+    async_job croque_async_git_worker croque::prepare-git
 }
 
-almel::async(){
-    async_stop_worker almel_async_worker
-    async_start_worker almel_async_worker -n
-    async_register_callback almel_async_worker almel::async::callback
-    async_job almel_async_worker almel::async::prompt "$@"
+croque::prepare-gh() {
+    croque prepare gh
 }
 
-almel::precmd() {
-    local exit_status="${ALMEL_STATUS:-$?}"
-    local jobs="$#jobstates"
-    local end="$EPOCHREALTIME"
-    local duration="$(($end - ${ALMEL_START:-$end}))"
+croque::prepare-gh-async::callback() {
+    __croque_gh_info="$3"
+    zle reset-prompt
+}
+
+croque::prepare-gh-async() {
+    async_stop_worker croque_async_gh_worker
+    async_start_worker croque_async_gh_worker -n
+    async_register_callback croque_async_gh_worker croque::prepare-gh-async::callback
+    async_job croque_async_gh_worker croque::prepare-gh
+}
+
+croque::prepare() {
     if (( ${+ASYNC_VERSION} )); then
-        PROMPT="$(almel prompt zsh --exit-status="$exit_status" --num-jobs="$jobs" --duration="$duration" --no-git)"
-        almel::async "$exit_status" "$jobs" "$duration"
+        async_init
+        croque::prepare-git-async
+        croque::prepare-gh-async
     else
-        PROMPT="$(almel prompt zsh --exit-status="$exit_status" --num-jobs="$jobs" --duration="$duration")"
+        __croque_git_info="$(croque::prepare-git)"
     fi
-    unset ALMEL_START
+}
+
+croque::chpwd() {
+    unset __croque_git_info
+    unset __croque_gh_info
+}
+
+croque::preexec() {
+    unset __croque_exit_status_overwrite
+    __croque_start="$EPOCHREALTIME"
+}
+
+croque::precmd() {
+    __croque_exit_status="${__croque_exit_status_overwrite:-$?}"
+    __croque_jobs="$#jobstates"
+    local end="$EPOCHREALTIME"
+    __croque_duration="$(($end - ${__croque_start:-$end}))"
+    unset __croque_start
+
+    croque::prepare
+}
+
+croque::prompt() {
+    croque prompt --exit-status="$__croque_exit_status" --jobs="$__croque_jobs" --duration="$__croque_duration" --width="$COLUMNS" --data.git="$__croque_git_info" --data.gh="$__croque_gh_info" zsh
+}
+
+croque::rprompt() {
+    croque prompt --right --exit-status="$__croque_exit_status" --jobs="$__croque_jobs" --duration="$__croque_duration" --width="$COLUMNS" --data.git="$__croque_git_info" --data.gh="$__croque_gh_info" zsh
 }
 
 autoload -Uz add-zsh-hook
-add-zsh-hook precmd almel::precmd
-add-zsh-hook preexec almel::preexec
+add-zsh-hook chpwd croque::chpwd
+add-zsh-hook precmd croque::precmd
+add-zsh-hook preexec croque::preexec
+
+setopt prompt_subst
+PROMPT='$(croque::prompt)'
+RPROMPT='$(croque::rprompt)'
 
 ### key bindings ###
 clear-screen-and-update-prompt() {
-    ALMEL_STATUS=0
-    almel::precmd
+    __croque_exit_status_overwrite=0
+    croque::precmd
     zle .clear-screen
 }
 zle -N clear-screen clear-screen-and-update-prompt
