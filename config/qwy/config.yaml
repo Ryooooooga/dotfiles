@@ -28,6 +28,16 @@ finder:
         printf "option: %s" {3}
       fi
 
+.completion-docker-image: &completion-docker-image
+  <<: *completion-base
+  callback: awk '{ if($3 ~ /<none>/) { print $4 } else { print $3 } }' | tr '\n' ' '
+
+.completion-docker-image-multi: &completion-docker-image-multi
+  <<: *completion-docker-image
+  finder:
+    <<: *finder-base
+    --multi: true
+
 completions:
   #########################################################
   # Files and Directories
@@ -111,7 +121,7 @@ completions:
       - ^\s*docker\s+rmi\s
     source: |-
       "$QWY_SCRIPT_PATH/docker-images.zsh"
-    <<: *completion-multi
+    <<: *completion-docker-image-multi
 
   - description: docker-run
     patterns:
@@ -119,7 +129,7 @@ completions:
     source: |-
       "$QWY_SCRIPT_PATH/docker-images.zsh"
       "$QWY_SCRIPT_PATH/options.zsh" "docker/run-options" $'\uf73a' "option" "blue"
-    <<: *completion-base
+    <<: *completion-docker-image
 
   - description: docker
     patterns:
