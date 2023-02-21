@@ -4,43 +4,49 @@ abbrevs:
     abbr: i
     snippet: install
     global: true
-    context: ^(git\s+exec\s+)?npm\s
+    context: ^(git\s+exec\s+)?(npm|pnpm)\s
 
   - name: npm -D
     abbr: -D
     snippet: --save-dev
     global: true
-    context: ^(git\s+exec\s+)?npm\s+install\s
+    context: ^(git\s+exec\s+)?(npm|pnpm)\s+install\s
 
   # npm run
   - name: npm r
     abbr: r
     snippet: run
     global: true
-    context: ^npm\s+r$
+    context: ^(npm|pnpm)\s+r$
+
+  - name: npm b
+    abbr: b
+    snippet: run build
+    global: true
+    context: ^(npm|pnpm)\s+b$
 
   - name: npm build
     abbr: build
     snippet: run build
     global: true
-    context: ^npm\s+build$
+    context: ^(npm|pnpm)\s+build$
 
   - name: npm fmt
     abbr: fmt
     snippet: run fmt
     global: true
-    context: ^npm\s+fmt$
+    context: ^(npm|pnpm)\s+fmt$
 
   # npm start
   - name: npm s
     abbr: s
     snippet: start
     global: true
-    context: ^npm\s
+    context: ^(npm|pnpm)\s
 
   # npm test
   - name: npm t
     abbr: t
     snippet: test
     global: true
-    context: ^npm\s
+    context: ^(npm|pnpm)\s
