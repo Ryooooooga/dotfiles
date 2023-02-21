@@ -50,3 +50,9 @@ abbrevs:
     snippet: test
     global: true
     context: ^(npm|pnpm)\s
+
+  # npm
+  - name: pnpm
+    abbr: npm
+    snippet: pnpm
+    if: '[[ -f "$(npm-root)/pnpm-lock.yaml" ]]'
