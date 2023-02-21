@@ -252,7 +252,7 @@ completions:
   #########################################################
   - description: npm-run
     patterns:
-      - ^\s*npm\s+run\s+\S*$
+      - ^\s*(npm|pnpm)\s+run\s+\S*$
     source: |-
       "$QWY_SCRIPT_PATH/npm-scripts.zsh"
     <<: *completion-base

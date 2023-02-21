@@ -1,0 +1,13 @@
+#!/usr/bin/env zsh
+cwd="${PWD:a}"
+dir="$cwd"
+while
+    if [[ -f "$dir/package.json" ]]; then
+        printf "%s\n" "$dir"
+        exit
+    fi
+    dir="${dir:h}"
+    [[ "$dir" != "/" ]]
+do :; done
+
+printf "%s\n" "$cwd"
