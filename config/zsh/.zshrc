@@ -112,9 +112,8 @@ croque::prepare-glab-async() {
 
 croque::prepare() {
     if (( ${+ASYNC_VERSION} )); then
-        async_init
         croque::prepare-git-async
-        croque::prepare-gh-async
+        (( ${+commands[gh]} )) && croque::prepare-gh-async
         (( ${+commands[glab]} )) && croque::prepare-glab-async
     else
         __croque_git_info="$(croque::prepare-git)"
@@ -150,6 +149,14 @@ croque::rprompt() {
     croque prompt --right --exit-status="$__croque_exit_status" --jobs="$__croque_jobs" --duration="$__croque_duration" --width="$COLUMNS" --data.git="$__croque_git_info" --data.gh="$__croque_gh_info" --data.glab="$__croque_glab_info" zsh
 }
 
+croque::clear-screen() {
+    __croque_exit_status_overwrite=0
+    croque::precmd
+    zle .clear-screen
+}
+
+zle -N clear-screen croque::clear-screen
+
 autoload -Uz add-zsh-hook
 add-zsh-hook chpwd croque::chpwd
 add-zsh-hook precmd croque::precmd
@@ -160,13 +167,6 @@ PROMPT='$(croque::prompt)'
 RPROMPT='$(croque::rprompt)'
 
 ### key bindings ###
-clear-screen-and-update-prompt() {
-    __croque_exit_status_overwrite=0
-    croque::precmd
-    zle .clear-screen
-}
-zle -N clear-screen clear-screen-and-update-prompt
-
 widget::history() {
     local selected="$(history -inr 1 | fzf --exit-0 --query "$LBUFFER" | cut -d' ' -f4- | sed 's/\\n/\n/g')"
     if [ -n "$selected" ]; then
