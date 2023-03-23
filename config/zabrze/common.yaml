@@ -27,7 +27,7 @@ abbrevs:
 
   - name: cmakeb
     abbr: cmakeb
-    snippet: cmake --build $(git rev-parse --show-cdup 2>/dev/null)build -j$(($(nproc)+1))
+    snippet: cmake --build $(git rev-parse --show-cdup 2>/dev/null)build -j
     evaluate: true
 
   - name: cmaked
@@ -133,7 +133,7 @@ abbrevs:
   # make
   - name: make
     abbr: make
-    snippet: make -j$(($(nproc)+1))
+    snippet: make -j
     evaluate: true
 
   # mkdir
