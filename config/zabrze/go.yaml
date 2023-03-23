@@ -6,6 +6,13 @@ abbrevs:
     global: true
     context: ^go\s+b$
 
+  # go generate
+  - name: go generate -v
+    abbr: g
+    snippet: generate -v ./...
+    global: true
+    context: ^go\s+g$
+
   # go run
   - name: go run -v .
     abbr: r
