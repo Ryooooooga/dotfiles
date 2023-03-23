@@ -1,0 +1,7 @@
+abbrevs:
+  # mdmg generate
+  - name: mdmg generate
+    abbr: g
+    snippet: generate
+    global: true
+    context: ^mdmg\s+g$

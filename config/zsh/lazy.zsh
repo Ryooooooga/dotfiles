@@ -219,6 +219,15 @@ zinit wait lucid light-mode as'program' from'gh-r' for \
     atload'__tealdeer_atload' \
     @'dbrgn/tealdeer'
 
+### mdmg ###
+__mdmg_atclone() {
+    curl -sSL 'https://raw.githubusercontent.com/Ryooooooga/mdmg/master/completions/mdmg.completion.zsh' -o _mdmg
+}
+zinit wait lucid light-mode as'program' from'gh-r' for \
+    atclone'__mdmg_atclone' atpull'%atclone' \
+    pick'mdmg*/mdmg' \
+    @'himanoa/mdmg'
+
 ### GDB ###
 __gdb_dashboard_atload() {
     export GDBHISTFILE="$XDG_STATE_HOME/gdb_history"

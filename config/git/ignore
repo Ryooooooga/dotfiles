@@ -38,3 +38,6 @@ _test*
 
 ### qtmut ###
 .qtmut.yaml
+
+### mdmg ###
+.mdmg/
