@@ -1,5 +1,5 @@
 {{ if HasSuffix .Filename "_test.go" -}}
-package {{.Filename | Abs | Dir | Base}}_test
+package {{.Filepath | Dir | Base}}_test
 
 import (
 	"testing"
@@ -8,5 +8,5 @@ import (
 func Test{{TrimSuffix .Filename "_test.go" | Base | UpperCamelCase}}(t *testing.T) {
 }
 {{ else -}}
-package {{.Filename | Abs | Dir | Base}}
+package {{.Filepath | Dir | Base}}
 {{ end -}}
