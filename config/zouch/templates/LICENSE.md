@@ -1,4 +1,4 @@
-# MIT License (MIT)
+# MIT License
 
 Copyright (c) {{Now.Year}} {{Shell `git config user.name || git config ghq.user || yq eval '."github.com".user' "$XDG_CONFIG_HOME/gh/hosts.yml" || yq eval '."github.com"[0].user' "$XDG_CONFIG_HOME/hub" || echo "$USER"`}}
 

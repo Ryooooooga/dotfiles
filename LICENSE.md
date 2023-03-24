@@ -1,4 +1,4 @@
-# MIT License (MIT)
+# MIT License
 
 Copyright (c) 2020-2021 Ryooooooga
 
