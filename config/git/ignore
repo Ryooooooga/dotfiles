@@ -12,8 +12,9 @@
 ### Vim ###
 .*.swp
 
-### VS Code ###
+### Editor ###
 .vscode/*
+.idea/
 
 ### C/C++ ###
 compile_commands.json
