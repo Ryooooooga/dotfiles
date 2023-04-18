@@ -42,6 +42,10 @@ jj() {
     builtin cd "$root"
 }
 
+pathed() {
+    PATH="$(tr ':' '\n' <<<"$PATH" | ped | tr '\n' ':' | sed -E 's/:(:|$)//g')"
+}
+
 ### diff ###
 diff() {
     command diff "$@" | bat --paging=never --plain --language=diff
