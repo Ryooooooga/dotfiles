@@ -41,7 +41,7 @@ path:
     length: 1
   aliases:
     - path: ~/repos/github.com
-      alias: " "
+      alias: " "
     - path: ~/repos
       alias: ""
     - path: ~
@@ -72,7 +72,7 @@ duration:
     foreground: white
     background: 242
     decoration: []
-  content: " 祥{{.duration}} "
+  content: " 󰔛 {{.duration}} "
 
 time:
   format: "%H:%M:%S" # https://docs.rs/chrono/0.4.23/chrono/format/strftime/index.html
@@ -85,7 +85,7 @@ time:
 
 git_status:
   icons:
-    branch: ""
+    branch: ""
     tag: ""
     commit: ""
     modified: "…"
@@ -117,7 +117,7 @@ git_status:
       decoration: []
   remotes:
     - pattern: github.com
-      icon: " "
+      icon: " "
     - pattern: ""
       icon: " "
   display_master: true
