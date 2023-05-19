@@ -5,7 +5,6 @@
 	],
 	"installed_packages":
 	[
-		"A File Icon",
 		"AdvancedNewFile",
 		"AutoCloseEmptyGroup",
 		"BracketHighlighter",
@@ -15,6 +14,7 @@
 		"DlangAutoImport",
 		"DoxyDoxygen",
 		"EditorConfig",
+		"FileIcons",
 		"FindKeyConflicts",
 		"Git",
 		"GitGutter",
