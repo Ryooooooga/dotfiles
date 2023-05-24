@@ -76,7 +76,7 @@ widget::history() {
 }
 
 widget::ghq::source() {
-    local session color icon green="\e[32m" blue="\e[34m" reset="\e[m" checked="\uf631" unchecked="\uf630"
+    local session color icon green="\e[32m" blue="\e[34m" reset="\e[m" checked="󰄲" unchecked="󰄱"
     local sessions=($(tmux list-sessions -F "#S" 2>/dev/null))
 
     ghq list | sort | while read -r repo; do
