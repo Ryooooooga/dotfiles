@@ -1,0 +1,5 @@
+{
+	"initializationOptions": {
+		"clangd.header-insertion": "never",
+	},
+}

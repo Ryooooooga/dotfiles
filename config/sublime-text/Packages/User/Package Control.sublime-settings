@@ -21,6 +21,7 @@
 		"Increment Decrement",
 		"Increment Selection",
 		"LSP",
+		"LSP-clangd",
 		"Origami",
 		"Package Control",
 		"PackageResourceViewer",
