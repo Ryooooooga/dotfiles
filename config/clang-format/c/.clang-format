@@ -1,15 +1,18 @@
-BasedOnStyle: Chromium
+BasedOnStyle: LLVM
 IndentWidth: 4
 AlignAfterOpenBracket: AlwaysBreak
+AllowAllParametersOfDeclarationOnNextLine: false
 AllowShortFunctionsOnASingleLine: None
+AlwaysBreakBeforeMultilineStrings: true
 BinPackArguments: false
 BinPackParameters: false
-ColumnLimit: 120
+ColumnLimit: 160
 CommentPragmas: ^
 IncludeCategories:
   - Regex:      '^"'
     Priority:   2
   - Regex:      '^<'
     Priority:   1
+PenaltyReturnTypeOnItsOwnLine: 10000
 PointerAlignment: Right
 IndentPPDirectives: AfterHash
