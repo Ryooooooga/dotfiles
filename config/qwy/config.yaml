@@ -83,8 +83,8 @@ completions:
     patterns:
       - ^\s*asdf\s
     source: |-
-      "$QWY_SCRIPT_PATH/options.zsh" "asdf/subcommands" $'\ufb32' "command" "yellow"
-      "$QWY_SCRIPT_PATH/options.zsh" "asdf/options" $'\uf73a' "option" "blue"
+      "$QWY_SCRIPT_PATH/options.zsh" "asdf/subcommands" '󰘳' "command" "yellow"
+      "$QWY_SCRIPT_PATH/options.zsh" "asdf/options" '󰈻' "option" "blue"
     <<: *completion-base
 
   #########################################################
@@ -106,7 +106,7 @@ completions:
     patterns:
       - ^\s*docker\s+build\s
     source: |-
-      "$QWY_SCRIPT_PATH/options.zsh" "docker/build-options" $'\uf73a' "option" "blue"
+      "$QWY_SCRIPT_PATH/options.zsh" "docker/build-options" '󰈻' "option" "blue"
     <<: *completion-base
 
   - description: docker-rm
@@ -128,16 +128,16 @@ completions:
       - ^\s*docker\s+run\s
     source: |-
       "$QWY_SCRIPT_PATH/docker-images.zsh"
-      "$QWY_SCRIPT_PATH/options.zsh" "docker/run-options" $'\uf73a' "option" "blue"
+      "$QWY_SCRIPT_PATH/options.zsh" "docker/run-options" '󰈻' "option" "blue"
     <<: *completion-docker-image
 
   - description: docker
     patterns:
       - ^\s*docker\s+\S*$
     source: |-
-      "$QWY_SCRIPT_PATH/options.zsh" "docker/subcommands" $'\ufb32' "command" "yellow"
-      "$QWY_SCRIPT_PATH/options.zsh" "docker/aliases" $'\uf8e9' "alias" "red"
-      "$QWY_SCRIPT_PATH/options.zsh" "docker/options" $'\uf73a' "option" "blue"
+      "$QWY_SCRIPT_PATH/options.zsh" "docker/subcommands" '󰘳' "command" "yellow"
+      "$QWY_SCRIPT_PATH/options.zsh" "docker/aliases" '󰏪' "alias" "red"
+      "$QWY_SCRIPT_PATH/options.zsh" "docker/options" '󰈻' "option" "blue"
     <<: *completion-base
 
   #########################################################
@@ -166,7 +166,7 @@ completions:
       - ^\s*git\s+cherry-pick\s
     source: |-
       "$QWY_SCRIPT_PATH/git-commits.zsh" --all
-      "$QWY_SCRIPT_PATH/options.zsh" "git/cherry-pick-options" $'\uf73a' "option" "blue"
+      "$QWY_SCRIPT_PATH/options.zsh" "git/cherry-pick-options" '󰈻' "option" "blue"
     <<: *completion-git
     finder:
       <<: *finder-git
@@ -180,7 +180,7 @@ completions:
       "$QWY_SCRIPT_PATH/git-remote-branches.zsh"
       "$QWY_SCRIPT_PATH/git-tags.zsh"
       "$QWY_SCRIPT_PATH/git-commits.zsh"
-      "$QWY_SCRIPT_PATH/options.zsh" "git/diff-options" $'\uf73a' "option" "blue"
+      "$QWY_SCRIPT_PATH/options.zsh" "git/diff-options" '󰈻' "option" "blue"
     <<: *completion-git
 
   - description: git-fetch
@@ -227,7 +227,7 @@ completions:
       - ^\s*git\s+tag\s
     source: |-
       "$QWY_SCRIPT_PATH/git-tags.zsh"
-      "$QWY_SCRIPT_PATH/options.zsh" "git/tag-options" $'\uf73a' "option" "blue"
+      "$QWY_SCRIPT_PATH/options.zsh" "git/tag-options" '󰈻' "option" "blue"
     <<: *completion-git
 
   - description: git-user
@@ -241,10 +241,10 @@ completions:
     patterns:
       - ^\s*git\s\S*$
     source: |-
-      "$QWY_SCRIPT_PATH/options.zsh" "git/subcommands" $'\ufb32' "command" "yellow"
+      "$QWY_SCRIPT_PATH/options.zsh" "git/subcommands" '󰘳' "command" "yellow"
       "$QWY_SCRIPT_PATH/git-aliases.zsh"
       "$QWY_SCRIPT_PATH/git-tools.zsh"
-      "$QWY_SCRIPT_PATH/options.zsh" "git/options" $'\uf73a' "option" "blue"
+      "$QWY_SCRIPT_PATH/options.zsh" "git/options" '󰈻' "option" "blue"
     <<: *completion-base
 
   #########################################################
@@ -261,7 +261,7 @@ completions:
     patterns:
       - ^\s*npm\s+\S*$
     source: |-
-      "$QWY_SCRIPT_PATH/options.zsh" "npm/subcommands" $'\ufb32' "command" "yellow"
+      "$QWY_SCRIPT_PATH/options.zsh" "npm/subcommands" '󰘳' "command" "yellow"
     <<: *completion-base
 
   #########################################################
@@ -271,6 +271,6 @@ completions:
     patterns:
       - ^\s*tmux\s+\S*$
     source: |-
-      "$QWY_SCRIPT_PATH/options.zsh" "tmux/subcommands" $'\ufb32' "command" "yellow"
-      "$QWY_SCRIPT_PATH/options.zsh" "tmux/options" $'\uf73a' "option" "blue"
+      "$QWY_SCRIPT_PATH/options.zsh" "tmux/subcommands" '󰘳' "command" "yellow"
+      "$QWY_SCRIPT_PATH/options.zsh" "tmux/options" '󰈻' "option" "blue"
     <<: *completion-base

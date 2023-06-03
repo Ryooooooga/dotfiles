@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-icon=$'\uf135'
+icon=''
 header="container"
 
 docker ps -a --format="{{.Names}}\t{{.ID}} {{.Image}}\t{{.Status}}" |
