@@ -31,6 +31,24 @@ abbrevs:
     global: true
     context: ^(npm|pnpm)\s+build$
 
+  - name: npm d
+    abbr: d
+    snippet: run dev
+    global: true
+    context: ^(npm|pnpm)\s+d$
+
+  - name: npm dev
+    abbr: dev
+    snippet: run dev
+    global: true
+    context: ^(npm|pnpm)\s+dev$
+
+  - name: npm f
+    abbr: f
+    snippet: run fmt
+    global: true
+    context: ^(npm|pnpm)\s+f$
+
   - name: npm fmt
     abbr: fmt
     snippet: run fmt
