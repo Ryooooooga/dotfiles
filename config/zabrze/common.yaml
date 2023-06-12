@@ -19,7 +19,7 @@ abbrevs:
     snippet: popd
     action: replace-all
     global: true
-    context: ^cd\s+-$
+    context: ^cd\s+\S+$
 
   #########################################################
   # CMake

@@ -4,4 +4,4 @@ abbrevs:
     abbr: g
     snippet: generate
     global: true
-    context: ^mdmg\s+g$
+    context: ^mdmg\s+\S+$

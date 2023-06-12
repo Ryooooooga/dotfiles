@@ -4,25 +4,25 @@ abbrevs:
     abbr: b
     snippet: build -v
     global: true
-    context: ^go\s+b$
+    context: ^go\s+\S+$
 
   # go generate
   - name: go generate -v
     abbr: g
     snippet: generate -v ./...
     global: true
-    context: ^go\s+g$
+    context: ^go\s+\S+$
 
   # go run
   - name: go run -v .
     abbr: r
     snippet: run -v .{}
     global: true
-    context: ^go\s+r$
+    context: ^go\s+\S+$
 
   # go test
   - name: go test ./...
     abbr: t
     snippet: test ./...
     global: true
-    context: ^go\s+t$
+    context: ^go\s+\S+$
