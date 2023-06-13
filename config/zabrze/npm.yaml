@@ -25,20 +25,8 @@ abbrevs:
     global: true
     context: ^(npm|pnpm)\s+\S+$
 
-  - name: npm build
-    abbr: build
-    snippet: run build
-    global: true
-    context: ^(npm|pnpm)\s+\S+$
-
   - name: npm d
     abbr: d
-    snippet: run dev
-    global: true
-    context: ^(npm|pnpm)\s+\S+$
-
-  - name: npm dev
-    abbr: dev
     snippet: run dev
     global: true
     context: ^(npm|pnpm)\s+\S+$
@@ -49,10 +37,11 @@ abbrevs:
     global: true
     context: ^(npm|pnpm)\s+\S+$
 
-  - name: npm fmt
-    abbr: fmt
-    snippet: run fmt
+  - name: npm <script>
+    abbr-pattern: ^(build|dev|fmt|format|lint)$
+    snippet: run $abbr
     global: true
+    evaluate: true
     context: ^(npm|pnpm)\s+\S+$
 
   # npm start
