@@ -134,7 +134,6 @@ abbrevs:
   - name: make
     abbr: make
     snippet: make -j
-    evaluate: true
 
   # mkdir
   - name: mkdir

@@ -59,7 +59,9 @@ abbrevs:
     context: ^(npm|pnpm)\s
 
   # npm
-  - name: pnpm
+  - name: <package-manager>
     abbr: npm
-    snippet: pnpm
-    if: '[[ -f "$(npm-root)/pnpm-lock.yaml" ]]'
+    snippet: $(monkeywrench node package-manager)
+    global: true
+    evaluate: true
+    context: ^(git\s+exec\s+)?\S+$

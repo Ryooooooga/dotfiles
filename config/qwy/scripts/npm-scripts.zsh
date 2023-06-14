@@ -9,7 +9,7 @@ header_style="$ansi[yellow]"
 name_style="$ansi[bold]"
 desc_style="$ansi[dark_green]"
 
-package="$(npm-root)/package.json"
+package="$(monkeywrench node toplevel)/package.json"
 
 out_format=""
 out_format+="$header_style%s %-7s$reset  " # header
