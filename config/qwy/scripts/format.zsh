@@ -16,7 +16,7 @@ header_style="$ansi[$header_color]"
 main_style="$ansi[bold]$ansi[$main_color]"
 desc_style="$ansi[$desc_color]"
 
-out_fmt=""
+fmt=""
 fmt+="${header_style}%s %-${header_width}s${reset}"
 fmt+="  ${main_style}%-${main_width}s${reset}"
 fmt+="  ${desc_style}%s${reset}"
