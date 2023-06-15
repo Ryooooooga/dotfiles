@@ -42,7 +42,7 @@ abbrevs:
     snippet: run $abbr
     global: true
     evaluate: true
-    context: ^(npm|pnpm)\s+\S+$
+    context: ^npm\s+\S+$
     if: '[[ ! "$abbr" =~ "^(start|test)$" ]] && monkeywrench node scripts --has "$abbr"'
 
   # npm start
