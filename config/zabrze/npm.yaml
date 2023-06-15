@@ -38,11 +38,12 @@ abbrevs:
     context: ^(npm|pnpm)\s+\S+$
 
   - name: npm <script>
-    abbr-pattern: ^(build|dev|fmt|format|lint)$
+    abbr-pattern: ''
     snippet: run $abbr
     global: true
     evaluate: true
     context: ^(npm|pnpm)\s+\S+$
+    if: '[[ ! "$abbr" =~ "^(start|test)$" ]] && monkeywrench node scripts --has "$abbr"'
 
   # npm start
   - name: npm s
