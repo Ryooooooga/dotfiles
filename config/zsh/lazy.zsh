@@ -362,11 +362,6 @@ export MYSQL_HISTFILE="$XDG_STATE_HOME/mysql_history"
 ### PostgreSQL ###
 export PSQL_HISTORY="$XDG_STATE_HOME/psql_history"
 
-### youtube-dl ###
-if (( ${+commands[youtube-dl]} )); then
-    alias youtube-audio='youtube-dl -x --no-playlist'
-fi
-
 ### local ###
 if [ -f "$ZDOTDIR/local.zsh" ]; then
     source "$ZDOTDIR/local.zsh"
