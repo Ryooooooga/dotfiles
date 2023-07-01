@@ -126,11 +126,6 @@ widget::ghq::session() {
     zle -R -c # refresh screen
 }
 
-forward-kill-word() {
-    zle vi-forward-word
-    zle vi-backward-kill-word
-}
-
 zle -N widget::history
 zle -N widget::ghq::dir
 zle -N widget::ghq::session
@@ -145,7 +140,6 @@ bindkey "^E"        end-of-line                     # C-e
 bindkey "^K"        kill-line                       # C-k
 bindkey "^Q"        push-line-or-edit               # C-q
 bindkey "^W"        vi-backward-kill-word           # C-w
-bindkey "^X^W"      forward-kill-word               # C-x C-w
 bindkey "^?"        backward-delete-char            # backspace
 bindkey "^[[3~"     delete-char                     # delete
 bindkey "^[[1;3D"   backward-word                   # Alt + arrow-left
