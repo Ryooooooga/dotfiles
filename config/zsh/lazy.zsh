@@ -109,6 +109,7 @@ zinit wait lucid light-mode as'program' from'gh-r' for \
     pick'delta*/delta'  @'dandavison/delta' \
     pick'mmv*/mmv'      @'itchyny/mmv' \
     pick'ripgrep*/rg'   @'BurntSushi/ripgrep' \
+    pick'ghq*/ghq'      @'x-motemen/ghq' \
     @'Ryooooooga/zouch' \
     @'Ryooooooga/monkeywrench'
 
