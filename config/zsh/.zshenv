@@ -21,6 +21,7 @@ export GO111MODULE="on"
 
 ### Deno ###
 export DENO_INSTALL="$XDG_DATA_HOME/deno"
+export DENO_INSTALL_ROOT="$DENO_INSTALL"
 
 ### Rubygems ###
 export GEM_HOME="$XDG_DATA_HOME/gem"
