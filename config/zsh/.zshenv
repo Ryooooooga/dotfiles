@@ -1,6 +1,19 @@
 ### locale ###
 export LANG="en_US.UTF-8"
 
+unsetopt GLOBAL_RCS
+
+### PATH ###
+path=(
+    "$path[@]"
+    '/usr/local/bin'(N-/)
+    '/usr/bin'(N-/)
+    '/bin'(N-/)
+    '/usr/local/sbin'(N-/)
+    '/usr/sbin'(N-/)
+    '/sbin'(N-/)
+)
+
 ### XDG ###
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
