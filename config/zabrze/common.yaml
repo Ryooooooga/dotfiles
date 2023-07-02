@@ -21,6 +21,11 @@ abbrevs:
     global: true
     context: ^cd\s+\S+$
 
+  - name: jj
+    abbr: jj
+    snippet: cd ${$(git rev-parse --show-cdup 2>/dev/null):-./}{}
+    evaluate: true
+
   #########################################################
   # Editor
   #########################################################

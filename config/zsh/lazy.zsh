@@ -36,12 +36,6 @@ j() {
     fi
 }
 
-jj() {
-    local root
-    root="$(git rev-parse --show-toplevel)" || return 1
-    builtin cd "$root"
-}
-
 pathed() {
     PATH="$(tr ':' '\n' <<<"$PATH" | ped | tr '\n' ':' | sed -E 's/:(:|$)//g')"
 }

@@ -47,7 +47,7 @@ setopt NO_FLOW_CONTROL
 ### hooks ###
 zshaddhistory() {
     local line="${1%%$'\n'}"
-    [[ ! "$line" =~ "^(cd|history|jj?|lazygit|la|ll|ls|rm|rmdir|trash)($| )" ]]
+    [[ ! "$line" =~ "^(cd|history|j|lazygit|la|ll|ls|rm|rmdir|trash)($| )" ]]
 }
 
 chpwd() {
