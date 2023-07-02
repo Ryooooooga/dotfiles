@@ -22,6 +22,30 @@ abbrevs:
     context: ^cd\s+\S+$
 
   #########################################################
+  # Editor
+  #########################################################
+
+  - name: e^M
+    abbr: e
+    snippet: |-
+      $(
+        local files="$(
+          fd -0 --hidden --color=always --type=f |
+          fzf --read0 --print0 --exit-0 --multi --preview='fzf-preview-file {}' --preview-window='right:60%'
+        )"
+        (( ${#files} )) && <<<"${EDITOR} ${(q@)${(0)files}}"
+      )
+    evaluate: true
+    cursor: '{@}'
+    if: |-
+      [[ "$KEYS" == $'\r' ]]
+
+  - name: e
+    abbr: e
+    snippet: ${EDITOR}
+    evaluate: true
+
+  #########################################################
   # CMake
   #########################################################
 
