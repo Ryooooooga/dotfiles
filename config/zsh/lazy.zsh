@@ -305,31 +305,6 @@ e() {
     fi
 }
 
-### run utility ###
-run-c() {
-    if [ "$#" -ne 1 ]; then
-        echo "$0 <file>" >/dev/stderr
-        return 1
-    fi
-    src="$1"
-    out="${TMPDIR}run-c/${${src:t}%.*}-$(md5sum "$src" | awk '{print $1}').out"
-    mkdir -p -- "${out:h}"
-    [ -e "$out" ] || "${CC:-gcc}" "${(z)CFLAGS:--std=c2x -Wall -Wextra -pedantic ${(z)cflags}}" "$src" -o "$out" "${(z)LDFLAGS:-${(z)ldflags}}"
-    [ "$?" -eq 0 ] && "$out"
-}
-
-run-cpp() {
-    if [ "$#" -ne 1 ]; then
-        echo "$0 <file>" >/dev/stderr
-        return 1
-    fi
-    src="$1"
-    out="${TMPDIR}run-cpp/${${src:t}%.*}-$(md5sum "$src" | awk '{print $1}').out"
-    mkdir -p -- "${out:h}"
-    [ -e "$out" ] || "${CXX:-g++}" "${(z)CXXFLAGS:--std=c++2a -Wall -Wextra -pedantic ${(z)cxxflags}}" "$src" -o "$out" "${(z)LDFLAGS:-${(z)ldflags}}"
-    [ "$?" -eq 0 ] && "$out"
-}
-
 ### Suffix alias ###
 alias -s {bz2,gz,tar,xz}='tar xvf'
 alias -s zip=unzip
