@@ -110,6 +110,7 @@ zinit wait lucid light-mode as'program' from'gh-r' for \
     pick'mmv*/mmv'      @'itchyny/mmv' \
     pick'ripgrep*/rg'   @'BurntSushi/ripgrep' \
     pick'ghq*/ghq'      @'x-motemen/ghq' \
+    if'! (( ${+commands[lazygit]} ))' @'jesseduffield/lazygit' \
     @'Ryooooooga/zouch' \
     @'Ryooooooga/monkeywrench'
 
