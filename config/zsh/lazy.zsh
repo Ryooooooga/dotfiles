@@ -61,13 +61,9 @@ zinit wait lucid blockf light-mode as'program' from'gh-r' for \
     @'direnv/direnv'
 
 ### zabrze ###
-__zabrze_atload() {
-    export ZABRZE_LOG_PATH="$XDG_STATE_HOME/zabrze/log.txt"
-}
 zinit wait lucid blockf light-mode as'program' from'gh-r' for \
     atclone'./zabrze init --bind-keys >zabrze.zsh; zcompile zabrze.zsh' atpull'%atclone' \
     src'zabrze.zsh' \
-    atload'__zabrze_atload' \
     @'Ryooooooga/zabrze'
 
 ### FZF ###
