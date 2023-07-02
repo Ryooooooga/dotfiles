@@ -30,10 +30,7 @@ j() {
     local root dir
     root="${$(git rev-parse --show-cdup 2>/dev/null):-.}"
     dir="$(fd --color=always --hidden --type=d . "$root" | fzf --select-1 --query="$*" --preview='fzf-preview-file {}')"
-    if [ -n "$dir" ]; then
-        builtin cd "$dir"
-        echo "$PWD"
-    fi
+    [[ -n "$dir" ]] && builtin cd "$dir"
 }
 
 pathed() {
