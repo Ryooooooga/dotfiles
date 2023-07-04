@@ -205,7 +205,6 @@ __tealdeer_atclone() {
 }
 __tealdeer_atload() {
     export TEALDEER_CONFIG_DIR="$XDG_CONFIG_HOME/tealdeer"
-    export TEALDEER_CACHE_DIR="$XDG_CACHE_HOME/tealdeer"
 }
 zinit wait lucid light-mode as'program' from'gh-r' for \
     mv'tealdeer* -> tldr' \
