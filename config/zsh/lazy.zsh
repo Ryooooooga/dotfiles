@@ -320,7 +320,6 @@ if [ -f "$ZDOTDIR/local.zsh" ]; then
 fi
 
 ### autoloads ###
-autoload -Uz cdr
 autoload -Uz chpwd_recent_dirs
 autoload -Uz _zinit
 zicompinit
