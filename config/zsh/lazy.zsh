@@ -285,8 +285,6 @@ export GIT_EDITOR="$EDITOR"
 ### Suffix alias ###
 alias -s {bz2,gz,tar,xz}='tar xvf'
 alias -s zip=unzip
-alias -s c=run-c
-alias -s cpp=run-cpp
 alias -s d=rdmd
 
 ### Node.js ###
