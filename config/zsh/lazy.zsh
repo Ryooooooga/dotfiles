@@ -106,14 +106,13 @@ zinit wait lucid light-mode as'program' for \
     @'Ryooooooga/commitizen-deno'
 
 ### asdf-vm ###
-__asdf_atload() {
+__asdf_atinit() {
     export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
     export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf/asdfrc"
-    source asdf.sh
 }
 zinit wait lucid light-mode for \
     atpull'asdf plugin update --all' \
-    atload'__asdf_atload' \
+    atinit'__asdf_atinit' \
     @'asdf-vm/asdf'
 
 ### GitHub CLI ###
@@ -167,16 +166,16 @@ zinit wait lucid light-mode as'program' from'gh-r' for \
     @'denisidoro/navi'
 
 ### qwy ###
-__qwy_atload() {
+__qwy_atinit() {
     export QWY_TRIGGER_KEY="^P"
     export QWY_DEFAULT_ACTION="expand-or-complete"
     export QWY_CONFIG_HOME="$XDG_CONFIG_HOME/qwy"
     export QWY_SCRIPT_PATH="$QWY_CONFIG_HOME/scripts"
-    source qwy.zsh
 }
 zinit wait lucid light-mode as'program' from'gh-r' for \
     atclone'./qwy init >qwy.zsh; zcompile qwy.zsh' atpull'%atclone' \
-    atload'__qwy_atload' \
+    atinit'__qwy_atinit' \
+    src'qwy.zsh' \
     @'Ryooooooga/qwy'
 
 ### Emojify ###
@@ -185,12 +184,12 @@ zinit wait lucid light-mode as'program' for \
     @'mrowa44/emojify'
 
 ### Forgit ###
-__forgit_atload() {
+__forgit_atinit() {
     export FORGIT_INSTALL_DIR="$PWD"
     export FORGIT_NO_ALIASES=1
 }
 zinit wait lucid light-mode as'program' for \
-    atload'__forgit_atload' \
+    atload'__forgit_atinit' \
     pick'bin/git-forgit' \
     @'wfxr/forgit'
 
@@ -203,13 +202,13 @@ zinit wait lucid light-mode for \
 __tealdeer_atclone() {
     curl -sSL 'https://raw.githubusercontent.com/dbrgn/tealdeer/main/completion/zsh_tealdeer' -o _tealdeer
 }
-__tealdeer_atload() {
+__tealdeer_atinit() {
     export TEALDEER_CONFIG_DIR="$XDG_CONFIG_HOME/tealdeer"
 }
 zinit wait lucid light-mode as'program' from'gh-r' for \
     mv'tealdeer* -> tldr' \
     atclone'__tealdeer_atclone' atpull'%atclone' \
-    atload'__tealdeer_atload' \
+    atinit'__tealdeer_atinit' \
     @'dbrgn/tealdeer'
 
 ### mdmg ###
