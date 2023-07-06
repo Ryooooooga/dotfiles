@@ -51,7 +51,7 @@ completions:
       fd --color=always --hidden --type=f --follow . "${dir:-.}" 2>/dev/null | sed -E "s:$HOME/:~/:"
     finder:
       --multi: true
-      --preview: sed -E "s:^~/:$HOME/:" <<<{} | xargs fzf-preview-file
+      --preview: sed -E "s:^~/:$HOME/:" <<<{} | xargs -d '\n' fzf-preview-file
     callback: sed 's/ /\\ /g' | tr '\n' ' '
 
   - description: file or directory
@@ -62,7 +62,7 @@ completions:
       fd --color=always --hidden --follow . "${dir:-.}" 2>/dev/null | sed -E "s:$HOME/:~/:"
     finder:
       --multi: true
-      --preview: sed -E "s:^~/:$HOME/:" <<<{} | xargs fzf-preview-file
+      --preview: sed -E "s:^~/:$HOME/:" <<<{} | xargs -d '\n' fzf-preview-file
     callback: sed 's/ /\\ /g' | tr '\n' ' '
 
   - description: directory
@@ -73,7 +73,7 @@ completions:
       local dir="$(sed -E "s:^~/:$HOME/:; s:[^/]*\$::" <<<"${(Q)query}")"
       fd --color=always --hidden --type=d --follow . "${dir:-.}" 2>/dev/null | sed -E "s:$HOME/:~/:"
     finder:
-      --preview: sed -E "s:^~/:$HOME/:" <<<{} | xargs fzf-preview-file
+      --preview: sed -E "s:^~/:$HOME/:" <<<{} | xargs -d '\n' fzf-preview-file
     callback: sed -E 's/ /\\ /g; s:/?$:/:'
 
   #########################################################
