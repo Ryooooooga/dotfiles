@@ -45,14 +45,15 @@ completions:
   - description: file
     patterns:
       - ^\s*(bat|cat|delta|diff|grep|head|hexdump|hexyl|less|nvim|sed|tail|vim|vi)\s
-      - "[<>]\\s*$"
+      - (<|>>?)\s+\S*$
+      - (?P<redirect>(<|>>?))(?P<query>\S*)$
     source: |-
       local dir="$(sed -E "s:^~/:$HOME/:; s:[^/]*\$::" <<<"${(Q)query}")"
       fd --color=always --hidden --type=f --follow . "${dir:-.}" 2>/dev/null | sed -E "s:$HOME/:~/:"
     finder:
       --multi: true
       --preview: sed -E "s:^~/:$HOME/:" <<<{} | xargs -d '\n' fzf-preview-file
-    callback: sed 's/ /\\ /g' | tr '\n' ' '
+    callback: <<<"$redirect$(sed 's/ /\\ /g' | tr '\n' ' ')"
 
   - description: file or directory
     patterns:
