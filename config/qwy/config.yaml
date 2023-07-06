@@ -100,6 +100,24 @@ completions:
     callback: tr '\n' ' '
 
   #########################################################
+  # Make
+  #########################################################
+  - description: make
+    patterns:
+      - ^\s*make\s
+    source: |-
+      rg --line-number '^[0-9A-Z_a-z\-]+:' Makefile | tr ':' '\t'
+    finder-command: echo
+    finder:
+      --delimiter: '\t'
+      --with-nth: 2
+      --multi: true
+      --preview: |-
+        local line={1} n=10 start="\$(( line > n ? line - n : 1 ))"
+        bat --color=always --language=Makefile --highlight-line="\$line" --line-range="\$start:" Makefile
+    callback: cut -f 2
+
+  #########################################################
   # Docker
   #########################################################
   - description: docker-build
