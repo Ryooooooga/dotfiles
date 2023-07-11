@@ -18,9 +18,9 @@ apt-get install -y \
     git-lfs \
     gpg \
     jq \
+    libfuse-dev \
     libsqlite3-dev \
     libssl-dev \
-    neovim \
     python3 \
     python3-pip \
     python3-pynvim \
@@ -33,6 +33,11 @@ apt-get install -y \
     zip \
     zsh
 
+# Neovim
+curl -L https://github.com/neovim/neovim/releases/latest/download/nvim.appimage -o "$HOME/.local/bin/nvim"
+chmod +x "$HOME/.local/bin/nvim"
+
+# Docker
 curl -fsSL 'https://download.docker.com/linux/ubuntu/gpg' | apt-key add -
 add-apt-repository -y "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 apt-get update
