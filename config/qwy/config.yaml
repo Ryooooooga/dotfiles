@@ -191,6 +191,15 @@ completions:
       <<: *finder-git
       --multi: true
 
+  - description: git-commit --fixup
+    patterns:
+      - ^\s*git\s+commit\s+(\S+\s+)*--fixup\s+\S*$
+      - ^\s*git\s+commit\s+(\S+\s+)*(?P<fixup>--fixup=)(?P<query>\S*)$
+    source: |-
+      "$QWY_SCRIPT_PATH/git-commits.zsh" --all
+    <<: *completion-git
+    callback: <<<"$fixup$(awk '{ print $3 }' | tr '\n' ' ')"
+
   - description: git-diff
     patterns:
       - ^\s*git\s+(df|diff)\s
@@ -229,6 +238,18 @@ completions:
     finder:
       --preview: git remote get-url {}
     callback: tr '\n' ' '
+
+  - description: git-reset
+    patterns:
+      - ^\s*git\s+reset\s
+    source: |-
+      "$QWY_SCRIPT_PATH/options.zsh" "git/reset-options" '󰈻' "option" "blue"
+      "$QWY_SCRIPT_PATH/git-local-branches.zsh"
+      "$QWY_SCRIPT_PATH/git-remote-branches.zsh"
+      "$QWY_SCRIPT_PATH/git-tags.zsh"
+      "$QWY_SCRIPT_PATH/git-commits.zsh"
+    <<: *completion-git
+    callback: awk '{ print $3 }' | sed 's:^origin/::'
 
   - description: git-switch
     patterns:
