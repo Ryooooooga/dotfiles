@@ -37,6 +37,18 @@ pathed() {
     PATH="$(tr ':' '\n' <<<"$PATH" | ped | tr '\n' ':' | sed -E 's/:(:|$)//g')"
 }
 
+re() {
+    [[ $# -eq 0 ]] && return 1
+    local selected="$(rg --color=always --line-number "$@" | fzf -d ':' --preview='
+        local file={1} line={2} n=10
+        local start="$(( line > n ? line - n : 1 ))"
+        bat --color=always --highlight-line="$line" --line-range="$start:" "$file"
+    ')"
+    [[ -z "$selected" ]] && return
+    local file="$(cut -d ':' -f 1 <<<"$selected")" line="$(cut -d ':' -f 2 <<<"$selected")"
+    "$EDITOR" +"$line" "$file"
+}
+
 ### diff ###
 diff() {
     command diff "$@" | bat --paging=never --plain --language=diff
