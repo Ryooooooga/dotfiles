@@ -43,7 +43,7 @@ abbrevs:
     evaluate: true
     cursor: '{@}'
     if: |-
-      [[ "$KEYS" == $'\r' ]]
+      [[ "$KEYS" == $'\r' ]] && [[ -z "$RBUFFER" ]]
 
   - name: e
     abbr: e

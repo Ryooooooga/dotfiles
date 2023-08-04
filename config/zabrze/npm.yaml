@@ -43,7 +43,7 @@ abbrevs:
     global: true
     evaluate: true
     context: ^npm\s+\S+$
-    if: '[[ ! "$abbr" =~ "^(start|test)$" ]] && monkeywrench node scripts --has "$abbr"'
+    if: '[[ ! "$abbr" =~ "^(start|test)$" ]] && monkeywrench node scripts --has="$abbr"'
 
   # npm start
   - name: npm s
