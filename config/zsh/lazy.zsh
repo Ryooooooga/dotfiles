@@ -114,7 +114,6 @@ zinit wait lucid light-mode as'program' from'gh-r' for \
     @'Ryooooooga/monkeywrench'
 
 zinit wait lucid light-mode as'program' for \
-    @'Ryooooooga/qtmut' \
     @'Ryooooooga/commitizen-deno'
 
 ### asdf-vm ###

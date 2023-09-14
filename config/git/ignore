@@ -41,8 +41,5 @@ _todo*
 _TEST*
 _test*
 
-### qtmut ###
-.qtmut.yaml
-
 ### mdmg ###
 .mdmg/
