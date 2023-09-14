@@ -108,7 +108,6 @@ completions:
       - ^\s*make\s
     source: |-
       rg --line-number '^[0-9A-Z_a-z\-]+:' Makefile | tr ':' '\t'
-    finder-command: echo
     finder:
       --delimiter: '\t'
       --with-nth: 2
