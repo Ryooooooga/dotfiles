@@ -95,7 +95,7 @@ completions:
     patterns:
       - ^\s*curl\s
     source: |-
-      cat "$QWY_CONFIG_HOME/snippets/curl/snippet.txt"
+      <"$QWY_CONFIG_HOME/snippets/curl/snippet.txt"
     finder:
       --multi: true
     callback: tr '\n' ' '
