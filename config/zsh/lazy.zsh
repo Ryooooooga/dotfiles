@@ -280,11 +280,6 @@ export EDITOR="vi"
 
 export GIT_EDITOR="$EDITOR"
 
-### Suffix alias ###
-alias -s {bz2,gz,tar,xz}='tar xvf'
-alias -s zip=unzip
-alias -s d=rdmd
-
 ### Node.js ###
 export NODE_REPL_HISTORY="$XDG_STATE_HOME/node_history"
 
