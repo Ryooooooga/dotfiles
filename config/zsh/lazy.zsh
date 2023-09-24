@@ -1,7 +1,11 @@
+### ls-colors ###
+export LS_COLORS="di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32"
+
 ### Aliases ###
 alias la='ls -a'
 alias ll='ls -al'
 alias gdb='gdb -q -nh'
+alias wget='wget --hsts-file="$XDG_STATE_HOME/wget-hsts"'
 
 case "$OSTYPE" in
     linux*)
@@ -50,6 +54,21 @@ re() {
     "$EDITOR" +"$line" "$file"
 }
 
+### bat ###
+if (( ${+commands[bat]} )); then
+    export MANPAGER="sh -c 'col -bx | bat --color=always --language=man --plain'"
+
+    alias cat='bat --paging=never'
+fi
+
+### eza ###
+if (( ${+commands[eza]} )); then
+    alias ls='eza --group-directories-first'
+    alias la='eza --group-directories-first -a'
+    alias ll='eza --group-directories-first -al --header --color-scale --git --icons --time-style=long-iso'
+    alias tree='eza --group-directories-first --tree --icons'
+fi
+
 ### diff ###
 diff() {
     command diff "$@" | bat --paging=never --plain --language=diff
@@ -69,18 +88,6 @@ zinit wait lucid blockf light-mode as'program' from'gh-r' for \
     atclone'./zabrze init --bind-keys >zabrze.zsh; zcompile zabrze.zsh' atpull'%atclone' \
     src'zabrze.zsh' \
     @'Ryooooooga/zabrze'
-
-### FZF ###
-export FZF_DEFAULT_OPTS='--reverse --border --ansi --bind="ctrl-d:print-query,ctrl-p:replace-query"'
-export FZF_DEFAULT_COMMAND='fd --hidden --color=always'
-
-### bat ###
-export MANPAGER="sh -c 'col -bx | bat --color=always --language=man --plain'"
-
-alias cat='bat --paging=never'
-
-### ripgrep ###
-export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/config"
 
 ### zsh-history-substring-search ###
 __zsh_history_substring_search_atload() {
@@ -105,15 +112,6 @@ zinit wait lucid blockf light-mode for \
     @'Ryooooooga/zsh-replace-multiple-dots'
 
 ### programs ###
-zinit wait lucid light-mode as'program' from'gh-r' for \
-    pick'delta*/delta'  @'dandavison/delta' \
-    pick'mmv*/mmv'      @'itchyny/mmv' \
-    pick'ripgrep*/rg'   @'BurntSushi/ripgrep' \
-    pick'ghq*/ghq'      @'x-motemen/ghq' \
-    if'! (( ${+commands[lazygit]} ))' @'jesseduffield/lazygit' \
-    @'Ryooooooga/zouch' \
-    @'Ryooooooga/monkeywrench'
-
 zinit wait lucid light-mode as'program' for \
     @'Ryooooooga/commitizen-deno'
 
@@ -127,66 +125,27 @@ zinit wait lucid light-mode for \
     atinit'__asdf_atinit' \
     @'asdf-vm/asdf'
 
-### GitHub CLI ###
-zinit wait lucid light-mode as'program' from'gh-r' for \
-    pick'gh*/bin/gh' \
-    atclone'./gh*/bin/gh completion -s zsh >_gh' atpull'%atclone' \
-    @'cli/cli'
-
-### eza ###
-__eza_atload() {
-    alias ls='eza --group-directories-first'
-    alias la='eza --group-directories-first -a'
-    alias ll='eza --group-directories-first -al --header --color-scale --git --icons --time-style=long-iso'
-    alias tree='eza --group-directories-first --tree --icons'
-}
-zinit wait lucid light-mode as'program' from'gh-r' for \
-    pick'bin/eza' \
-    atclone'cp -f completions/eza.zsh _eza' atpull'%atclone' \
-    atload'__eza_atload' \
-    @'eza-community/eza'
-
-### yq ###
-zinit wait lucid light-mode as'program' from'gh-r' for \
-    mv'yq* -> yq' \
-    atclone'./yq shell-completion zsh >_yq' atpull'%atclone' \
-    @'mikefarah/yq'
-
 ### hgrep ###
-__hgrep_atload() {
-    alias hgrep="hgrep --hidden --glob='!.git/'"
-}
-zinit wait lucid light-mode as'program' from'gh-r' for \
-    pick'hgrep*/hgrep' \
-    atclone'./hgrep*/hgrep --generate-completion-script zsh >_hgrep' atpull'%atclone' \
-    atload'__hgrep_atload' \
-    @'rhysd/hgrep'
+alias hgrep="hgrep --hidden --glob='!.git/'"
 
 ### navi ###
+export NAVI_CONFIG="$XDG_CONFIG_HOME/navi/config.yaml"
+
 __navi_search() {
     LBUFFER="$(navi --print --query="$LBUFFER")"
     zle reset-prompt
 }
-__navi_atload() {
-    export NAVI_CONFIG="$XDG_CONFIG_HOME/navi/config.yaml"
-
-    zle -N __navi_search
-    bindkey '^N' __navi_search
-}
-zinit wait lucid light-mode as'program' from'gh-r' for \
-    atload'__navi_atload' \
-    @'denisidoro/navi'
+zle -N __navi_search
+bindkey '^N' __navi_search
 
 ### qwy ###
-__qwy_atinit() {
-    export QWY_TRIGGER_KEY="^P"
-    export QWY_DEFAULT_ACTION="expand-or-complete"
-    export QWY_CONFIG_HOME="$XDG_CONFIG_HOME/qwy"
-    export QWY_SCRIPT_PATH="$QWY_CONFIG_HOME/scripts"
-}
+export QWY_TRIGGER_KEY="^P"
+export QWY_DEFAULT_ACTION="expand-or-complete"
+export QWY_CONFIG_HOME="$XDG_CONFIG_HOME/qwy"
+export QWY_SCRIPT_PATH="$QWY_CONFIG_HOME/scripts"
+
 zinit wait lucid light-mode as'program' from'gh-r' for \
     atclone'./qwy init >qwy.zsh; zcompile qwy.zsh' atpull'%atclone' \
-    atinit'__qwy_atinit' \
     src'qwy.zsh' \
     @'Ryooooooga/qwy'
 
@@ -210,43 +169,9 @@ zinit wait lucid light-mode for \
     atload'alias t=tmux-fzf' \
     @'Ryooooooga/tmux-fzf'
 
-### tealdeer ###
-__tealdeer_atclone() {
-    curl -sSL 'https://raw.githubusercontent.com/dbrgn/tealdeer/main/completion/zsh_tealdeer' -o _tealdeer
-}
-__tealdeer_atinit() {
-    export TEALDEER_CONFIG_DIR="$XDG_CONFIG_HOME/tealdeer"
-}
-zinit wait lucid light-mode as'program' from'gh-r' for \
-    mv'tealdeer* -> tldr' \
-    atclone'__tealdeer_atclone' atpull'%atclone' \
-    atinit'__tealdeer_atinit' \
-    @'dbrgn/tealdeer'
-
-### mdmg ###
-__mdmg_atclone() {
-    curl -sSL 'https://raw.githubusercontent.com/Ryooooooga/mdmg/master/completions/mdmg.completion.zsh' -o _mdmg
-}
-zinit wait lucid light-mode as'program' from'gh-r' for \
-    atclone'__mdmg_atclone' atpull'%atclone' \
-    pick'mdmg*/mdmg' \
-    @'himanoa/mdmg'
-
-### ls-colors ###
-export LS_COLORS="di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32"
-
-### less ###
-export LESSHISTFILE='-'
-
 ### completion styles ###
 zstyle ':completion:*:default' menu select=1
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-
-### GPG ###
-export GPG_TTY="$TTY"
-
-### wget ###
-alias wget='wget --hsts-file="$XDG_STATE_HOME/wget-hsts"'
 
 ### Docker ###
 docker() {
@@ -280,6 +205,12 @@ export EDITOR="vi"
 
 export GIT_EDITOR="$EDITOR"
 
+### GPG ###
+export GPG_TTY="$TTY"
+
+### less ###
+export LESSHISTFILE='-'
+
 ### Node.js ###
 export NODE_REPL_HISTORY="$XDG_STATE_HOME/node_history"
 
@@ -306,6 +237,16 @@ export MYSQL_HISTFILE="$XDG_STATE_HOME/mysql_history"
 
 ### PostgreSQL ###
 export PSQL_HISTORY="$XDG_STATE_HOME/psql_history"
+
+### FZF ###
+export FZF_DEFAULT_OPTS='--reverse --border --ansi --bind="ctrl-d:print-query,ctrl-p:replace-query"'
+export FZF_DEFAULT_COMMAND='fd --hidden --color=always'
+
+### ripgrep ###
+export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/config"
+
+### tealdeer ###
+export TEALDEER_CONFIG_DIR="$XDG_CONFIG_HOME/tealdeer"
 
 ### local ###
 if [ -f "$ZDOTDIR/local.zsh" ]; then
