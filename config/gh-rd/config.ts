@@ -75,6 +75,7 @@ export default defineConfig({
     },
     {
       name: "eza-community/eza",
+      enabled: Deno.build.os !== "darwin",
       async onDownload({ packageDir }) {
         await saveRemoteFile(
           `${packageDir}/_eza`,
@@ -157,6 +158,7 @@ export default defineConfig({
     },
     {
       name: "neovim/neovim",
+      enabled: Deno.build.os === "linux" && Deno.build.arch === "x86_64",
       executables: [
         { glob: "**/nvim", as: "nvim" },
       ],
