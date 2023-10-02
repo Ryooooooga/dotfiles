@@ -155,12 +155,7 @@ zinit wait lucid light-mode as'program' for \
     @'mrowa44/emojify'
 
 ### Forgit ###
-__forgit_atinit() {
-    export FORGIT_INSTALL_DIR="$PWD"
-    export FORGIT_NO_ALIASES=1
-}
 zinit wait lucid light-mode as'program' for \
-    atload'__forgit_atinit' \
     pick'bin/git-forgit' \
     @'wfxr/forgit'
 
