@@ -175,7 +175,7 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 ### Docker ###
 docker() {
-    if [ "$#" -eq 0 ] || [ "$1" = "compose" ] || ! command -v "docker-$1" >/dev/null; then
+    if [[ "$#" -eq 0 ]] || [[ "$1" = "compose" ]] || ! command -v "docker-$1" >/dev/null; then
         command docker "${@:1}"
     else
         "docker-$1" "${@:2}"
@@ -183,7 +183,7 @@ docker() {
 }
 
 docker-rm() {
-    if [ "$#" -eq 0 ]; then
+    if [[ "$#" -eq 0 ]]; then
         command docker ps -a | fzf --exit-0 --multi --header-lines=1 | awk '{ print $1 }' | xargs -r docker rm --
     else
         command docker rm "$@"
@@ -191,7 +191,7 @@ docker-rm() {
 }
 
 docker-rmi() {
-    if [ "$#" -eq 0 ]; then
+    if [[ "$#" -eq 0 ]]; then
         command docker images | fzf --exit-0 --multi --header-lines=1 | awk '{ print $3 }' | xargs -r docker rmi --
     else
         command docker rmi "$@"
@@ -249,7 +249,7 @@ export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/config"
 export TEALDEER_CONFIG_DIR="$XDG_CONFIG_HOME/tealdeer"
 
 ### local ###
-if [ -f "$ZDOTDIR/local.zsh" ]; then
+if [[ -f "$ZDOTDIR/local.zsh" ]]; then
     source "$ZDOTDIR/local.zsh"
 fi
 

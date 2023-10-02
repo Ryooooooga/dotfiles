@@ -35,7 +35,7 @@ fmt+="${header_style}%s %-${header_width}s${reset}"
 fmt+="  ${main_style}%-${main_width}s${reset}"
 fmt+="  ${desc_style}%s${reset}"
 
-if [ -n "$note_color" ]; then
+if [[ -n "$note_color" ]]; then
     note_style="$ansi[$note_color]"
     fmt+=" ${note_style}%s${reset}"
 fi
