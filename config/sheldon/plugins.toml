@@ -1,0 +1,98 @@
+shell = "zsh"
+
+[templates]
+defer = "{{ hooks | get: \"pre\" | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks | get: \"post\" | nl }}"
+
+[plugins]
+
+# eager
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+
+[plugins.croque]
+local = "~/.local/share/gh-rd/packages/github.com/Ryooooooga/croque"
+
+# defer
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
+apply = ["defer"]
+
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+apply = ["defer"]
+
+[plugins.zsh-history-substring-search]
+github = "zsh-users/zsh-history-substring-search"
+apply = ["defer"]
+hooks.post = """
+bindkey "${terminfo[kcuu1]}" history-substring-search-up   # arrow-up
+bindkey "${terminfo[kcud1]}" history-substring-search-down # arrow-down
+bindkey "^[[A" history-substring-search-up   # arrow-up
+bindkey "^[[B" history-substring-search-down # arrow-down
+"""
+
+[plugins.fast-syntax-highlighting]
+github = "zdharma-continuum/fast-syntax-highlighting"
+apply = ["defer"]
+
+[plugins.asdf]
+github = "asdf-vm/asdf"
+apply = ["defer"]
+hooks.pre = """
+export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
+export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf/asdfrc"
+"""
+# TODO: asdf plugin update --all
+
+[plugins.zsh-replace-multiple-dots]
+github = "Ryooooooga/zsh-replace-multiple-dots"
+apply = ["defer"]
+
+[plugins.tmux-fzf]
+github = "Ryooooooga/tmux-fzf"
+apply = ["defer"]
+hooks.post = """
+alias t='tmux-fzf'
+"""
+
+[plugins.direnv]
+local = "~/.local/share/gh-rd/packages/github.com/direnv/direnv"
+apply = ["defer"]
+
+[plugins.zabrze]
+local = "~/.local/share/gh-rd/packages/github.com/Ryooooooga/zabrze"
+apply = ["defer"]
+
+[plugins.qwy]
+local = "~/.local/share/gh-rd/packages/github.com/Ryooooooga/qwy"
+apply = ["defer"]
+hooks.pre = """
+export QWY_TRIGGER_KEY="^P"
+export QWY_DEFAULT_ACTION="expand-or-complete"
+export QWY_CONFIG_HOME="$XDG_CONFIG_HOME/qwy"
+export QWY_SCRIPT_PATH="$QWY_CONFIG_HOME/scripts"
+"""
+
+[plugins.zsh-autopair]
+github = "hlissner/zsh-autopair" # read after zabrze
+apply = ["defer"]
+
+# programs
+[plugins.emojify]
+github = "mrowa44/emojify"
+apply = ["path"]
+
+[plugins.forgit]
+github = "wfxr/forgit"
+apply = ["path"]
+dir = "bin"
+
+[plugins.commitizen-deno]
+github = "Ryooooooga/commitizen-deno"
+apply = ["path"]
+
+# local
+[plugins.lazy]
+local = "~/.config/zsh"
+use = ["lazy.zsh"]
+apply = ["defer"]

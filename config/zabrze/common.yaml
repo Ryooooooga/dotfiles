@@ -230,8 +230,3 @@ abbrevs:
     abbr: open
     snippet: wslview
     if: (( ${+commands[wslview]} ))
-
-  # Zinit
-  - name: zinit
-    abbr: zi
-    snippet: zinit

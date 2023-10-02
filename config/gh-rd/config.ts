@@ -26,13 +26,60 @@ async function saveRemoteFile(
 export default defineConfig({
   tools: [
     {
+      name: "rossmacarthur/sheldon",
+    },
+    {
+      name: "Ryooooooga/croque",
+      async onDownload({ packageDir, bin }) {
+        await saveCommandOutput(
+          `${packageDir}/croque.zsh`,
+          bin.croque,
+          "init",
+          "zsh",
+        );
+      },
+    },
+    {
+      name: "Ryooooooga/zabrze",
+      async onDownload({ packageDir, bin }) {
+        await saveCommandOutput(
+          `${packageDir}/zabrze.zsh`,
+          bin.zabrze,
+          "init",
+          "--bind-keys",
+        );
+      },
+    },
+    {
+      name: "Ryooooooga/qwy",
+      async onDownload({ packageDir, bin }) {
+        await saveCommandOutput(
+          `${packageDir}/qwy.zsh`,
+          bin.qwy,
+          "init",
+        );
+      },
+    },
+    {
+      name: "Ryooooooga/zouch",
+    },
+    {
+      name: "Ryooooooga/monkeywrench",
+    },
+    {
       name: "direnv/direnv",
       rename: [
         { from: "direnv*", to: "direnv" },
       ],
-    },
-    {
-      name: "Ryooooooga/zabrze",
+      async onDownload({ packageDir, bin }) {
+        await Deno.chmod(bin.direnv, 0o755);
+        await saveCommandOutput(
+          `${packageDir}/direnv.zsh`,
+          bin.direnv,
+          "hook",
+          "zsh",
+        );
+      },
     },
     {
       name: "dandavison/delta",
@@ -51,12 +98,6 @@ export default defineConfig({
     },
     {
       name: "jesseduffield/lazygit",
-    },
-    {
-      name: "Ryooooooga/zouch",
-    },
-    {
-      name: "Ryooooooga/monkeywrench",
     },
     {
       name: "cli/cli",
@@ -112,9 +153,6 @@ export default defineConfig({
       name: "denisidoro/navi",
     },
     {
-      name: "Ryooooooga/qwy",
-    },
-    {
       name: "dbrgn/tealdeer",
       rename: [
         { from: "tealdeer*", to: "tldr" },
@@ -137,9 +175,6 @@ export default defineConfig({
           "https://raw.githubusercontent.com/Ryooooooga/mdmg/master/completions/mdmg.completion.zsh",
         );
       },
-    },
-    {
-      name: "Ryooooooga/croque",
     },
     {
       name: "junegunn/fzf",

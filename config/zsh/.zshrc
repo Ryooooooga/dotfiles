@@ -1,10 +1,3 @@
-### zinit ###
-typeset -gAH ZINIT
-ZINIT[HOME_DIR]="$XDG_DATA_HOME/zinit"
-ZINIT[ZCOMPDUMP_PATH]="$XDG_STATE_HOME/zcompdump"
-ZINIT[NO_ALIASES]=1
-source "${ZINIT[HOME_DIR]}/bin/zinit.zsh"
-
 ### paths ###
 typeset -gU PATH path
 typeset -gU FPATH fpath
@@ -55,6 +48,16 @@ setopt MAGIC_EQUAL_SUBST
 setopt PRINT_EIGHT_BIT
 setopt NO_FLOW_CONTROL
 
+### source ###
+source() {
+    local input="$1"
+    local cache="$input.zwc"
+    if [[ ! -f "$cache" || "$input" -nt "$cache" ]]; then
+        zcompile "$input"
+    fi
+    \builtin source "$@"
+}
+
 ### hooks ###
 zshaddhistory() {
     local line="${1%%$'\n'}"
@@ -69,12 +72,6 @@ chpwd() {
         ls -a
     fi
 }
-
-### theme ###
-zinit light-mode from'gh-r' as'program' for \
-    atclone'./croque init zsh >croque.zsh; zcompile croque.zsh' atpull'%atclone' \
-    src'croque.zsh' \
-    @'Ryooooooga/croque'
 
 ### key bindings ###
 widget::history() {
@@ -176,7 +173,11 @@ zle -N zle-line-init
 zle -N zle-line-finish
 zle -N zle-keymap-select
 
-### plugins ###
-zinit wait lucid null for \
-    atinit'source "$ZDOTDIR/lazy.zsh"' \
-    @'zdharma-continuum/null'
+# sheldon
+if [[ ! -f "$XDG_CACHE_HOME/sheldon/source.zsh" || "$SHELDON_CONFIG_DIR/plugins.toml" -nt "$XDG_CACHE_HOME/sheldon/source.zsh" ]]; then
+    mkdir -p "$XDG_CACHE_HOME/sheldon"
+    sheldon source >"$XDG_CACHE_HOME/sheldon/source.zsh"
+    zcompile "$XDG_CACHE_HOME/sheldon/source.zsh"
+fi
+
+\builtin source "$XDG_CACHE_HOME/sheldon/source.zsh"

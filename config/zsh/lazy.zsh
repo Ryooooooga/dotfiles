@@ -76,55 +76,6 @@ diff() {
 }
 alias diffall='diff --new-line-format="+%L" --old-line-format="-%L" --unchanged-line-format=" %L"'
 
-### direnv ###
-zinit wait lucid blockf light-mode as'program' from'gh-r' for \
-    mv'direnv* -> direnv' \
-    atclone'./direnv hook zsh >direnv.zsh; zcompile direnv.zsh' atpull'%atclone' \
-    src'direnv.zsh' \
-    @'direnv/direnv'
-
-### zabrze ###
-zinit wait lucid blockf light-mode as'program' from'gh-r' for \
-    atclone'./zabrze init --bind-keys >zabrze.zsh; zcompile zabrze.zsh' atpull'%atclone' \
-    src'zabrze.zsh' \
-    @'Ryooooooga/zabrze'
-
-### zsh-history-substring-search ###
-__zsh_history_substring_search_atload() {
-    bindkey "${terminfo[kcuu1]}" history-substring-search-up   # arrow-up
-    bindkey "${terminfo[kcud1]}" history-substring-search-down # arrow-down
-    bindkey "^[[A" history-substring-search-up   # arrow-up
-    bindkey "^[[B" history-substring-search-down # arrow-down
-}
-zinit wait lucid light-mode for \
-    atload'__zsh_history_substring_search_atload' \
-    @'zsh-users/zsh-history-substring-search'
-
-### zsh-autopair ###
-zinit wait'1' lucid light-mode for \
-    @'hlissner/zsh-autopair'
-
-### zsh plugins ###
-zinit wait lucid blockf light-mode for \
-    @'zsh-users/zsh-autosuggestions' \
-    @'zsh-users/zsh-completions' \
-    @'zdharma-continuum/fast-syntax-highlighting' \
-    @'Ryooooooga/zsh-replace-multiple-dots'
-
-### programs ###
-zinit wait lucid light-mode as'program' for \
-    @'Ryooooooga/commitizen-deno'
-
-### asdf-vm ###
-__asdf_atinit() {
-    export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
-    export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf/asdfrc"
-}
-zinit wait lucid light-mode for \
-    atpull'asdf plugin update --all' \
-    atinit'__asdf_atinit' \
-    @'asdf-vm/asdf'
-
 ### hgrep ###
 alias hgrep="hgrep --hidden --glob='!.git/'"
 
@@ -137,32 +88,6 @@ __navi_search() {
 }
 zle -N __navi_search
 bindkey '^N' __navi_search
-
-### qwy ###
-export QWY_TRIGGER_KEY="^P"
-export QWY_DEFAULT_ACTION="expand-or-complete"
-export QWY_CONFIG_HOME="$XDG_CONFIG_HOME/qwy"
-export QWY_SCRIPT_PATH="$QWY_CONFIG_HOME/scripts"
-
-zinit wait lucid light-mode as'program' from'gh-r' for \
-    atclone'./qwy init >qwy.zsh; zcompile qwy.zsh' atpull'%atclone' \
-    src'qwy.zsh' \
-    @'Ryooooooga/qwy'
-
-### Emojify ###
-zinit wait lucid light-mode as'program' for \
-    atclone'rm -f *.{py,bats}' atpull'%atclone' \
-    @'mrowa44/emojify'
-
-### Forgit ###
-zinit wait lucid light-mode as'program' for \
-    pick'bin/git-forgit' \
-    @'wfxr/forgit'
-
-### tmux-fzf ###
-zinit wait lucid light-mode for \
-    atload'alias t=tmux-fzf' \
-    @'Ryooooooga/tmux-fzf'
 
 ### completion styles ###
 zstyle ':completion:*:default' menu select=1
@@ -248,6 +173,5 @@ if [[ -f "$ZDOTDIR/local.zsh" ]]; then
     source "$ZDOTDIR/local.zsh"
 fi
 
-### autoloads ###
-autoload -Uz _zinit
-zicompinit
+autoload -Uz compinit
+compinit -d "$XDG_STATE_HOME/zcompdump"
