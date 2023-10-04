@@ -27,6 +27,12 @@ export default defineConfig({
   tools: [
     {
       name: "rossmacarthur/sheldon",
+      completions: [
+        {
+          glob: "completions/sheldon.zsh",
+          as: "_sheldon",
+        },
+      ],
     },
     {
       name: "Ryooooooga/croque",
