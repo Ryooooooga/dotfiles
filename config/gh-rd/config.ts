@@ -192,6 +192,12 @@ export default defineConfig({
       },
     },
     {
+      name: "sharkdp/bat",
+      completions: [
+        { glob: "*/autocomplete/bat.zsh", as: "_bat" },
+      ],
+    },
+    {
       name: "sharkdp/fd",
     },
     {
