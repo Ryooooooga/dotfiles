@@ -34,7 +34,7 @@ export BUNDLE_USER_CACHE="$XDG_CACHE_HOME/bundle"
 export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME/bundle/plugin"
 
 ### sheldon ###
-export SHELDON_CONFIG_DIR="$XDG_CONFIG_HOME/sheldon"
+export SHELDON_CONFIG_DIR="$ZDOTDIR"
 
 ### gh-rd ###
 export GHRD_CONFIG_HOME="$XDG_CONFIG_HOME/gh-rd"

@@ -1,99 +1,117 @@
 shell = "zsh"
 
+apply = ["defer"]
+
 [templates]
-defer = "{{ hooks | get: \"pre\" | nl }}{% for file in files %}zsh-defer -12dszpr -t0.01 source \"{{ file }}\"\n{% endfor %}{{ hooks | get: \"post\" | nl }}"
-defer0 = "{{ hooks | get: \"pre\" | nl }}{% for file in files %}zsh-defer -12dszpr source \"{{ file }}\"\n{% endfor %}{{ hooks | get: \"post\" | nl }}"
+defer = "{{ hooks | get: \"pre\" | nl }}{% for file in files %}zsh-defer -a -t0.01 source \"{{ file }}\"\n{% endfor %}{{ hooks | get: \"post\" | nl }}"
+defer0 = "{{ hooks | get: \"pre\" | nl }}{% for file in files %}zsh-defer -a source \"{{ file }}\"\n{% endfor %}{{ hooks | get: \"post\" | nl }}"
 
 [plugins]
 
+####################
 # eager
+####################
+
 [plugins.zsh-defer]
 github = "romkatv/zsh-defer"
+apply = ["source"]
+profiles = ["eager"]
 
 [plugins.croque]
 local = "~/.local/share/gh-rd/packages/github.com/Ryooooooga/croque"
+apply = ["source"]
+profiles = ["eager"]
 
-# defer
+[plugins.lazy]
+local = "~/.config/zsh"
+use = ["lazy.zsh"]
+profiles = ["eager"]
+
+####################
+# lazy
+####################
+
 [plugins.zsh-completions]
 github = "zsh-users/zsh-completions"
-apply = ["defer"]
+profiles = ["lazy"]
 
 [plugins.zsh-autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
-apply = ["defer"]
+profiles = ["lazy"]
 
 [plugins.zsh-history-substring-search]
 github = "zsh-users/zsh-history-substring-search"
-apply = ["defer"]
 hooks.post = """
 bindkey "${terminfo[kcuu1]}" history-substring-search-up   # arrow-up
 bindkey "${terminfo[kcud1]}" history-substring-search-down # arrow-down
 bindkey "^[[A" history-substring-search-up   # arrow-up
 bindkey "^[[B" history-substring-search-down # arrow-down
 """
+profiles = ["lazy"]
 
 [plugins.fast-syntax-highlighting]
 github = "zdharma-continuum/fast-syntax-highlighting"
-apply = ["defer"]
+profiles = ["lazy"]
 
 [plugins.asdf]
 github = "asdf-vm/asdf"
-apply = ["defer"]
 hooks.pre = """
 export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
 export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf/asdfrc"
 """
 # TODO: asdf plugin update --all
+profiles = ["lazy"]
 
 [plugins.zsh-replace-multiple-dots]
 github = "Ryooooooga/zsh-replace-multiple-dots"
-apply = ["defer"]
+profiles = ["lazy"]
 
 [plugins.tmux-fzf]
 github = "Ryooooooga/tmux-fzf"
-apply = ["defer"]
 hooks.post = """
 alias t='tmux-fzf'
 """
+profiles = ["lazy"]
 
 [plugins.direnv]
 local = "~/.local/share/gh-rd/packages/github.com/direnv/direnv"
-apply = ["defer"]
+profiles = ["lazy"]
 
 [plugins.zabrze]
 local = "~/.local/share/gh-rd/packages/github.com/Ryooooooga/zabrze"
 apply = ["defer0"]
+profiles = ["lazy"]
 
 [plugins.qwy]
 local = "~/.local/share/gh-rd/packages/github.com/Ryooooooga/qwy"
-apply = ["defer"]
 hooks.pre = """
 export QWY_TRIGGER_KEY="^P"
 export QWY_DEFAULT_ACTION="expand-or-complete"
 export QWY_CONFIG_HOME="$XDG_CONFIG_HOME/qwy"
 export QWY_SCRIPT_PATH="$QWY_CONFIG_HOME/scripts"
 """
+profiles = ["lazy"]
 
 [plugins.zsh-autopair]
 github = "hlissner/zsh-autopair" # read after zabrze
-apply = ["defer"]
+profiles = ["lazy"]
 
 # programs
-[plugins.emojify]
-github = "mrowa44/emojify"
-apply = ["path"]
-
 [plugins.forgit]
 github = "wfxr/forgit"
-apply = ["path"]
 dir = "bin"
+apply = ["path"]
+profiles = ["lazy"]
 
 [plugins.commitizen-deno]
 github = "Ryooooooga/commitizen-deno"
 apply = ["path"]
+profiles = ["lazy"]
 
 # local
-[plugins.lazy]
-local = "~/.config/zsh"
-use = ["lazy.zsh"]
-apply = ["defer"]
+[plugins.compinit]
+inline = """
+autoload -Uz compinit
+zsh-defer -a -t0.01 compinit -d "$XDG_STATE_HOME/zcompdump"
+"""
+profiles = ["lazy"]

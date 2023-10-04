@@ -173,5 +173,4 @@ if [[ -f "$ZDOTDIR/local.zsh" ]]; then
     source "$ZDOTDIR/local.zsh"
 fi
 
-autoload -Uz compinit
-compinit -d "$XDG_STATE_HOME/zcompdump"
+sheldon::load lazy
