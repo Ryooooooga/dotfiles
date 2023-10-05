@@ -205,9 +205,27 @@ export default defineConfig({
     },
     {
       name: "neovim/neovim",
-      enabled: Deno.build.os === "linux" && Deno.build.arch === "x86_64",
+      enabled: Deno.build.arch === "x86_64",
+      use: (() => {
+        switch (Deno.build.os) {
+          case "darwin":
+            return "nvim-macos.tar.gz";
+          case "linux":
+            return "nvim-linux64.tar.gz";
+          default:
+            return undefined;
+        }
+      })(),
       executables: [
         { glob: "**/nvim", as: "nvim" },
+      ],
+    },
+    {
+      name: "equalsraf/win32yank",
+      enabled: Deno.env.has("WSLENV") && Deno.build.arch === "x86_64",
+      use: `win32yank-x64*`,
+      executables: [
+        { glob: "**/win32yank.exe", as: "win32yank.exe" },
       ],
     },
   ],
