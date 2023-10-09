@@ -124,6 +124,10 @@ git_status:
   branch_aliases:
     - prefix: feature/
       alias: "⚡/"
+    - prefix: fix/
+      alias: "󰖷 /"
+    - prefix: hotfix/
+      alias: "/"
   commit_hash_length: 7
   content: " {{.remote}}{{.head}}{{.working_tree}}{{.upstream}} "
 
