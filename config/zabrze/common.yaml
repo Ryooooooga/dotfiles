@@ -199,10 +199,13 @@ abbrevs:
     snippet: zouch -r
 
   # coreutils
-  - name: cp/mv
-    abbr-pattern: ^(cp|mv)$
-    snippet: $abbr -i
-    evaluate: true
+  - name: cp
+    abbr: cp
+    snippet: cp -ri
+
+  - name: mv
+    abbr: mv
+    snippet: mv -i
 
   - name: rm
     abbr: rm
