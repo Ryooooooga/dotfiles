@@ -121,6 +121,9 @@ git_status:
     - pattern: ""
       icon: " "
   display_master: true
+  branch_aliases:
+    - prefix: feature/
+      alias: "⚡/"
   commit_hash_length: 7
   content: " {{.remote}}{{.head}}{{.working_tree}}{{.upstream}} "
 
