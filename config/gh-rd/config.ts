@@ -1,4 +1,4 @@
-import { defineConfig } from "https://raw.githubusercontent.com/Ryooooooga/gh-rd/main/src/config.ts";
+import { defineConfig } from "https://raw.githubusercontent.com/Ryooooooga/gh-rd/main/src/config/types.ts";
 
 async function saveCommandOutput(
   to: string,
