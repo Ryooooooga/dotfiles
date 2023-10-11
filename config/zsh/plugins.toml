@@ -64,6 +64,12 @@ export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf/asdfrc"
 # TODO: asdf plugin update --all
 profiles = ["lazy"]
 
+[plugins.asdf-completion]
+github = "asdf-vm/asdf"
+apply = ["fpath"]
+dir = "completions"
+profiles = ["lazy"]
+
 [plugins.zsh-replace-multiple-dots]
 github = "Ryooooooga/zsh-replace-multiple-dots"
 profiles = ["lazy"]
