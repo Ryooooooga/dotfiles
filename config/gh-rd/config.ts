@@ -201,6 +201,9 @@ export default defineConfig({
       name: "sharkdp/fd",
     },
     {
+      name: "sharkdp/hexyl",
+    },
+    {
       name: "XAMPPRocky/tokei",
     },
     {
