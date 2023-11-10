@@ -65,7 +65,7 @@ fi
 if (( ${+commands[eza]} )); then
     alias ls='eza --group-directories-first'
     alias la='eza --group-directories-first -a'
-    alias ll='eza --group-directories-first -al --header --color-scale=all --git --icons --time-style=long-iso'
+    alias ll='eza --group-directories-first -al --header --color-scale=all --octal-permissions --git --icons=auto --time-style=long-iso'
     alias tree='eza --group-directories-first --tree --icons'
 fi
 
