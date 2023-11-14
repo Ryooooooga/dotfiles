@@ -107,9 +107,6 @@ export default defineConfig({
     },
     {
       name: "cli/cli",
-      executables: [
-        { glob: "**/gh", as: "gh" },
-      ],
       async onDownload({ packageDir, bin }) {
         await saveCommandOutput(
           `${packageDir}/_gh`,
@@ -219,9 +216,6 @@ export default defineConfig({
             return undefined;
         }
       })(),
-      executables: [
-        { glob: "**/nvim", as: "nvim" },
-      ],
     },
     {
       name: "equalsraf/win32yank",
