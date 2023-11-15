@@ -27,12 +27,6 @@ export default defineConfig({
   tools: [
     {
       name: "rossmacarthur/sheldon",
-      completions: [
-        {
-          glob: "completions/sheldon.zsh",
-          as: "_sheldon",
-        },
-      ],
     },
     {
       name: "Ryooooooga/croque",
@@ -96,7 +90,7 @@ export default defineConfig({
     {
       name: "BurntSushi/ripgrep",
       executables: [
-        { glob: "**/rg", as: "rg" },
+        { glob: "**/rg" },
       ],
     },
     {
@@ -161,7 +155,7 @@ export default defineConfig({
         { from: "tealdeer*", to: "tldr" },
       ],
       executables: [
-        { glob: "tldr", as: "tldr" },
+        { glob: "tldr" },
       ],
       async onDownload({ packageDir }) {
         await saveRemoteFile(
@@ -172,6 +166,9 @@ export default defineConfig({
     },
     {
       name: "himanoa/mdmg",
+      executables: [
+        { glob: "**/mdmg" },
+      ],
       async onDownload({ packageDir }) {
         await saveRemoteFile(
           `${packageDir}/_mdmg`,
@@ -190,9 +187,6 @@ export default defineConfig({
     },
     {
       name: "sharkdp/bat",
-      completions: [
-        { glob: "*/autocomplete/bat.zsh", as: "_bat" },
-      ],
     },
     {
       name: "sharkdp/fd",
@@ -206,23 +200,13 @@ export default defineConfig({
     {
       name: "neovim/neovim",
       enabled: Deno.build.arch === "x86_64",
-      use: (() => {
-        switch (Deno.build.os) {
-          case "darwin":
-            return "nvim-macos.tar.gz";
-          case "linux":
-            return "nvim-linux64.tar.gz";
-          default:
-            return undefined;
-        }
-      })(),
     },
     {
       name: "equalsraf/win32yank",
       enabled: Deno.env.has("WSLENV") && Deno.build.arch === "x86_64",
       use: `win32yank-x64*`,
       executables: [
-        { glob: "**/win32yank.exe", as: "win32yank.exe" },
+        { glob: "**/win32yank.exe" },
       ],
     },
   ],
