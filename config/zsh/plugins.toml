@@ -3,8 +3,18 @@ shell = "zsh"
 apply = ["defer"]
 
 [templates]
-defer = "{{ hooks | get: \"pre\" | nl }}{% for file in files %}zsh-defer -a -t0.01 source \"{{ file }}\"\n{% endfor %}{{ hooks | get: \"post\" | nl }}"
-defer0 = "{{ hooks | get: \"pre\" | nl }}{% for file in files %}zsh-defer -a source \"{{ file }}\"\n{% endfor %}{{ hooks | get: \"post\" | nl }}"
+defer = """
+__sheldon::{{ name }}() {
+{{ hooks?.pre | nl }}{% for file in files %}source \"{{ file }}\"\n{% endfor %}{{ hooks?.post | nl }}
+}
+zsh-defer -a -t0.01 __sheldon::{{ name }}
+"""
+defer0 = """
+__sheldon::{{ name }}() {
+{{ hooks?.pre | nl }}{% for file in files %}source \"{{ file }}\"\n{% endfor %}{{ hooks?.post | nl }}
+}
+zsh-defer -a __sheldon::{{ name }}
+"""
 
 [plugins]
 
