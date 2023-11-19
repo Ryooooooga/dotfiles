@@ -1,12 +1,11 @@
 import { defineConfig } from "https://raw.githubusercontent.com/Ryooooooga/gh-rd/main/src/config/types.ts";
 
 async function saveCommandOutput(
+  cmd: [string, ...string[]],
   to: string,
-  cmd: string,
-  ...args: string[]
 ) {
-  const { stdout } = await new Deno.Command(cmd, {
-    args,
+  const { stdout } = await new Deno.Command(cmd[0], {
+    args: cmd.slice(1),
     stderr: "inherit",
   }).output();
 
@@ -14,8 +13,8 @@ async function saveCommandOutput(
 }
 
 async function saveRemoteFile(
-  to: string,
   from: string,
+  to: string,
 ) {
   const res = await fetch(new URL(from));
   if (res.body !== null) {
@@ -30,33 +29,28 @@ export default defineConfig({
     },
     {
       name: "Ryooooooga/croque",
-      async onDownload({ packageDir, bin }) {
+      async onDownload({ packageDir, bin: { croque } }) {
         await saveCommandOutput(
+          [croque, "init", "zsh"],
           `${packageDir}/croque.zsh`,
-          bin.croque,
-          "init",
-          "zsh",
         );
       },
     },
     {
       name: "Ryooooooga/zabrze",
-      async onDownload({ packageDir, bin }) {
+      async onDownload({ packageDir, bin: { zabrze } }) {
         await saveCommandOutput(
+          [zabrze, "init", "--bind-keys"],
           `${packageDir}/zabrze.zsh`,
-          bin.zabrze,
-          "init",
-          "--bind-keys",
         );
       },
     },
     {
       name: "Ryooooooga/qwy",
-      async onDownload({ packageDir, bin }) {
+      async onDownload({ packageDir, bin: { qwy } }) {
         await saveCommandOutput(
+          [qwy, "init"],
           `${packageDir}/qwy.zsh`,
-          bin.qwy,
-          "init",
         );
       },
     },
@@ -69,15 +63,12 @@ export default defineConfig({
     {
       name: "direnv/direnv",
       rename: [
-        { from: "direnv*", to: "direnv" },
+        { from: "direnv*", to: "direnv", chmod: 0o755 },
       ],
-      async onDownload({ packageDir, bin }) {
-        await Deno.chmod(bin.direnv, 0o755);
+      async onDownload({ packageDir, bin: { direnv } }) {
         await saveCommandOutput(
+          [direnv, "hook", "zsh"],
           `${packageDir}/direnv.zsh`,
-          bin.direnv,
-          "hook",
-          "zsh",
         );
       },
     },
@@ -89,9 +80,6 @@ export default defineConfig({
     },
     {
       name: "BurntSushi/ripgrep",
-      executables: [
-        { glob: "**/rg" },
-      ],
     },
     {
       name: "x-motemen/ghq",
@@ -101,13 +89,10 @@ export default defineConfig({
     },
     {
       name: "cli/cli",
-      async onDownload({ packageDir, bin }) {
+      async onDownload({ packageDir, bin: { gh } }) {
         await saveCommandOutput(
+          [gh, "completion", "--shell", "zsh"],
           `${packageDir}/_gh`,
-          bin.gh,
-          "completion",
-          "--shell",
-          "zsh",
         );
       },
     },
@@ -116,33 +101,29 @@ export default defineConfig({
       enabled: Deno.build.os !== "darwin",
       async onDownload({ packageDir }) {
         await saveRemoteFile(
-          `${packageDir}/_eza`,
           "https://raw.githubusercontent.com/eza-community/eza/main/completions/zsh/_eza",
+          `${packageDir}/_eza`,
         );
       },
     },
     {
       name: "mikefarah/yq",
       rename: [
-        { from: "yq_*", to: "yq" },
+        { from: "yq_*", to: "yq", chmod: 0o755 },
       ],
-      async onDownload({ packageDir, bin }) {
+      async onDownload({ packageDir, bin: { yq } }) {
         await saveCommandOutput(
+          [yq, "shell-completion", "zsh"],
           `${packageDir}/_yq`,
-          bin.yq,
-          "shell-completion",
-          "zsh",
         );
       },
     },
     {
       name: "rhysd/hgrep",
-      async onDownload({ packageDir, bin }) {
+      async onDownload({ packageDir, bin: { hgrep } }) {
         await saveCommandOutput(
+          [hgrep, "--generate-completion-script", "zsh"],
           `${packageDir}/_hgrep`,
-          bin.hgrep,
-          "--generate-completion-script",
-          "zsh",
         );
       },
     },
@@ -152,15 +133,12 @@ export default defineConfig({
     {
       name: "dbrgn/tealdeer",
       rename: [
-        { from: "tealdeer*", to: "tldr" },
-      ],
-      executables: [
-        { glob: "tldr" },
+        { from: "tealdeer*", to: "tldr", chmod: 0o755 },
       ],
       async onDownload({ packageDir }) {
         await saveRemoteFile(
-          `${packageDir}/_tldr`,
           "https://github.com/dbrgn/tealdeer/releases/latest/download/completions_zsh",
+          `${packageDir}/_tldr`,
         );
       },
     },
@@ -171,8 +149,8 @@ export default defineConfig({
       ],
       async onDownload({ packageDir }) {
         await saveRemoteFile(
-          `${packageDir}/_mdmg`,
           "https://raw.githubusercontent.com/Ryooooooga/mdmg/master/completions/mdmg.completion.zsh",
+          `${packageDir}/_mdmg`,
         );
       },
     },
@@ -180,8 +158,8 @@ export default defineConfig({
       name: "junegunn/fzf",
       async onDownload({ packageDir }) {
         await saveRemoteFile(
-          `${packageDir}/_fzf`,
           "https://raw.githubusercontent.com/junegunn/fzf/master/shell/completion.zsh",
+          `${packageDir}/_fzf`,
         );
       },
     },
@@ -205,9 +183,6 @@ export default defineConfig({
       name: "equalsraf/win32yank",
       enabled: Deno.env.has("WSLENV") && Deno.build.arch === "x86_64",
       use: `win32yank-x64*`,
-      executables: [
-        { glob: "**/win32yank.exe" },
-      ],
     },
   ],
 });
