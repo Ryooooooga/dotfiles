@@ -2,8 +2,9 @@
 query="${1:-.}"
 
 file="$(mktemp)"
+trap 'rm -f "$file"' EXIT
+
 cat >"$file"
 result="$(fzf --print-query --query="$query" --preview="jq {q} ${(q)file} | bat --color=always --plain --language=json" --preview-window='down,99%')"
 printf "%s\n" "$result"
 jq "$result" "$file"
-rm "$file"
