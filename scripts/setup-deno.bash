@@ -3,10 +3,16 @@ set -x
 # shellcheck source=./scripts/common.bash
 source "$(dirname "$0")/common.bash"
 
-[ -n "$SKIP_DENO" ] && exit
+[[ -n "$SKIP_DENO" ]] && exit
 
-echo "Installing Deno..."
-curl -fsSL https://deno.land/x/install/install.sh | /bin/sh
+
+if [[ -x "$DENO_INSTALL/bin/deno" ]]; then
+    echo "Deno is already installed."
+    "$DENO_INSTALL/bin/deno" upgrade
+else
+    echo "Installing Deno..."
+    curl -fsSL https://deno.land/x/install/install.sh | /bin/sh
+fi
 
 echo "Install Deno completions..."
 mkdir -p "$XDG_DATA_HOME/zsh/completions"

@@ -3,8 +3,8 @@ set -x
 # shellcheck source=./scripts/common.bash
 source "$(dirname "$0")/common.bash"
 
-[ "$(uname)" != "Darwin" ] && exit
-[ -n "$SKIP_HOMEBREW" ] && exit
+[[ "$(uname)" != "Darwin" ]] && exit
+[[ -n "$SKIP_HOMEBREW" ]] && exit
 
 if type brew >/dev/null; then
     echo "Homebrew is already installed."
