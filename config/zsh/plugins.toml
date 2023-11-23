@@ -89,6 +89,7 @@ github = "Ryooooooga/tmux-fzf"
 hooks.post = """
 alias t='tmux-fzf'
 """
+apply = ["defer", "fpath"]
 profiles = ["lazy"]
 
 [plugins.direnv]
