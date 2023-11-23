@@ -135,11 +135,18 @@ export default defineConfig({
       rename: [
         { from: "tealdeer*", to: "tldr", chmod: 0o755 },
       ],
-      async onDownload({ packageDir }) {
-        await saveRemoteFile(
-          "https://github.com/dbrgn/tealdeer/releases/latest/download/completions_zsh",
-          `${packageDir}/_tldr`,
-        );
+      async onDownload({ packageDir, bin: { tldr } }) {
+        await Promise.all([
+          // tldr --update
+          new Deno.Command(tldr, {
+            args: ["--update"],
+          }).output(),
+
+          saveRemoteFile(
+            "https://github.com/dbrgn/tealdeer/releases/latest/download/completions_zsh",
+            `${packageDir}/_tldr`,
+          ),
+        ]);
       },
     },
     {
