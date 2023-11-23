@@ -156,12 +156,6 @@ export default defineConfig({
     },
     {
       name: "junegunn/fzf",
-      async onDownload({ packageDir }) {
-        await saveRemoteFile(
-          "https://raw.githubusercontent.com/junegunn/fzf/master/shell/completion.zsh",
-          `${packageDir}/_fzf`,
-        );
-      },
     },
     {
       name: "sharkdp/bat",
