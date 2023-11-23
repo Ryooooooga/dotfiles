@@ -71,8 +71,13 @@ hooks.pre = """
 export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
 export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf/asdfrc"
 """
-# TODO: asdf plugin update --all
 profiles = ["lazy"]
+
+[plugins.asdf-update]
+inline = """
+asdf plugin update --all
+"""
+profiles = ["update"]
 
 [plugins.asdf-completion]
 github = "asdf-vm/asdf"

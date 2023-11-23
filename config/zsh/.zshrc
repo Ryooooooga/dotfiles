@@ -189,6 +189,8 @@ sheldon::load() {
 sheldon::update() {
     sheldon --profile="eager" lock --update
     sheldon --profile="lazy" lock --update
+    sheldon --profile="update" --quiet source | zsh
+    gh-rd
 }
 
 sheldon::load eager
