@@ -10,9 +10,9 @@ fi
 
 if [[ -d "$1" ]]; then
     if (( ${+commands[eza]} )); then
-        eza -T -L3 -a --git-ignore --ignore-glob=".git" --icons --color=always "$@"
+        eza -T -L3 -a --git-ignore --ignore-glob=".git" --icons --color=always -- "$1"
     else
-        ls "$@"
+        ls -- "$1"
     fi
 elif [[ "$(file --mime -- "$1")" =~ "binary" ]]; then
     hexyl --length=8KiB -- "$1"
