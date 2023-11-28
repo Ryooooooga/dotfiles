@@ -1,0 +1,8 @@
+#!/usr/bin/env -S deno run --allow-all --no-check --no-lock
+// zx wrapper for deno
+import process from "node:process";
+import "npm:zx/cli";
+
+globalThis.addEventListener("unload", () => {
+  process.exit();
+});
