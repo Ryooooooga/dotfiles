@@ -148,5 +148,11 @@ export default defineConfig({
       enabled: Deno.env.has("WSLENV") && Deno.build.arch === "x86_64",
       use: `win32yank-x64*`,
     },
+    {
+      name: "ldc-developers/ldc",
+      executables: [
+        { glob: "**/bin/{dub,ldc2,rdmd}" },
+      ],
+    },
   ],
 });
