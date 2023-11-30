@@ -26,10 +26,7 @@ function range(start: number, end: number): number[] {
 }
 
 const liness = [
-  [
-    [range(0, 8)],
-    [range(8, 16)],
-  ],
+  [[range(0, 8)], [range(8, 16)]],
   [
     [range(16, 22), range(52, 58), range(88, 94)],
     [range(22, 28), range(58, 64), range(94, 100)],
@@ -46,10 +43,7 @@ const liness = [
     [range(148, 154), range(184, 190), range(220, 226)],
     [range(154, 160), range(190, 196), range(226, 232)],
   ],
-  [
-    [range(232, 244)],
-    [range(244, 256)],
-  ],
+  [[range(232, 244)], [range(244, 256)]],
 ];
 
 for (const lines of liness) {
@@ -78,9 +72,9 @@ function rgb(r: number, g: number, b: number): string {
 // h: [0, 360]
 // s, v: [0, 1]
 function hsv(h: number, s: number, v: number): string {
-  const i = Math.floor(h * 6 / 360);
+  const i = Math.floor((h * 6) / 360);
   const c = v * s;
-  const x = c * (1 - Math.abs((h / 60) % 2 - 1));
+  const x = c * (1 - Math.abs(((h / 60) % 2) - 1));
   const m = v - c;
 
   switch (i) {
@@ -100,35 +94,31 @@ function hsv(h: number, s: number, v: number): string {
 }
 
 for (let i = 0; i < width; i++) {
-  print(rgb(i / width * 255, 0, 0));
+  print(rgb((i / width) * 255, 0, 0));
   print(" ");
 }
 print("\x1b[m\n");
 
 for (let i = 0; i < width; i++) {
-  print(rgb(0, i / width * 255, 0));
+  print(rgb(0, (i / width) * 255, 0));
   print(" ");
 }
 print("\x1b[m\n");
 
 for (let i = 0; i < width; i++) {
-  print(rgb(0, 0, i / width * 255));
+  print(rgb(0, 0, (i / width) * 255));
   print(" ");
 }
 print("\x1b[m\n\n");
 
 for (let i = 0; i < width; i++) {
-  print(hsv(i / width * 180, 1.0, 1.0));
+  print(hsv((i / width) * 180, 1.0, 1.0));
   print(" ");
 }
 print("\x1b[m\n");
 
 for (let i = 0; i < width; i++) {
-  print(hsv(
-    360 - i / width * 180,
-    1.0,
-    1.0,
-  ));
+  print(hsv(360 - (i / width) * 180, 1.0, 1.0));
   print(" ");
 }
 print("\x1b[m\n\n");
