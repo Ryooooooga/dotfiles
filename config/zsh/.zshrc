@@ -49,6 +49,8 @@ setopt MAGIC_EQUAL_SUBST
 setopt PRINT_EIGHT_BIT
 setopt NO_FLOW_CONTROL
 
+disable r
+
 ### source ###
 source() {
     local input="$1"
