@@ -1,6 +1,6 @@
 #!/usr/bin/env -S deno run --ext=ts --no-check
 
-const width = Deno.isatty(Deno.stdout.rid)
+const width = Deno.stdout.isTerminal()
   ? Math.min(Deno.consoleSize().columns, 128)
   : 80;
 
