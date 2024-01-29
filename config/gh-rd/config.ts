@@ -102,17 +102,6 @@ export default defineConfig({
       },
     },
     {
-      name: "himanoa/mdmg",
-      executables: [
-        { glob: "**/mdmg" },
-      ],
-      async onDownload({ packageDir, $ }) {
-        await $.request(
-          "https://raw.githubusercontent.com/Ryooooooga/mdmg/master/completions/mdmg.completion.zsh",
-        ).pipeToPath(`${packageDir}/_mdmg`);
-      },
-    },
-    {
       name: "junegunn/fzf",
     },
     {
