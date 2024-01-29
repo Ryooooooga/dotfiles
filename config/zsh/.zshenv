@@ -25,6 +25,9 @@ export GO111MODULE="on"
 export DENO_INSTALL="$XDG_DATA_HOME/deno"
 export DENO_INSTALL_ROOT="$DENO_INSTALL"
 
+### Bun ###
+export BUN_INSTALL="$XDG_DATA_HOME/bun"
+
 ### Dlang ###
 export DPATH="$XDG_DATA_HOME/d"
 
