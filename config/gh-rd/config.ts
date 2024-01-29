@@ -1,27 +1,5 @@
 import { defineConfig } from "https://raw.githubusercontent.com/Ryooooooga/gh-rd/main/src/config/types.ts";
 
-async function saveCommandOutput(
-  cmd: [string, ...string[]],
-  to: string,
-) {
-  const { stdout } = await new Deno.Command(cmd[0], {
-    args: cmd.slice(1),
-    stderr: "inherit",
-  }).output();
-
-  await Deno.writeFile(to, stdout);
-}
-
-async function saveRemoteFile(
-  from: string,
-  to: string,
-) {
-  const res = await fetch(new URL(from));
-  if (res.body !== null) {
-    await Deno.writeFile(to, res.body);
-  }
-}
-
 export default defineConfig({
   tools: [
     {
@@ -29,29 +7,20 @@ export default defineConfig({
     },
     {
       name: "Ryooooooga/croque",
-      async onDownload({ packageDir, bin: { croque } }) {
-        await saveCommandOutput(
-          [croque, "init", "zsh"],
-          `${packageDir}/croque.zsh`,
-        );
+      async onDownload({ bin: { croque }, $ }) {
+        await $`${croque} init zsh >croque.zsh`;
       },
     },
     {
       name: "Ryooooooga/zabrze",
-      async onDownload({ packageDir, bin: { zabrze } }) {
-        await saveCommandOutput(
-          [zabrze, "init", "--bind-keys"],
-          `${packageDir}/zabrze.zsh`,
-        );
+      async onDownload({ bin: { zabrze }, $ }) {
+        await $`${zabrze} init --bind-keys >zabrze.zsh`;
       },
     },
     {
       name: "Ryooooooga/qwy",
-      async onDownload({ packageDir, bin: { qwy } }) {
-        await saveCommandOutput(
-          [qwy, "init"],
-          `${packageDir}/qwy.zsh`,
-        );
+      async onDownload({ bin: { qwy }, $ }) {
+        await $`${qwy} init >qwy.zsh`;
       },
     },
     {
@@ -65,11 +34,8 @@ export default defineConfig({
       rename: [
         { from: "direnv*", to: "direnv", chmod: 0o755 },
       ],
-      async onDownload({ packageDir, bin: { direnv } }) {
-        await saveCommandOutput(
-          [direnv, "hook", "zsh"],
-          `${packageDir}/direnv.zsh`,
-        );
+      async onDownload({ bin: { direnv }, $ }) {
+        await $`${direnv} hook zsh >direnv.zsh`;
       },
     },
     {
@@ -89,21 +55,17 @@ export default defineConfig({
     },
     {
       name: "cli/cli",
-      async onDownload({ packageDir, bin: { gh } }) {
-        await saveCommandOutput(
-          [gh, "completion", "--shell", "zsh"],
-          `${packageDir}/_gh`,
-        );
+      async onDownload({ bin: { gh }, $ }) {
+        await $`${gh} completion --shell zsh >_gh`;
       },
     },
     {
       name: "eza-community/eza",
       enabled: Deno.build.os !== "darwin",
-      async onDownload({ packageDir }) {
-        await saveRemoteFile(
+      async onDownload({ packageDir, $ }) {
+        await $.request(
           "https://raw.githubusercontent.com/eza-community/eza/main/completions/zsh/_eza",
-          `${packageDir}/_eza`,
-        );
+        ).pipeToPath(`${packageDir}/_eza`);
       },
     },
     {
@@ -111,20 +73,14 @@ export default defineConfig({
       rename: [
         { from: "yq_*", to: "yq", chmod: 0o755 },
       ],
-      async onDownload({ packageDir, bin: { yq } }) {
-        await saveCommandOutput(
-          [yq, "shell-completion", "zsh"],
-          `${packageDir}/_yq`,
-        );
+      async onDownload({ bin: { yq }, $ }) {
+        await $`${yq} shell-completion zsh >_yq`;
       },
     },
     {
       name: "rhysd/hgrep",
-      async onDownload({ packageDir, bin: { hgrep } }) {
-        await saveCommandOutput(
-          [hgrep, "--generate-completion-script", "zsh"],
-          `${packageDir}/_hgrep`,
-        );
+      async onDownload({ bin: { hgrep }, $ }) {
+        await $`${hgrep} --generate-completion-script zsh >_hgrep`;
       },
     },
     {
@@ -135,17 +91,13 @@ export default defineConfig({
       rename: [
         { from: "tealdeer*", to: "tldr", chmod: 0o755 },
       ],
-      async onDownload({ packageDir, bin: { tldr } }) {
+      async onDownload({ packageDir, bin: { tldr }, $ }) {
         await Promise.all([
-          // tldr --update
-          new Deno.Command(tldr, {
-            args: ["--update"],
-          }).output(),
+          $`${tldr} --update`,
 
-          saveRemoteFile(
+          $.request(
             "https://github.com/dbrgn/tealdeer/releases/latest/download/completions_zsh",
-            `${packageDir}/_tldr`,
-          ),
+          ).pipeToPath(`${packageDir}/_tldr`),
         ]);
       },
     },
@@ -154,11 +106,10 @@ export default defineConfig({
       executables: [
         { glob: "**/mdmg" },
       ],
-      async onDownload({ packageDir }) {
-        await saveRemoteFile(
+      async onDownload({ packageDir, $ }) {
+        await $.request(
           "https://raw.githubusercontent.com/Ryooooooga/mdmg/master/completions/mdmg.completion.zsh",
-          `${packageDir}/_mdmg`,
-        );
+        ).pipeToPath(`${packageDir}/_mdmg`);
       },
     },
     {
