@@ -38,10 +38,6 @@ j() {
     [[ -n "$dir" ]] && builtin cd "$dir"
 }
 
-pathed() {
-    PATH="$(tr ':' '\n' <<<"$PATH" | ped | tr '\n' ':' | sed -E 's/:(:|$)//g')"
-}
-
 re() {
     [[ $# -eq 0 ]] && return 1
     local selected="$(rg --color=always --line-number "$@" | fzf -d ':' --preview='
