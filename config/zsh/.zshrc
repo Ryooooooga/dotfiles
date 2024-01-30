@@ -142,7 +142,6 @@ widget::ghq::session() {
 zle -N widget::history
 zle -N widget::ghq::dir
 zle -N widget::ghq::session
-zle -N forward-kill-word
 
 bindkey -v
 bindkey "^R"        widget::history                 # C-r
