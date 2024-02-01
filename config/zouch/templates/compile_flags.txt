@@ -1,4 +1,12 @@
+{{- $lang := Shell `printf 'C++\nC\n' | fzf --prompt='compile_flags.txt > ' || :` -}}
+{{- if eq $lang "C++" -}}
 -std=c++2a
 -Wall
 -Wextra
 -pedantic
+{{- else -}}
+-std=c2x
+-Wall
+-Wextra
+-pedantic
+{{- end }}
