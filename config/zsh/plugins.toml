@@ -65,25 +65,15 @@ profiles = ["lazy"]
 github = "zdharma-continuum/fast-syntax-highlighting"
 profiles = ["lazy"]
 
-[plugins.asdf]
-github = "asdf-vm/asdf"
-hooks.pre = """
-export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
-export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf/asdfrc"
-"""
+[plugins.mise]
+local = "~/.local/share/gh-rd/packages/github.com/jdx/mise"
 profiles = ["lazy"]
 
-[plugins.asdf-update]
+[plugins.mise-update]
 inline = """
-asdf plugin update --all
+mise plugins upgrade
 """
 profiles = ["update"]
-
-[plugins.asdf-completion]
-github = "asdf-vm/asdf"
-apply = ["fpath"]
-dir = "completions"
-profiles = ["lazy"]
 
 [plugins.zsh-replace-multiple-dots]
 github = "Ryooooooga/zsh-replace-multiple-dots"
@@ -97,9 +87,6 @@ alias t='tmux-fzf'
 apply = ["defer", "fpath"]
 profiles = ["lazy"]
 
-[plugins.direnv]
-local = "~/.local/share/gh-rd/packages/github.com/direnv/direnv"
-profiles = ["lazy"]
 
 [plugins.zabrze]
 local = "~/.local/share/gh-rd/packages/github.com/Ryooooooga/zabrze"
