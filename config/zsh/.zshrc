@@ -16,7 +16,6 @@ path=(
     "$CARGO_HOME/bin"(N-/)
     "$GOPATH/bin"(N-/)
     "$DENO_INSTALL/bin"(N-/)
-    "$BUN_INSTALL/bin"(N-/)
     "$GEM_HOME/bin"(N-/)
     "$GHRD_DATA_HOME/bin"(N-/)
     "$XDG_CONFIG_HOME/scripts/bin"(N-/)
