@@ -1,4 +1,4 @@
-import { defineConfig } from "https://raw.githubusercontent.com/Ryooooooga/gh-rd/main/src/config/types.ts";
+import { defineConfig } from "https://deno.land/x/gh_rd/mod.ts";
 
 export default defineConfig({
   tools: [
