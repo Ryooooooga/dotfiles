@@ -87,6 +87,9 @@ alias t='tmux-fzf'
 apply = ["defer", "fpath"]
 profiles = ["lazy"]
 
+[plugins.direnv]
+local = "~/.local/share/gh-rd/packages/github.com/direnv/direnv"
+profiles = ["lazy"]
 
 [plugins.zabrze]
 local = "~/.local/share/gh-rd/packages/github.com/Ryooooooga/zabrze"

@@ -39,6 +39,15 @@ export default defineConfig({
       },
     },
     {
+      name: "direnv/direnv",
+      rename: [
+        { from: "direnv*", to: "direnv", chmod: 0o755 },
+      ],
+      async onDownload({ bin: { direnv }, $ }) {
+        await $`${direnv} hook zsh >direnv.zsh`;
+      },
+    },
+    {
       name: "dandavison/delta",
     },
     {
