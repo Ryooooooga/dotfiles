@@ -73,3 +73,13 @@ abbrevs:
     global: true
     evaluate: true
     context: ^(git\s+exec\s+)?\S+$
+
+  # npx
+  - name: <npx>
+    abbr-pattern: ''
+    snippet: npx $abbr
+    evaluate: true
+    if: >
+      (( ! ${+commands[$abbr]} && ! ${+functions[$abbr]} && ! ${+aliases[$abbr]} && ! ${+builtins[$abbr]} ))
+      && [[ -x "$(monkeywrench node toplevel --root)/node_modules/.bin/$abbr" ]]
+
