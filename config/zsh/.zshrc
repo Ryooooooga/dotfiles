@@ -192,6 +192,7 @@ sheldon::update() {
     sheldon --profile="eager" lock --update
     sheldon --profile="lazy" lock --update
     sheldon --profile="update" --quiet source | zsh
+    git -C "$GHRD_DATA_HOME/src" pull
     gh-rd
 }
 
