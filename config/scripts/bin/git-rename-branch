@@ -3,5 +3,5 @@ set -u
 git rev-parse || exit 1
 
 old_branch="$(git branch --show-current)"
-new_branch="$(ped <<<"$old_branch")"
+new_branch="$(ped +'norm$' <<<"$old_branch")"
 git branch -m "$old_branch" "$new_branch"
