@@ -8,7 +8,8 @@ abbrevs:
   - name: g
     abbr: g
     snippet: git
-    if: '[[ -z "$RBUFFER" ]]'
+    if: |-
+      [[ "$KEYS" != $'\r' ]]
 
   # git add
   - name: git aa
