@@ -107,7 +107,7 @@ completions:
     patterns:
       - ^\s*make\s
     source: |-
-      rg --line-number '^[0-9A-Z_a-z\-]+:' Makefile | tr ':' '\t'
+      rg --line-number '^[0-9A-Z_a-z\-]+:' Makefile 2>/dev/null | tr ':' '\t'
     finder:
       --delimiter: '\t'
       --with-nth: 2
