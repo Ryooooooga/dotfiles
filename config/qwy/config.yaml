@@ -164,7 +164,7 @@ completions:
 
   - description: git-<ref>
     patterns:
-      - ^\s*git\s+(graph|log|merge|rebase|revert|show)\s
+      - ^\s*git\s+(bisect\s+start|graph|log|merge|rebase|revert|show)\s
     source: |-
       "$QWY_SCRIPT_PATH/git-local-branches.zsh"
       "$QWY_SCRIPT_PATH/git-remote-branches.zsh"
