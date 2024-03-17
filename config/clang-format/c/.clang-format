@@ -1,7 +1,6 @@
 BasedOnStyle: LLVM
 IndentWidth: 4
-AlignAfterOpenBracket: AlwaysBreak
-AllowAllParametersOfDeclarationOnNextLine: false
+AlignAfterOpenBracket: BlockIndent
 AllowShortFunctionsOnASingleLine: None
 AlwaysBreakBeforeMultilineStrings: true
 BinPackArguments: false

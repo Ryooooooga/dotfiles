@@ -1,7 +1,7 @@
 BasedOnStyle: LLVM
 IndentWidth: 4
 AccessModifierOffset: -4
-AlignAfterOpenBracket: AlwaysBreak
+AlignAfterOpenBracket: BlockIndent
 AllowShortFunctionsOnASingleLine: None
 AlwaysBreakBeforeMultilineStrings: true
 BinPackArguments: false
