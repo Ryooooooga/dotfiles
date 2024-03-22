@@ -1,6 +1,7 @@
 .contexts:
   - &global ^git\s
   - &subcommand ^git\s\S+$
+  - &bisect-command ^git(\s+\S+)*\s+bisect\s+\S+$
   - &push ^git(\s+\S+)*\s+push\s
 
 abbrevs:
@@ -15,6 +16,31 @@ abbrevs:
   - name: git aa
     abbr: aa
     snippet: add -vA
+    global: true
+    context: *subcommand
+
+  # git bisect
+  - name: git bisect b
+    abbr: b
+    snippet: bad
+    global: true
+    context: *bisect-command
+
+  - name: git bisect g
+    abbr: g
+    snippet: good
+    global: true
+    context: *bisect-command
+
+  - name: git bisect s
+    abbr: s
+    snippet: start
+    global: true
+    context: *bisect-command
+
+  - name: git bi
+    abbr: bi
+    snippet: bisect
     global: true
     context: *subcommand
 
