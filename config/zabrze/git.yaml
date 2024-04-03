@@ -166,12 +166,6 @@ abbrevs:
     global: true
     context: *subcommand
 
-  - name: git psu
-    abbr: psu
-    snippet: push -u origin HEAD
-    global: true
-    context: *subcommand
-
   - name: git pst
     abbr: pst
     snippet: push --tags
