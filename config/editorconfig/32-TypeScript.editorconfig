@@ -1,4 +1,4 @@
 
-[*.{js,ts}]
+[*.{js,cjs,mjs,ts}]
 indent_style = space
 indent_size = 2
