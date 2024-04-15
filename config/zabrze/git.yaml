@@ -181,14 +181,13 @@ abbrevs:
   # git rebase
   - name: git q
     abbr: q
-    snippet: rebase -i --autosquash
+    snippet: rebase --autosquash
     global: true
     context: *subcommand
 
-  - name: git qq
-    abbr: qq
-    snippet: "GIT_EDITOR=: git rebase -i --autosquash"
-    action: replace-all
+  - name: git qi
+    abbr: qi
+    snippet: git rebase -i --autosquash
     global: true
     context: *subcommand
 
