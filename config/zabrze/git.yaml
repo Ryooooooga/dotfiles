@@ -181,7 +181,7 @@ abbrevs:
   # git rebase
   - name: git q
     abbr: q
-    snippet: rebase --autosquash
+    snippet: rebase
     global: true
     context: *subcommand
 
