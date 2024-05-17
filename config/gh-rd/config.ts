@@ -124,6 +124,7 @@ export default defineConfig({
     },
     {
       name: "XAMPPRocky/tokei",
+      tag: "v12.1.2",
     },
     {
       name: "neovim/neovim",
