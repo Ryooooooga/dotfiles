@@ -185,9 +185,9 @@ abbrevs:
     global: true
     context: *subcommand
 
-  - name: git qi
-    abbr: qi
-    snippet: git rebase -i --autosquash
+  - name: git qq
+    abbr: qq
+    snippet: rebase --autosquash
     global: true
     context: *subcommand
 
