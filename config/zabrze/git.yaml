@@ -198,6 +198,13 @@ abbrevs:
     global: true
     context: *subcommand
 
+  # git sync
+  - name: git S
+    abbr: S
+    snippet: sync
+    global: true
+    context: *subcommand
+
   # git switch
   - name: git sw
     abbr: sw
