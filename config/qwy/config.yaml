@@ -248,7 +248,6 @@ completions:
       "$QWY_SCRIPT_PATH/git-tags.zsh"
       "$QWY_SCRIPT_PATH/git-commits.zsh"
     <<: *completion-git
-    callback: awk '{ print $3 }' | sed 's:^origin/::'
 
   - description: git-switch
     patterns:
