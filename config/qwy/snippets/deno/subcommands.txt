@@ -1,0 +1,27 @@
+add	Add dependencies
+bench	Run benchmarks
+bundle	Bundle module and dependencies into single file
+cache	Cache the dependencies
+check	Type-check the dependencies
+compile	Compile the script into a self contained executable
+completions	Generate shell completions
+coverage	Print coverage reports
+doc	Show documentation for a module
+eval	Eval script
+fmt	Format source files
+help	Print this message or the help of the given subcommand(s)
+info	Show info about cache or info related to source file
+init	Initialize a new project
+install	Install script as an executable
+jupyter	Deno kernel for Jupyter notebooks
+lint	Lint source files
+lsp	Start the language server
+publish	Unstable preview feature: Publish the current working directory's package or workspace
+repl	Read Eval Print Loop
+run	Run a JavaScript or TypeScript program
+task	Run a task defined in the configuration file
+test	Run tests
+types	Print runtime TypeScript declarations
+uninstall	Uninstall a script previously installed with deno install
+upgrade	Upgrade deno executable to given version
+vendor	Vendor remote modules into a local directory
