@@ -47,10 +47,6 @@ dir = "src"
 apply = ["fpath"]
 profiles = ["lazy"]
 
-[plugins.zsh-autosuggestions]
-github = "zsh-users/zsh-autosuggestions"
-profiles = ["lazy"]
-
 [plugins.zsh-history-substring-search]
 github = "zsh-users/zsh-history-substring-search"
 hooks.post = """
@@ -59,10 +55,6 @@ bindkey "${terminfo[kcud1]}" history-substring-search-down # arrow-down
 bindkey "^[[A" history-substring-search-up   # arrow-up
 bindkey "^[[B" history-substring-search-down # arrow-down
 """
-profiles = ["lazy"]
-
-[plugins.fast-syntax-highlighting]
-github = "zdharma-continuum/fast-syntax-highlighting"
 profiles = ["lazy"]
 
 [plugins.mise]
@@ -128,4 +120,19 @@ inline = """
 autoload -Uz compinit
 zsh-defer -a -t0.01 compinit -d "$XDG_STATE_HOME/zcompdump"
 """
+profiles = ["lazy"]
+
+[plugins.fzf-tab]
+github = "Aloxaf/fzf-tab"
+hooks.pre = """
+zstyle ':fzf-tab:complete:*' fzf-bindings 'tab:toggle+down,shift-tab:toggle+up' # multi select
+"""
+profiles = ["lazy"]
+
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+profiles = ["lazy"]
+
+[plugins.fast-syntax-highlighting]
+github = "zdharma-continuum/fast-syntax-highlighting"
 profiles = ["lazy"]
