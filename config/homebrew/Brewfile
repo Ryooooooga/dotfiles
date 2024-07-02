@@ -1,12 +1,9 @@
-tap "homebrew/cask-fonts"
-
 brew "autoconf"
 brew "bash"
 brew "bat"
 brew "cmake"
 brew "coreutils"
 brew "docker-completion"
-brew "docker-compose-completion"
 brew "eza"
 brew "fd"
 brew "findutils"
