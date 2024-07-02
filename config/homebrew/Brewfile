@@ -30,7 +30,6 @@ brew "wget"
 
 cask "alacritty"
 cask "bitwarden"
-cask "docker"
 cask "firefox"
 cask "font-jetbrains-mono-nerd-font"
 cask "font-sauce-code-pro-nerd-font"
