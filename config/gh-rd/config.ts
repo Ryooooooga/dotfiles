@@ -1,6 +1,7 @@
 import { defineConfig } from "https://deno.land/x/gh_rd/mod.ts";
 
 export default defineConfig({
+  shell: "zsh",
   tools: [
     {
       name: "rossmacarthur/sheldon",
@@ -59,6 +60,11 @@ export default defineConfig({
     },
     {
       name: "x-motemen/ghq",
+      async onDownload({ packageDir, $ }) {
+        await $.request(
+          "https://raw.githubusercontent.com/x-motemen/ghq/master/misc/zsh/_ghq",
+        ).pipeToPath(`${packageDir}/_ghq`);
+      },
     },
     {
       name: "jesseduffield/lazygit",
