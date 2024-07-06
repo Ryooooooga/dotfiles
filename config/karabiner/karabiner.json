@@ -18,7 +18,7 @@
                 },
                 "rules": [
                     {
-                        "description": "Change Command+Backward-Delete and Option+Backward-Delete",
+                        "description": "Exchange Command+Backward-Delete and Option+Backward-Delete",
                         "manipulators": [
                             {
                                 "from": {
@@ -41,12 +41,7 @@
                                     }
                                 ],
                                 "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Change Option+Backward-Delete to Command+Backward-Delete",
-                        "manipulators": [
+                            },
                             {
                                 "from": {
                                     "key_code": "delete_or_backspace",
@@ -72,7 +67,7 @@
                         ]
                     },
                     {
-                        "description": "Change Command+Forward-Delete and Option+Forward-Delete",
+                        "description": "Exchange Command+Forward-Delete and Option+Forward-Delete",
                         "manipulators": [
                             {
                                 "from": {
@@ -95,12 +90,7 @@
                                     }
                                 ],
                                 "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Change Option+Forward-Delete to Command+Forward-Delete",
-                        "manipulators": [
+                            },
                             {
                                 "from": {
                                     "key_code": "forward_delete",
@@ -411,9 +401,6 @@
                                     "modifiers": {
                                         "mandatory": [
                                             "shift"
-                                        ],
-                                        "optional": [
-                                            "caps_lock"
                                         ]
                                     }
                                 },
@@ -436,9 +423,6 @@
                                     "modifiers": {
                                         "mandatory": [
                                             "command"
-                                        ],
-                                        "optional": [
-                                            "caps_lock"
                                         ]
                                     }
                                 },
