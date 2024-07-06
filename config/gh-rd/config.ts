@@ -134,6 +134,12 @@ export default defineConfig({
       tag: "v12.1.2",
     },
     {
+      name: "editorconfig-checker/editorconfig-checker",
+      rename: [
+        { from: "**/ec*", to: "editorconfig-checker", chmod: 0o755 },
+      ],
+    },
+    {
       name: "neovim/neovim",
       enabled: Deno.build.arch === "x86_64",
     },
