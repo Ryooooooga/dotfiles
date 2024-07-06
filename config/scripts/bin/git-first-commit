@@ -2,8 +2,8 @@
 git rev-parse || exit 1
 
 if git rev-parse HEAD &>/dev/null; then
-    echo "this is not an empty repository" 2>/dev/stderr
-    exit 1
+  echo "this is not an empty repository" 2>/dev/stderr
+  exit 1
 fi
 
 git commit -m "initial commit" --allow-empty

@@ -8,67 +8,67 @@ alias gdb='gdb -q -nh'
 alias wget='wget --hsts-file="$XDG_STATE_HOME/wget-hsts"'
 
 case "$OSTYPE" in
-    linux*)
-        if (( ${+commands[win32yank.exe]} )); then
-            alias pp='win32yank.exe -i'
-            alias p='win32yank.exe -o'
-        elif (( ${+commands[xsel]} )); then
-            alias pp='xsel -bi'
-            alias p='xsel -b'
-        fi
-    ;;
-    darwin*)
-        path=(
-            /usr/local/opt/coreutils/libexec/gnubin(N-/)
-            /usr/local/opt/findutils/libexec/gnubin(N-/)
-            /usr/local/opt/gnu-sed/libexec/gnubin(N-/)
-            /usr/local/opt/grep/libexec/gnubin(N-/)
-            /usr/local/opt/make/libexec/gnubin(N-/)
-            "$path[@]"
-        )
-        alias pp='pbcopy'
-        alias p='pbpaste'
-    ;;
+  linux*)
+    if (( ${+commands[win32yank.exe]} )); then
+      alias pp='win32yank.exe -i'
+      alias p='win32yank.exe -o'
+    elif (( ${+commands[xsel]} )); then
+      alias pp='xsel -bi'
+      alias p='xsel -b'
+    fi
+  ;;
+  darwin*)
+    path=(
+      /usr/local/opt/coreutils/libexec/gnubin(N-/)
+      /usr/local/opt/findutils/libexec/gnubin(N-/)
+      /usr/local/opt/gnu-sed/libexec/gnubin(N-/)
+      /usr/local/opt/grep/libexec/gnubin(N-/)
+      /usr/local/opt/make/libexec/gnubin(N-/)
+      "$path[@]"
+    )
+    alias pp='pbcopy'
+    alias p='pbpaste'
+  ;;
 esac
 
 j() {
-    local root dir
-    root="${$(git rev-parse --show-cdup 2>/dev/null):-.}"
-    dir="$(fd --color=always --hidden --type=d . "$root" | fzf --select-1 --query="$*" --preview='fzf-preview-file {}')"
-    [[ -n "$dir" ]] && builtin cd "$dir"
+  local root dir
+  root="${$(git rev-parse --show-cdup 2>/dev/null):-.}"
+  dir="$(fd --color=always --hidden --type=d . "$root" | fzf --select-1 --query="$*" --preview='fzf-preview-file {}')"
+  [[ -n "$dir" ]] && builtin cd "$dir"
 }
 
 re() {
-    [[ $# -eq 0 ]] && return 1
-    local selected="$(rg --color=always --line-number "$@" | fzf -d ':' --preview='
-        local file={1} line={2} n=10
-        local start="$(( line > n ? line - n : 1 ))"
-        bat --color=always --highlight-line="$line" --line-range="$start:" "$file"
-    ')"
-    [[ -z "$selected" ]] && return
-    local file="$(cut -d ':' -f 1 <<<"$selected")" line="$(cut -d ':' -f 2 <<<"$selected")"
-    "$EDITOR" +"$line" "$file"
+  [[ $# -eq 0 ]] && return 1
+  local selected="$(rg --color=always --line-number "$@" | fzf -d ':' --preview='
+    local file={1} line={2} n=10
+    local start="$(( line > n ? line - n : 1 ))"
+    bat --color=always --highlight-line="$line" --line-range="$start:" "$file"
+  ')"
+  [[ -z "$selected" ]] && return
+  local file="$(cut -d ':' -f 1 <<<"$selected")" line="$(cut -d ':' -f 2 <<<"$selected")"
+  "$EDITOR" +"$line" "$file"
 }
 
 ### bat ###
 if (( ${+commands[bat]} )); then
-    export MANPAGER="sh -c 'col -bx | bat --color=always --language=man --plain'"
+  export MANPAGER="sh -c 'col -bx | bat --color=always --language=man --plain'"
 
-    alias cat='bat --paging=never'
+  alias cat='bat --paging=never'
 fi
 
 ### eza ###
 if (( ${+commands[eza]} )); then
-    alias ls='eza --group-directories-first'
-    alias la='eza --group-directories-first -a'
-    alias ll='eza --group-directories-first -al --header --color-scale=all --octal-permissions --git --icons=auto --time-style=long-iso'
-    alias tree='eza --group-directories-first --tree --icons'
+  alias ls='eza --group-directories-first'
+  alias la='eza --group-directories-first -a'
+  alias ll='eza --group-directories-first -al --header --color-scale=all --octal-permissions --git --icons=auto --time-style=long-iso'
+  alias tree='eza --group-directories-first --tree --icons'
 fi
 
 ### diff ###
 diff() {
-    command diff "$@" | bat --paging=never --plain --language=diff
-    return "${pipestatus[1]}"
+  command diff "$@" | bat --paging=never --plain --language=diff
+  return "${pipestatus[1]}"
 }
 alias diffall='diff --new-line-format="+%L" --old-line-format="-%L" --unchanged-line-format=" %L"'
 
@@ -79,8 +79,8 @@ alias hgrep="hgrep --hidden --glob='!.git/'"
 export NAVI_CONFIG="$XDG_CONFIG_HOME/navi/config.yaml"
 
 __navi_search() {
-    LBUFFER="$(navi --print --query="$LBUFFER")"
-    zle reset-prompt
+  LBUFFER="$(navi --print --query="$LBUFFER")"
+  zle reset-prompt
 }
 zle -N __navi_search
 bindkey '^N' __navi_search
@@ -91,27 +91,27 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 ### Docker ###
 docker() {
-    if [[ "$#" -eq 0 ]] || [[ "$1" = "compose" ]] || ! command -v "docker-$1" >/dev/null; then
-        command docker "${@:1}"
-    else
-        "docker-$1" "${@:2}"
-    fi
+  if [[ "$#" -eq 0 ]] || [[ "$1" = "compose" ]] || ! command -v "docker-$1" >/dev/null; then
+    command docker "${@:1}"
+  else
+    "docker-$1" "${@:2}"
+  fi
 }
 
 docker-rm() {
-    if [[ "$#" -eq 0 ]]; then
-        command docker ps -a | fzf --exit-0 --multi --header-lines=1 | awk '{ print $1 }' | xargs -r docker rm --
-    else
-        command docker rm "$@"
-    fi
+  if [[ "$#" -eq 0 ]]; then
+    command docker ps -a | fzf --exit-0 --multi --header-lines=1 | awk '{ print $1 }' | xargs -r docker rm --
+  else
+    command docker rm "$@"
+  fi
 }
 
 docker-rmi() {
-    if [[ "$#" -eq 0 ]]; then
-        command docker images | fzf --exit-0 --multi --header-lines=1 | awk '{ print $3 }' | xargs -r docker rmi --
-    else
-        command docker rmi "$@"
-    fi
+  if [[ "$#" -eq 0 ]]; then
+    command docker images | fzf --exit-0 --multi --header-lines=1 | awk '{ print $3 }' | xargs -r docker rmi --
+  else
+    command docker rmi "$@"
+  fi
 }
 
 ### Editor ###
@@ -166,7 +166,7 @@ export TEALDEER_CONFIG_DIR="$XDG_CONFIG_HOME/tealdeer"
 
 ### local ###
 if [[ -f "$ZDOTDIR/local.zsh" ]]; then
-    source "$ZDOTDIR/local.zsh"
+  source "$ZDOTDIR/local.zsh"
 fi
 
 sheldon::load lazy

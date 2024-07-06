@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 if [[ "$#" -eq 0 ]]; then
-    echo "Usage: git-exec <CMD>..."
-    exit 1
+  echo "Usage: git-exec <CMD>..."
+  exit 1
 fi
 
 if ! git diff --shortstat --exit-code --quiet; then
-    echo "repository is dirty..."
-    exit 2
+  echo "repository is dirty..."
+  exit 2
 fi
 
 if ! git diff --shortstat --exit-code --quiet --staged; then
-    echo "changes are not committed yet..."
-    exit 3
+  echo "changes are not committed yet..."
+  exit 3
 fi
 
 "$@"

@@ -5,13 +5,12 @@ source "$(dirname "$0")/common.bash"
 
 [[ -n "$SKIP_DENO" ]] && exit
 
-
 if [[ -x "$DENO_INSTALL/bin/deno" ]]; then
-    echo "Deno is already installed."
-    "$DENO_INSTALL/bin/deno" upgrade
+  echo "Deno is already installed."
+  "$DENO_INSTALL/bin/deno" upgrade
 else
-    echo "Installing Deno..."
-    curl -fsSL https://deno.land/x/install/install.sh | /bin/sh
+  echo "Installing Deno..."
+  curl -fsSL https://deno.land/x/install/install.sh | /bin/sh
 fi
 
 echo "Install Deno completions..."

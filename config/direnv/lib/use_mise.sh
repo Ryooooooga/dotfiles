@@ -2,4 +2,3 @@
 use_mise() {
   direnv_load mise direnv exec
 }
-
