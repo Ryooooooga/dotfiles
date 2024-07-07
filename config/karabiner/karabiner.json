@@ -71,7 +71,7 @@
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "forward_delete",
+                                    "key_code": "delete_forward",
                                     "modifiers": {
                                         "mandatory": [
                                             "command"
@@ -83,7 +83,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "forward_delete",
+                                        "key_code": "delete_forward",
                                         "modifiers": [
                                             "option"
                                         ]
@@ -93,7 +93,7 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "forward_delete",
+                                    "key_code": "delete_forward",
                                     "modifiers": {
                                         "mandatory": [
                                             "option"
@@ -105,7 +105,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "forward_delete",
+                                        "key_code": "delete_forward",
                                         "modifiers": [
                                             "command"
                                         ]
