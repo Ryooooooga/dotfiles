@@ -56,9 +56,9 @@ const backspaceRule = rule(
   .build();
 
 const arrowKeys = [
-  ["←", "h"],
-  ["↓", "j"],
-  ["↑", "k"],
+  ["←", "j"],
+  ["↓", "k"],
+  ["↑", "i"],
   ["→", "l"],
 ] as const;
 
@@ -75,6 +75,7 @@ const capsRule = rule("Change Caps Lock")
   .manipulators([
     map("caps_lock", "shift").to(stroke("->")),
     map("caps_lock", "command").to(stroke("=>")),
+    map("caps_lock").condition(ifVar(LAYER.lower)).to(stroke("-")),
     map("caps_lock").to(stroke("_")),
   ]);
 
@@ -101,20 +102,23 @@ const lowerRule = rule("Lower Layer")
       map("r").to(stroke("$")),
       map("t").to(stroke("%")),
 
-      map("caps_lock").to(stroke("-")),
       map("a").to(stroke("^")),
       map("s").to(stroke("&")),
       map("d").to(stroke("*")),
       map("f").to(stroke("=")),
       map("g").to(stroke("+")),
 
-      // hjkl
+      // ijkl
       ...arrowKeys.flatMap(([key, c]) => [
         map(c, ["command", "option"], "any").to(key, ["command", "option"]),
         map(c, "command", "any").to(key, "option"),
         map(c, "option", "any").to(key, "command"),
         map(c, null, "any").to(key),
       ]),
+      map("u", null, "any").to("home"),
+      map("o", null, "any").to("end"),
+      map("p", null, "any").to("page_up"),
+      map(";", null, "any").to("page_down"),
 
       map("z").to(stroke("(")),
       map("x").to(stroke(")")),
