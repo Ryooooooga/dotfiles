@@ -1,22 +1,28 @@
 #!/usr/bin/env -S deno run --check --allow-write
 import {
-  KarabinerConfigExt,
-  KarabinerProfileExt,
-  KeyboardIdentifier,
-  defaultComplexModificationsParameters,
+  complexModifications,
   defaultFnFunctionKeys,
   defaultGlobals,
   device,
+  ifDevice,
+  ifVar,
+  KarabinerConfigExt,
+  KarabinerProfileExt,
+  KeyboardIdentifier,
   map,
+  rule,
   simple,
   simpleSwap,
   stroke,
-  rule,
-  withModifier,
+  toSetVar,
+  withCondition,
 } from "./utils.ts";
 
 const DEVICES = {
-  macBook2019: {
+  apple: {
+    vendor_id: 1452,
+  },
+  macBook2018: {
     product_id: 634,
     vendor_id: 1452,
   },
@@ -34,8 +40,12 @@ const DEVICES = {
   },
 } as const satisfies Record<string, KeyboardIdentifier>;
 
+const LAYER = {
+  lower: "layer-lower",
+} as const;
+
 const backspaceRule = rule(
-  "Exchange Command+Backspace/Delete and Option+Backspace/Delete"
+  "Exchange Command+Backspace/Delete and Option+Backspace/Delete",
 )
   .manipulators([
     map("⌫", "command", "shift").to("⌫", "option"),
@@ -45,17 +55,32 @@ const backspaceRule = rule(
   ])
   .build();
 
+const arrowKeys = [
+  ["←", "h"],
+  ["↓", "j"],
+  ["↑", "k"],
+  ["→", "l"],
+] as const;
+
+const arrowRule = rule("Exchange command + arrow keys with option + arrow keys")
+  .manipulators(
+    arrowKeys.flatMap(([key]) => [
+      map(key, ["command", "option"], "any").to(key, ["command", "option"]),
+      map(key, "command", "any").to(key, "option"),
+      map(key, "option", "any").to(key, "command"),
+    ]),
+  );
+
 const capsRule = rule("Change Caps Lock")
   .manipulators([
     map("caps_lock", "shift").to(stroke("->")),
     map("caps_lock", "command").to(stroke("=>")),
     map("caps_lock").to(stroke("_")),
-  ])
-  .build();
+  ]);
 
-const rightOptionRule = rule("Right Option Layer")
+const lowerRule = rule("Lower Layer")
   .manipulators([
-    withModifier("right_option")([
+    withCondition(ifVar(LAYER.lower))([
       map("1").to(stroke("!")),
       map("2").to(stroke("@")),
       map("3").to(stroke("#")),
@@ -83,6 +108,14 @@ const rightOptionRule = rule("Right Option Layer")
       map("f").to(stroke("=")),
       map("g").to(stroke("+")),
 
+      // hjkl
+      ...arrowKeys.flatMap(([key, c]) => [
+        map(c, ["command", "option"], "any").to(key, ["command", "option"]),
+        map(c, "command", "any").to(key, "option"),
+        map(c, "option", "any").to(key, "command"),
+        map(c, null, "any").to(key),
+      ]),
+
       map("z").to(stroke("(")),
       map("x").to(stroke(")")),
       map("c").to(stroke("/")),
@@ -91,35 +124,34 @@ const rightOptionRule = rule("Right Option Layer")
       map("[").to(stroke("{")),
       map("]").to(stroke("}")),
     ]),
-    map("right_option")
-      .to("right_option", undefined, { lazy: true })
+    map("right_option", null, "any")
+      .to(toSetVar(LAYER.lower, 1))
+      .toAfterKeyUp(toSetVar(LAYER.lower, 0))
       .toIfAlone("escape"),
-  ])
-  .build();
+  ]);
 
-const arrowKeys = ["→", "←", "↑", "↓"] as const;
-
-const arrowRule = rule("Exchange command + arrow keys with option + arrow keys")
-  .manipulators(
-    arrowKeys.flatMap((key) => [
-      map(key, ["command", "option"], "any").to(key, ["command", "option"]),
-      map(key, "command", "any").to(key, "option"),
-      map(key, "option", "any").to(key, "command"),
-    ])
-  )
-  .build();
+const macRule = rule("MacBook Internal Keyboard")
+  .condition(ifDevice(DEVICES.apple))
+  .manipulators([
+    map("right_command", null, "any")
+      .to(toSetVar(LAYER.lower, 1))
+      .toAfterKeyUp(toSetVar(LAYER.lower, 0))
+      .toIfAlone("escape"),
+  ]);
 
 const profile: KarabinerProfileExt = {
-  complex_modifications: {
-    parameters: defaultComplexModificationsParameters,
-    rules: [backspaceRule, arrowRule, capsRule, rightOptionRule],
-  },
+  complex_modifications: complexModifications([
+    backspaceRule,
+    arrowRule,
+    capsRule,
+    lowerRule,
+    macRule,
+  ]),
   devices: [
-    device(DEVICES.macBook2019, {
+    device(DEVICES.macBook2018, {
       simple_modifications: [
         simple("fn", "left_command"),
         simple("left_command", "escape"),
-        simple("right_command", "japanese_eisuu"),
         simple("right_option", "fn"),
       ],
     }),
@@ -162,5 +194,5 @@ const config: KarabinerConfigExt = {
 
 Deno.writeTextFile(
   new URL("karabiner.json", import.meta.url),
-  JSON.stringify(config, null, 4)
+  JSON.stringify(config, null, 4),
 );

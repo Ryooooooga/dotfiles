@@ -1,13 +1,12 @@
 export * from "https://deno.land/x/karabinerts/deno.ts";
 
 import {
-  ComplexModificationsParameters,
   DeviceIdentifier,
-  KarabinerConfig,
-  KarabinerProfile,
   FromAndToKeyCode,
   FromEvent,
   FromKeyCode,
+  KarabinerConfig,
+  KarabinerProfile,
   ToEvent,
   ToKeyCode,
 } from "https://deno.land/x/karabinerts/deno.ts";
@@ -103,15 +102,6 @@ export const defaultFnFunctionKeys: SimpleModifications = [
   },
 ];
 
-export const defaultComplexModificationsParameters: ComplexModificationsParameters =
-  {
-    "basic.simultaneous_threshold_milliseconds": 50,
-    "basic.to_delayed_action_delay_milliseconds": 500,
-    "basic.to_if_alone_timeout_milliseconds": 1000,
-    "basic.to_if_held_down_threshold_milliseconds": 500,
-    "mouse_motion_to_scroll.speed": 100,
-  };
-
 export function simple(from: FromKeyCode, to: ToKeyCode): SimpleManipulator {
   return {
     from: { key_code: from },
@@ -121,7 +111,7 @@ export function simple(from: FromKeyCode, to: ToKeyCode): SimpleManipulator {
 
 export function simpleSwap(
   key1: FromAndToKeyCode,
-  key2: FromAndToKeyCode
+  key2: FromAndToKeyCode,
 ): SimpleManipulator[] {
   return [simple(key1, key2), simple(key2, key1)];
 }
@@ -155,20 +145,20 @@ export function stroke(text: string): ToEvent[] {
   return [...text].map(
     (c): ToEvent =>
       keyAliases[c as KeyAlias] ??
-      (() => {
-        throw new Error(`unknown character '${c}'`);
-      })()
+        (() => {
+          throw new Error(`unknown character '${c}'`);
+        })(),
   );
 }
 
 export type KeyboardIdentifier = {
-  product_id: number;
+  product_id?: number;
   vendor_id: number;
 };
 
 export function device(
   keyboard: KeyboardIdentifier,
-  settings: Pick<KarabinerDevice, "simple_modifications">
+  settings: Pick<KarabinerDevice, "simple_modifications">,
 ): KarabinerDevice {
   return {
     identifiers: {
