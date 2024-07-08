@@ -24,6 +24,10 @@ const DEVICES = {
     product_id: 4,
     vendor_id: 11240,
   },
+  realforceR2: {
+    product_id: 328,
+    vendor_id: 2131,
+  },
   mint60: {
     product_id: 0,
     vendor_id: 65261,
@@ -124,6 +128,13 @@ const profile: KarabinerProfileExt = {
         ...simpleSwap("left_command", "left_control"),
         simple("escape", "grave_accent_and_tilde"),
         simple("right_control", "japanese_eisuu"),
+      ],
+    }),
+    device(DEVICES.realforceR2, {
+      simple_modifications: [
+        ...simpleSwap("left_command", "left_control"),
+        simple("right_command", "japanese_eisuu"),
+        simple("keypad_num_lock", "vk_none"),
       ],
     }),
     device(DEVICES.mint60, {

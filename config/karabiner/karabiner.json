@@ -1131,6 +1131,61 @@
                     "identifiers": {
                         "is_keyboard": true,
                         "is_pointing_device": false,
+                        "product_id": 328,
+                        "vendor_id": 2131
+                    },
+                    "disable_built_in_keyboard_if_exists": false,
+                    "ignore": false,
+                    "manipulate_caps_lock_led": true,
+                    "treat_as_built_in_keyboard": false,
+                    "fn_function_keys": [],
+                    "simple_modifications": [
+                        {
+                            "from": {
+                                "key_code": "left_command"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "left_control"
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
+                                "key_code": "left_control"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "left_command"
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
+                                "key_code": "right_command"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "japanese_eisuu"
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
+                                "key_code": "keypad_num_lock"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "vk_none"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": false,
                         "product_id": 0,
                         "vendor_id": 65261
                     },
