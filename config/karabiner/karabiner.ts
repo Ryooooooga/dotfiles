@@ -5,6 +5,7 @@ import {
   defaultGlobals,
   device,
   ifDevice,
+  ifDeviceExists,
   ifVar,
   KarabinerConfigExt,
   KarabinerProfileExt,
@@ -139,6 +140,16 @@ const macRule = rule("MacBook Internal Keyboard")
       .toIfAlone("escape"),
   ]);
 
+const realforceRule = rule("REALFORCE")
+  .condition(ifDevice(DEVICES.realforceR2))
+  .manipulators([
+    map("spacebar", null, "any")
+      .condition(ifDeviceExists(DEVICES.progresTouchRetroTiny))
+      .to(toSetVar(LAYER.lower, 1))
+      .toAfterKeyUp(toSetVar(LAYER.lower, 0))
+      .toIfAlone("return_or_enter"),
+  ]);
+
 const profile: KarabinerProfileExt = {
   complex_modifications: complexModifications([
     backspaceRule,
@@ -146,6 +157,7 @@ const profile: KarabinerProfileExt = {
     capsRule,
     lowerRule,
     macRule,
+    realforceRule,
   ]),
   devices: [
     device(DEVICES.macBook2018, {

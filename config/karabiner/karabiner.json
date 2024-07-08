@@ -1574,6 +1574,63 @@
                                 ]
                             }
                         ]
+                    },
+                    {
+                        "description": "REALFORCE",
+                        "manipulators": [
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "spacebar",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "conditions": [
+                                    {
+                                        "type": "device_exists_if",
+                                        "identifiers": [
+                                            {
+                                                "product_id": 4,
+                                                "vendor_id": 11240
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "device_if",
+                                        "identifiers": [
+                                            {
+                                                "product_id": 328,
+                                                "vendor_id": 2131
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "layer-lower",
+                                            "value": 1
+                                        }
+                                    }
+                                ],
+                                "to_after_key_up": [
+                                    {
+                                        "set_variable": {
+                                            "name": "layer-lower",
+                                            "value": 0
+                                        }
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "return_or_enter"
+                                    }
+                                ]
+                            }
+                        ]
                     }
                 ],
                 "parameters": {
