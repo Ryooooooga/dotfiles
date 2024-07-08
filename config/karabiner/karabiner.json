@@ -1112,16 +1112,6 @@
                             "consumer_key_code": "volume_increment"
                         }
                     ]
-                },
-                {
-                    "from": {
-                        "key_code": "japanese_eisuu"
-                    },
-                    "to": [
-                        {
-                            "key_code": "japanese_kana"
-                        }
-                    ]
                 }
             ],
             "name": "Default profile",
