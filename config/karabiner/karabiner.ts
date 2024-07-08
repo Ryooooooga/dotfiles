@@ -12,8 +12,7 @@ import {
   KeyboardIdentifier,
   map,
   rule,
-  simple,
-  simpleSwap,
+  simpleModifications,
   stroke,
   toSetVar,
   withCondition,
@@ -161,28 +160,33 @@ const profile: KarabinerProfileExt = {
   ]),
   devices: [
     device(DEVICES.macBook2018, {
-      simple_modifications: [
-        simple("fn", "left_command"),
-        simple("left_command", "escape"),
-        simple("right_option", "fn"),
-      ],
+      simple_modifications: simpleModifications([
+        map("fn").to("left_command"),
+        map("left_command").to("escape"),
+        map("right_option").to("fn"),
+      ]),
     }),
     device(DEVICES.progresTouchRetroTiny, {
-      simple_modifications: [
-        ...simpleSwap("left_command", "left_control"),
-        simple("escape", "grave_accent_and_tilde"),
-        simple("right_control", "japanese_eisuu"),
-      ],
+      simple_modifications: simpleModifications([
+        map("left_command").to("left_control"),
+        map("left_control").to("left_command"),
+        map("escape").to("grave_accent_and_tilde"),
+        map("right_control").to("japanese_eisuu"),
+      ]),
     }),
     device(DEVICES.realforceR2, {
-      simple_modifications: [
-        ...simpleSwap("left_command", "left_control"),
-        simple("right_command", "japanese_eisuu"),
-        simple("keypad_num_lock", "vk_none"),
-      ],
+      simple_modifications: simpleModifications([
+        map("left_command").to("left_control"),
+        map("left_control").to("left_command"),
+        map("right_command").to("japanese_eisuu"),
+        map("keypad_num_lock").toNone(),
+      ]),
     }),
     device(DEVICES.mint60, {
-      simple_modifications: [...simpleSwap("left_command", "left_control")],
+      simple_modifications: simpleModifications([
+        map("left_command").to("left_control"),
+        map("left_control").to("left_command"),
+      ]),
     }),
   ],
   fn_function_keys: defaultFnFunctionKeys,

@@ -2,18 +2,16 @@ export * from "https://deno.land/x/karabinerts/deno.ts";
 
 import {
   DeviceIdentifier,
-  FromAndToKeyCode,
   FromEvent,
-  FromKeyCode,
   KarabinerConfig,
   KarabinerProfile,
   ToEvent,
-  ToKeyCode,
 } from "https://deno.land/x/karabinerts/deno.ts";
+import { BasicManipulatorBuilder } from "https://deno.land/x/karabinerts/config/manipulator.ts";
 
 export interface SimpleManipulator {
   from: FromEvent;
-  to: ToEvent[];
+  to?: ToEvent[];
 }
 
 export type SimpleModifications = SimpleManipulator[];
@@ -102,18 +100,12 @@ export const defaultFnFunctionKeys: SimpleModifications = [
   },
 ];
 
-export function simple(from: FromKeyCode, to: ToKeyCode): SimpleManipulator {
-  return {
-    from: { key_code: from },
-    to: [{ key_code: to }],
-  };
-}
-
-export function simpleSwap(
-  key1: FromAndToKeyCode,
-  key2: FromAndToKeyCode,
-): SimpleManipulator[] {
-  return [simple(key1, key2), simple(key2, key1)];
+export function simpleModifications(
+  builders: BasicManipulatorBuilder[],
+): SimpleModifications {
+  return builders
+    .flatMap((builder) => builder.build())
+    .map((m) => ({ ...m, type: undefined }));
 }
 
 const keyAliases = {
