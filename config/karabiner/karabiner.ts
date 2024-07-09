@@ -109,11 +109,11 @@ const lowerRule = rule("Lower Layer")
       map("g").to(stroke("+")),
 
       // ijkl
-      ...arrowKeys.flatMap(([key, c]) => [
-        map(c, ["command", "option"], "any").to(key, ["command", "option"]),
-        map(c, "command", "any").to(key, "option"),
-        map(c, "option", "any").to(key, "command"),
-        map(c, null, "any").to(key),
+      ...arrowKeys.flatMap(([key, from]) => [
+        map(from, ["command", "option"], "any").to(key, ["command", "option"]),
+        map(from, "command", "any").to(key, "option"),
+        map(from, "option", "any").to(key, "command"),
+        map(from, null, "any").to(key),
       ]),
       map("u", null, "any").to("home"),
       map("o", null, "any").to("end"),

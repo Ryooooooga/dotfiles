@@ -6,6 +6,7 @@ import {
   KarabinerConfig,
   KarabinerProfile,
   ToEvent,
+  toKey,
 } from "https://deno.land/x/karabinerts/deno.ts";
 import { BasicManipulatorBuilder } from "https://deno.land/x/karabinerts/config/manipulator.ts";
 
@@ -109,26 +110,26 @@ export function simpleModifications(
 }
 
 const keyAliases = {
-  "-": { key_code: "hyphen" },
-  _: { key_code: "hyphen", modifiers: ["shift"] },
-  "=": { key_code: "equal_sign" },
-  "+": { key_code: "equal_sign", modifiers: ["shift"] },
-  ">": { key_code: "period", modifiers: ["shift"] },
-  "/": { key_code: "slash" },
-  "?": { key_code: "slash", modifiers: ["shift"] },
-  "!": { key_code: "1", modifiers: ["shift"] },
-  "@": { key_code: "2", modifiers: ["shift"] },
-  "#": { key_code: "3", modifiers: ["shift"] },
-  $: { key_code: "4", modifiers: ["shift"] },
-  "%": { key_code: "5", modifiers: ["shift"] },
-  "^": { key_code: "6", modifiers: ["shift"] },
-  "&": { key_code: "7", modifiers: ["shift"] },
-  "*": { key_code: "8", modifiers: ["shift"] },
-  "(": { key_code: "9", modifiers: ["shift"] },
-  ")": { key_code: "0", modifiers: ["shift"] },
-  "{": { key_code: "open_bracket", modifiers: ["shift"] },
-  "}": { key_code: "close_bracket", modifiers: ["shift"] },
-  '"': { key_code: "quote", modifiers: ["shift"] },
+  "-": toKey("-"),
+  "_": toKey("-", "shift"),
+  "=": toKey("="),
+  "+": toKey("=", "shift"),
+  ">": toKey(".", "shift"),
+  "/": toKey("/"),
+  "?": toKey("/", "shift"),
+  "!": toKey("1", "shift"),
+  "@": toKey("2", "shift"),
+  "#": toKey("3", "shift"),
+  $: toKey("4", "shift"),
+  "%": toKey("5", "shift"),
+  "^": toKey("6", "shift"),
+  "&": toKey("7", "shift"),
+  "*": toKey("8", "shift"),
+  "(": toKey("9", "shift"),
+  ")": toKey("0", "shift"),
+  "{": toKey("[", "shift"),
+  "}": toKey("]", "shift"),
+  '"': toKey("'", "shift"),
 } as const satisfies Record<string, ToEvent>;
 
 type KeyAlias = keyof typeof keyAliases;
