@@ -321,6 +321,10 @@ fr	↑
 kd	けど
 kds	くださ
 kt	こと
+kta	きた
+kte	きて
+kto	こと
+kr	から
 kra	から
 kri	くらい
 kru	くる
@@ -328,27 +332,37 @@ kre	くれ
 kro	ころ
 krd	けれど
 kn	この
+sk	す	か
+すk	す	か
+sm	し	m
+すm	し	m
+sn		せん
+すn		せん
+せんe	すね
 st	し	た
-sms	しま	す
-sn	せ	ん
+すt	し	た
+すa	さ
+すi	し
+すu	す
+すe	せ
+すo	そ
+mt	み	た
+mn	もの
+ms	ま	す
 tr	た	ら
 dk	で	き
+dkr	だか	ら
+dkra	だから
+dkru	できる
 ds	で	す
-mt	み	た
-ms	ま	す
-mn	もの
 wt	わ	た
-きr	き	る
 きt	き	た
 しa	さ
 しi	し
 しu	す
 しe	せ
 しo	そ
-しt	し	た
-すk	す	か
-すt	し	た
-すn	せ	ん
+しn	さ	n
 たa	た
 たi	ち
 たu	つ
@@ -371,3 +385,4 @@ wt	わ	た
 んu	ぬ
 んe	ね
 んo	の
+んn	ん
