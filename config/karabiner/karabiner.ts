@@ -157,7 +157,10 @@ const profile: KarabinerProfileExt = {
     lowerRule,
     macRule,
     realforceRule,
-  ]),
+  ], {
+    "basic.to_if_alone_timeout_milliseconds": 250,
+    "basic.to_if_held_down_threshold_milliseconds": 250,
+  }),
   devices: [
     device(DEVICES.macBook2018, {
       simple_modifications: simpleModifications([
