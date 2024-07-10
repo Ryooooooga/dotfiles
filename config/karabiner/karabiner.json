@@ -401,6 +401,14 @@
                                 },
                                 "to": [
                                     {
+                                        "key_code": "left_command",
+                                        "modifiers": [
+                                            "shift"
+                                        ]
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
                                         "key_code": "hyphen"
                                     },
                                     {
@@ -422,6 +430,14 @@
                                     }
                                 },
                                 "to": [
+                                    {
+                                        "key_code": "left_command",
+                                        "modifiers": [
+                                            "shift"
+                                        ]
+                                    }
+                                ],
+                                "to_if_alone": [
                                     {
                                         "key_code": "equal_sign"
                                     },
@@ -447,6 +463,14 @@
                                 },
                                 "to": [
                                     {
+                                        "key_code": "left_command",
+                                        "modifiers": [
+                                            "shift"
+                                        ]
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
                                         "key_code": "hyphen"
                                     }
                                 ],
@@ -454,9 +478,22 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "caps_lock"
+                                    "key_code": "caps_lock",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
                                 },
                                 "to": [
+                                    {
+                                        "key_code": "left_command",
+                                        "modifiers": [
+                                            "shift"
+                                        ]
+                                    }
+                                ],
+                                "to_if_alone": [
                                     {
                                         "key_code": "hyphen",
                                         "modifiers": [

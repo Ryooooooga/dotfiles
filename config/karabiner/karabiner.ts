@@ -72,10 +72,18 @@ const arrowRule = rule("Exchange command + arrow keys with option + arrow keys")
 
 const capsRule = rule("Change Caps Lock")
   .manipulators([
-    map("caps_lock", "shift").to(stroke("->")),
-    map("caps_lock", "command").to(stroke("=>")),
-    map("caps_lock").condition(ifVar(LAYER.lower)).to(stroke("-")),
-    map("caps_lock").to(stroke("_")),
+    map("caps_lock", "shift")
+      .to("left_command", "shift")
+      .toIfAlone(stroke("->")),
+    map("caps_lock", "command")
+      .to("left_command", "shift")
+      .toIfAlone(stroke("=>")),
+    map("caps_lock").condition(ifVar(LAYER.lower))
+      .to("left_command", "shift")
+      .toIfAlone(stroke("-")),
+    map("caps_lock", null, "any")
+      .to("left_command", "shift")
+      .toIfAlone(stroke("_")),
   ]);
 
 const lowerRule = rule("Lower Layer")
