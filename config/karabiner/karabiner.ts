@@ -14,7 +14,6 @@ import {
   rule,
   simpleModifications,
   stroke,
-  toSetVar,
   withCondition,
 } from "./utils.ts";
 
@@ -129,8 +128,7 @@ const lowerRule = rule("Lower Layer")
       map("]").to(stroke("}")),
     ]),
     map("right_option", null, "any")
-      .to(toSetVar(LAYER.lower, 1))
-      .toAfterKeyUp(toSetVar(LAYER.lower, 0))
+      .toVar(LAYER.lower, 1, 0)
       .toIfAlone("escape"),
   ]);
 
@@ -138,8 +136,7 @@ const macRule = rule("MacBook Internal Keyboard")
   .condition(ifDevice(DEVICES.apple))
   .manipulators([
     map("right_command", null, "any")
-      .to(toSetVar(LAYER.lower, 1))
-      .toAfterKeyUp(toSetVar(LAYER.lower, 0))
+      .toVar(LAYER.lower, 1, 0)
       .toIfAlone("escape"),
   ]);
 
@@ -148,8 +145,7 @@ const realforceRule = rule("REALFORCE")
   .manipulators([
     map("spacebar", null, "any")
       .condition(ifDeviceExists(DEVICES.progresTouchRetroTiny))
-      .to(toSetVar(LAYER.lower, 1))
-      .toAfterKeyUp(toSetVar(LAYER.lower, 0))
+      .toVar(LAYER.lower, 1, 0)
       .toIfAlone("return_or_enter"),
   ]);
 
