@@ -9,12 +9,18 @@
     "profiles": [
         {
             "complex_modifications": {
+                "parameters": {
+                    "basic.simultaneous_threshold_milliseconds": 50,
+                    "basic.to_delayed_action_delay_milliseconds": 500,
+                    "basic.to_if_alone_timeout_milliseconds": 1000,
+                    "basic.to_if_held_down_threshold_milliseconds": 500,
+                    "mouse_motion_to_scroll.speed": 100
+                },
                 "rules": [
                     {
                         "description": "Exchange Command+Backspace/Delete and Option+Backspace/Delete",
                         "manipulators": [
                             {
-                                "type": "basic",
                                 "from": {
                                     "key_code": "delete_or_backspace",
                                     "modifiers": {
@@ -33,10 +39,10 @@
                                             "option"
                                         ]
                                     }
-                                ]
+                                ],
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
                                 "from": {
                                     "key_code": "delete_or_backspace",
                                     "modifiers": {
@@ -55,10 +61,10 @@
                                             "command"
                                         ]
                                     }
-                                ]
+                                ],
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
                                 "from": {
                                     "key_code": "delete_forward",
                                     "modifiers": {
@@ -77,10 +83,10 @@
                                             "option"
                                         ]
                                     }
-                                ]
+                                ],
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
                                 "from": {
                                     "key_code": "delete_forward",
                                     "modifiers": {
@@ -99,7 +105,8 @@
                                             "command"
                                         ]
                                     }
-                                ]
+                                ],
+                                "type": "basic"
                             }
                         ]
                     },
@@ -107,7 +114,6 @@
                         "description": "Exchange command + arrow keys with option + arrow keys",
                         "manipulators": [
                             {
-                                "type": "basic",
                                 "from": {
                                     "key_code": "left_arrow",
                                     "modifiers": {
@@ -128,10 +134,10 @@
                                             "option"
                                         ]
                                     }
-                                ]
+                                ],
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
                                 "from": {
                                     "key_code": "left_arrow",
                                     "modifiers": {
@@ -150,10 +156,10 @@
                                             "option"
                                         ]
                                     }
-                                ]
+                                ],
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
                                 "from": {
                                     "key_code": "left_arrow",
                                     "modifiers": {
@@ -172,10 +178,10 @@
                                             "command"
                                         ]
                                     }
-                                ]
+                                ],
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
                                 "from": {
                                     "key_code": "down_arrow",
                                     "modifiers": {
@@ -196,10 +202,10 @@
                                             "option"
                                         ]
                                     }
-                                ]
+                                ],
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
                                 "from": {
                                     "key_code": "down_arrow",
                                     "modifiers": {
@@ -218,10 +224,10 @@
                                             "option"
                                         ]
                                     }
-                                ]
+                                ],
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
                                 "from": {
                                     "key_code": "down_arrow",
                                     "modifiers": {
@@ -240,10 +246,10 @@
                                             "command"
                                         ]
                                     }
-                                ]
+                                ],
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
                                 "from": {
                                     "key_code": "up_arrow",
                                     "modifiers": {
@@ -264,10 +270,10 @@
                                             "option"
                                         ]
                                     }
-                                ]
+                                ],
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
                                 "from": {
                                     "key_code": "up_arrow",
                                     "modifiers": {
@@ -286,10 +292,10 @@
                                             "option"
                                         ]
                                     }
-                                ]
+                                ],
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
                                 "from": {
                                     "key_code": "up_arrow",
                                     "modifiers": {
@@ -308,10 +314,10 @@
                                             "command"
                                         ]
                                     }
-                                ]
+                                ],
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
                                 "from": {
                                     "key_code": "right_arrow",
                                     "modifiers": {
@@ -332,10 +338,10 @@
                                             "option"
                                         ]
                                     }
-                                ]
+                                ],
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
                                 "from": {
                                     "key_code": "right_arrow",
                                     "modifiers": {
@@ -354,10 +360,10 @@
                                             "option"
                                         ]
                                     }
-                                ]
+                                ],
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
                                 "from": {
                                     "key_code": "right_arrow",
                                     "modifiers": {
@@ -376,7 +382,8 @@
                                             "command"
                                         ]
                                     }
-                                ]
+                                ],
+                                "type": "basic"
                             }
                         ]
                     },
@@ -384,7 +391,6 @@
                         "description": "Change Caps Lock",
                         "manipulators": [
                             {
-                                "type": "basic",
                                 "from": {
                                     "key_code": "caps_lock",
                                     "modifiers": {
@@ -403,10 +409,10 @@
                                             "shift"
                                         ]
                                     }
-                                ]
+                                ],
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
                                 "from": {
                                     "key_code": "caps_lock",
                                     "modifiers": {
@@ -425,28 +431,28 @@
                                             "shift"
                                         ]
                                     }
-                                ]
+                                ],
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
-                                "from": {
-                                    "key_code": "caps_lock"
-                                },
                                 "conditions": [
                                     {
-                                        "type": "variable_if",
                                         "name": "layer-lower",
+                                        "type": "variable_if",
                                         "value": 1
                                     }
                                 ],
+                                "from": {
+                                    "key_code": "caps_lock"
+                                },
                                 "to": [
                                     {
                                         "key_code": "hyphen"
                                     }
-                                ]
+                                ],
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
                                 "from": {
                                     "key_code": "caps_lock"
                                 },
@@ -457,7 +463,8 @@
                                             "shift"
                                         ]
                                     }
-                                ]
+                                ],
+                                "type": "basic"
                             }
                         ]
                     },
@@ -465,7 +472,13 @@
                         "description": "Lower Layer",
                         "manipulators": [
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "1"
                                 },
@@ -477,16 +490,16 @@
                                         ]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "2"
                                 },
@@ -498,16 +511,16 @@
                                         ]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "3"
                                 },
@@ -519,16 +532,16 @@
                                         ]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "4"
                                 },
@@ -540,16 +553,16 @@
                                         ]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "5"
                                 },
@@ -561,16 +574,16 @@
                                         ]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "6"
                                 },
@@ -582,16 +595,16 @@
                                         ]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "7"
                                 },
@@ -603,16 +616,16 @@
                                         ]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "8"
                                 },
@@ -624,16 +637,16 @@
                                         ]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "9"
                                 },
@@ -645,16 +658,16 @@
                                         ]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "0"
                                 },
@@ -666,16 +679,16 @@
                                         ]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "hyphen"
                                 },
@@ -687,16 +700,16 @@
                                         ]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "equal_sign"
                                 },
@@ -708,16 +721,16 @@
                                         ]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "q"
                                 },
@@ -729,16 +742,16 @@
                                         ]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "w"
                                 },
@@ -750,16 +763,16 @@
                                         ]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "e"
                                 },
@@ -771,16 +784,16 @@
                                         ]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "r"
                                 },
@@ -792,16 +805,16 @@
                                         ]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "t"
                                 },
@@ -813,16 +826,16 @@
                                         ]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "a"
                                 },
@@ -834,16 +847,16 @@
                                         ]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "s"
                                 },
@@ -855,16 +868,16 @@
                                         ]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "d"
                                 },
@@ -876,16 +889,16 @@
                                         ]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "f"
                                 },
@@ -894,16 +907,16 @@
                                         "key_code": "equal_sign"
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "g"
                                 },
@@ -915,16 +928,16 @@
                                         ]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "j",
                                     "modifiers": {
@@ -946,16 +959,16 @@
                                         ]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "j",
                                     "modifiers": {
@@ -975,16 +988,16 @@
                                         ]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "j",
                                     "modifiers": {
@@ -1004,16 +1017,16 @@
                                         ]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "j",
                                     "modifiers": {
@@ -1027,16 +1040,16 @@
                                         "key_code": "left_arrow"
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "k",
                                     "modifiers": {
@@ -1058,16 +1071,16 @@
                                         ]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "k",
                                     "modifiers": {
@@ -1087,16 +1100,16 @@
                                         ]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "k",
                                     "modifiers": {
@@ -1116,16 +1129,16 @@
                                         ]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "k",
                                     "modifiers": {
@@ -1139,16 +1152,16 @@
                                         "key_code": "down_arrow"
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "i",
                                     "modifiers": {
@@ -1170,16 +1183,16 @@
                                         ]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "i",
                                     "modifiers": {
@@ -1199,16 +1212,16 @@
                                         ]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "i",
                                     "modifiers": {
@@ -1228,16 +1241,16 @@
                                         ]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "i",
                                     "modifiers": {
@@ -1251,16 +1264,16 @@
                                         "key_code": "up_arrow"
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "l",
                                     "modifiers": {
@@ -1282,16 +1295,16 @@
                                         ]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "l",
                                     "modifiers": {
@@ -1311,16 +1324,16 @@
                                         ]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "l",
                                     "modifiers": {
@@ -1340,16 +1353,16 @@
                                         ]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "l",
                                     "modifiers": {
@@ -1363,16 +1376,16 @@
                                         "key_code": "right_arrow"
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "u",
                                     "modifiers": {
@@ -1386,16 +1399,16 @@
                                         "key_code": "home"
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "o",
                                     "modifiers": {
@@ -1409,16 +1422,16 @@
                                         "key_code": "end"
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "p",
                                     "modifiers": {
@@ -1432,16 +1445,16 @@
                                         "key_code": "page_up"
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "semicolon",
                                     "modifiers": {
@@ -1455,16 +1468,16 @@
                                         "key_code": "page_down"
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "z"
                                 },
@@ -1476,16 +1489,16 @@
                                         ]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "x"
                                 },
@@ -1497,16 +1510,16 @@
                                         ]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "c"
                                 },
@@ -1515,16 +1528,16 @@
                                         "key_code": "slash"
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "v"
                                 },
@@ -1536,16 +1549,16 @@
                                         ]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "open_bracket"
                                 },
@@ -1557,16 +1570,16 @@
                                         ]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "name": "layer-lower",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "close_bracket"
                                 },
@@ -1578,16 +1591,9 @@
                                         ]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "layer-lower",
-                                        "value": 1
-                                    }
-                                ]
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
                                 "from": {
                                     "key_code": "right_option",
                                     "modifiers": {
@@ -1599,9 +1605,9 @@
                                 "to": [
                                     {
                                         "set_variable": {
+                                            "key_up_value": 0,
                                             "name": "layer-lower",
-                                            "value": 1,
-                                            "key_up_value": 0
+                                            "value": 1
                                         }
                                     }
                                 ],
@@ -1609,7 +1615,8 @@
                                     {
                                         "key_code": "escape"
                                     }
-                                ]
+                                ],
+                                "type": "basic"
                             }
                         ]
                     },
@@ -1617,7 +1624,16 @@
                         "description": "MacBook Internal Keyboard",
                         "manipulators": [
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "vendor_id": 1452
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "right_command",
                                     "modifiers": {
@@ -1629,9 +1645,9 @@
                                 "to": [
                                     {
                                         "set_variable": {
+                                            "key_up_value": 0,
                                             "name": "layer-lower",
-                                            "value": 1,
-                                            "key_up_value": 0
+                                            "value": 1
                                         }
                                     }
                                 ],
@@ -1640,16 +1656,7 @@
                                         "key_code": "escape"
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "device_if",
-                                        "identifiers": [
-                                            {
-                                                "vendor_id": 1452
-                                            }
-                                        ]
-                                    }
-                                ]
+                                "type": "basic"
                             }
                         ]
                     },
@@ -1657,7 +1664,26 @@
                         "description": "REALFORCE",
                         "manipulators": [
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 4,
+                                                "vendor_id": 11240
+                                            }
+                                        ],
+                                        "type": "device_exists_if"
+                                    },
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 328,
+                                                "vendor_id": 2131
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "spacebar",
                                     "modifiers": {
@@ -1666,32 +1692,12 @@
                                         ]
                                     }
                                 },
-                                "conditions": [
-                                    {
-                                        "type": "device_exists_if",
-                                        "identifiers": [
-                                            {
-                                                "product_id": 4,
-                                                "vendor_id": 11240
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "type": "device_if",
-                                        "identifiers": [
-                                            {
-                                                "product_id": 328,
-                                                "vendor_id": 2131
-                                            }
-                                        ]
-                                    }
-                                ],
                                 "to": [
                                     {
                                         "set_variable": {
+                                            "key_up_value": 0,
                                             "name": "layer-lower",
-                                            "value": 1,
-                                            "key_up_value": 0
+                                            "value": 1
                                         }
                                     }
                                 ],
@@ -1699,32 +1705,25 @@
                                     {
                                         "key_code": "return_or_enter"
                                     }
-                                ]
+                                ],
+                                "type": "basic"
                             }
                         ]
                     }
-                ],
-                "parameters": {
-                    "basic.to_if_alone_timeout_milliseconds": 1000,
-                    "basic.to_if_held_down_threshold_milliseconds": 500,
-                    "basic.to_delayed_action_delay_milliseconds": 500,
-                    "basic.simultaneous_threshold_milliseconds": 50,
-                    "mouse_motion_to_scroll.speed": 100
-                }
+                ]
             },
             "devices": [
                 {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
                     "identifiers": {
                         "is_keyboard": true,
                         "is_pointing_device": false,
                         "product_id": 634,
                         "vendor_id": 1452
                     },
-                    "disable_built_in_keyboard_if_exists": false,
                     "ignore": false,
                     "manipulate_caps_lock_led": true,
-                    "treat_as_built_in_keyboard": false,
-                    "fn_function_keys": [],
                     "simple_modifications": [
                         {
                             "from": {
@@ -1756,21 +1755,31 @@
                                 }
                             ]
                         }
-                    ]
+                    ],
+                    "treat_as_built_in_keyboard": false
                 },
                 {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
                     "identifiers": {
                         "is_keyboard": true,
                         "is_pointing_device": false,
                         "product_id": 4,
                         "vendor_id": 11240
                     },
-                    "disable_built_in_keyboard_if_exists": false,
                     "ignore": false,
                     "manipulate_caps_lock_led": true,
-                    "treat_as_built_in_keyboard": false,
-                    "fn_function_keys": [],
                     "simple_modifications": [
+                        {
+                            "from": {
+                                "key_code": "escape"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "grave_accent_and_tilde"
+                                }
+                            ]
+                        },
                         {
                             "from": {
                                 "key_code": "left_command"
@@ -1793,16 +1802,6 @@
                         },
                         {
                             "from": {
-                                "key_code": "escape"
-                            },
-                            "to": [
-                                {
-                                    "key_code": "grave_accent_and_tilde"
-                                }
-                            ]
-                        },
-                        {
-                            "from": {
                                 "key_code": "right_control"
                             },
                             "to": [
@@ -1811,21 +1810,31 @@
                                 }
                             ]
                         }
-                    ]
+                    ],
+                    "treat_as_built_in_keyboard": false
                 },
                 {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
                     "identifiers": {
                         "is_keyboard": true,
                         "is_pointing_device": false,
                         "product_id": 328,
                         "vendor_id": 2131
                     },
-                    "disable_built_in_keyboard_if_exists": false,
                     "ignore": false,
                     "manipulate_caps_lock_led": true,
-                    "treat_as_built_in_keyboard": false,
-                    "fn_function_keys": [],
                     "simple_modifications": [
+                        {
+                            "from": {
+                                "key_code": "keypad_num_lock"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "vk_none"
+                                }
+                            ]
+                        },
                         {
                             "from": {
                                 "key_code": "left_command"
@@ -1855,31 +1864,21 @@
                                     "key_code": "japanese_eisuu"
                                 }
                             ]
-                        },
-                        {
-                            "from": {
-                                "key_code": "keypad_num_lock"
-                            },
-                            "to": [
-                                {
-                                    "key_code": "vk_none"
-                                }
-                            ]
                         }
-                    ]
+                    ],
+                    "treat_as_built_in_keyboard": false
                 },
                 {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
                     "identifiers": {
                         "is_keyboard": true,
                         "is_pointing_device": false,
                         "product_id": 0,
                         "vendor_id": 65261
                     },
-                    "disable_built_in_keyboard_if_exists": false,
                     "ignore": false,
                     "manipulate_caps_lock_led": true,
-                    "treat_as_built_in_keyboard": false,
-                    "fn_function_keys": [],
                     "simple_modifications": [
                         {
                             "from": {
@@ -1901,7 +1900,8 @@
                                 }
                             ]
                         }
-                    ]
+                    ],
+                    "treat_as_built_in_keyboard": false
                 }
             ],
             "fn_function_keys": [

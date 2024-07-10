@@ -168,18 +168,18 @@ const profile: KarabinerProfileExt = {
     }),
     device(DEVICES.progresTouchRetroTiny, {
       simple_modifications: simpleModifications([
+        map("escape").to("grave_accent_and_tilde"),
         map("left_command").to("left_control"),
         map("left_control").to("left_command"),
-        map("escape").to("grave_accent_and_tilde"),
         map("right_control").to("japanese_eisuu"),
       ]),
     }),
     device(DEVICES.realforceR2, {
       simple_modifications: simpleModifications([
+        map("keypad_num_lock").toNone(),
         map("left_command").to("left_control"),
         map("left_control").to("left_command"),
         map("right_command").to("japanese_eisuu"),
-        map("keypad_num_lock").toNone(),
       ]),
     }),
     device(DEVICES.mint60, {
@@ -208,7 +208,16 @@ const config: KarabinerConfigExt = {
   profiles: [profile],
 };
 
+function keySorter(_key: string, value: any) {
+  if (typeof value === "object" && value !== null && !Array.isArray(value)) {
+    return Object.fromEntries(
+      Object.entries(value).sort(),
+    );
+  }
+  return value;
+}
+
 Deno.writeTextFile(
   new URL("karabiner.json", import.meta.url),
-  JSON.stringify(config, null, 4),
+  JSON.stringify(config, keySorter, 4),
 );
