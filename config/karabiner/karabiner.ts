@@ -37,6 +37,10 @@ const DEVICES = {
     product_id: 0,
     vendor_id: 65261,
   },
+  akl680: {
+    product_id: 591,
+    vendor_id: 1452,
+  },
 } as const satisfies Record<string, KeyboardIdentifier>;
 
 const LAYER = {
@@ -199,6 +203,14 @@ const profile: KarabinerProfileExt = {
         map("left_control").to("left_command"),
       ]),
     }),
+    device(DEVICES.akl680, {
+      simple_modifications: simpleModifications([
+        map("left_option").to("left_control"),
+        map("left_control").to("left_command"),
+        map("left_command").to("left_option"),
+        map("escape").to("grave_accent_and_tilde"),
+      ]),
+    }),
   ],
   fn_function_keys: defaultFnFunctionKeys,
   name: "Default profile",
@@ -222,7 +234,7 @@ const config: KarabinerConfigExt = {
 function keySorter(_key: string, value: any) {
   if (typeof value === "object" && value !== null && !Array.isArray(value)) {
     return Object.fromEntries(
-      Object.entries(value).sort(),
+      Object.entries(value).sort(([ak], [bk]) => ak.localeCompare(bk)),
     );
   }
   return value;
