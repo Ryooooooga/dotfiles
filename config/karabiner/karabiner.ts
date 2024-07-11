@@ -4,6 +4,7 @@ import {
   defaultFnFunctionKeys,
   defaultGlobals,
   device,
+  FromKeyCode,
   ifDevice,
   ifDeviceExists,
   ifVar,
@@ -14,6 +15,7 @@ import {
   rule,
   simpleModifications,
   stroke,
+  toSetVar,
   withCondition,
 } from "./utils.ts";
 
@@ -43,132 +45,161 @@ const DEVICES = {
   },
 } as const satisfies Record<string, KeyboardIdentifier>;
 
-const LAYER = {
-  lower: "layer-lower",
+const LAYER_VAR = "layer";
+
+const LAYERS = {
+  normal: 0,
+  lower: 1,
 } as const;
 
-const backspaceRule = rule(
-  "Exchange Command+Backspace/Delete and Option+Backspace/Delete",
-)
-  .manipulators([
-    map("⌫", "command", "shift").to("⌫", "option"),
-    map("⌫", "option", "shift").to("⌫", "command"),
-    map("⌦", "command", "shift").to("⌦", "option"),
-    map("⌦", "option", "shift").to("⌦", "command"),
-  ])
-  .build();
+type Layer = keyof typeof LAYERS;
 
-const arrowKeys = [
-  ["←", "j"],
-  ["↓", "k"],
-  ["↑", "i"],
-  ["→", "l"],
-] as const;
+function ifLayer(layer: Layer) {
+  return ifVar(LAYER_VAR, LAYERS[layer]);
+}
 
-const arrowRule = rule("Exchange command + arrow keys with option + arrow keys")
-  .manipulators(
-    arrowKeys.flatMap(([key]) => [
-      map(key, ["command", "option"], "any").to(key, ["command", "option"]),
-      map(key, "command", "any").to(key, "option"),
-      map(key, "option", "any").to(key, "command"),
-    ]),
-  );
+function toMOLayer(layer: Layer) {
+  return toSetVar(LAYER_VAR, LAYERS[layer], LAYERS.normal);
+}
 
-const capsRule = rule("Change Caps Lock")
-  .manipulators([
-    map("caps_lock", "shift")
-      .to("left_command", "shift")
-      .toIfAlone(stroke("->")),
-    map("caps_lock", "command")
-      .to("left_command", "shift")
-      .toIfAlone(stroke("=>")),
-    map("caps_lock").condition(ifVar(LAYER.lower))
-      .to("left_command", "shift")
-      .toIfAlone(stroke("-")),
-    map("caps_lock", null, "any")
-      .to("left_command", "shift")
-      .toIfAlone(stroke("_")),
-  ]);
+function backspaceRule() {
+  return rule("Exchange Command+Backspace/Delete and Option+Backspace/Delete")
+    .manipulators([
+      map("⌫", "command", "shift").to("⌫", "option"),
+      map("⌫", "option", "shift").to("⌫", "command"),
+      map("⌦", "command", "shift").to("⌦", "option"),
+      map("⌦", "option", "shift").to("⌦", "command"),
+    ]);
+}
 
-const lowerRule = rule("Lower Layer")
-  .manipulators([
-    withCondition(ifVar(LAYER.lower))([
-      map("1").to(stroke("!")),
-      map("2").to(stroke("@")),
-      map("3").to(stroke("#")),
-      map("4").to(stroke("$")),
-      map("5").to(stroke("%")),
+const arrowKeys = ["←", "↓", "↑", "→"] as const;
 
-      map("6").to(stroke("^")),
-      map("7").to(stroke("&")),
-      map("8").to(stroke("*")),
-      map("9").to(stroke("(")),
-      map("0").to(stroke(")")),
-      map("-").to(stroke("_")),
-      map("=").to(stroke("+")),
-
-      map("q").to(stroke("!")),
-      map("w").to(stroke("@")),
-      map("e").to(stroke("#")),
-      map("r").to(stroke("$")),
-      map("t").to(stroke("%")),
-
-      map("a").to(stroke("^")),
-      map("s").to(stroke("&")),
-      map("d").to(stroke("*")),
-      map("f").to(stroke("=")),
-      map("g").to(stroke("+")),
-
-      // ijkl
-      ...arrowKeys.flatMap(([key, from]) => [
-        map(from, ["command", "option"], "any").to(key, ["command", "option"]),
-        map(from, "command", "any").to(key, "option"),
-        map(from, "option", "any").to(key, "command"),
-        map(from, null, "any").to(key),
+function modArrowRule() {
+  return rule("Exchange command + arrow keys with option + arrow keys")
+    .manipulators(
+      arrowKeys.flatMap((key) => [
+        map(key, ["command", "option"], "any").to(key, ["command", "option"]),
+        map(key, "command", "any").to(key, "option"),
+        map(key, "option", "any").to(key, "command"),
       ]),
-      map("u", null, "any").to("home"),
-      map("o", null, "any").to("end"),
-      map("p", null, "any").to("page_up"),
-      map(";", null, "any").to("page_down"),
+    );
+}
 
-      map("z").to(stroke("(")),
-      map("x").to(stroke(")")),
-      map("c").to(stroke("/")),
-      map("v").to(stroke("?")),
-
-      map("[").to(stroke("{")),
-      map("]").to(stroke("}")),
-    ]),
-    map("right_option", null, "any")
-      .toVar(LAYER.lower, 1, 0)
-      .toIfAlone("escape"),
+function mapArrows(
+  up: FromKeyCode,
+  left: FromKeyCode,
+  down: FromKeyCode,
+  right: FromKeyCode,
+) {
+  const alt = [left, down, up, right];
+  return arrowKeys.flatMap((key, i) => [
+    map(alt[i], ["command", "option"], "any").to(key, ["command", "option"]),
+    map(alt[i], "command", "any").to(key, "option"),
+    map(alt[i], "option", "any").to(key, "command"),
+    map(alt[i], null, "any").to(key),
   ]);
+}
 
-const macRule = rule("MacBook Internal Keyboard")
-  .condition(ifDevice(DEVICES.apple))
-  .manipulators([
-    map("right_command", null, "any")
-      .toVar(LAYER.lower, 1, 0)
-      .toIfAlone("escape"),
-  ]);
+function capsLockRule() {
+  return rule("Change Caps Lock")
+    .manipulators([
+      map("caps_lock", "shift")
+        .to("left_command", "shift")
+        .toIfAlone(stroke("->")),
+      map("caps_lock", "command")
+        .to("left_command", "shift")
+        .toIfAlone(stroke("=>")),
+      map("caps_lock").condition(ifLayer("lower"))
+        .to("left_command", "shift")
+        .toIfAlone(stroke("-")),
+      map("caps_lock", null, "any")
+        .to("left_command", "shift")
+        .toIfAlone(stroke("_")),
+    ]);
+}
 
-const realforceRule = rule("REALFORCE")
-  .condition(ifDevice(DEVICES.realforceR2))
-  .manipulators([
-    map("spacebar", null, "any")
-      .condition(ifDeviceExists(DEVICES.progresTouchRetroTiny))
-      .toVar(LAYER.lower, 1, 0)
-      .toIfAlone("return_or_enter"),
-  ]);
+function lowerRule() {
+  return rule("Lower Layer")
+    .manipulators([
+      withCondition(ifLayer("lower"))([
+        map("1").to(stroke("!")),
+        map("2").to(stroke("@")),
+        map("3").to(stroke("#")),
+        map("4").to(stroke("$")),
+        map("5").to(stroke("%")),
+
+        map("6").to(stroke("^")),
+        map("7").to(stroke("&")),
+        map("8").to(stroke("*")),
+        map("9").to(stroke("(")),
+        map("0").to(stroke(")")),
+        map("-").to(stroke("_")),
+        map("=").to(stroke("+")),
+
+        map("q").to(stroke("!")),
+        map("w").to(stroke("@")),
+        map("e").to(stroke("#")),
+        map("r").to(stroke("$")),
+        map("t").to(stroke("%")),
+
+        map("a").to(stroke("^")),
+        map("s").to(stroke("&")),
+        map("d").to(stroke("*")),
+        map("f").to(stroke("=")),
+        map("g").to(stroke("+")),
+
+        ...mapArrows("i", "j", "k", "l"),
+        map("u", null, "any").to("home"),
+        map("o", null, "any").to("end"),
+        map("p", null, "any").to("page_up"),
+        map(";", null, "any").to("page_down"),
+
+        map("z").to(stroke("(")),
+        map("x").to(stroke(")")),
+        map("c").to(stroke("/")),
+        map("v").to(stroke("?")),
+
+        map("[").to(stroke("{")),
+        map("]").to(stroke("}")),
+      ]),
+      map("right_option", null, "any")
+        .condition(ifLayer("normal"))
+        .to(toMOLayer("lower"))
+        .toIfAlone("escape"),
+    ]);
+}
+
+function macRule() {
+  return rule("MacBook Internal Keyboard")
+    .condition(ifDevice(DEVICES.apple))
+    .manipulators([
+      map("right_command", null, "any")
+        .condition(ifLayer("normal"))
+        .to(toMOLayer("lower"))
+        .toIfAlone("escape"),
+    ]);
+}
+
+function realforceRule() {
+  return rule("REALFORCE")
+    .condition(ifDevice(DEVICES.realforceR2))
+    .manipulators([
+      map("spacebar", null, "any")
+        .condition(ifDeviceExists(DEVICES.progresTouchRetroTiny))
+        .condition(ifLayer("normal"))
+        .to(toMOLayer("lower"))
+        .toIfAlone("return_or_enter"),
+    ]);
+}
 
 const profile: KarabinerProfileExt = {
   complex_modifications: complexModifications([
-    backspaceRule,
-    arrowRule,
-    capsRule,
-    lowerRule,
-    macRule,
-    realforceRule,
+    backspaceRule(),
+    modArrowRule(),
+    capsLockRule(),
+    lowerRule(),
+    macRule(),
+    realforceRule(),
   ], {
     "basic.to_if_alone_timeout_milliseconds": 250,
     "basic.to_if_held_down_threshold_milliseconds": 250,

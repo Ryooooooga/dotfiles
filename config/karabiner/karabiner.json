@@ -453,7 +453,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -511,7 +511,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -532,7 +532,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -553,7 +553,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -574,7 +574,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -595,7 +595,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -616,7 +616,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -637,7 +637,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -658,7 +658,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -679,7 +679,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -700,7 +700,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -721,7 +721,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -742,7 +742,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -763,7 +763,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -784,7 +784,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -805,7 +805,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -826,7 +826,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -847,7 +847,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -868,7 +868,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -889,7 +889,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -910,7 +910,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -931,7 +931,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -949,7 +949,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -970,7 +970,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1001,7 +1001,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1030,7 +1030,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1059,7 +1059,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1082,7 +1082,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1113,7 +1113,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1142,7 +1142,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1171,7 +1171,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1194,7 +1194,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1225,7 +1225,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1254,7 +1254,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1283,7 +1283,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1306,7 +1306,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1337,7 +1337,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1366,7 +1366,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1395,7 +1395,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1418,7 +1418,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1441,7 +1441,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1464,7 +1464,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1487,7 +1487,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1510,7 +1510,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1531,7 +1531,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1552,7 +1552,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1570,7 +1570,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1591,7 +1591,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1612,7 +1612,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "layer-lower",
+                                        "name": "layer",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -1631,6 +1631,13 @@
                                 "type": "basic"
                             },
                             {
+                                "conditions": [
+                                    {
+                                        "name": "layer",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "right_option",
                                     "modifiers": {
@@ -1643,7 +1650,7 @@
                                     {
                                         "set_variable": {
                                             "key_up_value": 0,
-                                            "name": "layer-lower",
+                                            "name": "layer",
                                             "value": 1
                                         }
                                     }
@@ -1662,6 +1669,11 @@
                         "manipulators": [
                             {
                                 "conditions": [
+                                    {
+                                        "name": "layer",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
                                     {
                                         "identifiers": [
                                             {
@@ -1683,7 +1695,7 @@
                                     {
                                         "set_variable": {
                                             "key_up_value": 0,
-                                            "name": "layer-lower",
+                                            "name": "layer",
                                             "value": 1
                                         }
                                     }
@@ -1712,6 +1724,11 @@
                                         "type": "device_exists_if"
                                     },
                                     {
+                                        "name": "layer",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
                                         "identifiers": [
                                             {
                                                 "product_id": 328,
@@ -1733,7 +1750,7 @@
                                     {
                                         "set_variable": {
                                             "key_up_value": 0,
-                                            "name": "layer-lower",
+                                            "name": "layer",
                                             "value": 1
                                         }
                                     }
