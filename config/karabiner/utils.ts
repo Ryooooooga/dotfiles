@@ -111,7 +111,7 @@ export function simpleModifications(
 
 const keyAliases = {
   "-": toKey("-"),
-  "_": toKey("-", "shift"),
+  _: toKey("-", "shift"),
   "=": toKey("="),
   "+": toKey("=", "shift"),
   ">": toKey(".", "shift"),
@@ -130,6 +130,8 @@ const keyAliases = {
   "{": toKey("[", "shift"),
   "}": toKey("]", "shift"),
   '"': toKey("'", "shift"),
+  "`": toKey("`"),
+  "~": toKey("`", "shift"),
 } as const satisfies Record<string, ToEvent>;
 
 type KeyAlias = keyof typeof keyAliases;

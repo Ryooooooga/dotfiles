@@ -10,7 +10,7 @@ export async function getConfigRegex(regex: string): Promise<string[]> {
 
 export async function setConfig(
   key: string,
-  value: string
+  value: string,
 ): Promise<CommandResult> {
   return await $`git config ${key} ${value}`.noThrow();
 }

@@ -50,6 +50,7 @@ const LAYER_VAR = "layer";
 const LAYERS = {
   normal: 0,
   lower: 1,
+  raise: 2,
 } as const;
 
 type Layer = keyof typeof LAYERS;
@@ -65,10 +66,22 @@ function toMOLayer(layer: Layer) {
 function backspaceRule() {
   return rule("Exchange Command+Backspace/Delete and Option+Backspace/Delete")
     .manipulators([
-      map("⌫", "command", "shift").to("⌫", "option"),
-      map("⌫", "option", "shift").to("⌫", "command"),
-      map("⌦", "command", "shift").to("⌦", "option"),
-      map("⌦", "option", "shift").to("⌦", "command"),
+      withCondition(ifLayer("normal"))([
+        map("⌫", "command", "shift").to("⌫", "option"),
+        map("⌫", "option", "shift").to("⌫", "command"),
+        map("⌦", "command", "shift").to("⌦", "option"),
+        map("⌦", "option", "shift").to("⌦", "command"),
+      ]),
+      withCondition(ifLayer("lower"))([
+        map("⌫", "command", "shift").to("⌦", "option"),
+        map("⌫", "option", "shift").to("⌦", "command"),
+        map("⌫", null, "any").to("⌦"),
+      ]),
+      withCondition(ifLayer("raise"))([
+        map("⌫", "command", "shift").to("⌦", "option"),
+        map("⌫", "option", "shift").to("⌦", "command"),
+        map("⌫", null, "any").to("⌦"),
+      ]),
     ]);
 }
 
@@ -169,6 +182,29 @@ function lowerRule() {
     ]);
 }
 
+function raiseRule() {
+  return rule("Raise Layer")
+    .manipulators([
+      withCondition(ifLayer("raise"))([
+        ...mapArrows("w", "a", "s", "d"),
+        map("q", null, "any").to("home"),
+        map("e", null, "any").to("end"),
+        map("r", null, "any").to("page_up"),
+        map("f", null, "any").to("page_down"),
+
+        map("z").to(stroke("`")),
+        map("x").to(stroke("~")),
+      ]),
+      map("j", null, "any")
+        .condition(ifLayer("normal"))
+        .to(toMOLayer("raise"))
+        .toIfAlone("j"),
+      map("right_control", null, "any")
+        .condition(ifLayer("normal"))
+        .to(toMOLayer("raise")),
+    ]);
+}
+
 function macRule() {
   return rule("MacBook Internal Keyboard")
     .condition(ifDevice(DEVICES.apple))
@@ -198,6 +234,7 @@ const profile: KarabinerProfileExt = {
     modArrowRule(),
     capsLockRule(),
     lowerRule(),
+    raiseRule(),
     macRule(),
     realforceRule(),
   ], {
