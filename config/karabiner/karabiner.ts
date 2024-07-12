@@ -269,10 +269,10 @@ const profile: KarabinerProfileExt = {
     }),
     device(DEVICES.akl680, {
       simple_modifications: simpleModifications([
-        map("left_option").to("left_control"),
-        map("left_control").to("left_command"),
-        map("left_command").to("left_option"),
         map("escape").to("grave_accent_and_tilde"),
+        map("left_command").to("left_control"),
+        map("left_control").to("left_command"),
+        map("right_option").to("right_command"),
       ]),
     }),
   ],
@@ -295,7 +295,7 @@ const config: KarabinerConfigExt = {
   profiles: [profile],
 };
 
-function keySorter(_key: string, value: any) {
+function keySorter(_key: string, value: unknown) {
   if (typeof value === "object" && value !== null && !Array.isArray(value)) {
     return Object.fromEntries(
       Object.entries(value).sort(([ak], [bk]) => ak.localeCompare(bk)),
