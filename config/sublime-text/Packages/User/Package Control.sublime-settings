@@ -23,6 +23,7 @@
 		"LSP",
 		"LSP-clangd",
 		"LSP-copilot",
+		"LSP-rust-analyzer",
 		"Origami",
 		"Package Control",
 		"PackageResourceViewer",

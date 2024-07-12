@@ -50,4 +50,5 @@
 	"ignored_packages": [
 		"Vintage",
 	],
+	"index_files": true,
 }
