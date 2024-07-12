@@ -3,7 +3,6 @@ export * from "https://deno.land/x/karabinerts/deno.ts";
 import {
   DeviceIdentifier,
   FromEvent,
-  KarabinerConfig,
   KarabinerProfile,
   ToEvent,
   toKey,
@@ -37,9 +36,9 @@ export interface KarabinerProfileExt extends KarabinerProfile {
   virtual_hid_keyboard: Record<string, unknown>;
 }
 
-export interface KarabinerConfigExt extends KarabinerConfig {
+export interface KarabinerConfigExt {
   global: KarabinerGlobal;
-  profiles: [KarabinerProfileExt];
+  profiles: KarabinerProfileExt[];
 }
 
 export const defaultGlobals: KarabinerGlobal = {
@@ -49,57 +48,6 @@ export const defaultGlobals: KarabinerGlobal = {
   show_profile_name_in_menu_bar: false,
   unsafe_ui: false,
 };
-
-export const defaultFnFunctionKeys: SimpleModifications = [
-  {
-    from: { key_code: "f1" },
-    to: [{ consumer_key_code: "display_brightness_decrement" }],
-  },
-  {
-    from: { key_code: "f2" },
-    to: [{ consumer_key_code: "display_brightness_increment" }],
-  },
-  {
-    from: { key_code: "f3" },
-    to: [{ key_code: "mission_control" }],
-  },
-  {
-    from: { key_code: "f4" },
-    to: [{ key_code: "launchpad" }],
-  },
-  {
-    from: { key_code: "f5" },
-    to: [{ key_code: "illumination_decrement" }],
-  },
-  {
-    from: { key_code: "f6" },
-    to: [{ key_code: "illumination_increment" }],
-  },
-  {
-    from: { key_code: "f7" },
-    to: [{ consumer_key_code: "rewind" }],
-  },
-  {
-    from: { key_code: "f8" },
-    to: [{ consumer_key_code: "play_or_pause" }],
-  },
-  {
-    from: { key_code: "f9" },
-    to: [{ consumer_key_code: "fastforward" }],
-  },
-  {
-    from: { key_code: "f10" },
-    to: [{ consumer_key_code: "mute" }],
-  },
-  {
-    from: { key_code: "f11" },
-    to: [{ consumer_key_code: "volume_decrement" }],
-  },
-  {
-    from: { key_code: "f12" },
-    to: [{ consumer_key_code: "volume_increment" }],
-  },
-];
 
 export function simpleModifications(
   builders: BasicManipulatorBuilder[],
@@ -168,4 +116,26 @@ export function device(
     fn_function_keys: [],
     ...settings,
   };
+}
+
+export async function saveConfig(path: URL, config: KarabinerConfigExt) {
+  await Deno.writeTextFile(
+    path,
+    JSON.stringify(
+      config,
+      (_key, value) => {
+        if (
+          typeof value === "object" &&
+          value !== null &&
+          !Array.isArray(value)
+        ) {
+          return Object.fromEntries(
+            Object.entries(value).sort(([ak], [bk]) => ak.localeCompare(bk)),
+          );
+        }
+        return value;
+      },
+      4,
+    ),
+  );
 }

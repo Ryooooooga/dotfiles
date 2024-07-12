@@ -1,7 +1,6 @@
 #!/usr/bin/env -S deno run --check --allow-write
 import {
   complexModifications,
-  defaultFnFunctionKeys,
   defaultGlobals,
   device,
   FromKeyCode,
@@ -13,6 +12,7 @@ import {
   KeyboardIdentifier,
   map,
   rule,
+  saveConfig,
   simpleModifications,
   stroke,
   toSetVar,
@@ -64,38 +64,40 @@ function toMOLayer(layer: Layer) {
 }
 
 function backspaceRule() {
-  return rule("Exchange Command+Backspace/Delete and Option+Backspace/Delete")
-    .manipulators([
-      withCondition(ifLayer("normal"))([
-        map("⌫", "command", "shift").to("⌫", "option"),
-        map("⌫", "option", "shift").to("⌫", "command"),
-        map("⌦", "command", "shift").to("⌦", "option"),
-        map("⌦", "option", "shift").to("⌦", "command"),
-      ]),
-      withCondition(ifLayer("lower"))([
-        map("⌫", "command", "shift").to("⌦", "option"),
-        map("⌫", "option", "shift").to("⌦", "command"),
-        map("⌫", null, "any").to("⌦"),
-      ]),
-      withCondition(ifLayer("raise"))([
-        map("⌫", "command", "shift").to("⌦", "option"),
-        map("⌫", "option", "shift").to("⌦", "command"),
-        map("⌫", null, "any").to("⌦"),
-      ]),
-    ]);
+  return rule(
+    "Exchange Command+Backspace/Delete and Option+Backspace/Delete",
+  ).manipulators([
+    withCondition(ifLayer("normal"))([
+      map("⌫", "command", "shift").to("⌫", "option"),
+      map("⌫", "option", "shift").to("⌫", "command"),
+      map("⌦", "command", "shift").to("⌦", "option"),
+      map("⌦", "option", "shift").to("⌦", "command"),
+    ]),
+    withCondition(ifLayer("lower"))([
+      map("⌫", "command", "shift").to("⌦", "option"),
+      map("⌫", "option", "shift").to("⌦", "command"),
+      map("⌫", null, "any").to("⌦"),
+    ]),
+    withCondition(ifLayer("raise"))([
+      map("⌫", "command", "shift").to("⌦", "option"),
+      map("⌫", "option", "shift").to("⌦", "command"),
+      map("⌫", null, "any").to("⌦"),
+    ]),
+  ]);
 }
 
 const arrowKeys = ["←", "↓", "↑", "→"] as const;
 
 function modArrowRule() {
-  return rule("Exchange command + arrow keys with option + arrow keys")
-    .manipulators(
-      arrowKeys.flatMap((key) => [
-        map(key, ["command", "option"], "any").to(key, ["command", "option"]),
-        map(key, "command", "any").to(key, "option"),
-        map(key, "option", "any").to(key, "command"),
-      ]),
-    );
+  return rule(
+    "Exchange command + arrow keys with option + arrow keys",
+  ).manipulators(
+    arrowKeys.flatMap((key) => [
+      map(key, ["command", "option"], "any").to(key, ["command", "option"]),
+      map(key, "command", "any").to(key, "option"),
+      map(key, "option", "any").to(key, "command"),
+    ]),
+  );
 }
 
 function mapArrows(
@@ -114,91 +116,89 @@ function mapArrows(
 }
 
 function capsLockRule() {
-  return rule("Change Caps Lock")
-    .manipulators([
-      map("caps_lock", "shift")
-        .to("left_command", "shift")
-        .toIfAlone(stroke("->")),
-      map("caps_lock", "command")
-        .to("left_command", "shift")
-        .toIfAlone(stroke("=>")),
-      map("caps_lock").condition(ifLayer("lower"))
-        .to("left_command", "shift")
-        .toIfAlone(stroke("-")),
-      map("caps_lock", null, "any")
-        .to("left_command", "shift")
-        .toIfAlone(stroke("_")),
-    ]);
+  return rule("Change Caps Lock").manipulators([
+    map("caps_lock", "shift")
+      .to("left_command", "shift")
+      .toIfAlone(stroke("->")),
+    map("caps_lock", "command")
+      .to("left_command", "shift")
+      .toIfAlone(stroke("=>")),
+    map("caps_lock")
+      .condition(ifLayer("lower"))
+      .to("left_command", "shift")
+      .toIfAlone(stroke("-")),
+    map("caps_lock", null, "any")
+      .to("left_command", "shift")
+      .toIfAlone(stroke("_")),
+  ]);
 }
 
 function lowerRule() {
-  return rule("Lower Layer")
-    .manipulators([
-      withCondition(ifLayer("lower"))([
-        map("1").to(stroke("!")),
-        map("2").to(stroke("@")),
-        map("3").to(stroke("#")),
-        map("4").to(stroke("$")),
-        map("5").to(stroke("%")),
+  return rule("Lower Layer").manipulators([
+    withCondition(ifLayer("lower"))([
+      map("1").to(stroke("!")),
+      map("2").to(stroke("@")),
+      map("3").to(stroke("#")),
+      map("4").to(stroke("$")),
+      map("5").to(stroke("%")),
 
-        map("6").to(stroke("^")),
-        map("7").to(stroke("&")),
-        map("8").to(stroke("*")),
-        map("9").to(stroke("(")),
-        map("0").to(stroke(")")),
-        map("-").to(stroke("_")),
-        map("=").to(stroke("+")),
+      map("6").to(stroke("^")),
+      map("7").to(stroke("&")),
+      map("8").to(stroke("*")),
+      map("9").to(stroke("(")),
+      map("0").to(stroke(")")),
+      map("-").to(stroke("_")),
+      map("=").to(stroke("+")),
 
-        map("q").to(stroke("!")),
-        map("w").to(stroke("@")),
-        map("e").to(stroke("#")),
-        map("r").to(stroke("$")),
-        map("t").to(stroke("%")),
+      map("q").to(stroke("!")),
+      map("w").to(stroke("@")),
+      map("e").to(stroke("#")),
+      map("r").to(stroke("$")),
+      map("t").to(stroke("%")),
 
-        map("a").to(stroke("^")),
-        map("s").to(stroke("&")),
-        map("d").to(stroke("*")),
-        map("f").to(stroke("=")),
-        map("g").to(stroke("+")),
+      map("a").to(stroke("^")),
+      map("s").to(stroke("&")),
+      map("d").to(stroke("*")),
+      map("f").to(stroke("=")),
+      map("g").to(stroke("+")),
 
-        ...mapArrows("i", "j", "k", "l"),
-        map("u", null, "any").to("home"),
-        map("o", null, "any").to("end"),
-        map("p", null, "any").to("page_up"),
-        map(";", null, "any").to("page_down"),
+      ...mapArrows("i", "j", "k", "l"),
+      map("u", null, "any").to("home"),
+      map("o", null, "any").to("end"),
+      map("p", null, "any").to("page_up"),
+      map(";", null, "any").to("page_down"),
 
-        map("z").to(stroke("(")),
-        map("x").to(stroke(")")),
-        map("c").to(stroke("/")),
-        map("v").to(stroke("?")),
+      map("z").to(stroke("(")),
+      map("x").to(stroke(")")),
+      map("c").to(stroke("/")),
+      map("v").to(stroke("?")),
 
-        map("[").to(stroke("{")),
-        map("]").to(stroke("}")),
-      ]),
-      map("right_option", null, "any")
-        .condition(ifLayer("normal"))
-        .to(toMOLayer("lower"))
-        .toIfAlone("escape"),
-    ]);
+      map("[").to(stroke("{")),
+      map("]").to(stroke("}")),
+    ]),
+    map("right_option", null, "any")
+      .condition(ifLayer("normal"))
+      .to(toMOLayer("lower"))
+      .toIfAlone("escape"),
+  ]);
 }
 
 function raiseRule() {
-  return rule("Raise Layer")
-    .manipulators([
-      withCondition(ifLayer("raise"))([
-        ...mapArrows("w", "a", "s", "d"),
-        map("q", null, "any").to("home"),
-        map("e", null, "any").to("end"),
-        map("r", null, "any").to("page_up"),
-        map("f", null, "any").to("page_down"),
+  return rule("Raise Layer").manipulators([
+    withCondition(ifLayer("raise"))([
+      ...mapArrows("w", "a", "s", "d"),
+      map("q", null, "any").to("home"),
+      map("e", null, "any").to("end"),
+      map("r", null, "any").to("page_up"),
+      map("f", null, "any").to("page_down"),
 
-        map("z").to(stroke("`")),
-        map("x").to(stroke("~")),
-      ]),
-      map("right_control", null, "any")
-        .condition(ifLayer("normal"))
-        .to(toMOLayer("raise")),
-    ]);
+      map("z").to(stroke("`")),
+      map("x").to(stroke("~")),
+    ]),
+    map("right_control", null, "any")
+      .condition(ifLayer("normal"))
+      .to(toMOLayer("raise")),
+  ]);
 }
 
 function macRule() {
@@ -225,18 +225,21 @@ function realforceRule() {
 }
 
 const profile: KarabinerProfileExt = {
-  complex_modifications: complexModifications([
-    backspaceRule(),
-    modArrowRule(),
-    capsLockRule(),
-    lowerRule(),
-    raiseRule(),
-    macRule(),
-    realforceRule(),
-  ], {
-    "basic.to_if_alone_timeout_milliseconds": 250,
-    "basic.to_if_held_down_threshold_milliseconds": 250,
-  }),
+  complex_modifications: complexModifications(
+    [
+      backspaceRule(),
+      modArrowRule(),
+      capsLockRule(),
+      lowerRule(),
+      raiseRule(),
+      macRule(),
+      realforceRule(),
+    ],
+    {
+      "basic.to_if_alone_timeout_milliseconds": 250,
+      "basic.to_if_held_down_threshold_milliseconds": 250,
+    },
+  ),
   devices: [
     device(DEVICES.macBook2018, {
       simple_modifications: simpleModifications([
@@ -276,7 +279,20 @@ const profile: KarabinerProfileExt = {
       ]),
     }),
   ],
-  fn_function_keys: defaultFnFunctionKeys,
+  fn_function_keys: simpleModifications([
+    map("f1").toConsumerKey("display_brightness_decrement"),
+    map("f2").toConsumerKey("display_brightness_increment"),
+    map("f3").to("mission_control"),
+    map("f4").to("launchpad"),
+    map("f5").to("illumination_decrement"),
+    map("f6").to("illumination_increment"),
+    map("f7").toConsumerKey("rewind"),
+    map("f8").toConsumerKey("play_or_pause"),
+    map("f9").toConsumerKey("fastforward"),
+    map("f10").toConsumerKey("mute"),
+    map("f11").toConsumerKey("volume_decrement"),
+    map("f12").toConsumerKey("volume_increment"),
+  ]),
   name: "Default profile",
   parameters: {
     delay_milliseconds_before_open_device: 1000,
@@ -295,16 +311,4 @@ const config: KarabinerConfigExt = {
   profiles: [profile],
 };
 
-function keySorter(_key: string, value: unknown) {
-  if (typeof value === "object" && value !== null && !Array.isArray(value)) {
-    return Object.fromEntries(
-      Object.entries(value).sort(([ak], [bk]) => ak.localeCompare(bk)),
-    );
-  }
-  return value;
-}
-
-Deno.writeTextFile(
-  new URL("karabiner.json", import.meta.url),
-  JSON.stringify(config, keySorter, 4),
-);
+await saveConfig(new URL("karabiner.json", import.meta.url), config);
