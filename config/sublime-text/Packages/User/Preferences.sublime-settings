@@ -48,6 +48,7 @@
 
 	// Packages
 	"ignored_packages": [
+		"Rust",
 		"Vintage",
 	],
 	"index_files": true,
