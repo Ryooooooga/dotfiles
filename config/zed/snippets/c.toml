@@ -1,0 +1,223 @@
+[[snippets]]
+prefix = '#include'
+body = '#include <${1:stdio.h}>'
+
+[[snippets]]
+prefix = '#include'
+body = '#include "${1:header.h}"'
+
+[[snippets]]
+prefix = '#define'
+body = '#define ${1:NAME} $0'
+
+[[snippets]]
+prefix = '#guard'
+body = '''
+#ifndef INCLDUE_${1:HEADER}
+#define INCLDUE_${1:HEADER}
+
+$0
+
+#endif // INCLDUE_${1:HEADER}
+'''
+
+[[snippets]]
+prefix = '#ifdef'
+body = '''
+#ifdef ${1:NAME}
+$0
+#endif // ${1:NAME}
+'''
+
+[[snippets]]
+prefix = '#ifdefelse'
+body = '''
+#ifdef ${1:NAME}
+$0
+#else // ${1:NAME}
+
+#endif // ${1:NAME}
+'''
+
+[[snippets]]
+prefix = '#ifndef'
+body = '''
+#ifndef ${1:NAME}
+$0
+#endif // ${1:NAME}
+'''
+
+[[snippets]]
+prefix = '#ifndefelse'
+body = '''
+#ifndef ${1:NAME}
+$0
+#else // ${1:NAME}
+
+#endif // ${1:NAME}
+'''
+
+[[snippets]]
+prefix = '#pragma'
+body = '#pragma ${1:once}'
+
+[[snippets]]
+prefix = 'if'
+body = '''
+if (${1:condition}) {
+    $0
+}
+'''
+
+[[snippets]]
+prefix = 'else'
+body = '''
+else {
+    $0
+}
+'''
+
+[[snippets]]
+prefix = 'for'
+body = '''
+for (${1:size_t} ${2:i} = 0; ${2:i} < ${3:count}; ${2:i}++) {
+    $0
+}
+'''
+
+[[snippets]]
+prefix = 'while'
+body = '''
+while (${1:condition}) {
+    $0
+}
+'''
+
+[[snippets]]
+prefix = 'do'
+body = '''
+do {
+    $0
+} while (${1:condition});
+'''
+
+[[snippets]]
+prefix = 'switch'
+body = '''
+switch (${1:value}) {
+$0
+
+default:
+    break;
+}
+'''
+
+[[snippets]]
+prefix = 'case'
+body = '''
+case ${1:x}:
+    $0
+    break;
+'''
+
+[[snippets]]
+prefix = 'typedef'
+body = 'typedef ${2:struct ${1:T}} ${1:T};'
+
+[[snippets]]
+prefix = 'struct'
+body = '''
+${2:typedef} struct ${1:T},
+{,
+    $0,
+} ${3:${1:T}};
+'''
+
+[[snippets]]
+prefix = 'enum'
+body = '''
+${2:typedef} enum ${1:T},
+{,
+    $0,
+} ${3:${1:T}};
+'''
+
+[[snippets]]
+prefix = 'cptr'
+body = 'const ${1:T}*'
+
+[[snippets]]
+prefix = 'cauto'
+body = 'auto const'
+
+[[snippets]]
+prefix = 'unused'
+body = '[[maybe_unused]]'
+
+[[snippets]]
+prefix = 'nodiscard'
+body = '[[nodiscard]]'
+
+[[snippets]]
+prefix = 'assert'
+body = 'assert(${1:x}${2: != nullptr});'
+
+[[snippets]]
+prefix = 'printf'
+body = 'printf("${1}\\n"${2});'
+
+[[snippets]]
+prefix = 'fprintf'
+body = 'fprintf(${1:stderr}, "${2}\\n"${3});'
+
+[[snippets]]
+prefix = 'size_t'
+body = 'size_t'
+
+[[snippets]]
+prefix = 'u8'
+body = 'uint8_t'
+
+[[snippets]]
+prefix = 'u16'
+body = 'uint16_t'
+
+[[snippets]]
+prefix = 'u32'
+body = 'uint32_t'
+
+[[snippets]]
+prefix = 'u64'
+body = 'uint64_t'
+
+[[snippets]]
+prefix = 'i8'
+body = 'int8_t'
+
+[[snippets]]
+prefix = 'i16'
+body = 'int16_t'
+
+[[snippets]]
+prefix = 'i32'
+body = 'int32_t'
+
+[[snippets]]
+prefix = 'i64'
+body = 'int64_t'
+
+[[snippets]]
+prefix = 'char8'
+body = 'char8_t'
+
+[[snippets]]
+prefix = 'char32'
+body = 'char32_t'
+
+[[snippets]]
+prefix = 'main'
+body = '''
+main(${1:[[maybe_unused]] int argc, [[maybe_unused]] char* argv[]}) {
+    $0
+}
+'''

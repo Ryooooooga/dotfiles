@@ -1,0 +1,15 @@
+[[snippets]]
+prefix = 'phony'
+body = '''
+.PHONY: ${1:all}
+${1:all}: $2
+\t$0
+'''
+
+[[snippets]]
+prefix = 'clean'
+body = '''
+.PHONY: clean
+clean:
+\t\\${RM} $0
+'''
