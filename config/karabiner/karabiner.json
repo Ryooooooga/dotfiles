@@ -2445,38 +2445,6 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "j",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "key_up_value": 0,
-                                            "name": "layer",
-                                            "value": 2
-                                        }
-                                    }
-                                ],
-                                "to_if_alone": [
-                                    {
-                                        "key_code": "j"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "layer",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    }
-                                ],
-                                "from": {
                                     "key_code": "right_control",
                                     "modifiers": {
                                         "optional": [
@@ -2748,7 +2716,7 @@
                             },
                             "to": [
                                 {
-                                    "key_code": "japanese_eisuu"
+                                    "key_code": "right_control"
                                 }
                             ]
                         }

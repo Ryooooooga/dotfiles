@@ -195,10 +195,6 @@ function raiseRule() {
         map("z").to(stroke("`")),
         map("x").to(stroke("~")),
       ]),
-      map("j", null, "any")
-        .condition(ifLayer("normal"))
-        .to(toMOLayer("raise"))
-        .toIfAlone("j"),
       map("right_control", null, "any")
         .condition(ifLayer("normal"))
         .to(toMOLayer("raise")),
@@ -262,7 +258,7 @@ const profile: KarabinerProfileExt = {
         map("keypad_num_lock").toNone(),
         map("left_command").to("left_control"),
         map("left_control").to("left_command"),
-        map("right_command").to("japanese_eisuu"),
+        map("right_command").to("right_control"),
       ]),
     }),
     device(DEVICES.mint60, {
