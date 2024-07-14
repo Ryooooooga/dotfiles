@@ -1,11 +1,13 @@
 #!/usr/bin/env -S deno run --check --allow-write
 import {
+  BasicManipulatorBuilder,
   complexModifications,
   defaultGlobals,
   device,
   FromKeyCode,
   ifDevice,
   ifDeviceExists,
+  ifInputSource,
   ifVar,
   KarabinerConfigExt,
   KarabinerProfileExt,
@@ -15,8 +17,10 @@ import {
   saveConfig,
   simpleModifications,
   stroke,
+  toRemoveNotificationMessage,
   toSetVar,
   withCondition,
+  withMapper,
 } from "./utils.ts";
 
 const DEVICES = {
@@ -224,6 +228,101 @@ function realforceRule() {
     ]);
 }
 
+const lightOnishiMap = {
+  q: "q",
+  w: "w",
+  e: "e",
+  r: ",",
+  t: ".",
+  y: "f",
+  u: "y",
+  i: "r",
+  o: "h",
+  p: "p",
+  "[": "[",
+  "]": "]",
+  "\\": "\\",
+
+  a: "a",
+  s: "u",
+  d: "o",
+  f: "i",
+  g: ";",
+  h: "g",
+  j: "t",
+  k: "s",
+  l: "k",
+  ";": "b",
+  "'": "-",
+
+  z: "z",
+  x: "x",
+  c: "c",
+  v: "v",
+  b: "'",
+  n: "n",
+  m: "m",
+  ",": "d",
+  ".": "j",
+  "/": "l",
+  "-": "/",
+} as const;
+
+function jaLightOnishiRule() {
+  function remapKeys() {
+    const keyMap = Object.fromEntries(
+      Object.entries(lightOnishiMap).filter(([from, to]) => from !== to),
+    ) as Partial<typeof jaLightOnishiRule>;
+
+    return withMapper(keyMap)((from, to) => map(from, null, "shift").to(to));
+  }
+
+  enum Mode {
+    off,
+    ja,
+    full,
+  }
+
+  function switchMode(mode: Mode, message: string, m: BasicManipulatorBuilder) {
+    return m
+      .toVar("onishi", mode)
+      .parameters({ "basic.to_delayed_action_delay_milliseconds": 2000 })
+      .toNotificationMessage("onishi", message)
+      .toDelayedAction(
+        toRemoveNotificationMessage("onishi"),
+        toRemoveNotificationMessage("onishi"),
+      );
+  }
+
+  return rule("JA Onishi").manipulators([
+    withCondition(
+      ifVar("onishi", 1),
+      ifInputSource({ language: "ja" }),
+    )([remapKeys()]),
+    withCondition(ifVar("onishi", 2))([remapKeys()]),
+    switchMode(
+      Mode.off,
+      "QWERTY MODE",
+      map("page_up").condition(ifLayer("raise")),
+    ),
+    switchMode(
+      Mode.off,
+      "QWERTY MODE",
+      map("page_down").condition(ifLayer("raise"), ifVar("onishi", Mode.full)),
+    ),
+    switchMode(
+      Mode.ja,
+      "ONISHI MODE",
+      map("page_down").condition(ifLayer("raise"), ifVar("onishi", Mode.off)),
+    ),
+    switchMode(
+      Mode.full,
+      "FULL ONISHI MODE",
+      map("page_down").condition(ifLayer("raise"), ifVar("onishi", Mode.ja)),
+    ),
+  ]);
+}
+
 const profile: KarabinerProfileExt = {
   complex_modifications: complexModifications(
     [
@@ -234,6 +333,7 @@ const profile: KarabinerProfileExt = {
       raiseRule(),
       macRule(),
       realforceRule(),
+      jaLightOnishiRule(),
     ],
     {
       "basic.to_if_alone_timeout_milliseconds": 250,
