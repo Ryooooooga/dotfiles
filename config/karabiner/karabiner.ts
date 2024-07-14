@@ -15,8 +15,10 @@ import {
   saveConfig,
   simpleModifications,
   stroke,
+  toRemoveNotificationMessage,
   toSetVar,
   withCondition,
+  withMapper,
 } from "./utils.ts";
 
 const DEVICES = {
@@ -224,6 +226,75 @@ function realforceRule() {
     ]);
 }
 
+const lightOnishiMap = {
+  q: "q",
+  w: "w",
+  e: "e",
+  r: ",",
+  t: ".",
+  y: "f",
+  u: "y",
+  i: "r",
+  o: "h",
+  p: "p",
+  "[": "[",
+  "]": "]",
+  "\\": "\\",
+
+  a: "a",
+  s: "u",
+  d: "o",
+  f: "i",
+  g: ";",
+  h: "g",
+  j: "t",
+  k: "s",
+  l: "k",
+  ";": "b",
+  "'": "-",
+
+  z: "z",
+  x: "x",
+  c: "c",
+  v: "v",
+  b: "'",
+  n: "n",
+  m: "m",
+  ",": "d",
+  ".": "j",
+  "/": "l",
+  "-": "/",
+} as const;
+
+function jaLightOnishiRule() {
+  return rule("JA Onishi").manipulators([
+    withMapper(lightOnishiMap)((from, to) => {
+      if (from === to) return { build: () => [] };
+      return map(from, null, "shift")
+        .condition(ifVar("onishi", 1) /* ifInputSource({ language: "ja" }) */)
+        .to(to);
+    }),
+    map("page_up")
+      .condition(ifLayer("raise"))
+      .toVar("onishi", 0)
+      .parameters({ "basic.to_delayed_action_delay_milliseconds": 2000 })
+      .toNotificationMessage("onishi", "QWERTY MODE")
+      .toDelayedAction(
+        toRemoveNotificationMessage("onishi"),
+        toRemoveNotificationMessage("onishi"),
+      ),
+    map("page_down")
+      .condition(ifLayer("raise"))
+      .toVar("onishi", 1)
+      .toNotificationMessage("onishi", "ONISHI MDOE")
+      .parameters({ "basic.to_delayed_action_delay_milliseconds": 2000 })
+      .toDelayedAction(
+        toRemoveNotificationMessage("onishi"),
+        toRemoveNotificationMessage("onishi"),
+      ),
+  ]);
+}
+
 const profile: KarabinerProfileExt = {
   complex_modifications: complexModifications(
     [
@@ -234,6 +305,7 @@ const profile: KarabinerProfileExt = {
       raiseRule(),
       macRule(),
       realforceRule(),
+      jaLightOnishiRule(),
     ],
     {
       "basic.to_if_alone_timeout_milliseconds": 250,
