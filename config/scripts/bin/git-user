@@ -9,14 +9,12 @@ type User = {
 };
 
 async function getProfile(id: string): Promise<User> {
-  const name =
-    (await git.getConfig(`users.${id}.name`)) ||
+  const name = (await git.getConfig(`users.${id}.name`)) ||
     throw_(new Error(`git config users.${id}.name is not set`));
-  const email =
-    (await git.getConfig(`users.${id}.email`)) ||
+  const email = (await git.getConfig(`users.${id}.email`)) ||
     throw_(new Error(`git config users.${id}.email is not set`));
-  const signingKey =
-    (await git.getConfig(`users.${id}.signingKey`)) || undefined;
+  const signingKey = (await git.getConfig(`users.${id}.signingKey`)) ||
+    undefined;
 
   return { name, email, signingKey };
 }
@@ -64,11 +62,11 @@ async function runList() {
   const current = await getCurrentProfile();
 
   for (const [id, profile] of profiles) {
-    const isCurrent =
-      profile.name === current?.name && profile.email === current?.email;
+    const isCurrent = profile.name === current?.name &&
+      profile.email === current?.email;
 
     console.log(
-      `${isCurrent ? "*" : " "} ${id}: ${profile.name} <${profile.email}>`
+      `${isCurrent ? "*" : " "} ${id}: ${profile.name} <${profile.email}>`,
     );
   }
 }
@@ -78,13 +76,15 @@ async function runSet(id: string) {
 
   const lastCommitter = await git.getLastCommitter().catch(() => undefined);
   if (
-    lastCommitter?.name !== profile.name ||
-    lastCommitter?.email !== profile.email
+    lastCommitter !== undefined && (
+      lastCommitter.name !== profile.name ||
+      lastCommitter.email !== profile.email
+    )
   ) {
     console.warn(
       bgRed(
-        `!!! The Last Committer is ${lastCommitter?.name} <${lastCommitter?.email}> !!!`
-      )
+        `!!! The Last Committer is ${lastCommitter?.name} <${lastCommitter?.email}> !!!`,
+      ),
     );
   }
 

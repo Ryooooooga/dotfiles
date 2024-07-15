@@ -19,14 +19,20 @@ export async function unsetConfig(key: string): Promise<CommandResult> {
   return await $`git config --unset ${key}`.noThrow();
 }
 
-export async function getLastCommitter(): Promise<{
-  name: string;
-  email: string;
-}> {
+export async function getLastCommitter(): Promise<
+  {
+    name: string;
+    email: string;
+  } | undefined
+> {
   const output =
     await $`git --no-pager show --quiet --pretty='format:%cn%x00%ce'`
       .stderr("null")
       .text();
+
+  if (output.length === 0) {
+    return undefined;
+  }
 
   const [name, email] = output.split("\0");
   return { name, email };
