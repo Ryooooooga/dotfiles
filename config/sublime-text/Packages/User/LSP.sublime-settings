@@ -1,5 +1,6 @@
 {
 	"log_stderr": true,
+	"lsp_format_on_save": true,
 	"clients": {
 		"dls": {
 			"command": ["~/.dub/packages/.bin/dls-latest/dls"],
