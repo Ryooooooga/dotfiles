@@ -2566,12 +2566,12 @@
                         ]
                     },
                     {
-                        "description": "JA Onishi",
+                        "description": "JA Kshrgn",
                         "manipulators": [
                             {
                                 "conditions": [
                                     {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 1
                                     },
@@ -2594,7 +2594,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "comma"
+                                        "key_code": "d"
                                     }
                                 ],
                                 "type": "basic"
@@ -2602,7 +2602,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 1
                                     },
@@ -2625,7 +2625,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "period"
+                                        "key_code": "quote"
                                     }
                                 ],
                                 "type": "basic"
@@ -2633,7 +2633,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 1
                                     },
@@ -2656,7 +2656,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "f"
+                                        "key_code": "v"
                                     }
                                 ],
                                 "type": "basic"
@@ -2664,7 +2664,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 1
                                     },
@@ -2687,7 +2687,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "y"
+                                        "key_code": "g"
                                     }
                                 ],
                                 "type": "basic"
@@ -2695,7 +2695,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 1
                                     },
@@ -2726,7 +2726,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 1
                                     },
@@ -2749,7 +2749,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "h"
+                                        "key_code": "y"
                                     }
                                 ],
                                 "type": "basic"
@@ -2757,7 +2757,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 1
                                     },
@@ -2788,7 +2788,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 1
                                     },
@@ -2819,7 +2819,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 1
                                     },
@@ -2850,7 +2850,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 1
                                     },
@@ -2881,38 +2881,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "onishi",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    },
-                                    {
-                                        "input_sources": [
-                                            {
-                                                "language": "ja"
-                                            }
-                                        ],
-                                        "type": "input_source_if"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "h",
-                                    "modifiers": {
-                                        "optional": [
-                                            "shift"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "g"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 1
                                     },
@@ -2943,38 +2912,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "onishi",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    },
-                                    {
-                                        "input_sources": [
-                                            {
-                                                "language": "ja"
-                                            }
-                                        ],
-                                        "type": "input_source_if"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "k",
-                                    "modifiers": {
-                                        "optional": [
-                                            "shift"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "s"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 1
                                     },
@@ -2997,7 +2935,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "k"
+                                        "key_code": "s"
                                     }
                                 ],
                                 "type": "basic"
@@ -3005,7 +2943,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 1
                                     },
@@ -3036,7 +2974,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 1
                                     },
@@ -3067,7 +3005,38 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    },
+                                    {
+                                        "input_sources": [
+                                            {
+                                                "language": "ja"
+                                            }
+                                        ],
+                                        "type": "input_source_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "v",
+                                    "modifiers": {
+                                        "optional": [
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "comma"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 1
                                     },
@@ -3090,7 +3059,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "quote"
+                                        "key_code": "period"
                                     }
                                 ],
                                 "type": "basic"
@@ -3098,7 +3067,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 1
                                     },
@@ -3121,7 +3090,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "d"
+                                        "key_code": "j"
                                     }
                                 ],
                                 "type": "basic"
@@ -3129,7 +3098,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 1
                                     },
@@ -3152,7 +3121,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "j"
+                                        "key_code": "f"
                                     }
                                 ],
                                 "type": "basic"
@@ -3160,7 +3129,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 1
                                     },
@@ -3191,7 +3160,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 1
                                     },
@@ -3222,7 +3191,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 2
                                     }
@@ -3237,7 +3206,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "comma"
+                                        "key_code": "d"
                                     }
                                 ],
                                 "type": "basic"
@@ -3245,7 +3214,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 2
                                     }
@@ -3260,7 +3229,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "period"
+                                        "key_code": "quote"
                                     }
                                 ],
                                 "type": "basic"
@@ -3268,7 +3237,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 2
                                     }
@@ -3283,7 +3252,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "f"
+                                        "key_code": "v"
                                     }
                                 ],
                                 "type": "basic"
@@ -3291,7 +3260,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 2
                                     }
@@ -3306,7 +3275,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "y"
+                                        "key_code": "g"
                                     }
                                 ],
                                 "type": "basic"
@@ -3314,7 +3283,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 2
                                     }
@@ -3337,7 +3306,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 2
                                     }
@@ -3352,7 +3321,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "h"
+                                        "key_code": "y"
                                     }
                                 ],
                                 "type": "basic"
@@ -3360,7 +3329,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 2
                                     }
@@ -3383,7 +3352,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 2
                                     }
@@ -3406,7 +3375,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 2
                                     }
@@ -3429,7 +3398,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 2
                                     }
@@ -3452,30 +3421,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "onishi",
-                                        "type": "variable_if",
-                                        "value": 2
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "h",
-                                    "modifiers": {
-                                        "optional": [
-                                            "shift"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "g"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 2
                                     }
@@ -3498,13 +3444,13 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 2
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "k",
+                                    "key_code": "l",
                                     "modifiers": {
                                         "optional": [
                                             "shift"
@@ -3521,30 +3467,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "onishi",
-                                        "type": "variable_if",
-                                        "value": 2
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "l",
-                                    "modifiers": {
-                                        "optional": [
-                                            "shift"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "k"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 2
                                     }
@@ -3567,7 +3490,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 2
                                     }
@@ -3590,7 +3513,30 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
+                                        "type": "variable_if",
+                                        "value": 2
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "v",
+                                    "modifiers": {
+                                        "optional": [
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "comma"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 2
                                     }
@@ -3605,7 +3551,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "quote"
+                                        "key_code": "period"
                                     }
                                 ],
                                 "type": "basic"
@@ -3613,36 +3559,13 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 2
                                     }
                                 ],
                                 "from": {
                                     "key_code": "comma",
-                                    "modifiers": {
-                                        "optional": [
-                                            "shift"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "d"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "onishi",
-                                        "type": "variable_if",
-                                        "value": 2
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "period",
                                     "modifiers": {
                                         "optional": [
                                             "shift"
@@ -3659,7 +3582,30 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
+                                        "type": "variable_if",
+                                        "value": 2
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "period",
+                                    "modifiers": {
+                                        "optional": [
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "f"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 2
                                     }
@@ -3682,7 +3628,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 2
                                     }
@@ -3719,13 +3665,13 @@
                                 "to": [
                                     {
                                         "set_variable": {
-                                            "name": "onishi",
+                                            "name": "kshrgn",
                                             "value": 0
                                         }
                                     },
                                     {
                                         "set_notification_message": {
-                                            "id": "onishi",
+                                            "id": "kshrgn",
                                             "text": "QWERTY MODE"
                                         }
                                     }
@@ -3734,7 +3680,7 @@
                                     "to_if_canceled": [
                                         {
                                             "set_notification_message": {
-                                                "id": "onishi",
+                                                "id": "kshrgn",
                                                 "text": ""
                                             }
                                         }
@@ -3742,7 +3688,7 @@
                                     "to_if_invoked": [
                                         {
                                             "set_notification_message": {
-                                                "id": "onishi",
+                                                "id": "kshrgn",
                                                 "text": ""
                                             }
                                         }
@@ -3758,7 +3704,7 @@
                                         "value": 2
                                     },
                                     {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 2
                                     }
@@ -3772,13 +3718,13 @@
                                 "to": [
                                     {
                                         "set_variable": {
-                                            "name": "onishi",
+                                            "name": "kshrgn",
                                             "value": 0
                                         }
                                     },
                                     {
                                         "set_notification_message": {
-                                            "id": "onishi",
+                                            "id": "kshrgn",
                                             "text": "QWERTY MODE"
                                         }
                                     }
@@ -3787,7 +3733,7 @@
                                     "to_if_canceled": [
                                         {
                                             "set_notification_message": {
-                                                "id": "onishi",
+                                                "id": "kshrgn",
                                                 "text": ""
                                             }
                                         }
@@ -3795,7 +3741,7 @@
                                     "to_if_invoked": [
                                         {
                                             "set_notification_message": {
-                                                "id": "onishi",
+                                                "id": "kshrgn",
                                                 "text": ""
                                             }
                                         }
@@ -3811,7 +3757,7 @@
                                         "value": 2
                                     },
                                     {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 0
                                     }
@@ -3825,14 +3771,14 @@
                                 "to": [
                                     {
                                         "set_variable": {
-                                            "name": "onishi",
+                                            "name": "kshrgn",
                                             "value": 1
                                         }
                                     },
                                     {
                                         "set_notification_message": {
-                                            "id": "onishi",
-                                            "text": "ONISHI MODE"
+                                            "id": "kshrgn",
+                                            "text": "KSHRGN MODE"
                                         }
                                     }
                                 ],
@@ -3840,7 +3786,7 @@
                                     "to_if_canceled": [
                                         {
                                             "set_notification_message": {
-                                                "id": "onishi",
+                                                "id": "kshrgn",
                                                 "text": ""
                                             }
                                         }
@@ -3848,7 +3794,7 @@
                                     "to_if_invoked": [
                                         {
                                             "set_notification_message": {
-                                                "id": "onishi",
+                                                "id": "kshrgn",
                                                 "text": ""
                                             }
                                         }
@@ -3864,7 +3810,7 @@
                                         "value": 2
                                     },
                                     {
-                                        "name": "onishi",
+                                        "name": "kshrgn",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -3878,14 +3824,14 @@
                                 "to": [
                                     {
                                         "set_variable": {
-                                            "name": "onishi",
+                                            "name": "kshrgn",
                                             "value": 2
                                         }
                                     },
                                     {
                                         "set_notification_message": {
-                                            "id": "onishi",
-                                            "text": "FULL ONISHI MODE"
+                                            "id": "kshrgn",
+                                            "text": "FULL KSHRGN MODE"
                                         }
                                     }
                                 ],
@@ -3893,7 +3839,7 @@
                                     "to_if_canceled": [
                                         {
                                             "set_notification_message": {
-                                                "id": "onishi",
+                                                "id": "kshrgn",
                                                 "text": ""
                                             }
                                         }
@@ -3901,7 +3847,7 @@
                                     "to_if_invoked": [
                                         {
                                             "set_notification_message": {
-                                                "id": "onishi",
+                                                "id": "kshrgn",
                                                 "text": ""
                                             }
                                         }
