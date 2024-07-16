@@ -2625,7 +2625,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "quote"
+                                        "key_code": "l"
                                     }
                                 ],
                                 "type": "basic"
@@ -2687,7 +2687,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "g"
+                                        "key_code": "y"
                                     }
                                 ],
                                 "type": "basic"
@@ -2749,7 +2749,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "y"
+                                        "key_code": "j"
                                     }
                                 ],
                                 "type": "basic"
@@ -2873,7 +2873,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "semicolon"
+                                        "key_code": "f"
                                     }
                                 ],
                                 "type": "basic"
@@ -2926,7 +2926,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "l",
+                                    "key_code": "k",
                                     "modifiers": {
                                         "optional": [
                                             "shift"
@@ -2957,69 +2957,38 @@
                                     }
                                 ],
                                 "from": {
+                                    "key_code": "l",
+                                    "modifiers": {
+                                        "optional": [
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "k"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "kshrngn",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    },
+                                    {
+                                        "input_sources": [
+                                            {
+                                                "language": "ja"
+                                            }
+                                        ],
+                                        "type": "input_source_if"
+                                    }
+                                ],
+                                "from": {
                                     "key_code": "semicolon",
-                                    "modifiers": {
-                                        "optional": [
-                                            "shift"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "b"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "kshrngn",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    },
-                                    {
-                                        "input_sources": [
-                                            {
-                                                "language": "ja"
-                                            }
-                                        ],
-                                        "type": "input_source_if"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "quote",
-                                    "modifiers": {
-                                        "optional": [
-                                            "shift"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "hyphen"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "kshrngn",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    },
-                                    {
-                                        "input_sources": [
-                                            {
-                                                "language": "ja"
-                                            }
-                                        ],
-                                        "type": "input_source_if"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "v",
                                     "modifiers": {
                                         "optional": [
                                             "shift"
@@ -3050,7 +3019,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "b",
+                                    "key_code": "quote",
                                     "modifiers": {
                                         "optional": [
                                             "shift"
@@ -3081,6 +3050,37 @@
                                     }
                                 ],
                                 "from": {
+                                    "key_code": "v",
+                                    "modifiers": {
+                                        "optional": [
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "g"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "kshrngn",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    },
+                                    {
+                                        "input_sources": [
+                                            {
+                                                "language": "ja"
+                                            }
+                                        ],
+                                        "type": "input_source_if"
+                                    }
+                                ],
+                                "from": {
                                     "key_code": "comma",
                                     "modifiers": {
                                         "optional": [
@@ -3090,7 +3090,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "j"
+                                        "key_code": "hyphen"
                                     }
                                 ],
                                 "type": "basic"
@@ -3121,38 +3121,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "f"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "kshrngn",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    },
-                                    {
-                                        "input_sources": [
-                                            {
-                                                "language": "ja"
-                                            }
-                                        ],
-                                        "type": "input_source_if"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "slash",
-                                    "modifiers": {
-                                        "optional": [
-                                            "shift"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "l"
+                                        "key_code": "semicolon"
                                     }
                                 ],
                                 "type": "basic"
@@ -3183,7 +3152,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "slash"
+                                        "key_code": "quote"
                                     }
                                 ],
                                 "type": "basic"
@@ -3229,7 +3198,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "quote"
+                                        "key_code": "l"
                                     }
                                 ],
                                 "type": "basic"
@@ -3275,7 +3244,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "g"
+                                        "key_code": "y"
                                     }
                                 ],
                                 "type": "basic"
@@ -3321,7 +3290,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "y"
+                                        "key_code": "j"
                                     }
                                 ],
                                 "type": "basic"
@@ -3413,7 +3382,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "semicolon"
+                                        "key_code": "f"
                                     }
                                 ],
                                 "type": "basic"
@@ -3450,7 +3419,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "l",
+                                    "key_code": "k",
                                     "modifiers": {
                                         "optional": [
                                             "shift"
@@ -3473,53 +3442,30 @@
                                     }
                                 ],
                                 "from": {
+                                    "key_code": "l",
+                                    "modifiers": {
+                                        "optional": [
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "k"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "kshrngn",
+                                        "type": "variable_if",
+                                        "value": 2
+                                    }
+                                ],
+                                "from": {
                                     "key_code": "semicolon",
-                                    "modifiers": {
-                                        "optional": [
-                                            "shift"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "b"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "kshrngn",
-                                        "type": "variable_if",
-                                        "value": 2
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "quote",
-                                    "modifiers": {
-                                        "optional": [
-                                            "shift"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "hyphen"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "kshrngn",
-                                        "type": "variable_if",
-                                        "value": 2
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "v",
                                     "modifiers": {
                                         "optional": [
                                             "shift"
@@ -3542,7 +3488,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "b",
+                                    "key_code": "quote",
                                     "modifiers": {
                                         "optional": [
                                             "shift"
@@ -3565,6 +3511,29 @@
                                     }
                                 ],
                                 "from": {
+                                    "key_code": "v",
+                                    "modifiers": {
+                                        "optional": [
+                                            "shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "g"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "kshrngn",
+                                        "type": "variable_if",
+                                        "value": 2
+                                    }
+                                ],
+                                "from": {
                                     "key_code": "comma",
                                     "modifiers": {
                                         "optional": [
@@ -3574,7 +3543,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "j"
+                                        "key_code": "hyphen"
                                     }
                                 ],
                                 "type": "basic"
@@ -3597,30 +3566,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "f"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "kshrngn",
-                                        "type": "variable_if",
-                                        "value": 2
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "slash",
-                                    "modifiers": {
-                                        "optional": [
-                                            "shift"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "l"
+                                        "key_code": "semicolon"
                                     }
                                 ],
                                 "type": "basic"
@@ -3643,7 +3589,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "slash"
+                                        "key_code": "quote"
                                     }
                                 ],
                                 "type": "basic"
