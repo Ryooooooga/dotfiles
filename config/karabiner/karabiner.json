@@ -2900,37 +2900,6 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "g",
-                                    "modifiers": {
-                                        "optional": [
-                                            "shift"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "f"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "kshrngn",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    },
-                                    {
-                                        "input_sources": [
-                                            {
-                                                "language": "ja"
-                                            }
-                                        ],
-                                        "type": "input_source_if"
-                                    }
-                                ],
-                                "from": {
                                     "key_code": "j",
                                     "modifiers": {
                                         "optional": [
@@ -3095,7 +3064,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "g"
+                                        "key_code": "f"
                                     }
                                 ],
                                 "type": "basic"
@@ -3409,29 +3378,6 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "g",
-                                    "modifiers": {
-                                        "optional": [
-                                            "shift"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "f"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "kshrngn",
-                                        "type": "variable_if",
-                                        "value": 2
-                                    }
-                                ],
-                                "from": {
                                     "key_code": "j",
                                     "modifiers": {
                                         "optional": [
@@ -3556,7 +3502,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "g"
+                                        "key_code": "f"
                                     }
                                 ],
                                 "type": "basic"
