@@ -2516,6 +2516,11 @@
                             {
                                 "conditions": [
                                     {
+                                        "name": "layer",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
                                         "identifiers": [
                                             {
                                                 "product_id": 4,
@@ -2523,11 +2528,6 @@
                                             }
                                         ],
                                         "type": "device_exists_if"
-                                    },
-                                    {
-                                        "name": "layer",
-                                        "type": "variable_if",
-                                        "value": 0
                                     },
                                     {
                                         "identifiers": [
@@ -2559,6 +2559,42 @@
                                 "to_if_alone": [
                                     {
                                         "key_code": "return_or_enter"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 4,
+                                                "vendor_id": 11240
+                                            }
+                                        ],
+                                        "type": "device_exists_if"
+                                    },
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 328,
+                                                "vendor_id": 2131
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "b",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "delete_or_backspace"
                                     }
                                 ],
                                 "type": "basic"

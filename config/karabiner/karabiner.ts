@@ -220,11 +220,14 @@ function realforceRule() {
   return rule("REALFORCE")
     .condition(ifDevice(DEVICES.realforceR2))
     .manipulators([
-      map("spacebar", null, "any")
-        .condition(ifDeviceExists(DEVICES.progresTouchRetroTiny))
-        .condition(ifLayer("normal"))
-        .to(toMOLayer("lower"))
-        .toIfAlone("return_or_enter"),
+      withCondition(ifDeviceExists(DEVICES.progresTouchRetroTiny))([
+        map("spacebar", null, "any")
+          .condition(ifLayer("normal"))
+          .to(toMOLayer("lower"))
+          .toIfAlone("return_or_enter"),
+        map("b", null, "any")
+          .to("delete_or_backspace"),
+      ]),
     ]);
 }
 
