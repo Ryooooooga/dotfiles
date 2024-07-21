@@ -231,7 +231,7 @@ function realforceRule() {
     ]);
 }
 
-const kshrngnMap = {
+const tsrngnMap = {
   q: "q",
   w: "w",
   e: "e",
@@ -271,13 +271,13 @@ const kshrngnMap = {
   "-": "'",
 } as const;
 
-function kshrngnRule() {
-  const modeVar = "kshrngn";
+function tsrngnRule() {
+  const modeVar = "tsrngn";
 
   function remapKeys() {
     const keyMap = Object.fromEntries(
-      Object.entries(kshrngnMap).filter(([from, to]) => from !== to),
-    ) as Partial<typeof kshrngnRule>;
+      Object.entries(tsrngnMap).filter(([from, to]) => from !== to),
+    ) as Partial<typeof tsrngnRule>;
 
     return withMapper(keyMap)((from, to) => map(from, null, "shift").to(to));
   }
@@ -299,7 +299,7 @@ function kshrngnRule() {
       );
   }
 
-  return rule("JA kshrngn").manipulators([
+  return rule("JA tsrngn").manipulators([
     withCondition(
       ifVar(modeVar, 1),
       ifInputSource({ language: "ja" }),
@@ -317,12 +317,12 @@ function kshrngnRule() {
     ),
     switchMode(
       Mode.ja,
-      "KSHRNGN MODE",
+      "TSRNGN MODE",
       map("page_down").condition(ifLayer("raise"), ifVar(modeVar, Mode.off)),
     ),
     switchMode(
       Mode.full,
-      "FULL KSHRNGN MODE",
+      "FULL TSRNGN MODE",
       map("page_down").condition(ifLayer("raise"), ifVar(modeVar, Mode.ja)),
     ),
   ]);
@@ -338,7 +338,7 @@ const profile: KarabinerProfileExt = {
       raiseRule(),
       macRule(),
       realforceRule(),
-      kshrngnRule(),
+      tsrngnRule(),
     ],
     {
       "basic.to_if_alone_timeout_milliseconds": 250,

@@ -2602,12 +2602,12 @@
                         ]
                     },
                     {
-                        "description": "JA kshrngn",
+                        "description": "JA tsrngn",
                         "manipulators": [
                             {
                                 "conditions": [
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 1
                                     },
@@ -2638,7 +2638,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 1
                                     },
@@ -2669,7 +2669,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 1
                                     },
@@ -2700,7 +2700,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 1
                                     },
@@ -2731,7 +2731,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 1
                                     },
@@ -2762,7 +2762,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 1
                                     },
@@ -2793,7 +2793,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 1
                                     },
@@ -2824,7 +2824,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 1
                                     },
@@ -2855,7 +2855,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 1
                                     },
@@ -2886,7 +2886,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 1
                                     },
@@ -2917,7 +2917,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 1
                                     },
@@ -2948,7 +2948,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 1
                                     },
@@ -2979,7 +2979,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 1
                                     },
@@ -3010,7 +3010,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 1
                                     },
@@ -3041,7 +3041,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 1
                                     },
@@ -3072,7 +3072,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 1
                                     },
@@ -3103,7 +3103,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 1
                                     },
@@ -3134,7 +3134,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 1
                                     },
@@ -3165,7 +3165,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 2
                                     }
@@ -3188,7 +3188,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 2
                                     }
@@ -3211,7 +3211,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 2
                                     }
@@ -3234,7 +3234,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 2
                                     }
@@ -3257,7 +3257,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 2
                                     }
@@ -3280,7 +3280,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 2
                                     }
@@ -3303,7 +3303,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 2
                                     }
@@ -3326,7 +3326,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 2
                                     }
@@ -3349,7 +3349,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 2
                                     }
@@ -3372,7 +3372,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 2
                                     }
@@ -3395,7 +3395,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 2
                                     }
@@ -3418,7 +3418,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 2
                                     }
@@ -3441,7 +3441,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 2
                                     }
@@ -3464,7 +3464,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 2
                                     }
@@ -3487,7 +3487,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 2
                                     }
@@ -3510,7 +3510,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 2
                                     }
@@ -3533,7 +3533,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 2
                                     }
@@ -3556,7 +3556,7 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 2
                                     }
@@ -3593,13 +3593,13 @@
                                 "to": [
                                     {
                                         "set_variable": {
-                                            "name": "kshrngn",
+                                            "name": "tsrngn",
                                             "value": 0
                                         }
                                     },
                                     {
                                         "set_notification_message": {
-                                            "id": "kshrngn",
+                                            "id": "tsrngn",
                                             "text": "QWERTY MODE"
                                         }
                                     }
@@ -3608,7 +3608,7 @@
                                     "to_if_canceled": [
                                         {
                                             "set_notification_message": {
-                                                "id": "kshrngn",
+                                                "id": "tsrngn",
                                                 "text": ""
                                             }
                                         }
@@ -3616,7 +3616,7 @@
                                     "to_if_invoked": [
                                         {
                                             "set_notification_message": {
-                                                "id": "kshrngn",
+                                                "id": "tsrngn",
                                                 "text": ""
                                             }
                                         }
@@ -3632,7 +3632,7 @@
                                         "value": 2
                                     },
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 2
                                     }
@@ -3646,13 +3646,13 @@
                                 "to": [
                                     {
                                         "set_variable": {
-                                            "name": "kshrngn",
+                                            "name": "tsrngn",
                                             "value": 0
                                         }
                                     },
                                     {
                                         "set_notification_message": {
-                                            "id": "kshrngn",
+                                            "id": "tsrngn",
                                             "text": "QWERTY MODE"
                                         }
                                     }
@@ -3661,7 +3661,7 @@
                                     "to_if_canceled": [
                                         {
                                             "set_notification_message": {
-                                                "id": "kshrngn",
+                                                "id": "tsrngn",
                                                 "text": ""
                                             }
                                         }
@@ -3669,7 +3669,7 @@
                                     "to_if_invoked": [
                                         {
                                             "set_notification_message": {
-                                                "id": "kshrngn",
+                                                "id": "tsrngn",
                                                 "text": ""
                                             }
                                         }
@@ -3685,7 +3685,7 @@
                                         "value": 2
                                     },
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 0
                                     }
@@ -3699,14 +3699,14 @@
                                 "to": [
                                     {
                                         "set_variable": {
-                                            "name": "kshrngn",
+                                            "name": "tsrngn",
                                             "value": 1
                                         }
                                     },
                                     {
                                         "set_notification_message": {
-                                            "id": "kshrngn",
-                                            "text": "KSHRNGN MODE"
+                                            "id": "tsrngn",
+                                            "text": "TSRNGN MODE"
                                         }
                                     }
                                 ],
@@ -3714,7 +3714,7 @@
                                     "to_if_canceled": [
                                         {
                                             "set_notification_message": {
-                                                "id": "kshrngn",
+                                                "id": "tsrngn",
                                                 "text": ""
                                             }
                                         }
@@ -3722,7 +3722,7 @@
                                     "to_if_invoked": [
                                         {
                                             "set_notification_message": {
-                                                "id": "kshrngn",
+                                                "id": "tsrngn",
                                                 "text": ""
                                             }
                                         }
@@ -3738,7 +3738,7 @@
                                         "value": 2
                                     },
                                     {
-                                        "name": "kshrngn",
+                                        "name": "tsrngn",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -3752,14 +3752,14 @@
                                 "to": [
                                     {
                                         "set_variable": {
-                                            "name": "kshrngn",
+                                            "name": "tsrngn",
                                             "value": 2
                                         }
                                     },
                                     {
                                         "set_notification_message": {
-                                            "id": "kshrngn",
-                                            "text": "FULL KSHRNGN MODE"
+                                            "id": "tsrngn",
+                                            "text": "FULL TSRNGN MODE"
                                         }
                                     }
                                 ],
@@ -3767,7 +3767,7 @@
                                     "to_if_canceled": [
                                         {
                                             "set_notification_message": {
-                                                "id": "kshrngn",
+                                                "id": "tsrngn",
                                                 "text": ""
                                             }
                                         }
@@ -3775,7 +3775,7 @@
                                     "to_if_invoked": [
                                         {
                                             "set_notification_message": {
-                                                "id": "kshrngn",
+                                                "id": "tsrngn",
                                                 "text": ""
                                             }
                                         }
