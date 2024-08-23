@@ -41,7 +41,7 @@ abbrevs:
         (( ${#files} )) && <<<"${EDITOR} ${(q@)${(0)files}}"
       )
     evaluate: true
-    cursor: '{@}'
+    cursor: null
     if: |-
       [[ "$KEYS" == $'\r' ]] && [[ -z "$RBUFFER" ]]
 
