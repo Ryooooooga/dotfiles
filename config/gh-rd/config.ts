@@ -131,7 +131,7 @@ export default defineConfig({
     },
     {
       name: "XAMPPRocky/tokei",
-      tag: "v12.1.2",
+      tag: "v13.0.0-alpha.0",
     },
     {
       name: "editorconfig-checker/editorconfig-checker",
