@@ -1,3 +1,4 @@
+#Requires AutoHotkey >=2.0
 IME_GET(WinTitle:="A")  {
     hwnd := WinExist(WinTitle)
     if  (WinActive(WinTitle))   {
