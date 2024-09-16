@@ -1,5 +1,5 @@
 .contexts:
-  - &subcommand ^docker\s\S+$
+  - &subcommand ^docker\s+\S+$
 
 abbrevs:
   # docker

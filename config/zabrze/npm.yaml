@@ -38,9 +38,23 @@ abbrevs:
 
   - name: npm f
     abbr: f
+    snippet: run format
+    global: true
+    context: *subcommand
+    if: monkeywrench node scripts --has="format"
+
+  - name: npm f
+    abbr: f
     snippet: run fmt
     global: true
     context: *subcommand
+
+  - name: npm fmt
+    abbr: fmt
+    snippet: run format
+    global: true
+    context: *subcommand
+    if: monkeywrench node scripts --has="format"
 
   - name: npm <script>
     abbr-pattern: ''
