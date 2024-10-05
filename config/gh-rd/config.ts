@@ -103,7 +103,7 @@ export default defineConfig({
       name: "denisidoro/navi",
     },
     {
-      name: "dbrgn/tealdeer",
+      name: "tealdeer-rs/tealdeer",
       rename: [
         { from: "tealdeer*", to: "tldr", chmod: 0o755 },
       ],
