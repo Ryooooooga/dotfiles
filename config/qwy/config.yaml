@@ -261,7 +261,7 @@ completions:
     patterns:
       - ^\s*git\s+user\s+\S*$
     source: |-
-      git users | sed -E 's/:\s*/\t/'
+      git user | sed -E 's/:\s*/\t/'
     callback: awk '{ print $1 }'
 
   - description: git
