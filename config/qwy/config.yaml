@@ -78,17 +78,6 @@ completions:
     callback: sed -E 's/ /\\ /g; s:/?$:/:'
 
   #########################################################
-  # asdf
-  #########################################################
-  - description: asdf
-    patterns:
-      - ^\s*asdf\s
-    source: |-
-      "$QWY_SCRIPT_PATH/options.zsh" "asdf/subcommands" '󰘳' "command" "yellow"
-      "$QWY_SCRIPT_PATH/options.zsh" "asdf/options" '󰈻' "option" "blue"
-    <<: *completion-base
-
-  #########################################################
   # cURL
   #########################################################
   - description: curl
