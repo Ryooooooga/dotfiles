@@ -34,6 +34,7 @@ export default defineConfig({
       name: "jdx/mise",
       async onDownload({ bin: { mise }, $ }) {
         await Promise.all([
+          $`${mise} upgrade`,
           $`${mise} completion zsh >_mise`,
           $`${mise} activate zsh >mise.zsh`,
           $`${mise} plugin add usage && ${mise} install usage@latest && ${mise} use -g usage`,
