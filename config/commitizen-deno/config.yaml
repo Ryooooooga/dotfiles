@@ -67,4 +67,4 @@ message:
       description: '関連issueを追記 (例:"fix #123", "re #123"): (enterでスキップ)'
       form: input
 
-  template: "<%- type %><% if (scope) { %>(<%- scope %>)<% } %>: <%- subject %><% if (detail) { %>\n\n<%- detail %><% } %><% if (breakingChange) { %>\n\nBREAKING CHANGE: <%- breakingChange %><% } %><% if (issue) { %>\n\n<%- issue %><% } %>"
+  template: "<%- type %><% if (scope) { %>(<%- scope %>)<% } %><% if (breakingChange) { %>!<% } %>: <%- subject %><% if (detail) { %>\n\n<%- detail %><% } %><% if (breakingChange) { %>\n\nBREAKING CHANGE: <%- breakingChange %><% } %><% if (issue) { %>\n\n<%- issue %><% } %>"
