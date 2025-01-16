@@ -3,3 +3,6 @@
 git update-index --assume-unchanged <file>
 
 $ file: fd --color=always
+
+# Git: Remove index.lock
+rm .git/index.lock
