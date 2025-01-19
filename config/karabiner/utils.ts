@@ -1,7 +1,7 @@
-export * from "https://deno.land/x/karabinerts/deno.ts";
-export { BasicManipulatorBuilder } from "https://deno.land/x/karabinerts/config/manipulator.ts";
+export * from "./deps.ts";
 
 import {
+  BasicManipulatorBuilder,
   ComplexModifications,
   complexModifications as _complexModifications,
   defaultComplexModificationsParameters,
@@ -13,8 +13,7 @@ import {
   RuleBuilder,
   ToEvent,
   toKey,
-} from "https://deno.land/x/karabinerts/deno.ts";
-import { BasicManipulatorBuilder } from "https://deno.land/x/karabinerts/config/manipulator.ts";
+} from "./deps.ts";
 
 export interface SimpleManipulator {
   from: FromEvent;
@@ -23,9 +22,16 @@ export interface SimpleManipulator {
 
 export type SimpleModifications = SimpleManipulator[];
 
-export interface KarabinerDevice {
+export type KarabinerDevice = {
   identifiers: DeviceIdentifier;
-  simple_modifications: SimpleModifications;
+  simple_modifications?: SimpleModifications;
+  ignore?: boolean;
+};
+
+export function keyboard(
+  identifier: Omit<DeviceIdentifier, "is_keyboard">,
+): DeviceIdentifier {
+  return { ...identifier, is_keyboard: true };
 }
 
 export interface KarabinerProfileExt extends KarabinerProfile {
@@ -110,22 +116,11 @@ export function stroke(text: string): ToEvent[] {
 }
 
 export type KeyboardIdentifier = {
+  is_keyboard: boolean;
+  is_pointing_device?: boolean;
   product_id?: number;
   vendor_id: number;
 };
-
-export function device(
-  keyboard: KeyboardIdentifier,
-  settings: Pick<KarabinerDevice, "simple_modifications">,
-): KarabinerDevice {
-  return {
-    identifiers: {
-      is_keyboard: true,
-      ...keyboard,
-    },
-    ...settings,
-  };
-}
 
 export async function saveConfig(path: URL, config: KarabinerConfigExt) {
   await Deno.writeTextFile(

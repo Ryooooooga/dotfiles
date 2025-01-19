@@ -2,7 +2,6 @@
 import {
   BasicManipulatorBuilder,
   complexModifications,
-  device,
   FromKeyCode,
   ifDevice,
   ifDeviceExists,
@@ -10,7 +9,7 @@ import {
   ifVar,
   KarabinerConfigExt,
   KarabinerProfileExt,
-  KeyboardIdentifier,
+  keyboard,
   map,
   rule,
   saveConfig,
@@ -23,29 +22,32 @@ import {
 } from "./utils.ts";
 
 const DEVICES = {
-  apple: {
+  apple: keyboard({
     vendor_id: 1452,
-  },
-  macBook2018: {
+  }),
+  macBook2018: keyboard({
     product_id: 634,
     vendor_id: 1452,
-  },
-  progresTouchRetroTiny: {
+  }),
+  progresTouchRetroTiny: keyboard({
     product_id: 4,
     vendor_id: 11240,
-  },
-  realforceR2: {
+  }),
+  realforceR2: keyboard({
     product_id: 328,
     vendor_id: 2131,
-  },
-  mint60: {
-    vendor_id: 65261,
-  },
-  akl680: {
+  }),
+  akl680: keyboard({
     product_id: 591,
     vendor_id: 1452,
-  },
-} as const satisfies Record<string, KeyboardIdentifier>;
+  }),
+  mk23: (is_pointing_device: boolean = true) =>
+    keyboard({
+      is_pointing_device: is_pointing_device || undefined,
+      product_id: 41888,
+      vendor_id: 41606,
+    }),
+} as const;
 
 const LAYER_VAR = "layer";
 
@@ -343,44 +345,49 @@ const profile: KarabinerProfileExt = {
       "basic.to_if_held_down_threshold_milliseconds": 250,
     },
   ),
+  simple_modifications: simpleModifications([
+    map("left_command").to("left_control"),
+    map("left_control").to("left_command"),
+  ]),
   devices: [
-    device(DEVICES.macBook2018, {
+    {
+      identifiers: DEVICES.macBook2018,
       simple_modifications: simpleModifications([
         map("fn").to("left_command"),
         map("left_command").to("escape"),
+        map("left_control").to("left_control"),
         map("right_option").to("fn"),
       ]),
-    }),
-    device(DEVICES.progresTouchRetroTiny, {
+    },
+    {
+      identifiers: DEVICES.progresTouchRetroTiny,
       simple_modifications: simpleModifications([
         map("escape").to("grave_accent_and_tilde"),
-        map("left_command").to("left_control"),
-        map("left_control").to("left_command"),
         map("right_control").to("japanese_eisuu"),
       ]),
-    }),
-    device(DEVICES.realforceR2, {
+    },
+    {
+      identifiers: DEVICES.realforceR2,
       simple_modifications: simpleModifications([
         map("keypad_num_lock").toNone(),
-        map("left_command").to("left_control"),
-        map("left_control").to("left_command"),
         map("right_command").to("right_control"),
       ]),
-    }),
-    device(DEVICES.mint60, {
-      simple_modifications: simpleModifications([
-        map("left_command").to("left_control"),
-        map("left_control").to("left_command"),
-      ]),
-    }),
-    device(DEVICES.akl680, {
+    },
+    {
+      identifiers: DEVICES.akl680,
       simple_modifications: simpleModifications([
         map("escape").to("grave_accent_and_tilde"),
-        map("left_command").to("left_control"),
-        map("left_control").to("left_command"),
         map("right_option").to("right_command"),
       ]),
-    }),
+    },
+    {
+      identifiers: DEVICES.mk23(),
+      ignore: false,
+    },
+    {
+      identifiers: DEVICES.mk23(false),
+      ignore: true,
+    },
   ],
   name: "Default profile",
   selected: true,

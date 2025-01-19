@@ -2468,6 +2468,7 @@
                                     {
                                         "identifiers": [
                                             {
+                                                "is_keyboard": true,
                                                 "vendor_id": 1452
                                             }
                                         ],
@@ -2513,6 +2514,7 @@
                                     {
                                         "identifiers": [
                                             {
+                                                "is_keyboard": true,
                                                 "product_id": 4,
                                                 "vendor_id": 11240
                                             }
@@ -2522,6 +2524,7 @@
                                     {
                                         "identifiers": [
                                             {
+                                                "is_keyboard": true,
                                                 "product_id": 328,
                                                 "vendor_id": 2131
                                             }
@@ -2558,6 +2561,7 @@
                                     {
                                         "identifiers": [
                                             {
+                                                "is_keyboard": true,
                                                 "product_id": 4,
                                                 "vendor_id": 11240
                                             }
@@ -2567,6 +2571,7 @@
                                     {
                                         "identifiers": [
                                             {
+                                                "is_keyboard": true,
                                                 "product_id": 328,
                                                 "vendor_id": 2131
                                             }
@@ -3807,6 +3812,16 @@
                         },
                         {
                             "from": {
+                                "key_code": "left_control"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "left_control"
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
                                 "key_code": "right_option"
                             },
                             "to": [
@@ -3831,26 +3846,6 @@
                             "to": [
                                 {
                                     "key_code": "grave_accent_and_tilde"
-                                }
-                            ]
-                        },
-                        {
-                            "from": {
-                                "key_code": "left_command"
-                            },
-                            "to": [
-                                {
-                                    "key_code": "left_control"
-                                }
-                            ]
-                        },
-                        {
-                            "from": {
-                                "key_code": "left_control"
-                            },
-                            "to": [
-                                {
-                                    "key_code": "left_command"
                                 }
                             ]
                         },
@@ -3885,59 +3880,11 @@
                         },
                         {
                             "from": {
-                                "key_code": "left_command"
-                            },
-                            "to": [
-                                {
-                                    "key_code": "left_control"
-                                }
-                            ]
-                        },
-                        {
-                            "from": {
-                                "key_code": "left_control"
-                            },
-                            "to": [
-                                {
-                                    "key_code": "left_command"
-                                }
-                            ]
-                        },
-                        {
-                            "from": {
                                 "key_code": "right_command"
                             },
                             "to": [
                                 {
                                     "key_code": "right_control"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "vendor_id": 65261
-                    },
-                    "simple_modifications": [
-                        {
-                            "from": {
-                                "key_code": "left_command"
-                            },
-                            "to": [
-                                {
-                                    "key_code": "left_control"
-                                }
-                            ]
-                        },
-                        {
-                            "from": {
-                                "key_code": "left_control"
-                            },
-                            "to": [
-                                {
-                                    "key_code": "left_command"
                                 }
                             ]
                         }
@@ -3962,26 +3909,6 @@
                         },
                         {
                             "from": {
-                                "key_code": "left_command"
-                            },
-                            "to": [
-                                {
-                                    "key_code": "left_control"
-                                }
-                            ]
-                        },
-                        {
-                            "from": {
-                                "key_code": "left_control"
-                            },
-                            "to": [
-                                {
-                                    "key_code": "left_command"
-                                }
-                            ]
-                        },
-                        {
-                            "from": {
                                 "key_code": "right_option"
                             },
                             "to": [
@@ -3991,10 +3918,49 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": true,
+                        "product_id": 41888,
+                        "vendor_id": 41606
+                    },
+                    "ignore": false
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 41888,
+                        "vendor_id": 41606
+                    },
+                    "ignore": true
                 }
             ],
             "name": "Default profile",
             "selected": true,
+            "simple_modifications": [
+                {
+                    "from": {
+                        "key_code": "left_command"
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_control"
+                        }
+                    ]
+                },
+                {
+                    "from": {
+                        "key_code": "left_control"
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_command"
+                        }
+                    ]
+                }
+            ],
             "virtual_hid_keyboard": {
                 "country_code": 0,
                 "keyboard_type_v2": "ansi"
