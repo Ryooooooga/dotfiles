@@ -1,25 +1,29 @@
 #!/usr/bin/env -S deno run --check --allow-write
+import { complexModifications } from "./libs/complex_modifications.ts";
+import { defaultProfile, saveConfig } from "./libs/config.ts";
+import { simpleModifications } from "./libs/simple_modifications.ts";
+import { toStroke } from "./libs/to_stroke.ts";
 import {
   BasicManipulatorBuilder,
-  complexModifications,
+  DeviceIdentifier,
   FromKeyCode,
   ifDevice,
   ifDeviceExists,
   ifInputSource,
   ifVar,
-  KarabinerConfigExt,
-  KarabinerProfileExt,
-  keyboard,
   map,
   rule,
-  saveConfig,
-  simpleModifications,
-  stroke,
   toRemoveNotificationMessage,
   toSetVar,
   withCondition,
   withMapper,
-} from "./utils.ts";
+} from "./libs/deps.ts";
+
+function keyboard(
+  identifier: Omit<DeviceIdentifier, "is_keyboard">,
+): DeviceIdentifier {
+  return { ...identifier, is_keyboard: true };
+}
 
 const DEVICES = {
   apple: keyboard({
@@ -123,48 +127,48 @@ function capsLockRule() {
   return rule("Change Caps Lock").manipulators([
     map("caps_lock", "shift")
       .to("left_command", "shift")
-      .toIfAlone(stroke("->")),
+      .toIfAlone(toStroke("->")),
     map("caps_lock", "command")
       .to("left_command", "shift")
-      .toIfAlone(stroke("=>")),
+      .toIfAlone(toStroke("=>")),
     map("caps_lock")
       .condition(ifLayer("lower"))
       .to("left_command", "shift")
-      .toIfAlone(stroke("-")),
+      .toIfAlone(toStroke("-")),
     map("caps_lock", null, "any")
       .to("left_command", "shift")
-      .toIfAlone(stroke("_")),
+      .toIfAlone(toStroke("_")),
   ]);
 }
 
 function lowerRule() {
   return rule("Lower Layer").manipulators([
     withCondition(ifLayer("lower"))([
-      map("1").to(stroke("!")),
-      map("2").to(stroke("@")),
-      map("3").to(stroke("#")),
-      map("4").to(stroke("$")),
-      map("5").to(stroke("%")),
+      map("1").to(toStroke("!")),
+      map("2").to(toStroke("@")),
+      map("3").to(toStroke("#")),
+      map("4").to(toStroke("$")),
+      map("5").to(toStroke("%")),
 
-      map("6").to(stroke("^")),
-      map("7").to(stroke("&")),
-      map("8").to(stroke("*")),
-      map("9").to(stroke("(")),
-      map("0").to(stroke(")")),
-      map("-").to(stroke("_")),
-      map("=").to(stroke("+")),
+      map("6").to(toStroke("^")),
+      map("7").to(toStroke("&")),
+      map("8").to(toStroke("*")),
+      map("9").to(toStroke("(")),
+      map("0").to(toStroke(")")),
+      map("-").to(toStroke("_")),
+      map("=").to(toStroke("+")),
 
-      map("q").to(stroke("!")),
-      map("w").to(stroke("@")),
-      map("e").to(stroke("#")),
-      map("r").to(stroke("$")),
-      map("t").to(stroke("%")),
+      map("q").to(toStroke("!")),
+      map("w").to(toStroke("@")),
+      map("e").to(toStroke("#")),
+      map("r").to(toStroke("$")),
+      map("t").to(toStroke("%")),
 
-      map("a").to(stroke("^")),
-      map("s").to(stroke("&")),
-      map("d").to(stroke("*")),
-      map("f").to(stroke("=")),
-      map("g").to(stroke("+")),
+      map("a").to(toStroke("^")),
+      map("s").to(toStroke("&")),
+      map("d").to(toStroke("*")),
+      map("f").to(toStroke("=")),
+      map("g").to(toStroke("+")),
 
       ...mapArrows("i", "j", "k", "l"),
       map("u", null, "any").to("home"),
@@ -172,13 +176,13 @@ function lowerRule() {
       map("p", null, "any").to("page_up"),
       map(";", null, "any").to("page_down"),
 
-      map("z").to(stroke("(")),
-      map("x").to(stroke(")")),
-      map("c").to(stroke("/")),
-      map("v").to(stroke("?")),
+      map("z").to(toStroke("(")),
+      map("x").to(toStroke(")")),
+      map("c").to(toStroke("/")),
+      map("v").to(toStroke("?")),
 
-      map("[").to(stroke("{")),
-      map("]").to(stroke("}")),
+      map("[").to(toStroke("{")),
+      map("]").to(toStroke("}")),
     ]),
     map("right_option", null, "any")
       .condition(ifLayer("normal"))
@@ -196,8 +200,8 @@ function raiseRule() {
       map("r", null, "any").to("page_up"),
       map("f", null, "any").to("page_down"),
 
-      map("z").to(stroke("`")),
-      map("x").to(stroke("~")),
+      map("z").to(toStroke("`")),
+      map("x").to(toStroke("~")),
     ]),
     map("right_control", null, "any")
       .condition(ifLayer("normal"))
@@ -328,7 +332,7 @@ function tsrngnRule() {
   ]);
 }
 
-const profile: KarabinerProfileExt = {
+const profile = defaultProfile({
   complex_modifications: complexModifications(
     [
       backspaceRule(),
@@ -340,10 +344,6 @@ const profile: KarabinerProfileExt = {
       realforceRule(),
       tsrngnRule(),
     ],
-    {
-      "basic.to_if_alone_timeout_milliseconds": 250,
-      "basic.to_if_held_down_threshold_milliseconds": 250,
-    },
   ),
   simple_modifications: simpleModifications([
     map("keypad_num_lock").toNone(),
@@ -389,16 +389,8 @@ const profile: KarabinerProfileExt = {
       ignore: true,
     },
   ],
-  name: "Default profile",
-  selected: true,
-  virtual_hid_keyboard: {
-    country_code: 0,
-    keyboard_type_v2: "ansi",
-  },
-};
+});
 
-const config: KarabinerConfigExt = {
+await saveConfig(new URL("karabiner.json", import.meta.url), {
   profiles: [profile],
-};
-
-await saveConfig(new URL("karabiner.json", import.meta.url), config);
+});
