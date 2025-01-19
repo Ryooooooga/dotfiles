@@ -9,10 +9,11 @@ sc03A::_
 ; Control + Caps Lock => "=>"
 ^sc03A::Send "=>"
 
-; NumLock => null
-SetNumlockState "AlwaysOn"
 ; Win+Space => null
-#Space::Return
+;#Space::Return
+
+SetNumlockState "AlwaysOn"
+SetCapslockState "AlwaysOff"
 
 #Hotstring *
 #Hotstring O
