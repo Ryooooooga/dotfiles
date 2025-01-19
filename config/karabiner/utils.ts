@@ -2,9 +2,15 @@ export * from "https://deno.land/x/karabinerts/deno.ts";
 export { BasicManipulatorBuilder } from "https://deno.land/x/karabinerts/config/manipulator.ts";
 
 import {
+  ComplexModifications,
+  complexModifications as _complexModifications,
+  defaultComplexModificationsParameters,
   DeviceIdentifier,
   FromEvent,
   KarabinerProfile,
+  ModificationParameters,
+  Rule,
+  RuleBuilder,
   ToEvent,
   toKey,
 } from "https://deno.land/x/karabinerts/deno.ts";
@@ -17,45 +23,53 @@ export interface SimpleManipulator {
 
 export type SimpleModifications = SimpleManipulator[];
 
-export type KarabinerGlobal = Record<string, unknown>;
-
 export interface KarabinerDevice {
-  disable_built_in_keyboard_if_exists: boolean;
-  fn_function_keys: SimpleModifications;
   identifiers: DeviceIdentifier;
-  ignore: boolean;
-  manipulate_caps_lock_led: boolean;
   simple_modifications: SimpleModifications;
-  treat_as_built_in_keyboard: boolean;
 }
 
 export interface KarabinerProfileExt extends KarabinerProfile {
   devices: KarabinerDevice[];
-  fn_function_keys: SimpleModifications;
-  parameters: Record<string, unknown>;
-  simple_modifications: SimpleModifications;
+  fn_function_keys?: SimpleModifications;
+  simple_modifications?: SimpleModifications;
   virtual_hid_keyboard: Record<string, unknown>;
 }
 
 export interface KarabinerConfigExt {
-  global: KarabinerGlobal;
   profiles: KarabinerProfileExt[];
 }
-
-export const defaultGlobals: KarabinerGlobal = {
-  ask_for_confirmation_before_quitting: true,
-  check_for_updates_on_startup: true,
-  show_in_menu_bar: true,
-  show_profile_name_in_menu_bar: false,
-  unsafe_ui: false,
-};
 
 export function simpleModifications(
   builders: BasicManipulatorBuilder[],
 ): SimpleModifications {
   return builders
     .flatMap((builder) => builder.build())
-    .map((m) => ({ ...m, type: undefined }));
+    .map(({ type: _, ...m }) => m);
+}
+
+export function complexModifications(
+  rules: Array<Rule | RuleBuilder>,
+  params: ModificationParameters = {},
+): ComplexModifications {
+  const { parameters, ...mod } = _complexModifications(rules, params);
+  return {
+    ...mod,
+    parameters: removeDefaultParameters(
+      parameters,
+      defaultComplexModificationsParameters,
+    ),
+  };
+}
+
+function removeDefaultParameters<T extends Record<string, unknown>>(
+  parameters: T,
+  defaultParameters: T,
+): T {
+  return Object.fromEntries(
+    Object.entries(parameters).filter(
+      ([key, value]) => defaultParameters[key] !== value,
+    ),
+  ) as T;
 }
 
 const keyAliases = {
@@ -107,14 +121,8 @@ export function device(
   return {
     identifiers: {
       is_keyboard: true,
-      is_pointing_device: false,
       ...keyboard,
     },
-    disable_built_in_keyboard_if_exists: false,
-    ignore: false,
-    manipulate_caps_lock_led: true,
-    treat_as_built_in_keyboard: false,
-    fn_function_keys: [],
     ...settings,
   };
 }

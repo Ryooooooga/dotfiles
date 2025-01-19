@@ -2,7 +2,6 @@
 import {
   BasicManipulatorBuilder,
   complexModifications,
-  defaultGlobals,
   device,
   FromKeyCode,
   ifDevice,
@@ -40,7 +39,6 @@ const DEVICES = {
     vendor_id: 2131,
   },
   mint60: {
-    product_id: 0,
     vendor_id: 65261,
   },
   akl680: {
@@ -384,35 +382,15 @@ const profile: KarabinerProfileExt = {
       ]),
     }),
   ],
-  fn_function_keys: simpleModifications([
-    map("f1").toConsumerKey("display_brightness_decrement"),
-    map("f2").toConsumerKey("display_brightness_increment"),
-    map("f3").to("mission_control"),
-    map("f4").to("launchpad"),
-    map("f5").to("illumination_decrement"),
-    map("f6").to("illumination_increment"),
-    map("f7").toConsumerKey("rewind"),
-    map("f8").toConsumerKey("play_or_pause"),
-    map("f9").toConsumerKey("fastforward"),
-    map("f10").toConsumerKey("mute"),
-    map("f11").toConsumerKey("volume_decrement"),
-    map("f12").toConsumerKey("volume_increment"),
-  ]),
   name: "Default profile",
-  parameters: {
-    delay_milliseconds_before_open_device: 1000,
-  },
   selected: true,
-  simple_modifications: [],
   virtual_hid_keyboard: {
     country_code: 0,
-    indicate_sticky_modifier_keys_state: true,
-    mouse_key_xy_scale: 100,
+    keyboard_type_v2: "ansi",
   },
 };
 
 const config: KarabinerConfigExt = {
-  global: defaultGlobals,
   profiles: [profile],
 };
 
