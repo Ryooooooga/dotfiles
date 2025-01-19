@@ -346,6 +346,7 @@ const profile: KarabinerProfileExt = {
     },
   ),
   simple_modifications: simpleModifications([
+    map("keypad_num_lock").toNone(),
     map("left_command").to("left_control"),
     map("left_control").to("left_command"),
   ]),
@@ -369,7 +370,6 @@ const profile: KarabinerProfileExt = {
     {
       identifiers: DEVICES.realforceR2,
       simple_modifications: simpleModifications([
-        map("keypad_num_lock").toNone(),
         map("right_command").to("right_control"),
       ]),
     },
