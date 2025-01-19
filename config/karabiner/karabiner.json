@@ -3925,6 +3925,23 @@
                         "vendor_id": 41606
                     },
                     "ignore": true
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": true,
+                        "product_id": 44451,
+                        "vendor_id": 41606
+                    },
+                    "ignore": false
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 44451,
+                        "vendor_id": 41606
+                    },
+                    "ignore": true
                 }
             ],
             "name": "Default profile",
