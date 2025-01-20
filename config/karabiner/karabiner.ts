@@ -5,7 +5,6 @@ import { simpleModifications } from "./libs/simple_modifications.ts";
 import { toStroke } from "./libs/to_stroke.ts";
 import {
   BasicManipulatorBuilder,
-  DeviceIdentifier,
   FromKeyCode,
   ifDevice,
   ifDeviceExists,
@@ -14,85 +13,34 @@ import {
   map,
   rule,
   toRemoveNotificationMessage,
-  toSetVar,
   withCondition,
   withMapper,
 } from "./libs/deps.ts";
+import { DEVICES } from "./rules/device.ts";
+import { Layers } from "./libs/layer.ts";
 
-function keyboard(
-  identifier: Omit<DeviceIdentifier, "is_keyboard">,
-): DeviceIdentifier {
-  return { ...identifier, is_keyboard: true };
-}
-
-const DEVICES = {
-  apple: keyboard({
-    vendor_id: 1452,
-  }),
-  macBook2018: keyboard({
-    vendor_id: 1452,
-    product_id: 634,
-  }),
-  progresTouchRetroTiny: keyboard({
-    vendor_id: 11240,
-    product_id: 4,
-  }),
-  realforceR2: keyboard({
-    vendor_id: 2131,
-    product_id: 328,
-  }),
-  akl680: keyboard({
-    vendor_id: 1452,
-    product_id: 591,
-  }),
-  mk23: (is_pointing_device: boolean = true) =>
-    keyboard({
-      is_pointing_device: is_pointing_device || undefined,
-      vendor_id: 41606,
-      product_id: 41888,
-    }),
-  mk24: (is_pointing_device: boolean = true) =>
-    keyboard({
-      is_pointing_device: is_pointing_device || undefined,
-      vendor_id: 41606,
-      product_id: 44451,
-    }),
-} as const;
-
-const LAYER_VAR = "layer";
-
-const LAYERS = {
-  normal: 0,
-  lower: 1,
-  raise: 2,
-} as const;
-
-type Layer = keyof typeof LAYERS;
-
-function ifLayer(layer: Layer) {
-  return ifVar(LAYER_VAR, LAYERS[layer]);
-}
-
-function toMOLayer(layer: Layer) {
-  return toSetVar(LAYER_VAR, LAYERS[layer], LAYERS.normal);
-}
+const layer = new Layers("layer", [
+  "default",
+  "lower",
+  "raise",
+]);
 
 function backspaceRule() {
   return rule(
     "Exchange Command+Backspace/Delete and Option+Backspace/Delete",
   ).manipulators([
-    withCondition(ifLayer("normal"))([
+    withCondition(layer.ifActive("default"))([
       map("⌫", "command", "shift").to("⌫", "option"),
       map("⌫", "option", "shift").to("⌫", "command"),
       map("⌦", "command", "shift").to("⌦", "option"),
       map("⌦", "option", "shift").to("⌦", "command"),
     ]),
-    withCondition(ifLayer("lower"))([
+    withCondition(layer.ifActive("lower"))([
       map("⌫", "command", "shift").to("⌦", "option"),
       map("⌫", "option", "shift").to("⌦", "command"),
       map("⌫", null, "any").to("⌦"),
     ]),
-    withCondition(ifLayer("raise"))([
+    withCondition(layer.ifActive("raise"))([
       map("⌫", "command", "shift").to("⌦", "option"),
       map("⌫", "option", "shift").to("⌦", "command"),
       map("⌫", null, "any").to("⌦"),
@@ -138,7 +86,7 @@ function capsLockRule() {
       .to("left_command", "shift")
       .toIfAlone(toStroke("=>")),
     map("caps_lock")
-      .condition(ifLayer("lower"))
+      .condition(layer.ifActive("lower"))
       .to("left_command", "shift")
       .toIfAlone(toStroke("-")),
     map("caps_lock", null, "any")
@@ -149,7 +97,7 @@ function capsLockRule() {
 
 function lowerRule() {
   return rule("Lower Layer").manipulators([
-    withCondition(ifLayer("lower"))([
+    withCondition(layer.ifActive("lower"))([
       map("1").to(toStroke("!")),
       map("2").to(toStroke("@")),
       map("3").to(toStroke("#")),
@@ -191,15 +139,15 @@ function lowerRule() {
       map("]").to(toStroke("}")),
     ]),
     map("right_option", null, "any")
-      .condition(ifLayer("normal"))
-      .to(toMOLayer("lower"))
+      .condition(layer.ifActive("default"))
+      .to(layer.toMO("lower"))
       .toIfAlone("escape"),
   ]);
 }
 
 function raiseRule() {
   return rule("Raise Layer").manipulators([
-    withCondition(ifLayer("raise"))([
+    withCondition(layer.ifActive("raise"))([
       ...mapArrows("w", "a", "s", "d"),
       map("q", null, "any").to("home"),
       map("e", null, "any").to("end"),
@@ -210,8 +158,8 @@ function raiseRule() {
       map("x").to(toStroke("~")),
     ]),
     map("right_control", null, "any")
-      .condition(ifLayer("normal"))
-      .to(toMOLayer("raise")),
+      .condition(layer.ifActive("default"))
+      .to(layer.toMO("raise")),
   ]);
 }
 
@@ -220,8 +168,8 @@ function macRule() {
     .condition(ifDevice(DEVICES.apple))
     .manipulators([
       map("right_command", null, "any")
-        .condition(ifLayer("normal"))
-        .to(toMOLayer("lower"))
+        .condition(layer.ifActive("default"))
+        .to(layer.toMO("lower"))
         .toIfAlone("escape"),
     ]);
 }
@@ -232,8 +180,8 @@ function realforceRule() {
     .manipulators([
       withCondition(ifDeviceExists(DEVICES.progresTouchRetroTiny))([
         map("spacebar", null, "any")
-          .condition(ifLayer("normal"))
-          .to(toMOLayer("lower"))
+          .condition(layer.ifActive("default"))
+          .to(layer.toMO("lower"))
           .toIfAlone("return_or_enter"),
         map("b", null, "any")
           .to("delete_or_backspace"),
@@ -344,22 +292,31 @@ function tsrngnRule() {
     switchMode(
       Mode.off,
       "QWERTY MODE",
-      map("page_up").condition(ifLayer("raise")),
+      map("page_up").condition(layer.ifActive("raise")),
     ),
     switchMode(
       Mode.off,
       "QWERTY MODE",
-      map("page_down").condition(ifLayer("raise"), ifVar(modeVar, Mode.full)),
+      map("page_down").condition(
+        layer.ifActive("raise"),
+        ifVar(modeVar, Mode.full),
+      ),
     ),
     switchMode(
       Mode.ja,
       "TSRNGN MODE",
-      map("page_down").condition(ifLayer("raise"), ifVar(modeVar, Mode.off)),
+      map("page_down").condition(
+        layer.ifActive("raise"),
+        ifVar(modeVar, Mode.off),
+      ),
     ),
     switchMode(
       Mode.full,
       "FULL TSRNGN MODE",
-      map("page_down").condition(ifLayer("raise"), ifVar(modeVar, Mode.ja)),
+      map("page_down").condition(
+        layer.ifActive("raise"),
+        ifVar(modeVar, Mode.ja),
+      ),
     ),
   ]);
 }
