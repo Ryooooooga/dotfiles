@@ -40,7 +40,7 @@ export function defaultProfile(
 }
 
 function toJSON(value: unknown): string {
-  const indentWidth = 4;
+  const indentWidth = 2;
   return JSON.stringify(
     value,
     (_key, value) => isObject(value) ? sortObjectKeys(value) : value,

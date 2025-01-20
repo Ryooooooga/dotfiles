@@ -2,7 +2,6 @@
 import { complexModifications } from "./libs/complex_modifications.ts";
 import { defaultProfile, saveConfig } from "./libs/config.ts";
 import { simpleModifications } from "./libs/simple_modifications.ts";
-import { toStroke } from "./libs/to_stroke.ts";
 import {
   BasicManipulatorBuilder,
   FromKeyCode,
@@ -13,11 +12,13 @@ import {
   map,
   rule,
   toRemoveNotificationMessage,
+  toTypeSequence,
   withCondition,
   withMapper,
 } from "./libs/deps.ts";
 import { DEVICES } from "./rules/device.ts";
 import { Layers } from "./libs/layer.ts";
+import { mk45Rules } from "./rules/mk45.ts";
 
 const layer = new Layers("layer", [
   "default",
@@ -81,48 +82,48 @@ function capsLockRule() {
   return rule("Change Caps Lock").manipulators([
     map("caps_lock", "shift")
       .to("left_command", "shift")
-      .toIfAlone(toStroke("->")),
+      .toIfAlone(toTypeSequence("->")),
     map("caps_lock", "command")
       .to("left_command", "shift")
-      .toIfAlone(toStroke("=>")),
+      .toIfAlone(toTypeSequence("=>")),
     map("caps_lock")
       .condition(layer.ifActive("lower"))
       .to("left_command", "shift")
-      .toIfAlone(toStroke("-")),
+      .toIfAlone(toTypeSequence("-")),
     map("caps_lock", null, "any")
       .to("left_command", "shift")
-      .toIfAlone(toStroke("_")),
+      .toIfAlone(toTypeSequence("_")),
   ]);
 }
 
 function lowerRule() {
   return rule("Lower Layer").manipulators([
     withCondition(layer.ifActive("lower"))([
-      map("1").to(toStroke("!")),
-      map("2").to(toStroke("@")),
-      map("3").to(toStroke("#")),
-      map("4").to(toStroke("$")),
-      map("5").to(toStroke("%")),
+      map("1").toTypeSequence("!"),
+      map("2").toTypeSequence("@"),
+      map("3").toTypeSequence("#"),
+      map("4").toTypeSequence("$"),
+      map("5").toTypeSequence("%"),
 
-      map("6").to(toStroke("^")),
-      map("7").to(toStroke("&")),
-      map("8").to(toStroke("*")),
-      map("9").to(toStroke("(")),
-      map("0").to(toStroke(")")),
-      map("-").to(toStroke("_")),
-      map("=").to(toStroke("+")),
+      map("6").toTypeSequence("^"),
+      map("7").toTypeSequence("&"),
+      map("8").toTypeSequence("*"),
+      map("9").toTypeSequence("("),
+      map("0").toTypeSequence(")"),
+      map("-").toTypeSequence("_"),
+      map("=").toTypeSequence("+"),
 
-      map("q").to(toStroke("!")),
-      map("w").to(toStroke("@")),
-      map("e").to(toStroke("#")),
-      map("r").to(toStroke("$")),
-      map("t").to(toStroke("%")),
+      map("q").toTypeSequence("!"),
+      map("w").toTypeSequence("@"),
+      map("e").toTypeSequence("#"),
+      map("r").toTypeSequence("$"),
+      map("t").toTypeSequence("%"),
 
-      map("a").to(toStroke("^")),
-      map("s").to(toStroke("&")),
-      map("d").to(toStroke("*")),
-      map("f").to(toStroke("=")),
-      map("g").to(toStroke("+")),
+      map("a").toTypeSequence("^"),
+      map("s").toTypeSequence("&"),
+      map("d").toTypeSequence("*"),
+      map("f").toTypeSequence("="),
+      map("g").toTypeSequence("+"),
 
       ...mapArrows("i", "j", "k", "l"),
       map("u", null, "any").to("home"),
@@ -130,13 +131,13 @@ function lowerRule() {
       map("p", null, "any").to("page_up"),
       map(";", null, "any").to("page_down"),
 
-      map("z").to(toStroke("(")),
-      map("x").to(toStroke(")")),
-      map("c").to(toStroke("/")),
-      map("v").to(toStroke("?")),
+      map("z").toTypeSequence("("),
+      map("x").toTypeSequence(")"),
+      map("c").toTypeSequence("/"),
+      map("v").toTypeSequence("?"),
 
-      map("[").to(toStroke("{")),
-      map("]").to(toStroke("}")),
+      map("[").toTypeSequence("{"),
+      map("]").toTypeSequence("}"),
     ]),
     map("right_option", null, "any")
       .condition(layer.ifActive("default"))
@@ -154,8 +155,8 @@ function raiseRule() {
       map("r", null, "any").to("page_up"),
       map("f", null, "any").to("page_down"),
 
-      map("z").to(toStroke("`")),
-      map("x").to(toStroke("~")),
+      map("z").toTypeSequence("`"),
+      map("x").toTypeSequence("~"),
     ]),
     map("right_control", null, "any")
       .condition(layer.ifActive("default"))
@@ -324,6 +325,7 @@ function tsrngnRule() {
 const profile = defaultProfile({
   complex_modifications: complexModifications(
     [
+      ...mk45Rules(),
       backspaceRule(),
       modArrowRule(),
       capsLockRule(),
