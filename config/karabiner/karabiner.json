@@ -447,19 +447,10 @@
                 },
                 "to": [
                   {
-                    "key_code": "9",
-                    "modifiers": [
-                      "shift"
-                    ]
+                    "key_code": "equal_sign"
                   },
                   {
-                    "key_code": "0",
-                    "modifiers": [
-                      "shift"
-                    ]
-                  },
-                  {
-                    "key_code": "left_arrow"
+                    "key_code": "equal_sign"
                   }
                 ],
                 "type": "basic"
@@ -493,19 +484,13 @@
                 },
                 "to": [
                   {
-                    "key_code": "open_bracket",
+                    "key_code": "1",
                     "modifiers": [
                       "shift"
                     ]
                   },
                   {
-                    "key_code": "close_bracket",
-                    "modifiers": [
-                      "shift"
-                    ]
-                  },
-                  {
-                    "key_code": "left_arrow"
+                    "key_code": "equal_sign"
                   }
                 ],
                 "type": "basic"
@@ -539,13 +524,13 @@
                 },
                 "to": [
                   {
-                    "key_code": "open_bracket"
+                    "key_code": "comma",
+                    "modifiers": [
+                      "shift"
+                    ]
                   },
                   {
-                    "key_code": "close_bracket"
-                  },
-                  {
-                    "key_code": "left_arrow"
+                    "key_code": "equal_sign"
                   }
                 ],
                 "type": "basic"
@@ -579,19 +564,53 @@
                 },
                 "to": [
                   {
-                    "key_code": "comma",
-                    "modifiers": [
-                      "shift"
-                    ]
-                  },
-                  {
                     "key_code": "period",
                     "modifiers": [
                       "shift"
                     ]
                   },
                   {
-                    "key_code": "left_arrow"
+                    "key_code": "equal_sign"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "mk45_layer",
+                    "type": "variable_if",
+                    "value": 2
+                  },
+                  {
+                    "identifiers": [
+                      {
+                        "is_keyboard": true,
+                        "is_pointing_device": true,
+                        "product_id": 41888,
+                        "vendor_id": 41606
+                      }
+                    ],
+                    "type": "device_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "t",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "semicolon",
+                    "modifiers": [
+                      "shift"
+                    ]
+                  },
+                  {
+                    "key_code": "equal_sign"
                   }
                 ],
                 "type": "basic"
@@ -2163,6 +2182,40 @@
                 "to": [
                   {
                     "key_code": "0"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "mk45_layer",
+                    "type": "variable_if",
+                    "value": 2
+                  },
+                  {
+                    "identifiers": [
+                      {
+                        "is_keyboard": true,
+                        "is_pointing_device": true,
+                        "product_id": 44451,
+                        "vendor_id": 41606
+                      }
+                    ],
+                    "type": "device_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "escape",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "comma"
                   }
                 ],
                 "type": "basic"
