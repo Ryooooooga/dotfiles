@@ -7771,7 +7771,35 @@
             "product_id": 44451,
             "vendor_id": 41606
           },
-          "ignore": false
+          "ignore": false,
+          "simple_modifications": [
+            {
+              "from": {
+                "key_code": "f18"
+              },
+              "to": [
+                {
+                  "key_code": "page_up",
+                  "modifiers": [
+                    "right_control"
+                  ]
+                }
+              ]
+            },
+            {
+              "from": {
+                "key_code": "f19"
+              },
+              "to": [
+                {
+                  "key_code": "page_down",
+                  "modifiers": [
+                    "right_control"
+                  ]
+                }
+              ]
+            }
+          ]
         },
         {
           "identifiers": {

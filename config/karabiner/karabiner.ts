@@ -18,7 +18,7 @@ import {
 } from "./libs/deps.ts";
 import { DEVICES } from "./rules/device.ts";
 import { Layers } from "./libs/layer.ts";
-import { mk45Rules } from "./rules/mk45.ts";
+import { mk45 } from "./rules/mk45.ts";
 
 const layer = new Layers("layer", [
   "default",
@@ -325,7 +325,7 @@ function tsrngnRule() {
 const profile = defaultProfile({
   complex_modifications: complexModifications(
     [
-      ...mk45Rules(),
+      ...mk45.rules,
       backspaceRule(),
       modArrowRule(),
       capsLockRule(),
@@ -371,22 +371,7 @@ const profile = defaultProfile({
         map("right_option").to("right_command"),
       ]),
     },
-    {
-      identifiers: DEVICES.mk23(),
-      ignore: false,
-    },
-    {
-      identifiers: DEVICES.mk23(false),
-      ignore: true,
-    },
-    {
-      identifiers: DEVICES.mk24(),
-      ignore: false,
-    },
-    {
-      identifiers: DEVICES.mk24(false),
-      ignore: true,
-    },
+    ...mk45.devices,
   ],
 });
 

@@ -1,11 +1,14 @@
+import { KarabinerDevice } from "../libs/config.ts";
 import {
   ifDevice,
   map,
   rule,
+  RuleBuilder,
   withCondition,
   withMapper,
 } from "../libs/deps.ts";
 import { Layers } from "../libs/layer.ts";
+import { simpleModifications } from "../libs/simple_modifications.ts";
 import { DEVICES } from "./device.ts";
 
 /**
@@ -284,7 +287,32 @@ function mediaLayer() {
   };
 }
 
-export function mk45Rules() {
+function devices(): Array<KarabinerDevice> {
+  return [
+    {
+      identifiers: DEVICES.mk23(),
+      ignore: false,
+    },
+    {
+      identifiers: DEVICES.mk23(false),
+      ignore: true,
+    },
+    {
+      identifiers: DEVICES.mk24(),
+      ignore: false,
+      simple_modifications: simpleModifications([
+        map("f18").to("page_up", "right_control"),
+        map("f19").to("page_down", "right_control"),
+      ]),
+    },
+    {
+      identifiers: DEVICES.mk24(false),
+      ignore: true,
+    },
+  ];
+}
+
+function rules(): Array<RuleBuilder> {
   const layers = {
     default: defaultLayer(),
     lower: lowerLayer(),
@@ -307,3 +335,8 @@ export function mk45Rules() {
     ]),
   ];
 }
+
+export const mk45 = {
+  devices: devices(),
+  rules: rules(),
+};
