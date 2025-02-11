@@ -52,7 +52,7 @@ const mk45Layers = new Layers(VARS.layer, [
  * Layer 0: default
  * +-----+-----+-----+-----+-----+-----+  +-----+-----+-----+-----+-----+-----+  +-----+
  * | Tab |  Q  |  W  |  E  |  R  |  T  |  |  Y  |  U  |  I  |  O  |  P  | BS  |  | F18 |
- * |     |     |     |     |     |     |  |     |     |     |     |     |     |  |     |
+ * | MO3 |     |     |     |     |     |  |     |     |     |     |     |     |  |     |
  * +-----+-----+-----+-----+-----+-----+  +-----+-----+-----+-----+-----+-----+  +-----+
  * | Caps|  A  |  S  |  D  |  F  |  G  |  |  H  |  J  |  K  |  L  |  ;  |  '  |  | F19 |
  * |     |     |     |     |     |     |  |     |     |     |     |  [  |  ]  |  |     |
@@ -67,6 +67,9 @@ const mk45Layers = new Layers(VARS.layer, [
 function defaultLayer() {
   return {
     left: [
+      map("tab", null, "any")
+        .to(mk45Layers.toMO("media"))
+        .toIfAlone("tab"),
       map("`", null, "any")
         .to(mk45Layers.toMO("raise"))
         .toIfAlone("`"),
@@ -267,13 +270,13 @@ function raiseLayer() {
  * |     | F1  | F2  | F3  | F4  |     |  |     |     |     |     |     |     |  |     |
  * |     |     |     |     |     |     |  |     |     |     |     |     |     |  |     |
  * +-----+-----+-----+-----+-----+-----+  +-----+-----+-----+-----+-----+-----+  +-----+
- * |     | F5  | F6  | F7  | F8  |     |  |     |     |     |     |     |     |  |     |
+ * |     | F5  | F6  | F7  | F8  |     |  |     |     |     |MBtn3|     |     |  |     |
  * |     |     |     |     |     |     |  |     |     |     |     |     |     |  |     |
  * +-----+-----+-----+-----+-----+-----+  +-----+-----+-----+-----+-----+-----+  +-----+
- * |     | F9  | F10 | F11 | F12 |     |  |     |     |     |     |     |
+ * |     | F9  | F10 | F11 | F12 |     |  |     |WhlUp|MBtn1| MUp |MBtn2|
  * |     |     |     |     |     |     |  |     |     |     |     |     |  +-----+-----+-----+
  * +-----+-----+-----+-----+-----+-----+  +-----+-----+-----+-----+-----+  |VolDn|     |VolUp|
- * |     |     |     |     |           |  |     |     |     |     |     |  |     |     |     |
+ * |     |     |     |     |           |  |     |WhlDn| MLt | MDn | MRt |  |     |     |     |
  * |     |     |     |     |           |  |     |     |     |     |     |  +-----+-----+-----+
  * +-----+-----+-----+-----+-----+-----+  +-----+-----+-----+-----+-----+
  */
@@ -296,6 +299,16 @@ function mediaLayer() {
       map("v", null, "any").to("f12"),
     ],
     right: [
+      map("l", null, "any").toPointingButton("button3"),
+      map("m", null, "any").toMouseKey({ vertical_wheel: -32 }),
+      map(",", null, "any").toPointingButton("button1"),
+      map(".", null, "any").toMouseKey({ y: -1536 }),
+      map("/", null, "any").toPointingButton("button2"),
+      map("escape", null, "any").toMouseKey({ vertical_wheel: +32 }),
+      map("-", null, "any").toMouseKey({ x: -1536 }),
+      map("=", null, "any").toMouseKey({ y: +1536 }),
+      map("\\", null, "any").toMouseKey({ x: +1536 }),
+
       map(KEYS.knobLeft, null, "any").to("volume_down"),
       map(KEYS.knobRight, null, "any").to("volume_up"),
     ],
