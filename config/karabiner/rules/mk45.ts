@@ -55,7 +55,7 @@ const mk45Layers = new Layers(VARS.layer, [
  * |     |     |     |     |     |     |  |     |     |     |     |     |     |  |     |
  * +-----+-----+-----+-----+-----+-----+  +-----+-----+-----+-----+-----+-----+  +-----+
  * | Caps|  A  |  S  |  D  |  F  |  G  |  |  H  |  J  |  K  |  L  |  ;  |  '  |  | F19 |
- * |     |     |     |     |     |     |  |     |     |     |     |     |     |  |     |
+ * |     |     |     |     |     |     |  |     |     |     |     |  [  |  ]  |  |     |
  * +-----+-----+-----+-----+-----+-----+  +-----+-----+-----+-----+-----+-----+  +-----+
  * | LShf|  Z  |  X  |  C  |  V  |  B  |  |  N  |  M  |  ,  |  .  |  /  |
  * |     |     |     |     |     |     |  |     |     |     |     |     |  +-----+-----+-----+
@@ -75,6 +75,21 @@ function defaultLayer() {
         .to(mk45Layers.toMO("lower")),
     ],
     right: [
+      map(";", null, "any")
+        .toIfAlone(";")
+        .toIfHeldDown("[", [])
+        .parameters({
+          "basic.to_if_alone_timeout_milliseconds": 100,
+          "basic.to_if_held_down_threshold_milliseconds": 100,
+        }),
+      map("'", null, "any")
+        .toIfAlone("'")
+        .toIfHeldDown("]", [])
+        .parameters({
+          "basic.to_if_alone_timeout_milliseconds": 100,
+          "basic.to_if_held_down_threshold_milliseconds": 100,
+        }),
+
       map("return_or_enter", null, "any")
         .toIfAlone("return_or_enter")
         .to("right_shift"),

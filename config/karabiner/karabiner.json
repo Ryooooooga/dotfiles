@@ -3710,6 +3710,84 @@
                   }
                 ],
                 "from": {
+                  "key_code": "semicolon",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "parameters": {
+                  "basic.to_if_alone_timeout_milliseconds": 100,
+                  "basic.to_if_held_down_threshold_milliseconds": 100
+                },
+                "to_if_alone": [
+                  {
+                    "key_code": "semicolon"
+                  }
+                ],
+                "to_if_held_down": [
+                  {
+                    "key_code": "open_bracket",
+                    "modifiers": []
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "identifiers": [
+                      {
+                        "is_keyboard": true,
+                        "is_pointing_device": true,
+                        "product_id": 44451,
+                        "vendor_id": 41606
+                      }
+                    ],
+                    "type": "device_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "quote",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "parameters": {
+                  "basic.to_if_alone_timeout_milliseconds": 100,
+                  "basic.to_if_held_down_threshold_milliseconds": 100
+                },
+                "to_if_alone": [
+                  {
+                    "key_code": "quote"
+                  }
+                ],
+                "to_if_held_down": [
+                  {
+                    "key_code": "close_bracket",
+                    "modifiers": []
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "identifiers": [
+                      {
+                        "is_keyboard": true,
+                        "is_pointing_device": true,
+                        "product_id": 44451,
+                        "vendor_id": 41606
+                      }
+                    ],
+                    "type": "device_if"
+                  }
+                ],
+                "from": {
                   "key_code": "return_or_enter",
                   "modifiers": {
                     "optional": [
