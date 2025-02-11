@@ -4054,6 +4054,198 @@
               {
                 "conditions": [
                   {
+                    "name": "tsrngn",
+                    "type": "variable_if",
+                    "value": 1
+                  },
+                  {
+                    "input_sources": [
+                      {
+                        "language": "ja"
+                      }
+                    ],
+                    "type": "input_source_if"
+                  },
+                  {
+                    "identifiers": [
+                      {
+                        "is_keyboard": true,
+                        "is_pointing_device": true,
+                        "product_id": 44451,
+                        "vendor_id": 41606
+                      }
+                    ],
+                    "type": "device_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "semicolon",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "parameters": {
+                  "basic.to_if_alone_timeout_milliseconds": 100,
+                  "basic.to_if_held_down_threshold_milliseconds": 100
+                },
+                "to_if_alone": [
+                  {
+                    "key_code": "comma"
+                  }
+                ],
+                "to_if_held_down": [
+                  {
+                    "key_code": "open_bracket",
+                    "modifiers": []
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "tsrngn",
+                    "type": "variable_if",
+                    "value": 1
+                  },
+                  {
+                    "input_sources": [
+                      {
+                        "language": "ja"
+                      }
+                    ],
+                    "type": "input_source_if"
+                  },
+                  {
+                    "identifiers": [
+                      {
+                        "is_keyboard": true,
+                        "is_pointing_device": true,
+                        "product_id": 44451,
+                        "vendor_id": 41606
+                      }
+                    ],
+                    "type": "device_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "quote",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "parameters": {
+                  "basic.to_if_alone_timeout_milliseconds": 100,
+                  "basic.to_if_held_down_threshold_milliseconds": 100
+                },
+                "to_if_alone": [
+                  {
+                    "key_code": "period"
+                  }
+                ],
+                "to_if_held_down": [
+                  {
+                    "key_code": "close_bracket",
+                    "modifiers": []
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "tsrngn",
+                    "type": "variable_if",
+                    "value": 2
+                  },
+                  {
+                    "identifiers": [
+                      {
+                        "is_keyboard": true,
+                        "is_pointing_device": true,
+                        "product_id": 44451,
+                        "vendor_id": 41606
+                      }
+                    ],
+                    "type": "device_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "semicolon",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "parameters": {
+                  "basic.to_if_alone_timeout_milliseconds": 100,
+                  "basic.to_if_held_down_threshold_milliseconds": 100
+                },
+                "to_if_alone": [
+                  {
+                    "key_code": "comma"
+                  }
+                ],
+                "to_if_held_down": [
+                  {
+                    "key_code": "open_bracket",
+                    "modifiers": []
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "tsrngn",
+                    "type": "variable_if",
+                    "value": 2
+                  },
+                  {
+                    "identifiers": [
+                      {
+                        "is_keyboard": true,
+                        "is_pointing_device": true,
+                        "product_id": 44451,
+                        "vendor_id": 41606
+                      }
+                    ],
+                    "type": "device_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "quote",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "parameters": {
+                  "basic.to_if_alone_timeout_milliseconds": 100,
+                  "basic.to_if_held_down_threshold_milliseconds": 100
+                },
+                "to_if_alone": [
+                  {
+                    "key_code": "period"
+                  }
+                ],
+                "to_if_held_down": [
+                  {
+                    "key_code": "close_bracket",
+                    "modifiers": []
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
                     "identifiers": [
                       {
                         "is_keyboard": true,

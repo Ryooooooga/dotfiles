@@ -9,6 +9,7 @@ import {
 } from "../libs/deps.ts";
 import { Layers } from "../libs/layer.ts";
 import { simpleModifications } from "../libs/simple_modifications.ts";
+import { withTsrngnMode } from "../libs/tsrngn.ts";
 import { DEVICES } from "./device.ts";
 
 /**
@@ -78,6 +79,22 @@ function defaultLayer() {
         .to(mk45Layers.toMO("lower")),
     ],
     right: [
+      withTsrngnMode([
+        map(";", null, "any")
+          .toIfAlone(",")
+          .toIfHeldDown("[", [])
+          .parameters({
+            "basic.to_if_alone_timeout_milliseconds": 100,
+            "basic.to_if_held_down_threshold_milliseconds": 100,
+          }),
+        map("'", null, "any")
+          .toIfAlone(".")
+          .toIfHeldDown("]", [])
+          .parameters({
+            "basic.to_if_alone_timeout_milliseconds": 100,
+            "basic.to_if_held_down_threshold_milliseconds": 100,
+          }),
+      ]),
       map(";", null, "any")
         .toIfAlone(";")
         .toIfHeldDown("[", [])

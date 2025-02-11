@@ -3,24 +3,25 @@ import { complexModifications } from "./libs/complex_modifications.ts";
 import { defaultProfile, saveConfig } from "./libs/config.ts";
 import { simpleModifications } from "./libs/simple_modifications.ts";
 import {
-  BasicManipulatorBuilder,
   FromKeyCode,
   ifDevice,
   ifDeviceExists,
-  ifInputSource,
-  ifVar,
   map,
   rule,
-  toRemoveNotificationMessage,
   toTypeSequence,
   withCondition,
-  withMapper,
 } from "./libs/deps.ts";
 import { DEVICES } from "./rules/device.ts";
 import { Layers } from "./libs/layer.ts";
 import { mk45 } from "./rules/mk45.ts";
+import {
+  rotateTsrngnMode,
+  toTsrngnMode,
+  withTsrngnKeys,
+  withTsrngnMode,
+} from "./libs/tsrngn.ts";
 
-const layer = new Layers("layer", [
+const layers = new Layers("layer", [
   "default",
   "lower",
   "raise",
@@ -30,18 +31,18 @@ function backspaceRule() {
   return rule(
     "Exchange Command+Backspace/Delete and Option+Backspace/Delete",
   ).manipulators([
-    withCondition(layer.ifActive("default"))([
+    withCondition(layers.ifActive("default"))([
       map("⌫", "command", "shift").to("⌫", "option"),
       map("⌫", "option", "shift").to("⌫", "command"),
       map("⌦", "command", "shift").to("⌦", "option"),
       map("⌦", "option", "shift").to("⌦", "command"),
     ]),
-    withCondition(layer.ifActive("lower"))([
+    withCondition(layers.ifActive("lower"))([
       map("⌫", "command", "shift").to("⌦", "option"),
       map("⌫", "option", "shift").to("⌦", "command"),
       map("⌫", null, "any").to("⌦"),
     ]),
-    withCondition(layer.ifActive("raise"))([
+    withCondition(layers.ifActive("raise"))([
       map("⌫", "command", "shift").to("⌦", "option"),
       map("⌫", "option", "shift").to("⌦", "command"),
       map("⌫", null, "any").to("⌦"),
@@ -87,7 +88,7 @@ function capsLockRule() {
       .to("left_command", "shift")
       .toIfAlone(toTypeSequence("=>")),
     map("caps_lock")
-      .condition(layer.ifActive("lower"))
+      .condition(layers.ifActive("lower"))
       .to("left_command", "shift")
       .toIfAlone(toTypeSequence("-")),
     map("caps_lock", null, "any")
@@ -98,7 +99,7 @@ function capsLockRule() {
 
 function lowerRule() {
   return rule("Lower Layer").manipulators([
-    withCondition(layer.ifActive("lower"))([
+    withCondition(layers.ifActive("lower"))([
       map("1").toTypeSequence("!"),
       map("2").toTypeSequence("@"),
       map("3").toTypeSequence("#"),
@@ -140,15 +141,15 @@ function lowerRule() {
       map("]").toTypeSequence("}"),
     ]),
     map("right_option", null, "any")
-      .condition(layer.ifActive("default"))
-      .to(layer.toMO("lower"))
+      .condition(layers.ifActive("default"))
+      .to(layers.toMO("lower"))
       .toIfAlone("escape"),
   ]);
 }
 
 function raiseRule() {
   return rule("Raise Layer").manipulators([
-    withCondition(layer.ifActive("raise"))([
+    withCondition(layers.ifActive("raise"))([
       ...mapArrows("w", "a", "s", "d"),
       map("q", null, "any").to("home"),
       map("e", null, "any").to("end"),
@@ -159,8 +160,8 @@ function raiseRule() {
       map("x").toTypeSequence("~"),
     ]),
     map("right_control", null, "any")
-      .condition(layer.ifActive("default"))
-      .to(layer.toMO("raise")),
+      .condition(layers.ifActive("default"))
+      .to(layers.toMO("raise")),
   ]);
 }
 
@@ -169,8 +170,8 @@ function macRule() {
     .condition(ifDevice(DEVICES.apple))
     .manipulators([
       map("right_command", null, "any")
-        .condition(layer.ifActive("default"))
-        .to(layer.toMO("lower"))
+        .condition(layers.ifActive("default"))
+        .to(layers.toMO("lower"))
         .toIfAlone("escape"),
     ]);
 }
@@ -181,8 +182,8 @@ function realforceRule() {
     .manipulators([
       withCondition(ifDeviceExists(DEVICES.progresTouchRetroTiny))([
         map("spacebar", null, "any")
-          .condition(layer.ifActive("default"))
-          .to(layer.toMO("lower"))
+          .condition(layers.ifActive("default"))
+          .to(layers.toMO("lower"))
           .toIfAlone("return_or_enter"),
         map("b", null, "any")
           .to("delete_or_backspace"),
@@ -190,134 +191,17 @@ function realforceRule() {
     ]);
 }
 
-/**
- * TSRNGN
- *
- * +----+----+----+----+----+----+----+----+----+----+----+----+----+----+
- * | `  | 1  | 2  | 3  | 4  | 5  | 6  | 7  | 8  | 9  | 0  | '  | =  | BS |
- * +----+----+----+----+----+----+----+----+----+----+----+----+----+----+
- * |Tab | Q  | W  | E  | D  | L  | V  | Y  | R  | J  | P  | [  | ]  | |  |
- * +----+----+----+----+----+----+----+----+----+----+----+----+----+----+
- * |Caps| A  | U  | O  | I  | G  | H  | T  | S  | K  | ,  | .  | Enter   |
- * +----+----+----+----+----+----+----+----+----+----+----+----+---------+
- * |LShf| Z  | X  | C  | F  | B  | N  | M  | -  | ;  | /  |     RShf     |
- * +----+----+----+----+----+----+----+----+----+----+----+--------------+
- */
-export const tsrngnMap = {
-  "`": "`",
-  1: "1",
-  2: "2",
-  3: "3",
-  4: "4",
-  5: "5",
-  6: "6",
-  7: "7",
-  8: "8",
-  9: "9",
-  0: "0",
-  "-": "'",
-  "=": "=",
-
-  q: "q",
-  w: "w",
-  e: "e",
-  r: "d",
-  t: "l",
-  y: "v",
-  u: "y",
-  i: "r",
-  o: "j",
-  p: "p",
-  "[": "[",
-  "]": "]",
-  "\\": "\\",
-
-  a: "a",
-  s: "u",
-  d: "o",
-  f: "i",
-  g: "g",
-  h: "h",
-  j: "t",
-  k: "s",
-  l: "k",
-  ";": ",",
-  "'": ".",
-
-  z: "z",
-  x: "x",
-  c: "c",
-  v: "f",
-  b: "b",
-  n: "n",
-  m: "m",
-  ",": "-",
-  ".": ";",
-  "/": "/",
-} as const;
-
 function tsrngnRule() {
-  const modeVar = "tsrngn";
-
-  function remapKeys() {
-    const keyMap = Object.fromEntries(
-      Object.entries(tsrngnMap).filter(([from, to]) => from !== to),
-    ) as Partial<typeof tsrngnRule>;
-
-    return withMapper(keyMap)((from, to) => map(from, null, "shift").to(to));
-  }
-
-  enum Mode {
-    off,
-    ja,
-    full,
-  }
-
-  function switchMode(mode: Mode, message: string, m: BasicManipulatorBuilder) {
-    return m
-      .toVar(modeVar, mode)
-      .parameters({ "basic.to_delayed_action_delay_milliseconds": 2000 })
-      .toNotificationMessage(modeVar, message)
-      .toDelayedAction(
-        toRemoveNotificationMessage(modeVar),
-        toRemoveNotificationMessage(modeVar),
-      );
-  }
-
   return rule("JA tsrngn").manipulators([
-    withCondition(
-      ifVar(modeVar, 1),
-      ifInputSource({ language: "ja" }),
-    )([remapKeys()]),
-    withCondition(ifVar(modeVar, 2))([remapKeys()]),
-    switchMode(
-      Mode.off,
-      "QWERTY MODE",
-      map("page_up").condition(layer.ifActive("raise")),
+    withTsrngnMode([
+      withTsrngnKeys(({ from, to }) => map(from, null, "shift").to(to)),
+    ]),
+    toTsrngnMode(
+      "off",
+      map("page_up").condition(layers.ifActive("raise")),
     ),
-    switchMode(
-      Mode.off,
-      "QWERTY MODE",
-      map("page_down").condition(
-        layer.ifActive("raise"),
-        ifVar(modeVar, Mode.full),
-      ),
-    ),
-    switchMode(
-      Mode.ja,
-      "TSRNGN MODE",
-      map("page_down").condition(
-        layer.ifActive("raise"),
-        ifVar(modeVar, Mode.off),
-      ),
-    ),
-    switchMode(
-      Mode.full,
-      "FULL TSRNGN MODE",
-      map("page_down").condition(
-        layer.ifActive("raise"),
-        ifVar(modeVar, Mode.ja),
-      ),
+    rotateTsrngnMode(
+      () => map("page_down").condition(layers.ifActive("raise")),
     ),
   ]);
 }
