@@ -447,43 +447,6 @@
                 },
                 "to": [
                   {
-                    "key_code": "equal_sign"
-                  },
-                  {
-                    "key_code": "equal_sign"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "name": "mk45_layer",
-                    "type": "variable_if",
-                    "value": 2
-                  },
-                  {
-                    "identifiers": [
-                      {
-                        "is_keyboard": true,
-                        "is_pointing_device": true,
-                        "product_id": 41888,
-                        "vendor_id": 41606
-                      }
-                    ],
-                    "type": "device_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "w",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
                     "key_code": "1",
                     "modifiers": [
                       "shift"
@@ -515,7 +478,7 @@
                   }
                 ],
                 "from": {
-                  "key_code": "e",
+                  "key_code": "w",
                   "modifiers": {
                     "optional": [
                       "any"
@@ -555,7 +518,7 @@
                   }
                 ],
                 "from": {
-                  "key_code": "r",
+                  "key_code": "e",
                   "modifiers": {
                     "optional": [
                       "any"
@@ -595,7 +558,7 @@
                   }
                 ],
                 "from": {
-                  "key_code": "t",
+                  "key_code": "r",
                   "modifiers": {
                     "optional": [
                       "any"

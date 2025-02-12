@@ -222,7 +222,7 @@ function lowerLayer() {
 /**
  * Layer 2: raise
  * +-----+-----+-----+-----+-----+-----+  +-----+-----+-----+-----+-----+-----+  +-----+
- * |     | ==  | !=  | <=  | >=  | :=  |  |  7  |  8  |  9  |  (  |  )  |     |  |     |
+ * |     | !=  | <=  | >=  | :=  |     |  |  7  |  8  |  9  |  (  |  )  |     |  |     |
  * |     |     |     |     |     |     |  |     |     |     |     |     |     |  |     |
  * +-----+-----+-----+-----+-----+-----+  +-----+-----+-----+-----+-----+-----+  +-----+
  * |     |  (  |  )  |  <  |  >  |     |  |  4  |  5  |  6  |  +  |  -  | Del |  |     |
@@ -238,11 +238,10 @@ function lowerLayer() {
 function raiseLayer() {
   return {
     left: [
-      map("q", null, "any").toTypeSequence("=="),
-      map("w", null, "any").toTypeSequence("!="),
-      map("e", null, "any").toTypeSequence("<="),
-      map("r", null, "any").toTypeSequence(">="),
-      map("t", null, "any").toTypeSequence(":="),
+      map("q", null, "any").toTypeSequence("!="),
+      map("w", null, "any").toTypeSequence("<="),
+      map("e", null, "any").toTypeSequence(">="),
+      map("r", null, "any").toTypeSequence(":="),
 
       map("a", null, "any").toTypeSequence("("),
       map("s", null, "any").toTypeSequence(")"),
