@@ -1,9 +1,12 @@
 import { KarabinerDevice } from "../libs/config.ts";
 import {
   ifDevice,
+  ifVar,
   map,
   rule,
   RuleBuilder,
+  toKey,
+  toSetVar,
   withCondition,
   withMapper,
 } from "../libs/deps.ts";
@@ -66,14 +69,26 @@ const mk45Layers = new Layers(VARS.layer, [
  * +-----+-----+-----+-----+-----+-----+  +-----+-----+-----+-----+-----+
  */
 function defaultLayer() {
+  const graveDoubleTap = "mk45_grave_double_tap";
+
   return {
     left: [
       map("tab", null, "any")
         .to(mk45Layers.toMO("media"))
         .toIfAlone("tab"),
       map("`", null, "any")
+        .condition(ifVar(graveDoubleTap, 1))
         .to(mk45Layers.toMO("raise"))
-        .toIfAlone("`"),
+        .toIfAlone("japanese_kana"),
+      map("`", null, "any")
+        .condition(ifVar(graveDoubleTap, 0))
+        .to(mk45Layers.toMO("raise"))
+        .toIfAlone([toKey("japanese_eisuu"), toSetVar(graveDoubleTap, 1)])
+        .toDelayedAction(
+          toSetVar(graveDoubleTap, 0),
+          toSetVar(graveDoubleTap, 0),
+        )
+        .parameters({ "basic.to_delayed_action_delay_milliseconds": 250 }),
       map("spacebar", null, "any")
         .toIfAlone("spacebar")
         .to(mk45Layers.toMO("lower")),

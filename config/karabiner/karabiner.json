@@ -1522,6 +1522,11 @@
               {
                 "conditions": [
                   {
+                    "name": "mk45_grave_double_tap",
+                    "type": "variable_if",
+                    "value": 1
+                  },
+                  {
                     "identifiers": [
                       {
                         "is_keyboard": true,
@@ -1552,7 +1557,77 @@
                 ],
                 "to_if_alone": [
                   {
-                    "key_code": "grave_accent_and_tilde"
+                    "key_code": "japanese_kana"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "name": "mk45_grave_double_tap",
+                    "type": "variable_if",
+                    "value": 0
+                  },
+                  {
+                    "identifiers": [
+                      {
+                        "is_keyboard": true,
+                        "is_pointing_device": true,
+                        "product_id": 41888,
+                        "vendor_id": 41606
+                      }
+                    ],
+                    "type": "device_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "grave_accent_and_tilde",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "parameters": {
+                  "basic.to_delayed_action_delay_milliseconds": 250
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "key_up_value": 0,
+                      "name": "mk45_layer",
+                      "value": 2
+                    }
+                  }
+                ],
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "mk45_grave_double_tap",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "mk45_grave_double_tap",
+                        "value": 0
+                      }
+                    }
+                  ]
+                },
+                "to_if_alone": [
+                  {
+                    "key_code": "japanese_eisuu"
+                  },
+                  {
+                    "set_variable": {
+                      "name": "mk45_grave_double_tap",
+                      "value": 1
+                    }
                   }
                 ],
                 "type": "basic"
