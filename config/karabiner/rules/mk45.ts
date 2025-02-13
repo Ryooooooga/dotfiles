@@ -78,17 +78,22 @@ function defaultLayer() {
         .toIfAlone("tab"),
       map("`", null, "any")
         .condition(ifVar(graveDoubleTap, 1))
-        .to(mk45Layers.toMO("raise"))
-        .toIfAlone("japanese_kana"),
+        .to([mk45Layers.toMO("raise"), toSetVar(graveDoubleTap, 0)])
+        .toIfAlone([toKey("japanese_kana"), toSetVar(graveDoubleTap, 0)]),
       map("`", null, "any")
         .condition(ifVar(graveDoubleTap, 0))
         .to(mk45Layers.toMO("raise"))
-        .toIfAlone([toKey("japanese_eisuu"), toSetVar(graveDoubleTap, 1)])
+        .toIfHeldDown({ ...mk45Layers.toMO("raise"), halt: true })
+        .toIfAlone(toSetVar(graveDoubleTap, 1))
         .toDelayedAction(
-          toSetVar(graveDoubleTap, 0),
+          [toKey("japanese_eisuu"), toSetVar(graveDoubleTap, 0)],
           toSetVar(graveDoubleTap, 0),
         )
-        .parameters({ "basic.to_delayed_action_delay_milliseconds": 250 }),
+        .parameters({
+          "basic.to_if_held_down_threshold_milliseconds": 200,
+          "basic.to_if_alone_timeout_milliseconds": 200,
+          "basic.to_delayed_action_delay_milliseconds": 250,
+        }),
       map("spacebar", null, "any")
         .toIfAlone("spacebar")
         .to(mk45Layers.toMO("lower")),
