@@ -23,3 +23,4 @@ IndentCaseLabels: true
 NamespaceIndentation: All
 PointerAlignment: Left
 IndentPPDirectives: AfterHash
+SeparateDefinitionBlocks: Always

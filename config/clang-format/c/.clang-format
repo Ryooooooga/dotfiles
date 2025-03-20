@@ -17,3 +17,4 @@ IncludeCategories:
 PenaltyReturnTypeOnItsOwnLine: 10000
 PointerAlignment: Right
 IndentPPDirectives: AfterHash
+SeparateDefinitionBlocks: Always
