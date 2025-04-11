@@ -266,6 +266,13 @@ abbrevs:
     evaluate: true
     context: *global
 
+  - name: git T-
+    abbr: T-
+    snippet: $(git describe --abbrev=0 --tags @~ 2>/dev/null || <<<"$abbr")
+    global: true
+    evaluate: true
+    context: *global
+
   - name: git T+
     abbr: T+
     snippet: |-
