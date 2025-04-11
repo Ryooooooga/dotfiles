@@ -17,6 +17,6 @@ echo "Updating Homebrew..."
 brew update
 
 echo "Installing Homebrew apps..."
-brew bundle install --file "${REPO_DIR}/config/homebrew/Brewfile" --no-lock --verbose
+brew bundle install --file "${REPO_DIR}/config/homebrew/Brewfile" --verbose
 
 true
