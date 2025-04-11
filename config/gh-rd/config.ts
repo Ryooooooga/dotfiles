@@ -5,9 +5,6 @@ export default defineConfig({
   tools: [
     {
       name: "rossmacarthur/sheldon",
-      tag: Deno.build.os === "darwin" && Deno.build.arch === "x86_64"
-        ? "0.7.4"
-        : undefined,
     },
     {
       name: "Ryooooooga/croque",
