@@ -1,7 +1,0 @@
-<snippet>
-	<description>fprintf</description>
-	<content><![CDATA[
-std::fprintf(${1:stderr}, "$2\n"$3);]]></content>
-	<tabTrigger>fprintf</tabTrigger>
-	<scope>source.c++, source.objc++</scope>
-</snippet>

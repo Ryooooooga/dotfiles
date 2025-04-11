@@ -1,7 +1,0 @@
-<snippet>
-	<description>printf</description>
-	<content><![CDATA[
-std::printf("$1\n"$2);]]></content>
-	<tabTrigger>printf</tabTrigger>
-	<scope>source.c++, source.objc++</scope>
-</snippet>

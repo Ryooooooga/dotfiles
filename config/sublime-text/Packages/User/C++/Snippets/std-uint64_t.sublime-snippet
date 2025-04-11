@@ -1,7 +1,0 @@
-<snippet>
-	<description>std::uint64_t</description>
-	<content><![CDATA[
-std::uint64_t]]></content>
-	<tabTrigger>u64</tabTrigger>
-	<scope>source.c++, source.objc++</scope>
-</snippet>

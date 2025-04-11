@@ -1,6 +1,0 @@
-<snippet>
-	<content><![CDATA[static ]]></content>
-	<tabTrigger>static</tabTrigger>
-	<scope>source.d</scope>
-	<description>static</description>
-</snippet>

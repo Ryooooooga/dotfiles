@@ -1,6 +1,0 @@
-<snippet>
-	<content><![CDATA[module ${1:${TM_FILEPATH/^.+\/source\/|\/package\.d$|(?:(\/))|(?:\.d$)/(?1.:)(?2:)/g}};]]></content>
-	<tabTrigger>module</tabTrigger>
-	<scope>source.d</scope>
-	<description>module</description>
-</snippet>

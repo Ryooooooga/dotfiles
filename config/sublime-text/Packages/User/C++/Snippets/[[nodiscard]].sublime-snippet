@@ -1,7 +1,0 @@
-<snippet>
-	<description>[[nodiscard]]</description>
-	<content><![CDATA[
-[[nodiscard]]]]></content>
-	<tabTrigger>nodiscard</tabTrigger>
-	<scope>source.c++, source.objc++</scope>
-</snippet>

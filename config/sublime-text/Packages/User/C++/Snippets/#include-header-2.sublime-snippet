@@ -1,7 +1,0 @@
-<snippet>
-	<description>#include &quot;header&quot;</description>
-	<content><![CDATA[
-#include "${1:${TM_FILENAME/(.+)\..+/$1/:name}.hpp}"]]></content>
-	<tabTrigger>include</tabTrigger>
-	<scope>(source.c++ | source.objc++) - meta.preprocessor.incomplete</scope>
-</snippet>

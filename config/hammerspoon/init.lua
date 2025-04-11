@@ -29,5 +29,4 @@ end
 -- remapRepeat({'cmd'}, 'Y', keyStroke({'cmd', 'shift'}, 'Z'))
 remap({'cmd', 'ctrl'}, 't', launch('Alacritty'))
 remap({'cmd', 'ctrl'}, 'v', launch('Visual Studio Code'))
-remap({'cmd', 'ctrl'}, 'e', launch('Sublime Text'))
 remap({'cmd', 'ctrl'}, 'c', launch('Google Chrome'))

@@ -1,9 +1,0 @@
-<snippet>
-	<description>#ifndef-#endif</description>
-	<content><![CDATA[
-ifndef ${1:name}
-$0
-#endif // $1]]></content>
-	<tabTrigger>ifndef</tabTrigger>
-	<scope>source.c, source.objc, source.c++, source.objc++</scope>
-</snippet>

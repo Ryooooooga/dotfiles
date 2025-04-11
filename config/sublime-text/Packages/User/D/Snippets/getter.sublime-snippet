@@ -1,9 +1,0 @@
-<snippet>
-	<content><![CDATA[@property ${1:T} ${2:name}() const
-{
-	return ${3:_${2}};
-}]]></content>
-	<tabTrigger>getter</tabTrigger>
-	<scope>source.d</scope>
-	<description>getter</description>
-</snippet>

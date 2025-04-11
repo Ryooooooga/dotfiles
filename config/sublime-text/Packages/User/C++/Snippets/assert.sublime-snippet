@@ -1,7 +1,0 @@
-<snippet>
-	<description>assert</description>
-	<content><![CDATA[
-assert(${1:x});]]></content>
-	<tabTrigger>assert</tabTrigger>
-	<scope>source.c, source.objc, source.c++, source.objc++</scope>
-</snippet>

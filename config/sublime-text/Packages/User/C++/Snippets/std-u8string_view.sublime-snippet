@@ -1,7 +1,0 @@
-<snippet>
-	<description>std::u8string_view</description>
-	<content><![CDATA[
-std::u8string_view]]></content>
-	<tabTrigger>u8string_view</tabTrigger>
-	<scope>source.c++, source.objc++</scope>
-</snippet>

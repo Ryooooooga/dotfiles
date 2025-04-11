@@ -1,7 +1,0 @@
-<snippet>
-	<description>#pragma</description>
-	<content><![CDATA[
-pragma ${1:once}]]></content>
-	<tabTrigger>pragma</tabTrigger>
-	<scope>source.c, source.objc, source.c++, source.objc++</scope>
-</snippet>

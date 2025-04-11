@@ -1,6 +1,0 @@
-<snippet>
-	<content><![CDATA[warning("$1");]]></content>
-	<tabTrigger>warning</tabTrigger>
-	<scope>source.d</scope>
-	<description>warning(…);</description>
-</snippet>

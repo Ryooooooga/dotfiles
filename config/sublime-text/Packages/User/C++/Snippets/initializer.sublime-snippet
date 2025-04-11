@@ -1,7 +1,0 @@
-<snippet>
-	<description>initializer</description>
-	<content><![CDATA[
-${1:data_}(${2:${1/_$//}})]]></content>
-	<tabTrigger>init</tabTrigger>
-	<scope>source.c++, source.objc++</scope>
-</snippet>

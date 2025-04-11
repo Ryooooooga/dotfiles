@@ -1,7 +1,0 @@
-<snippet>
-	<description>nullptr</description>
-	<content><![CDATA[
-nullptr]]></content>
-	<tabTrigger>nullptr</tabTrigger>
-	<scope>source.c++, source.objc++</scope>
-</snippet>

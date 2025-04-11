@@ -1,7 +1,0 @@
-<snippet>
-	<description>destructor</description>
-	<content><![CDATA[
-~${1:${TM_FILENAME/(.+)\..+/$1/:name}}() noexcept =default;]]></content>
-	<tabTrigger>dtor</tabTrigger>
-	<scope>source.c++, source.objc++</scope>
-</snippet>

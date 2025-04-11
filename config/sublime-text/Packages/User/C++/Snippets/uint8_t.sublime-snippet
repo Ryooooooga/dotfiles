@@ -1,7 +1,0 @@
-<snippet>
-	<description>uint8_t</description>
-	<content><![CDATA[
-uint8_t]]></content>
-	<tabTrigger>u8</tabTrigger>
-	<scope>source.c, source.objc</scope>
-</snippet>

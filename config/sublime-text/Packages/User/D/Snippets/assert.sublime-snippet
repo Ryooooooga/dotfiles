@@ -1,6 +1,0 @@
-<snippet>
-	<content><![CDATA[assert($1);]]></content>
-	<tabTrigger>assert</tabTrigger>
-	<scope>source.d</scope>
-	<description>assert(…);</description>
-</snippet>

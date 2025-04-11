@@ -1,7 +1,0 @@
-<snippet>
-	<description>std::int32_t</description>
-	<content><![CDATA[
-std::int32_t]]></content>
-	<tabTrigger>i32</tabTrigger>
-	<scope>source.c++, source.objc++</scope>
-</snippet>

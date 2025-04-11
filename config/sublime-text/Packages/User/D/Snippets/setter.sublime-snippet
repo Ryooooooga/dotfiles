@@ -1,9 +1,0 @@
-<snippet>
-	<content><![CDATA[@property void ${1:name}(${2:T} ${3:value})
-{
-	${4:_${1}} = ${3};
-}]]></content>
-	<tabTrigger>setter</tabTrigger>
-	<scope>source.d</scope>
-	<description>setter</description>
-</snippet>

@@ -1,7 +1,0 @@
-[
-	{
-		"command": "build",
-		"args": { "select": true },
-		"caption": "Build: With..."
-	}
-]

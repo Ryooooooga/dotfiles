@@ -44,7 +44,3 @@ indent_size = 2
 [.clang-format]
 indent_style = space
 indent_size = 2
-
-[*.sublime-*]
-indent_style = tab
-indent_size = 2

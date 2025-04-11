@@ -1,9 +1,0 @@
-<snippet>
-	<content><![CDATA[version (${1:Posix})
-{
-	$0
-}]]></content>
-	<tabTrigger>version</tabTrigger>
-	<scope>source.d</scope>
-	<description>version(…) { … }</description>
-</snippet>

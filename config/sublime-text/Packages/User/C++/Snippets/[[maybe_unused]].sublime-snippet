@@ -1,7 +1,0 @@
-<snippet>
-	<description>[[maybe_unused]]</description>
-	<content><![CDATA[
-[[maybe_unused]]]]></content>
-	<tabTrigger>unused</tabTrigger>
-	<scope>source.c++, source.objc++</scope>
-</snippet>

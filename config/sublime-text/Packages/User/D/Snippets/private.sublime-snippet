@@ -1,6 +1,0 @@
-<snippet>
-	<content><![CDATA[private ]]></content>
-	<tabTrigger>private</tabTrigger>
-	<scope>source.d</scope>
-	<description>private</description>
-</snippet>

@@ -1,9 +1,0 @@
-<snippet>
-	<description>case</description>
-	<content><![CDATA[
-case ${1:x}:
-	$0
-	break;]]></content>
-	<tabTrigger>case</tabTrigger>
-	<scope>source.c, source.objc, source.c++, source.objc++</scope>
-</snippet>
