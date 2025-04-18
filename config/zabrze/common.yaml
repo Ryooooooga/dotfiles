@@ -110,8 +110,8 @@ abbrevs:
 
   # awk
   - name: .N
-    abbr-pattern: ^\.\d+$
-    snippet: awk '{ print ${abbr/./$} }'
+    abbr-pattern: ^.(?<n>\d+)$
+    snippet: awk '{ print \$$n }'
     evaluate: true
 
   # editor
