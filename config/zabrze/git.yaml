@@ -70,6 +70,12 @@ abbrevs:
     global: true
     context: *subcommand
 
+  - name: git cr
+    abbr: cr
+    snippet: commit --reuse-message={}
+    global: true
+    context: *subcommand
+
   - name: git C
     abbr: C
     snippet: cz
