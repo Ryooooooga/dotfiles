@@ -10,7 +10,7 @@ if [[ -x "$DENO_INSTALL/bin/deno" ]]; then
   "$DENO_INSTALL/bin/deno" upgrade
 else
   echo "Installing Deno..."
-  curl -fsSL https://deno.land/x/install/install.sh | /bin/sh
+  curl -fsSL https://deno.land/x/install/install.sh | CI=1 /bin/sh
 fi
 
 echo "Install Deno completions..."
