@@ -1,4 +1,4 @@
-#!/usr/bin/env -S deno run --ext=ts --no-check
+#!/usr/bin/env -S deno run
 
 const width = Deno.stdout.isTerminal()
   ? Math.min(Deno.consoleSize().columns, 128)

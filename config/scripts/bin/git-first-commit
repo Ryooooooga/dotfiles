@@ -1,10 +1,14 @@
-#!/usr/bin/env bash
-git rev-parse || exit 1
+#!/usr/bin/env -S deno run -A
+import { $ } from "npm:zx@lite";
 
-if git rev-parse HEAD &>/dev/null; then
-  echo "this is not an empty repository" 2>/dev/stderr
-  exit 1
-fi
+if (await $`git rev-parse`.exitCode !== 0) {
+  Deno.exit(1);
+}
 
-git commit -m "initial commit" --allow-empty
-exit "$?"
+if (await $`git rev-parse HEAD`.quiet().exitCode === 0) {
+  console.error("this is not an empty repository");
+  Deno.exit(1);
+}
+
+const message = "initial commit";
+await $`git commit -m ${message} --allow-empty`;
