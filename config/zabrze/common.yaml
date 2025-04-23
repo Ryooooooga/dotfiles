@@ -110,7 +110,7 @@ abbrevs:
 
   # awk
   - name: .N
-    abbr-pattern: ^.(?<n>\d+)$
+    abbr-pattern: ^\.(?<n>\d+)$
     snippet: awk '{ print \$$n }'
     evaluate: true
 
