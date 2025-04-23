@@ -1,0 +1,11 @@
+{
+  "name": "dotfiles",
+  "type": "module",
+  "devDependencies": {
+    "ghats": "^0.9.2"
+  },
+  "scripts": {
+    "build": "npm run build:workflow",
+    "build:workflow": "ghats build && find .github/workflows -name \"*.yml\" -exec yq eval . -P -i {} \\;"
+  }
+}

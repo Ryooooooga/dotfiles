@@ -1,0 +1,6 @@
+{
+  "actions": {
+    "actions/checkout@v4.2.2": "11bd71901bbe5b1630ceea73d27597364c9af683",
+    "peaceiris/actions-gh-pages@v4.0.0": "4f9cc6602d3f66b9c108549d475ec49e8ef4d45e"
+  }
+}
