@@ -1,4 +1,4 @@
-import { $, CommandResult } from "./deps.ts";
+import { $, CommandResult } from "jsr:@david/dax";
 
 export async function getConfig(key: string): Promise<string | undefined> {
   return await $`git config ${key}`.text().catch(() => undefined);

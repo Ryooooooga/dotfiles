@@ -1,0 +1,101 @@
+#!/usr/bin/env -S deno run --ext=ts --allow-env --allow-read --allow-run
+import * as git from "../git.ts";
+import { bgRed, throw_ } from "../utils.ts";
+
+type User = {
+  name: string;
+  email: string;
+  signingKey?: string;
+};
+
+async function getProfile(id: string): Promise<User> {
+  const name = (await git.getConfig(`users.${id}.name`)) ||
+    throw_(new Error(`git config users.${id}.name is not set`));
+  const email = (await git.getConfig(`users.${id}.email`)) ||
+    throw_(new Error(`git config users.${id}.email is not set`));
+  const signingKey = (await git.getConfig(`users.${id}.signingKey`)) ||
+    undefined;
+
+  return { name, email, signingKey };
+}
+
+async function listProfiles(): Promise<Map<string, User>> {
+  const lines = await git.getConfigRegex("^users\\.[^.]+\\.email$");
+  const ids = new Set(lines.map((line) => line.split(".", 2)[1]));
+
+  const profiles = new Map<string, User>();
+  for (const id of ids) {
+    await getProfile(id)
+      .then((profile) => {
+        profiles.set(id, profile);
+      })
+      .catch(() => {});
+  }
+
+  return profiles;
+}
+
+async function getCurrentProfile(): Promise<User | undefined> {
+  const name = await git.getConfig("user.name");
+  const email = await git.getConfig("user.email");
+
+  if (name && email) {
+    return { name, email };
+  }
+  return undefined;
+}
+
+async function updateProfile({ name, email, signingKey }: User) {
+  await git.setConfig("user.name", name);
+  await git.setConfig("user.email", email);
+  await git.setConfig("user.signingKey", signingKey ?? "");
+}
+
+async function runUnset() {
+  await git.unsetConfig("user.name");
+  await git.unsetConfig("user.email");
+  await git.unsetConfig("user.signingKey");
+}
+
+async function runList() {
+  const profiles = await listProfiles();
+  const current = await getCurrentProfile();
+
+  for (const [id, profile] of profiles) {
+    const isCurrent = profile.name === current?.name &&
+      profile.email === current?.email;
+
+    console.log(
+      `${isCurrent ? "*" : " "} ${id}: ${profile.name} <${profile.email}>`,
+    );
+  }
+}
+
+async function runSet(id: string) {
+  const profile = await getProfile(id);
+
+  const lastCommitter = await git.getLastCommitter().catch(() => undefined);
+  if (
+    lastCommitter !== undefined && (
+      lastCommitter.name !== profile.name ||
+      lastCommitter.email !== profile.email
+    )
+  ) {
+    console.warn(
+      bgRed(
+        `!!! The Last Committer is ${lastCommitter?.name} <${lastCommitter?.email}> !!!`,
+      ),
+    );
+  }
+
+  await updateProfile(profile);
+  console.log(`${profile.name} <${profile.email}>`);
+}
+
+if (Deno.args[0] === "--unset") {
+  await runUnset();
+} else if (Deno.args.length === 0) {
+  await runList();
+} else {
+  await runSet(Deno.args[0]);
+}
