@@ -54,23 +54,23 @@ abbrevs:
   # CMake
   #########################################################
 
-  - name: cmakeb
-    abbr: cmakeb
+  - name: cmkb
+    abbr: cmkb
     snippet: cmake --build $(git rev-parse --show-cdup 2>/dev/null)build -j
     evaluate: true
 
-  - name: cmaked
-    abbr: cmaked
+  - name: cmkd
+    abbr: cmkd
     snippet: cmake -DCMAKE_BUILD_TYPE=Debug -B $(git rev-parse --show-cdup 2>/dev/null)build
     evaluate: true
 
-  - name: cmakerel
-    abbr: cmakerel
+  - name: cmkrel
+    abbr: cmkrel
     snippet: cmake -DCMAKE_BUILD_TYPE=Release -B $(git rev-parse --show-cdup 2>/dev/null)build
     evaluate: true
 
-  - name: cmaket
-    abbr: cmaket
+  - name: cmkt
+    abbr: cmkt
     snippet: ctest -V --test-dir $(git rev-parse --show-cdup 2>/dev/null)build
     evaluate: true
 
