@@ -37,7 +37,7 @@ export default defineConfig({
           $`${mise} upgrade`,
           $`${mise} completion zsh >_mise`,
           $`${mise} activate zsh >mise.zsh`,
-          $`${mise} plugin add usage && ${mise} install usage@latest && ${mise} use -g usage`,
+          $`${mise} plugins add -q usage && ${mise} install usage@latest && ${mise} use -g usage`,
         ]);
       },
     },
