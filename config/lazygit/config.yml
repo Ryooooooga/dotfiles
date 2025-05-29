@@ -2,7 +2,6 @@ disableStartupPopups: true
 quitOnTopLevelReturn: true
 promptToReturnFromSubprocess: false
 notARepository: quit
-
 git:
   autoFetch: false
   disableForcePushing: true
@@ -12,32 +11,27 @@ git:
     pager: delta --paging=never
   log:
     showGraph: always
-
 gui:
   language: ja
   timeFormat: 2006-01-02 15:04
   showRandomTip: false
   showBottomLine: false
   showIcons: true
-
 os:
   editPreset: nvim
   open: "code --goto -- {{filename}}"
-
 keybinding:
   commits:
     viewResetOptions: G
   branches:
     rebaseBranch: R
     renameBranch: r
-
 customCommands:
   - key: <c-f>
     command: git sync
     context: global
-    subprocess: true
-
+    output: terminal
   - key: C
     command: git cz
     context: files
-    subprocess: true
+    output: terminal
