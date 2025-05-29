@@ -2,6 +2,7 @@
   - &command ^(git\s+exec\s+)?\S+$
   - &subcommand ^(git\s+exec\s+)?(npm|pnpm)\s+\S+$
   - &install ^(git\s+exec\s+)?(npm|pnpm)\s+install\s
+  - &run ^(git\s+exec\s+)?(npm|pnpm)\s+run\s
 
 abbrevs:
   # npm install
@@ -83,6 +84,44 @@ abbrevs:
     evaluate: true
     context: *subcommand
     if: '[[ ! "$abbr" =~ "^(start|test)$" ]] && monkeywrench node scripts --has="$abbr"'
+
+  - name: npm run b
+    abbr: b
+    snippet: build
+    global: true
+    context: *run
+
+  - name: npm run d
+    abbr: d
+    snippet: dev
+    global: true
+    context: *run
+
+  - name: npm run f
+    abbr: f
+    snippet: format
+    global: true
+    context: *run
+    if: monkeywrench node scripts --has="format"
+
+  - name: npm run f
+    abbr: f
+    snippet: fmt
+    context: *run
+    if: monkeywrench node scripts --has="format"
+
+  - name: npm run g
+    abbr: g
+    snippet: generate
+    global: true
+    context: *run
+    if: monkeywrench node scripts --has="generate"
+
+  - name: npm run g
+    abbr: g
+    snippet: gen
+    global: true
+    context: *run
 
   # npm start
   - name: npm s
