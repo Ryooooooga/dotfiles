@@ -267,62 +267,43 @@ abbrevs:
 
   - name: git T
     abbr: T
-    snippet: $(git describe --abbrev=0 --tags @ 2>/dev/null || <<<"$abbr")
+    snippet: $tag
     global: true
     evaluate: true
     context: *global
+    if: local tag; tag="$(git describe --abbrev=0 --tags @ 2>/dev/null)"
 
   - name: git T-
     abbr: T-
-    snippet: $(git describe --abbrev=0 --tags @~ 2>/dev/null || <<<"$abbr")
+    snippet: $prev_tag
     global: true
     evaluate: true
     context: *global
+    if: local prev_tag; prev_tag="$(git describe --abbrev=0 --tags @~ 2>/dev/null)"
 
   - name: git T+
     abbr: T+
-    snippet: |-
-      $(
-        local t
-        if t="$(git describe --abbrev=0 --tags @ 2>/dev/null)"; then
-          monkeywrench version inc --level=1 "$t"
-        else
-          <<<"$abbr"
-        fi
-      )
+    snippet: $(monkeywrench version inc --level=1 "$tag")
     global: true
     evaluate: true
     context: *global
+    if: local tag; tag="$(git describe --abbrev=0 --tags @ 2>/dev/null)"
 
   - name: git T++
     abbr: T++
-    snippet: |-
-      $(
-        local t
-        if t="$(git describe --abbrev=0 --tags @ 2>/dev/null)"; then
-          monkeywrench version inc --level=2 "$t"
-        else
-          <<<"$abbr"
-        fi
-      )
+    snippet: $(monkeywrench version inc --level=2 "$tag")
     global: true
     evaluate: true
     context: *global
+    if: local tag; tag="$(git describe --abbrev=0 --tags @ 2>/dev/null)"
 
   - name: git T!
     abbr: T!
-    snippet: |-
-      $(
-        local t
-        if t="$(git describe --abbrev=0 --tags @ 2>/dev/null)"; then
-          monkeywrench version inc --level=3 "$t"
-        else
-          <<<"$abbr"
-        fi
-      )
+    snippet: $(monkeywrench version inc --level=3 "$tag")
     global: true
     evaluate: true
     context: *global
+    if: local tag; tag="$(git describe --abbrev=0 --tags @ 2>/dev/null)"
 
   - name: git U
     abbr: U
