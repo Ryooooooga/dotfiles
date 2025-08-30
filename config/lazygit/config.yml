@@ -12,7 +12,7 @@ git:
   log:
     showGraph: always
 gui:
-  language: ja
+  language: en
   timeFormat: 2006-01-02 15:04
   showRandomTip: false
   showBottomLine: false
