@@ -246,13 +246,6 @@ const profile = defaultProfile({
         map("right_command").to("right_control"),
       ]),
     },
-    {
-      identifiers: DEVICES.akl680,
-      simple_modifications: simpleModifications([
-        map("escape").to("grave_accent_and_tilde"),
-        map("right_option").to("right_command"),
-      ]),
-    },
   ],
 });
 

@@ -22,8 +22,4 @@ export const DEVICES = {
     vendor_id: 2131,
     product_id: 328,
   }),
-  akl680: keyboard({
-    vendor_id: 1452,
-    product_id: 591,
-  }),
 } as const;

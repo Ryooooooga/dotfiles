@@ -3879,35 +3879,6 @@
               ]
             }
           ]
-        },
-        {
-          "identifiers": {
-            "is_keyboard": true,
-            "product_id": 591,
-            "vendor_id": 1452
-          },
-          "simple_modifications": [
-            {
-              "from": {
-                "key_code": "escape"
-              },
-              "to": [
-                {
-                  "key_code": "grave_accent_and_tilde"
-                }
-              ]
-            },
-            {
-              "from": {
-                "key_code": "right_option"
-              },
-              "to": [
-                {
-                  "key_code": "right_command"
-                }
-              ]
-            }
-          ]
         }
       ],
       "name": "Default profile",
