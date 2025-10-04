@@ -13,7 +13,6 @@ import {
 } from "./libs/deps.ts";
 import { DEVICES } from "./rules/device.ts";
 import { Layers } from "./libs/layer.ts";
-import { mk45 } from "./rules/mk45.ts";
 import {
   rotateTsrngnMode,
   toTsrngnMode,
@@ -209,7 +208,6 @@ function tsrngnRule() {
 const profile = defaultProfile({
   complex_modifications: complexModifications(
     [
-      ...mk45.rules,
       backspaceRule(),
       modArrowRule(),
       capsLockRule(),
@@ -255,7 +253,6 @@ const profile = defaultProfile({
         map("right_option").to("right_command"),
       ]),
     },
-    ...mk45.devices,
   ],
 });
 

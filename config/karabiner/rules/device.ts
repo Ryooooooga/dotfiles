@@ -26,16 +26,4 @@ export const DEVICES = {
     vendor_id: 1452,
     product_id: 591,
   }),
-  mk23: (is_pointing_device: boolean = true) =>
-    keyboard({
-      is_pointing_device: is_pointing_device || undefined,
-      vendor_id: 41606,
-      product_id: 41888,
-    }),
-  mk24: (is_pointing_device: boolean = true) =>
-    keyboard({
-      is_pointing_device: is_pointing_device || undefined,
-      vendor_id: 41606,
-      product_id: 44451,
-    }),
 } as const;
