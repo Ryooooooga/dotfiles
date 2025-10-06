@@ -2502,101 +2502,6 @@
             ]
           },
           {
-            "description": "REALFORCE",
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "name": "layer",
-                    "type": "variable_if",
-                    "value": 0
-                  },
-                  {
-                    "identifiers": [
-                      {
-                        "is_keyboard": true,
-                        "product_id": 4,
-                        "vendor_id": 11240
-                      }
-                    ],
-                    "type": "device_exists_if"
-                  },
-                  {
-                    "identifiers": [
-                      {
-                        "is_keyboard": true,
-                        "product_id": 328,
-                        "vendor_id": 2131
-                      }
-                    ],
-                    "type": "device_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "spacebar",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "key_up_value": 0,
-                      "name": "layer",
-                      "value": 1
-                    }
-                  }
-                ],
-                "to_if_alone": [
-                  {
-                    "key_code": "return_or_enter"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "identifiers": [
-                      {
-                        "is_keyboard": true,
-                        "product_id": 4,
-                        "vendor_id": 11240
-                      }
-                    ],
-                    "type": "device_exists_if"
-                  },
-                  {
-                    "identifiers": [
-                      {
-                        "is_keyboard": true,
-                        "product_id": 328,
-                        "vendor_id": 2131
-                      }
-                    ],
-                    "type": "device_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "b",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "delete_or_backspace"
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
             "description": "JA tsrngn",
             "manipulators": [
               {
@@ -3856,25 +3761,6 @@
               "to": [
                 {
                   "key_code": "japanese_eisuu"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "identifiers": {
-            "is_keyboard": true,
-            "product_id": 328,
-            "vendor_id": 2131
-          },
-          "simple_modifications": [
-            {
-              "from": {
-                "key_code": "right_command"
-              },
-              "to": [
-                {
-                  "key_code": "right_control"
                 }
               ]
             }

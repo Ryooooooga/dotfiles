@@ -18,8 +18,4 @@ export const DEVICES = {
     vendor_id: 11240,
     product_id: 4,
   }),
-  realforceR2: keyboard({
-    vendor_id: 2131,
-    product_id: 328,
-  }),
 } as const;

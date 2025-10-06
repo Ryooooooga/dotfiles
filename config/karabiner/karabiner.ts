@@ -175,21 +175,6 @@ function macRule() {
     ]);
 }
 
-function realforceRule() {
-  return rule("REALFORCE")
-    .condition(ifDevice(DEVICES.realforceR2))
-    .manipulators([
-      withCondition(ifDeviceExists(DEVICES.progresTouchRetroTiny))([
-        map("spacebar", null, "any")
-          .condition(layers.ifActive("default"))
-          .to(layers.toMO("lower"))
-          .toIfAlone("return_or_enter"),
-        map("b", null, "any")
-          .to("delete_or_backspace"),
-      ]),
-    ]);
-}
-
 function tsrngnRule() {
   return rule("JA tsrngn").manipulators([
     withTsrngnMode([
@@ -214,7 +199,6 @@ const profile = defaultProfile({
       lowerRule(),
       raiseRule(),
       macRule(),
-      realforceRule(),
       tsrngnRule(),
     ],
   ),
@@ -238,12 +222,6 @@ const profile = defaultProfile({
       simple_modifications: simpleModifications([
         map("escape").to("grave_accent_and_tilde"),
         map("right_control").to("japanese_eisuu"),
-      ]),
-    },
-    {
-      identifiers: DEVICES.realforceR2,
-      simple_modifications: simpleModifications([
-        map("right_command").to("right_control"),
       ]),
     },
   ],
