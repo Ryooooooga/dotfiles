@@ -8,7 +8,7 @@ import {
 const parameters = {
   "basic.to_if_alone_timeout_milliseconds": 250,
   "basic.to_if_held_down_threshold_milliseconds": 250,
-};
+} as const;
 
 export function complexModifications(
   rules: Array<Rule | RuleBuilder>,

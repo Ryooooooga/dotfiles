@@ -5,7 +5,6 @@ import { simpleModifications } from "./libs/simple_modifications.ts";
 import {
   FromKeyCode,
   ifDevice,
-  ifDeviceExists,
   map,
   rule,
   toTypeSequence,
@@ -80,10 +79,6 @@ function capsLockRule() {
     map("caps_lock", "command")
       .to("left_command", "shift")
       .toIfAlone(toTypeSequence("=>")),
-    map("caps_lock")
-      .condition(layers.ifActive("lower"))
-      .to("left_command", "shift")
-      .toIfAlone(toTypeSequence("-")),
     map("caps_lock", null, "any")
       .to("left_command", "shift")
       .toIfAlone(toTypeSequence("_")),

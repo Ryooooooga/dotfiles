@@ -102,11 +102,11 @@ function switchMode(
 ) {
   const messageId = "tsrngn";
 
-  const messages: Record<Mode, string> = {
+  const messages = {
     off: "QWERTY MODE",
     jaOnly: "TSRNGN MODE",
     always: "FULL TSRNGN MODE",
-  };
+  } as const satisfies Record<Mode, string>;
 
   return m
     .to(tsrngnLayers.toTO(mode))

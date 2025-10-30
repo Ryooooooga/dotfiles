@@ -550,32 +550,6 @@
                 "type": "basic"
               },
               {
-                "conditions": [
-                  {
-                    "name": "layer",
-                    "type": "variable_if",
-                    "value": 1
-                  }
-                ],
-                "from": {
-                  "key_code": "caps_lock"
-                },
-                "to": [
-                  {
-                    "key_code": "left_command",
-                    "modifiers": [
-                      "shift"
-                    ]
-                  }
-                ],
-                "to_if_alone": [
-                  {
-                    "key_code": "hyphen"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
                 "from": {
                   "key_code": "caps_lock",
                   "modifiers": {
