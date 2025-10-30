@@ -23,7 +23,6 @@ import {
 const layers = new Layers("layer", [
   "default",
   "lower",
-  "raise",
 ]);
 
 function backspaceRule() {
@@ -37,11 +36,6 @@ function backspaceRule() {
       map("⌦", "option", "shift").to("⌦", "command"),
     ]),
     withCondition(layers.ifActive("lower"))([
-      map("⌫", "command", "shift").to("⌦", "option"),
-      map("⌫", "option", "shift").to("⌦", "command"),
-      map("⌫", null, "any").to("⌦"),
-    ]),
-    withCondition(layers.ifActive("raise"))([
       map("⌫", "command", "shift").to("⌦", "option"),
       map("⌫", "option", "shift").to("⌦", "command"),
       map("⌫", null, "any").to("⌦"),
@@ -146,24 +140,6 @@ function lowerRule() {
   ]);
 }
 
-function raiseRule() {
-  return rule("Raise Layer").manipulators([
-    withCondition(layers.ifActive("raise"))([
-      ...mapArrows("w", "a", "s", "d"),
-      map("q", null, "any").to("home"),
-      map("e", null, "any").to("end"),
-      map("r", null, "any").to("page_up"),
-      map("f", null, "any").to("page_down"),
-
-      map("z").toTypeSequence("`"),
-      map("x").toTypeSequence("~"),
-    ]),
-    map("right_control", null, "any")
-      .condition(layers.ifActive("default"))
-      .to(layers.toMO("raise")),
-  ]);
-}
-
 function macRule() {
   return rule("MacBook Internal Keyboard")
     .condition(ifDevice(DEVICES.apple))
@@ -180,13 +156,8 @@ function tsrngnRule() {
     withTsrngnMode([
       withTsrngnKeys(({ from, to }) => map(from, null, "shift").to(to)),
     ]),
-    toTsrngnMode(
-      "off",
-      map("page_up").condition(layers.ifActive("raise")),
-    ),
-    rotateTsrngnMode(
-      () => map("page_down").condition(layers.ifActive("raise")),
-    ),
+    toTsrngnMode("off", map("f19")),
+    rotateTsrngnMode(() => map("f20")),
   ]);
 }
 
@@ -197,7 +168,6 @@ const profile = defaultProfile({
       modArrowRule(),
       capsLockRule(),
       lowerRule(),
-      raiseRule(),
       macRule(),
       tsrngnRule(),
     ],
