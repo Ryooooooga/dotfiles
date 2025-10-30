@@ -7,6 +7,7 @@ import {
   ifDevice,
   map,
   rule,
+  toNone,
   toTypeSequence,
   withCondition,
 } from "./libs/deps.ts";
@@ -167,27 +168,27 @@ const profile = defaultProfile({
       tsrngnRule(),
     ],
   ),
-  simple_modifications: simpleModifications([
-    map("keypad_num_lock").toNone(),
-    map("left_command").to("left_control"),
-    map("left_control").to("left_command"),
-  ]),
+  simple_modifications: simpleModifications({
+    keypad_num_lock: toNone(),
+    left_command: "left_control",
+    left_control: "left_command",
+  }),
   devices: [
     {
       identifiers: DEVICES.macBook2018,
-      simple_modifications: simpleModifications([
-        map("fn").to("left_command"),
-        map("left_command").to("escape"),
-        map("left_control").to("left_control"),
-        map("right_option").to("fn"),
-      ]),
+      simple_modifications: simpleModifications({
+        fn: "left_command",
+        left_command: "escape",
+        left_control: "left_control",
+        right_option: "fn",
+      }),
     },
     {
       identifiers: DEVICES.progresTouchRetroTiny,
-      simple_modifications: simpleModifications([
-        map("escape").to("grave_accent_and_tilde"),
-        map("right_control").to("japanese_eisuu"),
-      ]),
+      simple_modifications: simpleModifications({
+        escape: "grave_accent_and_tilde",
+        right_control: "japanese_eisuu",
+      }),
     },
   ],
 });

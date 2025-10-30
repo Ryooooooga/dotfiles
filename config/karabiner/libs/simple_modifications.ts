@@ -1,16 +1,26 @@
-import { BasicManipulatorBuilder, FromEvent, ToEvent } from "./deps.ts";
+import {
+  FromEvent,
+  FromKeyCode,
+  toArray,
+  ToEvent,
+  toKey,
+  ToKeyParam,
+} from "./deps.ts";
 
 export interface SimpleManipulator {
   from: FromEvent;
-  to?: ToEvent[];
+  to: ToEvent[];
 }
 
 export type SimpleModifications = SimpleManipulator[];
 
 export function simpleModifications(
-  builders: BasicManipulatorBuilder[],
+  manipulators: Partial<Record<FromKeyCode, ToKeyParam | ToEvent | ToEvent[]>>,
 ): SimpleModifications {
-  return builders
-    .flatMap((builder) => builder.build())
-    .map(({ type: _basic, ...m }) => m);
+  return Object.entries(manipulators).map(([from, to]): SimpleManipulator => {
+    return {
+      from: { key_code: from as FromKeyCode },
+      to: typeof to === "object" ? toArray(to) : [toKey(to)],
+    };
+  });
 }
