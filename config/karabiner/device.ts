@@ -1,4 +1,4 @@
-import { DeviceIdentifier } from "../libs/deps.ts";
+import { DeviceIdentifier } from "./libs/deps.ts";
 
 function keyboard(
   identifier: Omit<DeviceIdentifier, "is_keyboard">,

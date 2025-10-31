@@ -11,7 +11,6 @@ import {
   toTypeSequence,
   withCondition,
 } from "./libs/deps.ts";
-import { DEVICES } from "./rules/device.ts";
 import { Layers } from "./libs/layer.ts";
 import {
   rotateTsrngnMode,
@@ -19,6 +18,7 @@ import {
   withTsrngnKeys,
   withTsrngnMode,
 } from "./libs/tsrngn.ts";
+import { DEVICES } from "./device.ts";
 
 const layers = new Layers("layer", [
   "default",
