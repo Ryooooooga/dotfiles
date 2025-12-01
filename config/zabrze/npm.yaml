@@ -39,43 +39,15 @@ abbrevs:
 
   - name: npm f
     abbr: f
-    snippet: run format
-    global: true
-    context: *subcommand
-    if: monkeywrench node scripts --has="format"
-
-  - name: npm f
-    abbr: f
     snippet: run fmt
     global: true
     context: *subcommand
-
-  - name: npm fmt
-    abbr: fmt
-    snippet: run format
-    global: true
-    context: *subcommand
-    if: monkeywrench node scripts --has="format"
-
-  - name: npm g
-    abbr: g
-    snippet: run generate
-    global: true
-    context: *subcommand
-    if: monkeywrench node scripts --has="generate"
 
   - name: npm g
     abbr: g
     snippet: run gen
     global: true
     context: *subcommand
-
-  - name: npm gen
-    abbr: gen
-    snippet: run generate
-    global: true
-    context: *subcommand
-    if: monkeywrench node scripts --has="generate"
 
   - name: npm <script>
     abbr-pattern: ''
@@ -99,23 +71,8 @@ abbrevs:
 
   - name: npm run f
     abbr: f
-    snippet: format
-    global: true
-    context: *run
-    if: monkeywrench node scripts --has="format"
-
-  - name: npm run f
-    abbr: f
     snippet: fmt
     context: *run
-    if: monkeywrench node scripts --has="format"
-
-  - name: npm run g
-    abbr: g
-    snippet: generate
-    global: true
-    context: *run
-    if: monkeywrench node scripts --has="generate"
 
   - name: npm run g
     abbr: g
