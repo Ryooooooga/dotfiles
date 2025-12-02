@@ -6,9 +6,9 @@ git:
   autoFetch: false
   disableForcePushing: true
   parseEmoji: true
-  paging:
-    colorArg: always
-    pager: delta --paging=never
+  pagers:
+    - colorArg: always
+      pager: delta --paging=never
   log:
     showGraph: always
 gui:
