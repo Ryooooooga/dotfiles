@@ -14,5 +14,7 @@ if ! git diff --shortstat --exit-code --quiet --staged; then
   exit 3
 fi
 
+local commit_prefix="chore: "
+
 "$@"
-git add -A && git commit -m "\$ $*"
+git add -A && git commit -m "${commit_prefix}\$ $*"
