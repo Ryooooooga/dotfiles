@@ -102,13 +102,6 @@ abbrevs:
     context: *subcommand
 
   # npm
-  - name: <package-manager>
-    abbr: npm
-    snippet: $(monkeywrench node package-manager)
-    global: true
-    evaluate: true
-    context: *command
-
   - name: n
     abbr: n
     snippet: $(monkeywrench node package-manager)
