@@ -131,8 +131,7 @@ export default defineConfig({
       name: "sharkdp/hexyl",
     },
     {
-      name: "XAMPPRocky/tokei",
-      tag: "v13.0.0-alpha.0",
+      name: "boyter/scc",
     },
     {
       name: "editorconfig-checker/editorconfig-checker",
