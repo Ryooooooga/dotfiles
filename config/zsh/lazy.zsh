@@ -75,6 +75,9 @@ alias diffall='diff --new-line-format="+%L" --old-line-format="-%L" --unchanged-
 ### hgrep ###
 alias hgrep="hgrep --hidden --glob='!.git/'"
 
+### scc ###
+alias scc="scc --no-cocomo"
+
 ### navi ###
 export NAVI_CONFIG="$XDG_CONFIG_HOME/navi/config.yaml"
 
