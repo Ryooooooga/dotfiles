@@ -89,8 +89,9 @@ zle -N __navi_search
 bindkey '^N' __navi_search
 
 ### completion styles ###
-zstyle ':completion:*:default' menu select=1
+zstyle ':completion:*' menu select
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
 
 ### Docker ###
 docker() {
