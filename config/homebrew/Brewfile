@@ -29,6 +29,7 @@ brew "vim"
 brew "wget"
 
 cask "bitwarden"
+cask "claude-code"
 cask "firefox"
 cask "font-jetbrains-mono-nerd-font"
 cask "font-sauce-code-pro-nerd-font"
