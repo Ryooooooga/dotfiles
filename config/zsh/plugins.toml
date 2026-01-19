@@ -122,6 +122,9 @@ profiles = ["plugins"]
 
 [plugins.zsh-autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
+hooks.post = """
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+"""
 profiles = ["plugins"]
 
 [plugins.fast-syntax-highlighting]
