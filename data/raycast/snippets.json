@@ -1,0 +1,10 @@
+[
+  { "text": "Ryooooooga", "keyword": ";id", "name": ";id" },
+  { "text": "eial5q265e5@gmail.com", "keyword": ";gmail", "name": ";gmail" },
+  { "text": "github.com", "keyword": ";gh", "name": ";gh" },
+  {
+    "text": "{date format=\"yyyy-MM-dd\"}",
+    "keyword": ";date",
+    "name": ";date"
+  }
+]
