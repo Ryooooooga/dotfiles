@@ -35,18 +35,18 @@ j() {
   local root dir
   root="${$(git rev-parse --show-cdup 2>/dev/null):-.}"
   dir="$(fd --color=always --hidden --type=d . "$root" | fzf --select-1 --query="$*" --preview='fzf-preview-file {}')"
-  [[ -n "$dir" ]] && builtin cd "$dir"
+  [[ -n "$dir" ]] && cd "$dir"
 }
 
 re() {
-  [[ $# -eq 0 ]] && return 1
+  (( $# == 0 )) && return 1
   local selected="$(rg --color=always --line-number "$@" | fzf -d ':' --preview='
     local file={1} line={2} n=10
     local start="$(( line > n ? line - n : 1 ))"
     bat --color=always --highlight-line="$line" --line-range="$start:" "$file"
   ')"
   [[ -z "$selected" ]] && return
-  local file="$(cut -d ':' -f 1 <<<"$selected")" line="$(cut -d ':' -f 2 <<<"$selected")"
+  local file="${selected%%:*}" line="${${selected#*:}%%:*}"
   "$EDITOR" +"$line" "$file"
 }
 
