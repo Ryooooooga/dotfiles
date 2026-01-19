@@ -175,7 +175,7 @@ const profile = defaultProfile({
   }),
   devices: [
     {
-      identifiers: DEVICES.macBook2018,
+      identifiers: DEVICES.apple,
       simple_modifications: simpleModifications({
         fn: "left_command",
         left_command: "escape",
