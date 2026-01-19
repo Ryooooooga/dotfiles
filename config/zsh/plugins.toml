@@ -18,34 +18,26 @@ zsh-defer -a __sheldon::{{ name }}
 
 [plugins]
 
-####################
-# eager
-####################
-
 [plugins.zsh-defer]
 github = "romkatv/zsh-defer"
 apply = ["source"]
-profiles = ["eager"]
+profiles = ["plugins"]
 
 [plugins.croque]
 local = "~/.local/share/gh-rd/packages/github.com/Ryooooooga/croque"
 apply = ["source"]
-profiles = ["eager"]
+profiles = ["plugins"]
 
 [plugins.lazy]
 local = "~/.config/zsh"
 use = ["lazy.zsh"]
-profiles = ["eager"]
-
-####################
-# lazy
-####################
+profiles = ["plugins"]
 
 [plugins.zsh-completions]
 github = "zsh-users/zsh-completions"
 dir = "src"
 apply = ["fpath"]
-profiles = ["lazy"]
+profiles = ["plugins"]
 
 [plugins.zsh-history-substring-search]
 github = "zsh-users/zsh-history-substring-search"
@@ -55,11 +47,11 @@ bindkey "${terminfo[kcud1]}" history-substring-search-down # arrow-down
 bindkey "^[[A" history-substring-search-up   # arrow-up
 bindkey "^[[B" history-substring-search-down # arrow-down
 """
-profiles = ["lazy"]
+profiles = ["plugins"]
 
 [plugins.mise]
 local = "~/.local/share/gh-rd/packages/github.com/jdx/mise"
-profiles = ["lazy"]
+profiles = ["plugins"]
 
 [plugins.mise-update]
 inline = """
@@ -69,7 +61,7 @@ profiles = ["update"]
 
 [plugins.zsh-replace-multiple-dots]
 github = "Ryooooooga/zsh-replace-multiple-dots"
-profiles = ["lazy"]
+profiles = ["plugins"]
 
 [plugins.tmux-fzf]
 github = "Ryooooooga/tmux-fzf"
@@ -77,16 +69,16 @@ hooks.post = """
 alias t='tmux-fzf'
 """
 apply = ["defer", "fpath"]
-profiles = ["lazy"]
+profiles = ["plugins"]
 
 [plugins.direnv]
 local = "~/.local/share/gh-rd/packages/github.com/direnv/direnv"
-profiles = ["lazy"]
+profiles = ["plugins"]
 
 [plugins.zabrze]
 local = "~/.local/share/gh-rd/packages/github.com/Ryooooooga/zabrze"
 apply = ["defer0"]
-profiles = ["lazy"]
+profiles = ["plugins"]
 
 [plugins.qwy]
 local = "~/.local/share/gh-rd/packages/github.com/Ryooooooga/qwy"
@@ -96,29 +88,29 @@ export QWY_DEFAULT_ACTION="expand-or-complete"
 export QWY_CONFIG_HOME="$XDG_CONFIG_HOME/qwy"
 export QWY_SCRIPT_PATH="$QWY_CONFIG_HOME/scripts"
 """
-profiles = ["lazy"]
+profiles = ["plugins"]
 
 [plugins.zsh-autopair]
 github = "hlissner/zsh-autopair" # read after zabrze
-profiles = ["lazy"]
+profiles = ["plugins"]
 
 [plugins.forgit]
 github = "wfxr/forgit"
 dir = "bin"
 apply = ["path"]
-profiles = ["lazy"]
+profiles = ["plugins"]
 
 [plugins.commitizen-deno]
 github = "Ryooooooga/commitizen-deno"
 apply = ["path"]
-profiles = ["lazy"]
+profiles = ["plugins"]
 
 [plugins.compinit]
 inline = """
 autoload -Uz compinit
 zsh-defer -a -t0.01 compinit -d "$XDG_STATE_HOME/zcompdump"
 """
-profiles = ["lazy"]
+profiles = ["plugins"]
 
 [plugins.fzf-tab]
 github = "Aloxaf/fzf-tab"
@@ -126,12 +118,12 @@ hooks.pre = """
 zstyle ':fzf-tab:complete:*' fzf-flags '--height=50%'
 zstyle ':fzf-tab:complete:*' fzf-bindings 'tab:toggle+down,shift-tab:toggle+up' # multi select
 """
-profiles = ["lazy"]
+profiles = ["plugins"]
 
 [plugins.zsh-autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
-profiles = ["lazy"]
+profiles = ["plugins"]
 
 [plugins.fast-syntax-highlighting]
 github = "zdharma-continuum/fast-syntax-highlighting"
-profiles = ["lazy"]
+profiles = ["plugins"]
