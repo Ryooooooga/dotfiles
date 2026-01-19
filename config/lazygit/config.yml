@@ -17,6 +17,7 @@ gui:
   showRandomTip: false
   showBottomLine: false
   showIcons: true
+  useHunkModeInStagingView: false
 os:
   editPreset: nvim
   open: "code --goto -- {{filename}}"
