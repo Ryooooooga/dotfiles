@@ -27,6 +27,6 @@ end
 
 -- shortcuts
 -- remapRepeat({'cmd'}, 'Y', keyStroke({'cmd', 'shift'}, 'Z'))
-remap({'cmd', 'ctrl'}, 't', launch('Alacritty'))
+remap({'cmd', 'ctrl'}, 't', launch('WezTerm'))
 remap({'cmd', 'ctrl'}, 'v', launch('Visual Studio Code'))
 remap({'cmd', 'ctrl'}, 'c', launch('Google Chrome'))
