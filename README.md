@@ -7,5 +7,5 @@
 ## Installation
 
 ```shell
-$ curl -sL https://ryooooooga.github.io/dotfiles/install.sh | sh
+curl -sL https://ryooooooga.github.io/dotfiles/install.sh | sh
 ```
