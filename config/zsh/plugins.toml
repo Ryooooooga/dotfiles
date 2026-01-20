@@ -48,9 +48,10 @@ bindkey "^[[A" history-substring-search-up   # arrow-up
 bindkey "^[[B" history-substring-search-down # arrow-down
 """
 profiles = ["plugins"]
-
 [plugins.mise]
-local = "~/.local/share/gh-rd/packages/github.com/jdx/mise"
+inline = """
+zsh-defer -a -t0.01 eval "$(mise activate zsh)"
+"""
 profiles = ["plugins"]
 
 [plugins.mise-update]

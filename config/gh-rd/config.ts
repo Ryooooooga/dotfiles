@@ -36,7 +36,6 @@ export default defineConfig({
         await Promise.all([
           $`${mise} upgrade`,
           $`${mise} completion zsh >_mise`,
-          $`${mise} activate zsh >mise.zsh`,
           $`${mise} plugins add -q usage && ${mise} install usage@latest && ${mise} use -g usage`,
         ]);
       },
