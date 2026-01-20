@@ -46,7 +46,8 @@ re() {
     bat --color=always --highlight-line="$line" --line-range="$start:" "$file"
   ')"
   [[ -z "$selected" ]] && return
-  local file="${selected%%:*}" line="${${selected#*:}%%:*}"
+  local m=("${(@s/:/)selected}")
+  local file="${m[1]}" line="${m[2]}"
   "$EDITOR" +"$line" "$file"
 }
 
