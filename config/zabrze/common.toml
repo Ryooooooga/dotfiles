@@ -233,3 +233,39 @@ name = "wslview"
 trigger = "open"
 snippet = "wslview"
 if = '(( ${+commands[wslview]} ))'
+
+# build systems
+[[snippets]]
+name = "b"
+trigger = "b"
+snippet = '$cmd'
+evaluate = true
+if = 'local cmd; cmd="$(monkeywrench command --action=build)"'
+
+[[snippets]]
+name = "f"
+trigger = "f"
+snippet = '$cmd'
+evaluate = true
+if = 'local cmd; cmd="$(monkeywrench command --action=format)"'
+
+[[snippets]]
+name = "lint"
+trigger = "lint"
+snippet = '$cmd'
+evaluate = true
+if = 'local cmd; cmd="$(monkeywrench command --action=lint)"'
+
+[[snippets]]
+name = "r"
+trigger = "r"
+snippet = '$cmd'
+evaluate = true
+if = 'local cmd; cmd="$(monkeywrench command --action=run)"'
+
+[[snippets]]
+name = "t"
+trigger = "t"
+snippet = '$cmd'
+evaluate = true
+if = 'local cmd; cmd="$(monkeywrench command --action=test)"'
