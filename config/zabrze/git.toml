@@ -2,9 +2,6 @@
 name = "g"
 trigger = "g"
 snippet = "git"
-if = '''
-[[ "$KEYS" != $'\r' ]]
-'''
 
 # git add
 [[snippets]]
@@ -323,20 +320,20 @@ context = '^git\s'
 [[snippets]]
 name = "git T"
 trigger = "T"
-snippet = "$tag"
+snippet = "$(git describe --abbrev=0 --tags @ 2>/dev/null)"
 global = true
 evaluate = true
 context = '^git\s'
-if = 'local tag; tag="$(git describe --abbrev=0 --tags @ 2>/dev/null)"'
+abort-on-error = true
 
 [[snippets]]
 name = "git T-"
 trigger = "T-"
-snippet = "$prev_tag"
+snippet = "$(git describe --abbrev=0 --tags @~ 2>/dev/null)"
 global = true
 evaluate = true
 context = '^git\s'
-if = 'local prev_tag; prev_tag="$(git describe --abbrev=0 --tags @~ 2>/dev/null)"'
+abort-on-error = true
 
 [[snippets]]
 name = "git T+"

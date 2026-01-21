@@ -238,34 +238,34 @@ if = '(( ${+commands[wslview]} ))'
 [[snippets]]
 name = "b"
 trigger = "b"
-snippet = '$cmd'
+snippet = '$(monkeywrench command --action=build)'
 evaluate = true
-if = 'local cmd; cmd="$(monkeywrench command --action=build)"'
+abort-on-error = true
 
 [[snippets]]
 name = "f"
 trigger = "f"
-snippet = '$cmd'
+snippet = '$(monkeywrench command --action=format)'
 evaluate = true
-if = 'local cmd; cmd="$(monkeywrench command --action=format)"'
+abort-on-error = true
 
 [[snippets]]
 name = "lint"
 trigger = "lint"
-snippet = '$cmd'
+snippet = '$(monkeywrench command --action=lint)'
 evaluate = true
-if = 'local cmd; cmd="$(monkeywrench command --action=lint)"'
+abort-on-error = true
 
 [[snippets]]
 name = "r"
 trigger = "r"
-snippet = '$cmd'
+snippet = '$(monkeywrench command --action=run)'
 evaluate = true
-if = 'local cmd; cmd="$(monkeywrench command --action=run)"'
+abort-on-error = true
 
 [[snippets]]
 name = "t"
 trigger = "t"
-snippet = '$cmd'
+snippet = '$(monkeywrench command --action=test)'
 evaluate = true
-if = 'local cmd; cmd="$(monkeywrench command --action=test)"'
+abort-on-error = true
