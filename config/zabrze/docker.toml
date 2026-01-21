@@ -1,0 +1,53 @@
+[[snippets]]
+name = "d"
+trigger = "d"
+snippet = "docker"
+
+[[snippets]]
+name = "docker c"
+trigger = "c"
+snippet = "compose"
+global = true
+context = '^docker\s+\S+$'
+
+[[snippets]]
+name = "docker pl"
+trigger = "pl"
+snippet = "pull"
+global = true
+context = '^docker\s+\S+$'
+
+[[snippets]]
+name = "docker ri"
+trigger = "ri"
+snippet = "run -it"
+global = true
+context = '^docker\s+\S+$'
+
+[[snippets]]
+name = "docker rrm"
+trigger = "rrm"
+snippet = "run --rm"
+global = true
+context = '^docker\s+\S+$'
+
+[[snippets]]
+name = "docker rrmi"
+trigger = "rrmi"
+snippet = "run --rm -it"
+global = true
+context = '^docker\s+\S+$'
+
+[[snippets]]
+name = "docker clean"
+trigger = "clean"
+snippet = "container prune -f"
+global = true
+context = '^docker\s+\S+$'
+
+[[snippets]]
+name = "docker cleani"
+trigger = "cleani"
+snippet = "image prune -f"
+global = true
+context = '^docker\s+\S+$'

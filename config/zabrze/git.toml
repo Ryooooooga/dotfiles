@@ -1,0 +1,366 @@
+[[snippets]]
+name = "g"
+trigger = "g"
+snippet = "git"
+if = '''
+[[ "$KEYS" != $'\r' ]]
+'''
+
+# git add
+[[snippets]]
+name = "git aa"
+trigger = "aa"
+snippet = "add -vA"
+global = true
+context = '^git\s+\S+$'
+
+# git bisect
+[[snippets]]
+name = "git bisect b"
+trigger = "b"
+snippet = "bad"
+global = true
+context = '^git(\s+\S+)*\s+bisect\s+\S+$'
+
+[[snippets]]
+name = "git bisect g"
+trigger = "g"
+snippet = "good"
+global = true
+context = '^git(\s+\S+)*\s+bisect\s+\S+$'
+
+[[snippets]]
+name = "git bisect s"
+trigger = "s"
+snippet = "start"
+global = true
+context = '^git(\s+\S+)*\s+bisect\s+\S+$'
+
+[[snippets]]
+name = "git bi"
+trigger = "bi"
+snippet = "bisect"
+global = true
+context = '^git\s+\S+$'
+
+# git branch
+[[snippets]]
+name = "git b"
+trigger = "b"
+snippet = "branch"
+global = true
+context = '^git\s+\S+$'
+
+# git commit
+[[snippets]]
+name = "git c"
+trigger = "c"
+snippet = "commit"
+global = true
+context = '^git\s+\S+$'
+
+[[snippets]]
+name = "git ca"
+trigger = "ca"
+snippet = "commit --amend"
+global = true
+context = '^git\s+\S+$'
+
+[[snippets]]
+name = "git cam"
+trigger = "cam"
+snippet = "commit --amend --no-edit"
+global = true
+context = '^git\s+\S+$'
+
+[[snippets]]
+name = "git cm"
+trigger = "cm"
+snippet = "commit -m '{}'"
+global = true
+context = '^git\s+\S+$'
+
+[[snippets]]
+name = "git cr"
+trigger = "cr"
+snippet = "commit --reuse-message={}"
+global = true
+context = '^git\s+\S+$'
+
+[[snippets]]
+name = "git C"
+trigger = "C"
+snippet = "cz"
+global = true
+context = '^git\s+\S+$'
+
+[[snippets]]
+name = "git fix"
+trigger = "fix"
+snippet = "commit --fixup={}"
+global = true
+context = '^git\s+\S+$'
+
+# git cherry-pick
+[[snippets]]
+name = "git cp"
+trigger = "cp"
+snippet = "cherry-pick"
+global = true
+context = '^git\s+\S+$'
+
+# git diff
+[[snippets]]
+name = "git st"
+trigger = "st"
+snippet = "diff --stat"
+global = true
+context = '^git\s+\S+$'
+
+[[snippets]]
+name = "git stat"
+trigger = "stat"
+snippet = "diff --stat"
+global = true
+context = '^git\s+\S+$'
+
+[[snippets]]
+name = "git stats"
+trigger = "stats"
+snippet = "diff --stat --staged"
+global = true
+context = '^git\s+\S+$'
+
+[[snippets]]
+name = "git sts"
+trigger = "sts"
+snippet = "diff --stat --staged"
+global = true
+context = '^git\s+\S+$'
+
+# git diff
+[[snippets]]
+name = "git dfi"
+trigger = "dfi"
+snippet = "df --ignore-all-space"
+global = true
+context = '^git\s+\S+$'
+
+[[snippets]]
+name = "git dfs"
+trigger = "dfs"
+snippet = "df --staged"
+global = true
+context = '^git\s+\S+$'
+
+[[snippets]]
+name = "git dfsi"
+trigger = "dfsi"
+snippet = "df --staged --ignore-all-space"
+global = true
+context = '^git\s+\S+$'
+
+# git fetch
+[[snippets]]
+name = "git f"
+trigger = "f"
+snippet = "fetch"
+global = true
+context = '^git\s+\S+$'
+
+[[snippets]]
+name = "git fu"
+trigger = "fu"
+snippet = "fetch upstream"
+global = true
+context = '^git\s+\S+$'
+
+# git log
+[[snippets]]
+name = "git lg"
+trigger = "lg"
+snippet = "graph"
+global = true
+context = '^git\s+\S+$'
+
+# git pull
+[[snippets]]
+name = "git pl"
+trigger = "pl"
+snippet = "pull"
+global = true
+context = '^git\s+\S+$'
+
+[[snippets]]
+name = "git ps"
+trigger = "ps"
+snippet = "push"
+global = true
+context = '^git\s+\S+$'
+
+[[snippets]]
+name = "git pst"
+trigger = "pst"
+snippet = "push --tags"
+global = true
+context = '^git\s+\S+$'
+
+[[snippets]]
+name = "git push -f"
+trigger = "-f"
+snippet = "--force-with-lease"
+global = true
+context = '^git(\s+\S+)*\s+push\s'
+
+# git rebase
+[[snippets]]
+name = "git q"
+trigger = "q"
+snippet = "rebase"
+global = true
+context = '^git\s+\S+$'
+
+[[snippets]]
+name = "git qq"
+trigger = "qq"
+snippet = "rebase --autosquash"
+global = true
+context = '^git\s+\S+$'
+
+# git status
+[[snippets]]
+name = "git s"
+trigger = "s"
+snippet = "status"
+global = true
+context = '^git\s+\S+$'
+
+# git sync
+[[snippets]]
+name = "git S"
+trigger = "S"
+snippet = "sync"
+global = true
+context = '^git\s+\S+$'
+
+# git switch
+[[snippets]]
+name = "git sw"
+trigger = "sw"
+snippet = "switch"
+global = true
+context = '^git\s+\S+$'
+
+# git tag
+[[snippets]]
+name = "git tags"
+trigger = "tags"
+snippet = "tag -l --sort=v:refname"
+global = true
+context = '^git\s+\S+$'
+
+# remotes
+[[snippets]]
+name = "git O"
+trigger = "O"
+snippet = "origin"
+global = true
+context = '^git\s'
+
+[[snippets]]
+name = "git U"
+trigger = "U"
+snippet = "upstream"
+global = true
+context = '^git\s'
+
+# refs
+[[snippets]]
+name = "git B"
+trigger = "B"
+snippet = "$(git symbolic-ref --short HEAD)"
+global = true
+evaluate = true
+context = '^git\s'
+
+[[snippets]]
+name = "git D"
+trigger = "D"
+snippet = "develop"
+global = true
+context = '^git\s'
+
+[[snippets]]
+name = "git M (main)"
+trigger = "M"
+snippet = "main"
+global = true
+context = '^git\s'
+if = 'git show-ref --verify --quiet refs/heads/main 2>/dev/null'
+
+[[snippets]]
+name = "git M (master)"
+trigger = "M"
+snippet = "master"
+global = true
+context = '^git\s'
+
+[[snippets]]
+name = "git OB"
+trigger = "OB"
+snippet = "origin/$(git symbolic-ref --short HEAD)"
+global = true
+evaluate = true
+context = '^git\s'
+
+[[snippets]]
+name = "git OH"
+trigger = "OH"
+snippet = "ORIG_HEAD"
+global = true
+context = '^git\s'
+
+[[snippets]]
+name = "git T"
+trigger = "T"
+snippet = "$tag"
+global = true
+evaluate = true
+context = '^git\s'
+if = 'local tag; tag="$(git describe --abbrev=0 --tags @ 2>/dev/null)"'
+
+[[snippets]]
+name = "git T-"
+trigger = "T-"
+snippet = "$prev_tag"
+global = true
+evaluate = true
+context = '^git\s'
+if = 'local prev_tag; prev_tag="$(git describe --abbrev=0 --tags @~ 2>/dev/null)"'
+
+[[snippets]]
+name = "git T+"
+trigger = "T+"
+snippet = '$(monkeywrench version inc --level=1 "$tag")'
+global = true
+evaluate = true
+context = '^git\s'
+if = 'local tag; tag="$(git describe --abbrev=0 --tags @ 2>/dev/null)"'
+
+[[snippets]]
+name = "git T++"
+trigger = "T++"
+snippet = '$(monkeywrench version inc --level=2 "$tag")'
+global = true
+evaluate = true
+context = '^git\s'
+if = 'local tag; tag="$(git describe --abbrev=0 --tags @ 2>/dev/null)"'
+
+[[snippets]]
+name = "git T!"
+trigger = "T!"
+snippet = '$(monkeywrench version inc --level=3 "$tag")'
+global = true
+evaluate = true
+context = '^git\s'
+if = 'local tag; tag="$(git describe --abbrev=0 --tags @ 2>/dev/null)"'

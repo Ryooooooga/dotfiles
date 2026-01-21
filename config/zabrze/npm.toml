@@ -1,0 +1,134 @@
+# npm install
+[[snippets]]
+name = "npm i"
+trigger = "i"
+snippet = "install"
+global = true
+context = '^(git\s+exec\s+)?(npm|pnpm)\s+\S+$'
+
+[[snippets]]
+name = "npm -D"
+trigger = "-D"
+snippet = "--save-dev"
+global = true
+context = '^(git\s+exec\s+)?(npm|pnpm)\s+install\s'
+
+# npm run
+[[snippets]]
+name = "npm r"
+trigger = "r"
+snippet = "run"
+global = true
+context = '^(git\s+exec\s+)?(npm|pnpm)\s+\S+$'
+
+[[snippets]]
+name = "npm b"
+trigger = "b"
+snippet = "run build"
+global = true
+context = '^(git\s+exec\s+)?(npm|pnpm)\s+\S+$'
+
+[[snippets]]
+name = "npm d"
+trigger = "d"
+snippet = "run dev"
+global = true
+context = '^(git\s+exec\s+)?(npm|pnpm)\s+\S+$'
+
+[[snippets]]
+name = "npm f"
+trigger = "f"
+snippet = "run fmt"
+global = true
+context = '^(git\s+exec\s+)?(npm|pnpm)\s+\S+$'
+
+[[snippets]]
+name = "npm g"
+trigger = "g"
+snippet = "run gen"
+global = true
+context = '^(git\s+exec\s+)?(npm|pnpm)\s+\S+$'
+
+[[snippets]]
+name = "npm <script>"
+trigger-pattern = ''
+snippet = "run $trigger"
+global = true
+evaluate = true
+context = '^(git\s+exec\s+)?(npm|pnpm)\s+\S+$'
+if = '''
+[[ ! "$trigger" =~ "^(start|test)$" ]] &&
+monkeywrench node scripts --has="$trigger"
+'''
+
+[[snippets]]
+name = "npm run b"
+trigger = "b"
+snippet = "build"
+global = true
+context = '^(git\s+exec\s+)?(npm|pnpm)\s+run\s'
+
+[[snippets]]
+name = "npm run d"
+trigger = "d"
+snippet = "dev"
+global = true
+context = '^(git\s+exec\s+)?(npm|pnpm)\s+run\s'
+
+[[snippets]]
+name = "npm run f"
+trigger = "f"
+snippet = "fmt"
+global = true
+context = '^(git\s+exec\s+)?(npm|pnpm)\s+run\s'
+
+[[snippets]]
+name = "npm run g"
+trigger = "g"
+snippet = "gen"
+global = true
+context = '^(git\s+exec\s+)?(npm|pnpm)\s+run\s'
+
+# npm start
+[[snippets]]
+name = "npm s"
+trigger = "s"
+snippet = "start"
+global = true
+context = '^(git\s+exec\s+)?(npm|pnpm)\s+\S+$'
+
+# npm test
+[[snippets]]
+name = "npm t"
+trigger = "t"
+snippet = "test"
+global = true
+context = '^(git\s+exec\s+)?(npm|pnpm)\s+\S+$'
+
+# npm uninstall
+[[snippets]]
+name = "npm un"
+trigger = "un"
+snippet = "uninstall"
+global = true
+context = '^(git\s+exec\s+)?(npm|pnpm)\s+\S+$'
+
+# npm
+[[snippets]]
+name = "n"
+trigger = "n"
+snippet = "$(monkeywrench node package-manager)"
+global = true
+evaluate = true
+context = '^(git\s+exec\s+)?\S+$'
+
+# npx
+[[snippets]]
+name = "<npx>"
+trigger-pattern = ''
+snippet = "npx $trigger"
+evaluate = true
+if = '''
+(( ! ${+commands[$trigger]} && ! ${+functions[$trigger]} && ! ${+aliases[$trigger]} && ! ${+builtins[$trigger]} )) &&
+[[ -x "$(monkeywrench node toplevel --root)/node_modules/.bin/$trigger" ]]
+'''

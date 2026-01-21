@@ -1,0 +1,27 @@
+[[snippets]]
+name = "go build -v"
+trigger = "b"
+snippet = "build -v"
+global = true
+context = '^go\s+\S+$'
+
+[[snippets]]
+name = "go generate -v"
+trigger = "g"
+snippet = "generate -v ./..."
+global = true
+context = '^go\s+\S+$'
+
+[[snippets]]
+name = "go run -v ."
+trigger = "r"
+snippet = "run -v .{}"
+global = true
+context = '^go\s+\S+$'
+
+[[snippets]]
+name = "go test ./..."
+trigger = "t"
+snippet = "test ./..."
+global = true
+context = '^go\s+\S+$'

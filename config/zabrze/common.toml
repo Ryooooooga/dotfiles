@@ -1,0 +1,235 @@
+[[snippets]]
+name = "--"
+trigger = "--"
+snippet = "popd"
+
+[[snippets]]
+name = "cd"
+trigger-pattern = '(\.\.|/)$'
+snippet = "cd $trigger"
+evaluate = true
+if = '[[ -z "$RBUFFER" ]]'
+
+[[snippets]]
+name = "cd -"
+trigger = "-"
+snippet = "popd"
+action = "replace-all"
+global = true
+context = '^cd\s+\S+$'
+
+[[snippets]]
+name = "jj"
+trigger = "jj"
+snippet = "cd ${$(git rev-parse --show-cdup 2>/dev/null):-./}{}"
+evaluate = true
+
+# editor
+[[snippets]]
+name = "e^M"
+trigger = "e"
+snippet = """$(
+  local files="$(
+    fd -0 --hidden --color=always --type=f |
+    fzf --read0 --print0 --exit-0 --multi --preview='fzf-preview-file {}' --preview-window='right:60%'
+  )"
+  (( ${#files} )) && <<<"${EDITOR} ${(q@)${(0)files}}"
+)"""
+evaluate = true
+cursor = ""
+if = '''
+[[ "$KEYS" == $'\r' ]] && [[ -z "$RBUFFER" ]]
+'''
+
+[[snippets]]
+name = "e"
+trigger = "e"
+snippet = "${EDITOR}"
+evaluate = true
+
+[[snippets]]
+name = "view"
+trigger = "view"
+snippet = "${EDITOR} -R"
+evaluate = true
+
+# cmake
+[[snippets]]
+name = "cmkb"
+trigger = "cmkb"
+snippet = "cmake --build $(git rev-parse --show-cdup 2>/dev/null)build -j"
+evaluate = true
+
+[[snippets]]
+name = "cmkd"
+trigger = "cmkd"
+snippet = "cmake -DCMAKE_BUILD_TYPE=Debug -B $(git rev-parse --show-cdup 2>/dev/null)build"
+evaluate = true
+
+[[snippets]]
+name = "cmkrel"
+trigger = "cmkrel"
+snippet = "cmake -DCMAKE_BUILD_TYPE=Release -B $(git rev-parse --show-cdup 2>/dev/null)build"
+evaluate = true
+
+[[snippets]]
+name = "cmkt"
+trigger = "cmkt"
+snippet = "ctest -V --test-dir $(git rev-parse --show-cdup 2>/dev/null)build"
+evaluate = true
+
+# python
+[[snippets]]
+name = "python"
+trigger = "python"
+snippet = "python3"
+
+[[snippets]]
+name = "pip"
+trigger = "pip"
+snippet = "pip3"
+
+[[snippets]]
+name = "python -v"
+trigger = "-v"
+snippet = "-V"
+global = true
+context = '^(python3?|pip3?)\s'
+
+# terraform
+[[snippets]]
+name = "tf"
+trigger = "tf"
+snippet = "terraform"
+
+[[snippets]]
+name = "terraform plan"
+trigger = "p"
+snippet = "plan"
+global = true
+context = '^terraform\s'
+
+[[snippets]]
+name = "terraform apply"
+trigger = "ap"
+snippet = "apply"
+global = true
+context = '^terraform\s'
+
+# date
+[[snippets]]
+name = "yyyymmdd"
+trigger = "yyyymmdd"
+snippet = '$(date "+%Y%m%d")'
+evaluate = true
+global = true
+
+[[snippets]]
+name = "yyyy-mm-dd"
+trigger = "yyyy-mm-dd"
+snippet = '$(date "+%Y-%m-%d")'
+evaluate = true
+global = true
+
+[[snippets]]
+name = "yyyy/mm/dd"
+trigger = "yyyy/mm/dd"
+snippet = '$(date "+%Y/%m/%d")'
+evaluate = true
+global = true
+
+# make
+[[snippets]]
+name = "make"
+trigger = "make"
+snippet = "make -j"
+
+# mkdir
+[[snippets]]
+name = "mkdir"
+trigger = "mkdir"
+snippet = "mkdir -p"
+
+[[snippets]]
+name = "mkcd DIR"
+trigger-pattern = '.+'
+snippet = "mkdir -p $trigger && cd $trigger"
+action = "replace-all"
+evaluate = true
+global = true
+context = '^mkcd\s'
+
+# utilities
+[[snippets]]
+name = "batman"
+trigger = "batman"
+snippet = "bat -p -lman"
+
+[[snippets]]
+name = "hg"
+trigger = "hg"
+snippet = "hgrep"
+
+[[snippets]]
+name = "lg"
+trigger = "lg"
+snippet = "lazygit"
+
+[[snippets]]
+name = "teep"
+trigger = "teep"
+snippet = "tee >(pp)"
+
+[[snippets]]
+name = "trash"
+trigger = "rm"
+snippet = "trash"
+if = '(( ${+commands[trash]} ))'
+
+[[snippets]]
+name = "zouch"
+trigger = "zouch"
+snippet = "zouch -r"
+
+# coreutils
+[[snippets]]
+name = ".N"
+trigger-pattern = '^\.\d+$'
+snippet = "awk '{ print ${trigger/./$} }'"
+evaluate = true
+
+[[snippets]]
+name = "cp"
+trigger = "cp"
+snippet = "cp -ri"
+
+[[snippets]]
+name = "mv"
+trigger = "mv"
+snippet = "mv -i"
+
+[[snippets]]
+name = "rm"
+trigger = "rm"
+snippet = "rm -ri"
+
+[[snippets]]
+name = "java -v"
+trigger = "-v"
+snippet = "-version"
+global = true
+context = '^java\s'
+
+# macOS
+[[snippets]]
+name = "chrome"
+trigger = "chrome"
+snippet = "open -a 'Google Chrome'"
+if = '[[ "$OSTYPE" =~ darwin ]]'
+
+# WSL
+[[snippets]]
+name = "wslview"
+trigger = "open"
+snippet = "wslview"
+if = '(( ${+commands[wslview]} ))'
