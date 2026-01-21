@@ -70,7 +70,7 @@ zshaddhistory() {
 }
 
 chpwd() {
-  printf "\e[34m%s\e[m:\n" "${PWD/$HOME/~}"
+  printf "\e[34m%s\e[m:\n" "${(D)PWD}"
   if (( ${+commands[eza]} )); then
     eza --group-directories-first --icons -a
   else
@@ -103,10 +103,12 @@ widget::ghq::source() {
     printf "$color$icon %s$reset\n" "$repo"
   done | sort
 }
+
 widget::ghq::select() {
   local root="$(ghq root)"
   widget::ghq::source | fzf --exit-0 --preview="fzf-preview-git ${(q)root}/{+2}" --preview-window="right:60%" | cut -d' ' -f2-
 }
+
 widget::ghq::dir() {
   local selected="$(widget::ghq::select)"
   if [[ -z "$selected" ]]; then
@@ -118,6 +120,7 @@ widget::ghq::dir() {
   zle accept-line
   zle -R -c # refresh screen
 }
+
 widget::ghq::session() {
   local selected="$(widget::ghq::select)"
   if [[ -z "$selected" ]]; then
@@ -162,14 +165,14 @@ bindkey "^[[1;33~"  kill-word                       # Alt + delete
 bindkey -M vicmd "^A" beginning-of-line             # vi: C-a
 bindkey -M vicmd "^E" end-of-line                   # vi: C-e
 
-# Change the cursor between 'Line' and 'Block' shape
+# Change cursor shape based on vi mode
 function zle-keymap-select zle-line-init zle-line-finish {
   case "${KEYMAP}" in
     main|viins)
-      printf '\033[6 q' # line cursor
+      printf '\033[6 q' # Line cursor (insert mode)
       ;;
     vicmd)
-      printf '\033[2 q' # block cursor
+      printf '\033[2 q' # Block cursor (normal mode)
       ;;
   esac
 }

@@ -54,7 +54,6 @@ re() {
 ### bat ###
 if (( ${+commands[bat]} )); then
   export MANPAGER="sh -c 'col -bx | bat --color=always --language=man --plain'"
-
   alias cat='bat --paging=never'
 fi
 
