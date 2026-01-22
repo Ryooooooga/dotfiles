@@ -33,9 +33,6 @@ node_modules/
 ### Bundle ###
 .bundle/
 
-### mise ###
-.mise.toml
-
 ### Memo ###
 _MEMO*
 _memo*
