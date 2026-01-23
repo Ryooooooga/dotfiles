@@ -67,7 +67,7 @@ profiles = ["plugins"]
 [plugins.tmux-fzf]
 github = "Ryooooooga/tmux-fzf"
 hooks.post = """
-alias t='tmux-fzf'
+alias s='tmux-fzf'
 """
 apply = ["defer", "fpath"]
 profiles = ["plugins"]
