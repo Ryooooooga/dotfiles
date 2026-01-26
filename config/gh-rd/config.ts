@@ -8,6 +8,7 @@ export default defineConfig({
     },
     {
       name: "Ryooooooga/croque",
+      tag: "v0.10.0-pre.1",
       async onDownload({ bin: { croque }, $ }) {
         await $`${croque} init zsh >croque.zsh`;
       },
