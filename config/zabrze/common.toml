@@ -250,6 +250,13 @@ evaluate = true
 abort-on-error = true
 
 [[snippets]]
+name = "gen"
+trigger = "gen"
+snippet = '$(monkeywrench command --action=generate)'
+evaluate = true
+abort-on-error = true
+
+[[snippets]]
 name = "lint"
 trigger = "lint"
 snippet = '$(monkeywrench command --action=lint)'
