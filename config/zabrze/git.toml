@@ -217,6 +217,13 @@ evaluate = true
 context = '^git\s+\S+$'
 
 [[snippets]]
+name = "git fixup"
+trigger = "fixup"
+snippet = "forgit fixup"
+global = true
+context = '^git\s+\S+$'
+
+[[snippets]]
 name = "git lg"
 trigger = "lg"
 snippet = "forgit log"
