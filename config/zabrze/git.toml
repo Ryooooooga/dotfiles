@@ -108,32 +108,13 @@ context = '^git\s+\S+$'
 
 # git diff
 [[snippets]]
-name = "git st"
-trigger = "st"
-snippet = "diff --stat"
-global = true
-context = '^git\s+\S+$'
-
-[[snippets]]
 name = "git stat"
-trigger = "stat"
-snippet = "diff --stat"
+trigger-pattern = "^st(at)?(?<staged>s)?$"
+snippet = "diff --stat${staged+ --staged}"
 global = true
+evaluate = true
 context = '^git\s+\S+$'
 
-[[snippets]]
-name = "git stats"
-trigger = "stats"
-snippet = "diff --stat --staged"
-global = true
-context = '^git\s+\S+$'
-
-[[snippets]]
-name = "git sts"
-trigger = "sts"
-snippet = "diff --stat --staged"
-global = true
-context = '^git\s+\S+$'
 
 # git fetch
 [[snippets]]
@@ -229,30 +210,10 @@ context = '^git\s+\S+$'
 # forgit
 [[snippets]]
 name = "git df"
-trigger = "df"
-snippet = "forgit diff"
+trigger-pattern = "df(?<staged>s)?(?<ignore>i)?"
+snippet = "forgit diff${staged+ --staged}${ignore+ --ignore-all-space}"
 global = true
-context = '^git\s+\S+$'
-
-[[snippets]]
-name = "git dfi"
-trigger = "dfi"
-snippet = "forgit diff --ignore-all-space"
-global = true
-context = '^git\s+\S+$'
-
-[[snippets]]
-name = "git dfs"
-trigger = "dfs"
-snippet = "forgit diff --staged"
-global = true
-context = '^git\s+\S+$'
-
-[[snippets]]
-name = "git dfsi"
-trigger = "dfsi"
-snippet = "forgit diff --staged --ignore-all-space"
-global = true
+evaluate = true
 context = '^git\s+\S+$'
 
 [[snippets]]
