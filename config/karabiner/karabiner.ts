@@ -20,10 +20,7 @@ import {
 } from "./libs/tsrngn.ts";
 import { DEVICES } from "./device.ts";
 
-const layers = new Layers("layer", [
-  "default",
-  "lower",
-]);
+const layers = new Layers("layer", ["default", "lower"]);
 
 function backspaceRule() {
   return rule(
@@ -157,17 +154,24 @@ function tsrngnRule() {
   ]);
 }
 
+function launchRule() {
+  return rule("Launch Application").manipulators([
+    map("t", ["command", "control"]).toApp("WezTerm"),
+    map("c", ["command", "control"]).toApp("Google Chrome"),
+    map("v", ["command", "control"]).toApp("Visual Studio Code"),
+  ]);
+}
+
 const profile = defaultProfile({
-  complex_modifications: complexModifications(
-    [
-      backspaceRule(),
-      modArrowRule(),
-      capsLockRule(),
-      lowerRule(),
-      macRule(),
-      tsrngnRule(),
-    ],
-  ),
+  complex_modifications: complexModifications([
+    backspaceRule(),
+    modArrowRule(),
+    capsLockRule(),
+    lowerRule(),
+    macRule(),
+    tsrngnRule(),
+    launchRule(),
+  ]),
   simple_modifications: simpleModifications({
     keypad_num_lock: toNone(),
     left_command: "left_control",

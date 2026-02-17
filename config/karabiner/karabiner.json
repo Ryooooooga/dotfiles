@@ -2943,6 +2943,62 @@
                 "type": "basic"
               }
             ]
+          },
+          {
+            "description": "Launch Application",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "t",
+                  "modifiers": {
+                    "mandatory": [
+                      "command",
+                      "control"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -a \"WezTerm\".app"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "c",
+                  "modifiers": {
+                    "mandatory": [
+                      "command",
+                      "control"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -a \"Google Chrome\".app"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "v",
+                  "modifiers": {
+                    "mandatory": [
+                      "command",
+                      "control"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "open -a \"Visual Studio Code\".app"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
           }
         ]
       },
