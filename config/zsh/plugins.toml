@@ -60,10 +60,6 @@ mise plugins upgrade
 """
 profiles = ["update"]
 
-[plugins.zsh-replace-multiple-dots]
-github = "Ryooooooga/zsh-replace-multiple-dots"
-profiles = ["plugins"]
-
 [plugins.tmux-fzf]
 github = "Ryooooooga/tmux-fzf"
 hooks.post = """

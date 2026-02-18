@@ -79,6 +79,17 @@ chpwd() {
 }
 
 ### key bindings ###
+widget::replace_dots() {
+  if [[ "$LBUFFER" =~ '(^|[/ ])\.\.$' ]] && [[ ! "$LBUFFER" =~ "^go " ]]; then
+    LBUFFER="$LBUFFER/."
+  fi
+  zle self-insert
+}
+
+widget::insert_dot() {
+    LBUFFER+='.'
+}
+
 widget::history() {
   local selected="$(history -inr 1 | fzf --exit-0 --query "$LBUFFER" | cut -d' ' -f4- | sed 's/\\n/\n/g')"
   if [[ -n "$selected" ]]; then
@@ -143,11 +154,15 @@ widget::ghq::session() {
   zle -R -c # refresh screen
 }
 
+zle -N widget::replace_dots
+zle -N widget::insert_dot
 zle -N widget::history
 zle -N widget::ghq::dir
 zle -N widget::ghq::session
 
 bindkey -v
+bindkey "."         widget::replace_dots
+bindkey "^X."       widget::insert_dot
 bindkey "^R"        widget::history                 # C-r
 bindkey "^G"        widget::ghq::session            # C-g
 bindkey "^[g"       widget::ghq::dir                # Alt-g

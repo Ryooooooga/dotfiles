@@ -115,7 +115,6 @@ global = true
 evaluate = true
 context = '^git\s+\S+$'
 
-
 # git fetch
 [[snippets]]
 name = "git f"
