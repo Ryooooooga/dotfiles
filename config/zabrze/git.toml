@@ -311,26 +311,26 @@ abort-on-error = true
 [[snippets]]
 name = "git T+"
 trigger = "T+"
-snippet = '$(monkeywrench version inc --level=1 "$tag")'
+snippet = '$(tag="$(git describe --abbrev=0 --tags @ 2>/dev/null)" && monkeywrench version inc --level=1 "$tag")'
 global = true
 evaluate = true
 context = '^git\s'
-if = 'local tag; tag="$(git describe --abbrev=0 --tags @ 2>/dev/null)"'
+abort-on-error = true
 
 [[snippets]]
 name = "git T++"
 trigger = "T++"
-snippet = '$(monkeywrench version inc --level=2 "$tag")'
+snippet = '$(tag="$(git describe --abbrev=0 --tags @ 2>/dev/null)" && monkeywrench version inc --level=2 "$tag")'
 global = true
 evaluate = true
 context = '^git\s'
-if = 'local tag; tag="$(git describe --abbrev=0 --tags @ 2>/dev/null)"'
+abort-on-error = true
 
 [[snippets]]
 name = "git T!"
 trigger = "T!"
-snippet = '$(monkeywrench version inc --level=3 "$tag")'
+snippet = '$(tag="$(git describe --abbrev=0 --tags @ 2>/dev/null)" && monkeywrench version inc --level=3 "$tag")'
 global = true
 evaluate = true
 context = '^git\s'
-if = 'local tag; tag="$(git describe --abbrev=0 --tags @ 2>/dev/null)"'
+abort-on-error = true
