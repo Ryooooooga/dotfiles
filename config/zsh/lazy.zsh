@@ -6,22 +6,6 @@ alias ll='ls -al'
 alias gdb='gdb -q -nh'
 alias wget='wget --hsts-file="$XDG_STATE_HOME/wget-hsts"'
 
-case "$OSTYPE" in
-  linux*)
-    if (( ${+commands[win32yank.exe]} )); then
-      alias pp='win32yank.exe -i'
-      alias p='win32yank.exe -o'
-    elif (( ${+commands[xsel]} )); then
-      alias pp='xsel -bi'
-      alias p='xsel -b'
-    fi
-  ;;
-  darwin*)
-    alias pp='pbcopy'
-    alias p='pbpaste'
-  ;;
-esac
-
 j() {
   local root dir
   root="${$(git rev-parse --show-cdup 2>/dev/null):-.}"

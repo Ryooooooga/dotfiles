@@ -161,18 +161,58 @@ trigger = "lg"
 snippet = "lazygit"
 
 [[snippets]]
-name = "p"
+name = "pbpaste"
 trigger = "p"
-snippet = "${aliases[p]}"
-evaluate = true
-if = '(( ${+aliases[p]} ))'
+snippet = "pbpaste"
+if = '(( ${+commands[pbpaste]} ))'
 
 [[snippets]]
-name = "pp"
+name = "win32yank.exe -o"
+trigger = "p"
+snippet = "win32yank.exe -o"
+if = '(( ${+commands[win32yank.exe]} ))'
+
+[[snippets]]
+name = "xsel -b"
+trigger = "p"
+snippet = "xsel -b"
+if = '(( ${+commands[xsel]} ))'
+
+[[snippets]]
+name = "pbcopy"
 trigger = "pp"
-snippet = "${aliases[pp]}"
-evaluate = true
-if = '(( ${+aliases[pp]} ))'
+snippet = "pbcopy"
+if = '(( ${+commands[pbcopy]} ))'
+
+[[snippets]]
+name = "win32yank.exe -i"
+trigger = "pp"
+snippet = "win32yank.exe -i"
+if = '(( ${+commands[win32yank.exe]} ))'
+
+[[snippets]]
+name = "xsel -bi"
+trigger = "p"
+snippet = "xsel -bi"
+if = '(( ${+commands[xsel]} ))'
+
+[[snippets]]
+name = "tee >(pbcopy)"
+trigger = "teep"
+snippet = "tee >(pbcopy)"
+if = '(( ${+commands[pbcopy]} ))'
+
+[[snippets]]
+name = "tee >(win32yank.exe -i)"
+trigger = "teep"
+snippet = "tee >(win32yank.exe -i)"
+if = '(( ${+commands[win32yank.exe]} ))'
+
+[[snippets]]
+name = "tee >(xsel -bi)"
+trigger = "p"
+snippet = "tee >(xsel -bi)"
+if = '(( ${+commands[xsel]} ))'
 
 [[snippets]]
 name = "teep"
