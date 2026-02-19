@@ -19,6 +19,11 @@ path=(
   "$GEM_HOME/bin"(N-/)
   "$GHRD_DATA_HOME/bin"(N-/)
   "$XDG_CONFIG_HOME/scripts/bin"(N-/)
+  "$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin"(N-/)
+  "$HOMEBREW_PREFIX/opt/findutils/libexec/gnubin"(N-/)
+  "$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin"(N-/)
+  "$HOMEBREW_PREFIX/opt/grep/libexec/gnubin"(N-/)
+  "$HOMEBREW_PREFIX/opt/make/libexec/gnubin"(N-/)
   "$HOMEBREW_PREFIX/bin"(N-/)
   "$path[@]"
 )

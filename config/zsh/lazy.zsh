@@ -17,14 +17,6 @@ case "$OSTYPE" in
     fi
   ;;
   darwin*)
-    path=(
-      "$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin"(N-/)
-      "$HOMEBREW_PREFIX/opt/findutils/libexec/gnubin"(N-/)
-      "$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin"(N-/)
-      "$HOMEBREW_PREFIX/opt/grep/libexec/gnubin"(N-/)
-      "$HOMEBREW_PREFIX/opt/make/libexec/gnubin"(N-/)
-      "$path[@]"
-    )
     alias pp='pbcopy'
     alias p='pbpaste'
   ;;
