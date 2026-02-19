@@ -2,7 +2,6 @@
 export LS_COLORS="di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32"
 
 ### Aliases ###
-alias la='ls -a'
 alias ll='ls -al'
 alias gdb='gdb -q -nh'
 alias wget='wget --hsts-file="$XDG_STATE_HOME/wget-hsts"'
@@ -60,7 +59,6 @@ fi
 ### eza ###
 if (( ${+commands[eza]} )); then
   alias ls='eza --group-directories-first'
-  alias la='eza --group-directories-first -a'
   alias ll='eza --group-directories-first -al --header --color-scale=all --octal-permissions --git --icons=auto --time-style=long-iso'
   alias tree='eza --group-directories-first --tree --icons'
 fi
@@ -70,7 +68,6 @@ diff() {
   command diff "$@" | bat --paging=never --plain --language=diff
   return "${pipestatus[1]}"
 }
-alias diffall='diff --new-line-format="+%L" --old-line-format="-%L" --unchanged-line-format=" %L"'
 
 ### hgrep ###
 alias hgrep="hgrep --hidden --glob='!.git/'"

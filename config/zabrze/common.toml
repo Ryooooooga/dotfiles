@@ -161,9 +161,24 @@ trigger = "lg"
 snippet = "lazygit"
 
 [[snippets]]
+name = "p"
+trigger = "p"
+snippet = "${aliases[p]}"
+evaluate = true
+if = '(( ${+aliases[p]} ))'
+
+[[snippets]]
+name = "pp"
+trigger = "pp"
+snippet = "${aliases[pp]}"
+evaluate = true
+if = '(( ${+aliases[pp]} ))'
+
+[[snippets]]
 name = "teep"
 trigger = "teep"
-snippet = "tee >(pp)"
+snippet = "tee >(${aliases[pp]})"
+evaluate = true
 
 [[snippets]]
 name = "trash"
@@ -187,6 +202,11 @@ evaluate = true
 name = "cp"
 trigger = "cp"
 snippet = "cp -ri"
+
+[[snippets]]
+name = "la"
+trigger = "la"
+snippet = "ls -a"
 
 [[snippets]]
 name = "mv"
