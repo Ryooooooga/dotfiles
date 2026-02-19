@@ -18,24 +18,11 @@ global = true
 context = '^docker\s+\S+$'
 
 [[snippets]]
-name = "docker ri"
-trigger = "ri"
-snippet = "run -it"
+name = "docker run"
+trigger-pattern = "^r(?<rm>rm)?(?<it>i)?$"
+snippet = "run${rm+ --rm}${it+ -it}"
 global = true
-context = '^docker\s+\S+$'
-
-[[snippets]]
-name = "docker rrm"
-trigger = "rrm"
-snippet = "run --rm"
-global = true
-context = '^docker\s+\S+$'
-
-[[snippets]]
-name = "docker rrmi"
-trigger = "rrmi"
-snippet = "run --rm -it"
-global = true
+evaluate = true
 context = '^docker\s+\S+$'
 
 [[snippets]]
