@@ -1,13 +1,12 @@
-#!/usr/bin/env -S deno run --check --allow-write
-import { complexModifications } from "./libs/complex_modifications.ts";
+#!/usr/bin/env -S deno run --check --allow-env --allow-write
 import { defaultProfile, saveConfig } from "./libs/config.ts";
-import { simpleModifications } from "./libs/simple_modifications.ts";
 import {
+  complexModifications,
   FromKeyCode,
   ifDevice,
   map,
   rule,
-  toNone,
+  simpleModifications,
   toTypeSequence,
   withCondition,
 } from "./libs/deps.ts";
@@ -172,31 +171,31 @@ const profile = defaultProfile({
     tsrngnRule(),
     launchRule(),
   ]),
-  simple_modifications: simpleModifications({
-    keypad_num_lock: toNone(),
-    left_command: "left_control",
-    left_control: "left_command",
-  }),
+  simple_modifications: simpleModifications([
+    map("keypad_num_lock").toNone(),
+    map("left_command").to("left_control"),
+    map("left_control").to("left_command"),
+  ]),
   devices: [
     {
       identifiers: DEVICES.apple,
-      simple_modifications: simpleModifications({
-        fn: "left_command",
-        left_command: "escape",
-        left_control: "left_control",
-        right_option: "fn",
-      }),
+      simple_modifications: simpleModifications([
+        map("fn").to("left_command"),
+        map("left_command").to("escape"),
+        map("left_control").to("left_control"),
+        map("right_option").to("fn"),
+      ]),
     },
     {
       identifiers: DEVICES.progresTouchRetroTiny,
-      simple_modifications: simpleModifications({
-        escape: "grave_accent_and_tilde",
-        right_control: "japanese_eisuu",
-      }),
+      simple_modifications: simpleModifications([
+        map("escape").to("grave_accent_and_tilde"),
+        map("right_control").to("japanese_eisuu"),
+      ]),
     },
   ],
 });
 
-await saveConfig(new URL("karabiner.json", import.meta.url), {
+await saveConfig({
   profiles: [profile],
 });

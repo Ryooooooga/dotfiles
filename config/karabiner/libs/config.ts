@@ -1,25 +1,24 @@
-import { DeviceIdentifier, KarabinerProfile } from "./deps.ts";
-import { SimpleModifications } from "./simple_modifications.ts";
-
-export interface KarabinerConfigExt /* extends KarabinerConfig */ {
-  profiles: KarabinerProfileExt[];
-}
+import {
+  DeviceIdentifier,
+  KarabinerConfig,
+  KarabinerProfile,
+  SimpleManipulator,
+  writeContext,
+} from "./deps.ts";
 
 export interface KarabinerProfileExt extends KarabinerProfile {
   devices: KarabinerDevice[];
-  fn_function_keys?: SimpleModifications;
-  simple_modifications?: SimpleModifications;
+  fn_function_keys?: SimpleManipulator[];
   virtual_hid_keyboard: Record<string, unknown>;
 }
 
 export interface KarabinerDevice {
   identifiers: DeviceIdentifier;
-  simple_modifications?: SimpleModifications;
-  ignore?: boolean;
+  simple_modifications?: SimpleManipulator[];
 }
 
-export async function saveConfig(path: URL, config: KarabinerConfigExt) {
-  await Deno.writeTextFile(path, toJSON(config));
+export async function saveConfig(config: KarabinerConfig) {
+  await writeContext.writeKarabinerConfig(toJSON(config));
 }
 
 export function defaultProfile(
@@ -30,6 +29,13 @@ export function defaultProfile(
 ): KarabinerProfileExt {
   return {
     ...profile,
+    complex_modifications: {
+      ...profile.complex_modifications,
+      parameters: {
+        "basic.to_if_alone_timeout_milliseconds": 250,
+        "basic.to_if_held_down_threshold_milliseconds": 250,
+      },
+    },
     name: "Default profile",
     selected: true,
     virtual_hid_keyboard: {
@@ -43,7 +49,7 @@ function toJSON(value: unknown): string {
   const indentWidth = 2;
   return JSON.stringify(
     value,
-    (_key, value) => isObject(value) ? sortObjectKeys(value) : value,
+    (_key, value) => (isObject(value) ? sortObjectKeys(value) : value),
     indentWidth,
   );
 }

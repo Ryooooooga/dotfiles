@@ -77,7 +77,7 @@ const tsrngnMap = [
 ] as const;
 
 const MODES = ["off", "jaOnly", "always"] as const;
-type Mode = typeof MODES[number];
+type Mode = (typeof MODES)[number];
 
 const tsrngnLayers = new Layers("tsrngn", MODES);
 
@@ -96,10 +96,7 @@ export function withTsrngnMode(
   ])((cond) => withCondition(...cond)(manipulators));
 }
 
-function switchMode(
-  mode: Mode,
-  m: BasicManipulatorBuilder,
-) {
+function switchMode(mode: Mode, m: BasicManipulatorBuilder) {
   const messageId = "tsrngn";
 
   const messages = {
