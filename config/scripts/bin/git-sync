@@ -32,7 +32,7 @@ for full_branch in $branches; do
   remote_branch="refs/remotes/$remote/$branch"
   gone=0
 
-  if [[ "$(git config branch."$branch".remote)" = "$remote" ]]; then
+  if [[ "$(git config get branch."$branch".remote)" = "$remote" ]]; then
     if ! remote_branch="$(git rev-parse -q --symbolic-full-name "$branch@{upstream}" 2>/dev/null)"; then
       remote_branch=""
       gone=1

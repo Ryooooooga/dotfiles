@@ -9,7 +9,7 @@ import {
   simpleModifications,
   toTypeSequence,
   withCondition,
-} from "./libs/deps.ts";
+} from "karabinerts/deno.ts";
 import { Layers } from "./libs/layer.ts";
 import {
   rotateTsrngnMode,

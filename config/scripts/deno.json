@@ -1,0 +1,9 @@
+{
+  "tasks": {
+    "color": "deno run --check cmd/color.ts",
+    "git-user": "deno run --check --allow-env --allow-read --allow-run cmd/git-user.ts"
+  },
+  "imports": {
+    "@david/dax": "jsr:@david/dax@^0"
+  }
+}

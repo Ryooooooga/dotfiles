@@ -1,6 +1,6 @@
 # MIT License
 
-Copyright (c) {{Now.Year}} {{Shell `git config user.name || git config ghq.user`}}
+Copyright (c) {{Now.Year}} {{Shell `git config get user.name || git config get ghq.user`}}
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

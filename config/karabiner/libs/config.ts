@@ -3,8 +3,8 @@ import {
   KarabinerConfig,
   KarabinerProfile,
   SimpleManipulator,
-  writeContext,
-} from "./deps.ts";
+} from "karabinerts/deno.ts";
+import { writeContext } from "karabinerts/output.ts";
 
 export interface KarabinerProfileExt extends KarabinerProfile {
   devices: KarabinerDevice[];

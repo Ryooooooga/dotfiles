@@ -1,15 +1,12 @@
-import { DeviceIdentifier } from "./libs/deps.ts";
-
-function keyboard(
-  identifier: Omit<DeviceIdentifier, "is_keyboard">,
-): DeviceIdentifier {
-  return { ...identifier, is_keyboard: true };
-}
+import { DeviceIdentifier } from "karabinerts/deno.ts";
 
 export const DEVICES = {
-  apple: keyboard({}),
-  progresTouchRetroTiny: keyboard({
+  apple: {
+    is_keyboard: true,
+  },
+  progresTouchRetroTiny: {
+    is_keyboard: true,
     vendor_id: 11240,
     product_id: 4,
-  }),
-} as const;
+  },
+} as const satisfies Record<string, DeviceIdentifier>;
