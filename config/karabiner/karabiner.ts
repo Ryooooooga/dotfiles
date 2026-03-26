@@ -157,7 +157,7 @@ function launchRule() {
   return rule("Launch Application").manipulators([
     map("t", ["command", "control"]).toApp("WezTerm"),
     map("c", ["command", "control"]).toApp("Google Chrome"),
-    map("v", ["command", "control"]).toApp("Visual Studio Code"),
+    map("e", ["command", "control"]).toApp("Visual Studio Code"),
   ]);
 }
 
