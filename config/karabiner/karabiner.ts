@@ -193,6 +193,10 @@ const profile = defaultProfile({
         map("right_control").to("japanese_eisuu"),
       ]),
     },
+    {
+      identifiers: DEVICES.luma40,
+      ignore: false,
+    },
   ],
 });
 

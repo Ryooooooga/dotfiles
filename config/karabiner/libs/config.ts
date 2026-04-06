@@ -15,6 +15,7 @@ export interface KarabinerProfileExt extends KarabinerProfile {
 export interface KarabinerDevice {
   identifiers: DeviceIdentifier;
   simple_modifications?: SimpleManipulator[];
+  ignore?: boolean;
 }
 
 export async function saveConfig(config: KarabinerConfig) {
