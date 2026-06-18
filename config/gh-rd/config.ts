@@ -101,6 +101,7 @@ export default defineConfig({
     },
     {
       name: "denisidoro/navi",
+      tag: "v2.25.0-beta1",
     },
     {
       name: "tealdeer-rs/tealdeer",
