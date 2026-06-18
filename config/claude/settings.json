@@ -7,7 +7,9 @@
   "permissions": {
     "allow": [
       "Write",
-      "Edit"
+      "Edit",
+      "Bash(npm *)",
+      "Bash(make *)"
     ]
   }
 }
