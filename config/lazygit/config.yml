@@ -22,8 +22,6 @@ os:
   editPreset: nvim
   open: "code --goto -- {{filename}}"
 keybinding:
-  commits:
-    viewResetOptions: G
   branches:
     rebaseBranch: R
     renameBranch: r
