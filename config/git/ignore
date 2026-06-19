@@ -33,6 +33,9 @@ node_modules/
 ### Bundle ###
 .bundle/
 
+### Claude Code ###
+**/.claude/settings.local.json
+
 ### Memo ###
 _MEMO*
 _memo*
