@@ -8,8 +8,11 @@
     "allow": [
       "Write",
       "Edit",
-      "Bash(npm *)",
-      "Bash(make *)"
+      "Bash(cmake *)",
+      "Bash(curl *)",
+      "Bash(gh *)",
+      "Bash(make *)",
+      "Bash(npm *)"
     ]
   }
 }
