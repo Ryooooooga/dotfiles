@@ -1,9 +1,4 @@
 {
-  "theme": "dark",
-  "statusLine": {
-    "type": "command",
-    "command": "ccusage statusline"
-  },
   "permissions": {
     "allow": [
       "Write",
@@ -11,8 +6,17 @@
       "Bash(cmake *)",
       "Bash(curl *)",
       "Bash(gh *)",
+      "Bash(git *)",
       "Bash(make *)",
       "Bash(npm *)"
     ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "ccusage statusline"
+  },
+  "theme": "dark",
+  "enabledPlugins": {
+    "clangd-lsp@claude-plugins-official": true
   }
 }
