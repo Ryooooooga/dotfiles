@@ -1,0 +1,43 @@
+[project]
+name = "{{ .Filepath | Dir | Base }}"
+description = ""
+version = "0.1.0"
+languages = ["C", "CXX"]
+include-after = ["cmake/llvm.cmake"]
+
+[variables]
+FETCHCONTENT_UPDATES_DISCONNECTED = true
+
+[fetch-content.cute]
+git = "https://github.com/Ryooooooga/cute"
+tag = "main"
+shallow = true
+
+[target."${PROJECT_NAME}-cflags"]
+type = "interface"
+compile-features = ["c_std_23"]
+compile-options = ["-Wall", "-Wextra", "-Wpedantic", "-Werror"]
+
+[target."${PROJECT_NAME}-static"]
+type = "static"
+sources = ["lib/**.c"]
+include-directories = ["lib/include"]
+link-libraries = ["${PROJECT_NAME}-cflags", "llvm"]
+properties = { OUTPUT_NAME = "${PROJECT_NAME}" }
+
+[target."${PROJECT_NAME}-exe"]
+type = "executable"
+sources = ["src/**.c"]
+link-libraries = ["${PROJECT_NAME}-cflags", "${PROJECT_NAME}-static"]
+properties = { OUTPUT_NAME = "${PROJECT_NAME}" }
+
+[target."${PROJECT_NAME}-test"]
+type = "executable"
+sources = ["test/**.c"]
+link-libraries = ["${PROJECT_NAME}-cflags", "${PROJECT_NAME}-static", "cute"]
+
+[[test]]
+name = "${PROJECT_NAME}-test"
+command = "$<TARGET_FILE:${PROJECT_NAME}-test>"
+arguments = []
+working-directory = "test"
