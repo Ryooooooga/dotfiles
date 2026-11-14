@@ -97,11 +97,6 @@ dir = "bin"
 apply = ["path"]
 profiles = ["plugins"]
 
-[plugins.commitizen-deno]
-github = "Ryooooooga/commitizen-deno"
-apply = ["path"]
-profiles = ["plugins"]
-
 [plugins.compinit]
 inline = """
 autoload -Uz compinit

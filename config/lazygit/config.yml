@@ -30,7 +30,3 @@ customCommands:
     command: git sync
     context: global
     output: terminal
-  - key: C
-    command: git cz
-    context: files
-    output: terminal

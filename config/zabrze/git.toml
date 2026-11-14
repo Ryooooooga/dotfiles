@@ -85,13 +85,6 @@ global = true
 context = '^git\s+\S+$'
 
 [[snippets]]
-name = "git C"
-trigger = "C"
-snippet = "cz"
-global = true
-context = '^git\s+\S+$'
-
-[[snippets]]
 name = "git fix"
 trigger = "fix"
 snippet = "commit --fixup={}"
