@@ -1,1 +1,88 @@
-../cmd/color.ts
+#!/usr/bin/env bash
+
+if [[ -t 1 ]]; then
+  width="$(tput cols)"
+  ((width > 128)) && width=128
+else
+  width=80
+fi
+
+printf '%b' "|039| \e[039mDefault\e[m |049| \e[049mDefault \e[m |037| \e[037mLight gray   \e[m |047| \e[047mLight gray    \e[m
+|030| \e[030mBlack  \e[m |040| \e[040mBlack   \e[m |090| \e[090mDark gray    \e[m |100| \e[100mDark gray     \e[m
+|031| \e[031mRed    \e[m |041| \e[041mRed     \e[m |091| \e[091mLight red    \e[m |101| \e[101mLight red     \e[m
+|032| \e[032mGreen  \e[m |042| \e[042mGreen   \e[m |092| \e[092mLight green  \e[m |102| \e[102mLight green   \e[m
+|033| \e[033mYellow \e[m |043| \e[043mYellow  \e[m |093| \e[093mLight yellow \e[m |103| \e[103mLight yellow  \e[m
+|034| \e[034mBlue   \e[m |044| \e[044mBlue    \e[m |094| \e[094mLight blue   \e[m |104| \e[104mLight blue    \e[m
+|035| \e[035mMagenta\e[m |045| \e[045mMagenta \e[m |095| \e[095mLight magenta\e[m |105| \e[105mLight magenta \e[m
+|036| \e[036mCyan   \e[m |046| \e[046mCyan    \e[m |096| \e[096mLight cyan   \e[m |106| \e[106mLight cyan    \e[m
+
+"
+
+# print_block <count> <start>...
+# prints columns of <count> consecutive 256 colors starting at each <start>
+print_block() {
+  local count="$1" j start c
+  shift
+  for j in 0 1; do
+    local sep=""
+    for start in "$@"; do
+      printf '%s' "$sep"
+      for ((c = start; c < start + count; c++)); do
+        if ((j == 1)); then
+          printf '\e[48;5;%dm%4d' "$c" "$c"
+        else
+          printf '\e[48;5;%dm    ' "$c"
+        fi
+      done
+      printf '\e[m'
+      sep="  "
+    done
+    printf '\n'
+  done
+}
+
+print_block 8 0
+print_block 8 8
+printf '\n'
+for i in 0 1 2 3 4 5; do
+  print_block 6 $((16 + i * 6)) $((52 + i * 6)) $((88 + i * 6))
+done
+printf '\n'
+for i in 0 1 2 3 4 5; do
+  print_block 6 $((124 + i * 6)) $((160 + i * 6)) $((196 + i * 6))
+done
+printf '\n'
+print_block 12 232
+print_block 12 244
+printf '\n'
+
+rgb() {
+  printf '\e[48;2;%d;%d;%dm ' "$1" "$2" "$3"
+}
+
+# hsv <n>: hue = 60 * n / width, s = v = 1
+hsv() {
+  local n="$1" d x
+  d=$((n % (2 * width) - width))
+  x=$((255 * (width - (d < 0 ? -d : d)) / width))
+  case $((n / width)) in
+  0) rgb 255 "$x" 0 ;;
+  1) rgb "$x" 255 0 ;;
+  2) rgb 0 255 "$x" ;;
+  3) rgb 0 "$x" 255 ;;
+  4) rgb "$x" 0 255 ;;
+  *) rgb 255 0 "$x" ;;
+  esac
+}
+
+for ((i = 0; i < width; i++)); do rgb $((i * 255 / width)) 0 0; done
+printf '\e[m\n'
+for ((i = 0; i < width; i++)); do rgb 0 $((i * 255 / width)) 0; done
+printf '\e[m\n'
+for ((i = 0; i < width; i++)); do rgb 0 0 $((i * 255 / width)); done
+printf '\e[m\n\n'
+
+for ((i = 0; i < width; i++)); do hsv $((3 * i)); done
+printf '\e[m\n'
+for ((i = 0; i < width; i++)); do hsv $((6 * width - 3 * i)); done
+printf '\e[m\n\n'

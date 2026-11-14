@@ -1,1 +1,60 @@
-../cmd/git-user.ts
+#!/usr/bin/env bash
+
+get_profile() {
+  local id="$1"
+  name="$(git config get "users.$id.name")" || {
+    echo "git config users.$id.name is not set" >&2
+    return 1
+  }
+  email="$(git config get "users.$id.email")" || {
+    echo "git config users.$id.email is not set" >&2
+    return 1
+  }
+  signing_key="$(git config get "users.$id.signingKey")"
+  return 0
+}
+
+run_unset() {
+  git config unset user.name
+  git config unset user.email
+  git config unset user.signingKey
+}
+
+run_list() {
+  local current_name current_email ids id mark
+  current_name="$(git config get user.name)"
+  current_email="$(git config get user.email)"
+
+  ids="$(git config get --all --show-names --regex '^users\.[^.]+\.email$' | cut -d' ' -f1 | cut -d. -f2 | awk '!seen[$0]++')"
+  for id in $ids; do
+    get_profile "$id" 2>/dev/null || continue
+    mark=" "
+    if [[ -n "$current_name" && -n "$current_email" && "$name" == "$current_name" && "$email" == "$current_email" ]]; then
+      mark="*"
+    fi
+    echo "$mark $id: $name <$email>"
+  done
+}
+
+run_set() {
+  get_profile "$1" || exit 1
+
+  local last_committer
+  if last_committer="$(git --no-pager show --quiet --pretty='format:%cn <%ce>' 2>/dev/null)" &&
+    [[ -n "$last_committer" && "$last_committer" != "$name <$email>" ]]; then
+    printf '\e[41m!!! The Last Committer is %s !!!\e[m\n' "$last_committer" >&2
+  fi
+
+  git config set user.name "$name"
+  git config set user.email "$email"
+  git config set user.signingKey "$signing_key"
+  echo "$name <$email>"
+}
+
+if [[ "$1" == "--unset" ]]; then
+  run_unset
+elif [[ "$#" -eq 0 ]]; then
+  run_list
+else
+  run_set "$1"
+fi
