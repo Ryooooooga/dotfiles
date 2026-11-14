@@ -6,9 +6,9 @@ git:
   autoFetch: false
   disableForcePushing: true
   parseEmoji: true
-  pagers:
+  diffRenderers:
     - colorArg: always
-      pager: delta --paging=never
+      command: delta --paging=never
   log:
     showGraph: always
 gui:
@@ -17,7 +17,7 @@ gui:
   showRandomTip: false
   showBottomLine: false
   showIcons: true
-  useHunkModeInStagingView: false
+  useHunkModeInDiffView: false
 os:
   editPreset: nvim
   open: "code --goto -- {{filename}}"
