@@ -1,4 +1,4 @@
-import { DeviceIdentifier } from "karabinerts/deno.ts";
+import { DeviceIdentifier } from "karabiner.ts";
 
 export const DEVICES = {
   apple: {

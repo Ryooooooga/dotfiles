@@ -3,6 +3,7 @@
     "build": "deno run --check --allow-env --allow-write karabiner.ts"
   },
   "imports": {
-    "karabinerts/": "https://deno.land/x/karabinerts/"
+    "karabiner.ts": "https://deno.land/x/karabinerts/deno.ts",
+    "karabiner.ts/": "https://deno.land/x/karabinerts/"
   }
 }

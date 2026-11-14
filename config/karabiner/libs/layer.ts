@@ -1,4 +1,4 @@
-import { ifVar, toSetVar } from "karabinerts/deno.ts";
+import { ifVar, toSetVar } from "karabiner.ts";
 
 export class Layers<const L extends string> {
   private readonly varName: string;

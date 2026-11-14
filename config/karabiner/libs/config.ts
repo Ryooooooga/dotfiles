@@ -3,8 +3,7 @@ import {
   KarabinerConfig,
   KarabinerProfile,
   SimpleManipulator,
-} from "karabinerts/deno.ts";
-import { writeContext } from "karabinerts/output.ts";
+} from "karabiner.ts";
 
 export interface KarabinerProfileExt extends KarabinerProfile {
   devices: KarabinerDevice[];
@@ -18,8 +17,8 @@ export interface KarabinerDevice {
   ignore?: boolean;
 }
 
-export async function saveConfig(config: KarabinerConfig) {
-  await writeContext.writeKarabinerConfig(toJSON(config));
+export async function saveConfig(path: URL, config: KarabinerConfig) {
+  await Deno.writeTextFile(path, toJSON(config));
 }
 
 export function defaultProfile(

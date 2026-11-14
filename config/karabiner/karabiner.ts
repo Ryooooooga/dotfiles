@@ -9,7 +9,7 @@ import {
   simpleModifications,
   toTypeSequence,
   withCondition,
-} from "karabinerts/deno.ts";
+} from "karabiner.ts";
 import { Layers } from "./libs/layer.ts";
 import {
   rotateTsrngnMode,
@@ -200,6 +200,6 @@ const profile = defaultProfile({
   ],
 });
 
-await saveConfig({
+await saveConfig(new URL("./karabiner.json", import.meta.url), {
   profiles: [profile],
 });

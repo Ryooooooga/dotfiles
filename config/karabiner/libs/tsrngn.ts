@@ -7,7 +7,7 @@ import {
   toRemoveNotificationMessage,
   withCondition,
   withMapper,
-} from "karabinerts/deno.ts";
+} from "karabiner.ts";
 import { Layers } from "./layer.ts";
 
 /**
