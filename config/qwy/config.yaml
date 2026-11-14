@@ -292,23 +292,6 @@ completions:
     <<: *completion-base
 
   #########################################################
-  # Deno
-  #########################################################
-  - description: deno-task
-    patterns:
-      - ^\s*deno\s+task\s+\S*$
-    source: |-
-      "$QWY_SCRIPT_PATH/deno-tasks.zsh"
-    <<: *completion-base
-
-  - description: deno
-    patterns:
-      - ^\s*deno\s+\S*$
-    source: |-
-      "$QWY_SCRIPT_PATH/options.zsh" "deno/subcommands" '󰘳' "command" "yellow"
-    <<: *completion-base
-
-  #########################################################
   # Tmux
   #########################################################
   - description: tmux
