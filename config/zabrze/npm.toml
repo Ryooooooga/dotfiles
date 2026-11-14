@@ -2,7 +2,7 @@
 [[snippets]]
 name = "npm i"
 trigger = "i"
-snippet = "install"
+snippet = "install --save-exact"
 global = true
 context = '^(git\s+exec\s+)?(npm|pnpm)\s+\S+$'
 
