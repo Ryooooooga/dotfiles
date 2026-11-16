@@ -1,4 +1,4 @@
-import { DeviceIdentifier } from "karabiner.ts";
+import type { DeviceIdentifier } from "karabiner.ts";
 
 export const DEVICES = {
   apple: {

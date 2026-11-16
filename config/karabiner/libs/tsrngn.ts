@@ -1,9 +1,9 @@
 import {
-  BasicManipulatorBuilder,
+  type BasicManipulatorBuilder,
   ifInputSource,
-  Manipulator,
-  ManipulatorBuilder,
-  ManipulatorMap,
+  type Manipulator,
+  type ManipulatorBuilder,
+  type ManipulatorMap,
   toRemoveNotificationMessage,
   withCondition,
   withMapper,

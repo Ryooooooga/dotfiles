@@ -1,4 +1,5 @@
-import {
+import { writeFile } from "node:fs/promises";
+import type {
   DeviceIdentifier,
   KarabinerConfig,
   KarabinerProfile,
@@ -18,7 +19,7 @@ export interface KarabinerDevice {
 }
 
 export async function saveConfig(path: URL, config: KarabinerConfig) {
-  await Deno.writeTextFile(path, toJSON(config));
+  await writeFile(path, toJSON(config));
 }
 
 export function defaultProfile(

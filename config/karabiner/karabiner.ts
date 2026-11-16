@@ -1,8 +1,7 @@
-#!/usr/bin/env -S deno run --check --allow-env --allow-write
 import { defaultProfile, saveConfig } from "./libs/config.ts";
 import {
   complexModifications,
-  FromKeyCode,
+  type FromKeyCode,
   ifDevice,
   map,
   rule,
