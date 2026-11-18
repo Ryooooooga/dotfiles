@@ -1,4 +1,3 @@
-import { writeFile } from "node:fs/promises";
 import type {
   DeviceIdentifier,
   KarabinerConfig,
@@ -19,7 +18,7 @@ export interface KarabinerDevice {
 }
 
 export async function saveConfig(path: URL, config: KarabinerConfig) {
-  await writeFile(path, toJSON(config));
+  await Bun.write(path, toJSON(config));
 }
 
 export function defaultProfile(

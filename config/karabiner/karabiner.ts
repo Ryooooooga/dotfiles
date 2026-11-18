@@ -58,12 +58,17 @@ function mapArrows(
   down: FromKeyCode,
   right: FromKeyCode,
 ) {
-  const alt = [left, down, up, right];
-  return arrowKeys.flatMap((key, i) => [
-    map(alt[i], ["command", "option"], "any").to(key, ["command", "option"]),
-    map(alt[i], "command", "any").to(key, "option"),
-    map(alt[i], "option", "any").to(key, "command"),
-    map(alt[i], null, "any").to(key),
+  const pairs = [
+    [left, "←"],
+    [down, "↓"],
+    [up, "↑"],
+    [right, "→"],
+  ] as const;
+  return pairs.flatMap(([from, key]) => [
+    map(from, ["command", "option"], "any").to(key, ["command", "option"]),
+    map(from, "command", "any").to(key, "option"),
+    map(from, "option", "any").to(key, "command"),
+    map(from, null, "any").to(key),
   ]);
 }
 

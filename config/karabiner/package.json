@@ -2,13 +2,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "tsc && node karabiner.ts"
+    "build": "bun --check karabiner.ts"
   },
   "dependencies": {
     "karabiner.ts": "1.38.0"
   },
   "devDependencies": {
-    "@types/node": "26.6.6",
-    "typescript": "7.0.2"
+    "@types/bun": "1.4.4"
   }
 }
