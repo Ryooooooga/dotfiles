@@ -15,6 +15,7 @@ path=(
   "$HOME/.local/bin"(N-/)
   "$CARGO_HOME/bin"(N-/)
   "$GOPATH/bin"(N-/)
+  "$BUN_INSTALL/bin"(N-/)
   "$DENO_INSTALL/bin"(N-/)
   "$GEM_HOME/bin"(N-/)
   "$GHRD_DATA_HOME/bin"(N-/)
@@ -29,6 +30,7 @@ path=(
 )
 
 fpath=(
+  "$BUN_INSTALL"(N-/)
   "$GHRD_DATA_HOME/completions"(N-/)
   "$XDG_DATA_HOME/zsh/completions"(N-/)
   "$HOMEBREW_PREFIX/share/zsh/site-functions"(N-/)

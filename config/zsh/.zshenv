@@ -26,6 +26,9 @@ export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export GOPATH="$XDG_DATA_HOME/go"
 export GO111MODULE="on"
 
+### Bun ###
+export BUN_INSTALL="$XDG_DATA_HOME/bun"
+
 ### Deno ###
 export DENO_INSTALL="$XDG_DATA_HOME/deno"
 export DENO_INSTALL_ROOT="$DENO_INSTALL"
